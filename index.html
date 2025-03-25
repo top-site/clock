@@ -250,7 +250,9 @@
         }
         
         const now = new Date();
-        const alarmDate = new Date(now.toDateString() + ' ' + alarmInput);
+        const [hours, minutes] = alarmInput.split(":").map(Number);
+        const alarmDate = new Date();
+        alarmDate.setHours(hours, minutes, 0, 0);
         
         if (alarmDate < now) {
             alarmDate.setDate(alarmDate.getDate() + 1); // Set for the next day if time has passed
@@ -265,7 +267,7 @@
     }
 
     function triggerAlarm() {
-        alarmSound.play();
+        alarmSound.play().catch(error => console.log("Audio playback blocked: ", error));
         alert("Wake up! Alarm ringing!");
     }
 
@@ -283,7 +285,7 @@
         alarmSound.currentTime = 0;
         alert("Alarm stopped.");
     }
-      
+           
     </script>
   </body>
 </html>
