@@ -237,6 +237,53 @@
             stopwatchTime = 0;
             document.getElementById("stopwatchDisplay").textContent = "00:00";
         }
+
+      let alarmTimeout;
+    let alarmTime;
+    const alarmSound = document.getElementById("alarmSound");
+    
+    function setAlarm() {
+        const alarmInput = document.getElementById("alarmTime").value;
+        if (!alarmInput) {
+            alert("Please set a valid alarm time.");
+            return;
+        }
+        
+        const now = new Date();
+        const alarmDate = new Date(now.toDateString() + ' ' + alarmInput);
+        
+        if (alarmDate < now) {
+            alarmDate.setDate(alarmDate.getDate() + 1); // Set for the next day if time has passed
+        }
+        
+        const timeToAlarm = alarmDate - now;
+        
+        clearTimeout(alarmTimeout);
+        alarmTimeout = setTimeout(triggerAlarm, timeToAlarm);
+        alarmTime = alarmDate;
+        alert("Alarm set for " + alarmDate.toLocaleTimeString());
+    }
+
+    function triggerAlarm() {
+        alarmSound.play();
+        alert("Wake up! Alarm ringing!");
+    }
+
+    function snoozeAlarm() {
+        clearTimeout(alarmTimeout);
+        alarmSound.pause();
+        alarmSound.currentTime = 0;
+        alarmTimeout = setTimeout(triggerAlarm, 5 * 60 * 1000); // 5 minutes snooze
+        alert("Snoozed for 5 minutes.");
+    }
+
+    function stopAlarm() {
+        clearTimeout(alarmTimeout);
+        alarmSound.pause();
+        alarmSound.currentTime = 0;
+        alert("Alarm stopped.");
+    }
+      
     </script>
   </body>
 </html>
