@@ -1,29 +1,31 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-        
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
-<script>
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
+    <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-463EN24CE0');
 </script>
-
-    <meta http-equiv="content-type" content="text/html">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Digital Clock | Timer | Stopwatch | Alarm | Multi-Function Clock</title>
-    <meta name="keywords" content="online clock, digital clock, timer, stopwatch, alarm, snooze, countdown, time tracking">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0">
+    <title>Online Digital Clock | Timer | Stopwatch | Alarm |
+      Multi-Function Clock</title>
+    <meta name="keywords" content="online clock, digital clock, timer,
+      stopwatch, alarm, snooze, countdown, time tracking">
     <meta name="robots" content="index, follow">
     <meta name="author" content="e-clock.top">
-    <meta name="title" content="Online Digital Clock | Timer | Stopwatch | Alarm">
-    <meta name="description" content="Use our free online digital clock with a timer, stopwatch, and alarm. Track time efficiently, set
+    <meta name="title" content="Online Digital Clock | Timer | Stopwatch
+      | Alarm">
+    <meta name="description" content="Use our free online digital clock
+      with a timer, stopwatch, and alarm. Track time efficiently, set
       alarms with snooze, and customize countdown timers.">
     <meta name="type" content="website">
     <meta name="url" content="https://e-clock.top">
-    
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Online Digital Clock | Timer |
       Stopwatch | Alarm">
@@ -33,11 +35,9 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://e-clock.top">
     <meta property="og:image"
-      
       content="https://e-clock.top/preview-image.jpg">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
 {
@@ -50,7 +50,6 @@
   "operatingSystem": "Any"
   }
 </script>
-
     <style>
         * {
             margin: 0;
@@ -159,15 +158,14 @@
         <button onclick="startStopwatch()">Start</button> <button
           onclick="pauseStopwatch()">Pause</button> <button
           onclick="resetStopwatch()">Reset</button> </div>
-      
       <!-- Alarm with Sound & Snooze -->
-      <div id="alarm" class="content"> 
-        <input id="alarmTime" type="time"> 
-        <button onclick="setAlarm()">Set Alarm</button>
-        <button onclick="snoozeAlarm()">Snooze (5 min)</button> 
-        <button onclick="stopAlarm()">Stop Alarm</button>
-        <audio id="alarmSound" src="https://www.soundjay.com/clock/alarm-clock-01.wav"></audio> </div>
-      
+      <div id="alarm" class="content"> <input id="alarmTime"
+          type="time"> <button onclick="setAlarm()">Set Alarm</button>
+        <button onclick="snoozeAlarm()">Snooze (5 min)</button> <button
+          onclick="stopAlarm()">Stop Alarm</button> <audio
+          id="alarmSound"
+          src="https://www.soundjay.com/clock/alarm-clock-01.wav"></audio>
+      </div>
     </div>
     <script>
         function switchTab(tabId) {
@@ -287,6 +285,93 @@
         alert("Alarm stopped.");
     }
            
+    </script>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0">
+    <title>IP &amp; Weather Info</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: #222;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            width: 80%;
+            max-width: 400px;
+        }
+
+        h2, h3 {
+            color: #ffffff;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #bbb;
+        }
+    </style>
+    <div class="container">
+      <h3>IP Address</h3>
+      <p id="ip-address">Fetching...</p>
+      <h3>City</h3>
+      <p id="city">Fetching...</p>
+      <h3>Weather</h3>
+      <p id="weather">Fetching...</p>
+      <h6>IP address Powered by <a href="https://www.ipify.org/"
+          title="Ipify API">ipify.org</a></h6>
+      <h6>Geolocation Powered by <a href="http://ip-api.com/" title="IP
+          API">ip-api.com</a></h6>
+      <h6>Weather Powered by <a href="https://www.weatherapi.com/"
+          title="Weather API">WeatherAPI.com</a></h6>
+    </div>
+    <script>
+        // Replace with your actual WeatherAPI Key (Sign up at https://www.weatherapi.com/)
+        const weatherApiKey = "660dd5ad292a4fa0ab960736252603";
+
+        // Fetch user's IP Address
+        fetch('https://api64.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip-address').innerText = data.ip;
+
+                // Fetch user's city using IP
+                fetch(`http://ip-api.com/json/${data.ip}`)
+                    .then(response => response.json())
+                    .then(locationData => {
+                        const city = locationData.city;
+                        document.getElementById('city').innerText = city;
+
+                        // Fetch weather using city name
+                        fetch(`http://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${city}`)
+                            .then(response => response.json())
+                            .then(weatherData => {
+                                const temp = weatherData.current.temp_c;
+                                const weatherDesc = weatherData.current.condition.text;
+                                document.getElementById('weather').innerText = `${temp}°C, ${weatherDesc}`;
+                            })
+                            .catch(() => {
+                                document.getElementById('weather').innerText = 'Error fetching weather';
+                            });
+                    })
+                    .catch(() => {
+                        document.getElementById('city').innerText = 'Error fetching city';
+                    });
+            })
+            .catch(() => {
+                document.getElementById('ip-address').innerText = 'Error fetching IP';
+            });
     </script>
   </body>
 </html>
