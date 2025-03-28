@@ -1,15 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-        
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-463EN24CE0');
-</script>
+   <!-- Google tag (gtag.js) -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
+   <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'G-463EN24CE0');
+    </script>
     <!--This site is for sale! For further details, fill in the following form <a href="https://www.spaceship.com/domains/whois/contact/?d=e-clock.top" target="_blank">here</a> -->
     <meta http-equiv="content-type" content="text/html">
     <meta charset="UTF-8">
@@ -23,19 +22,14 @@
       alarms with snooze, and customize countdown timers.">
     <meta name="type" content="website">
     <meta name="url" content="https://e-clock.top">
-    
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Online Digital Clock | Timer |
-      Stopwatch | Alarm">
-    <meta property="og:description" content="Track time easily with our
-      multi-function online clock, including a timer, stopwatch, and
-      alarm with snooze.">
+    <meta property="og:title" content="Online Digital Clock | Timer | Stopwatch | Alarm">
+    <meta property="og:description" content="Track time easily with our multi-function online clock, including a timer, stopwatch, and alarm with snooze.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://e-clock.top">
     <meta property="og:image" content="https://e-clock.top/preview-image.jpg">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
 {
@@ -48,7 +42,6 @@
   "operatingSystem": "Any"
   }
 </script>
-
     <style>
         * {
             margin: 0;
@@ -157,7 +150,6 @@
         <button onclick="startStopwatch()">Start</button> <button
           onclick="pauseStopwatch()">Pause</button> <button
           onclick="resetStopwatch()">Reset</button> </div>
-      
       <!-- Alarm with Sound & Snooze -->
       <div id="alarm" class="content"> 
         <input id="alarmTime" type="time"> 
@@ -165,8 +157,7 @@
         <button onclick="snoozeAlarm()">Snooze (5 min)</button> 
         <button onclick="stopAlarm()">Stop Alarm</button>
         <audio id="alarmSound" src="https://www.soundjay.com/clock/alarm-clock-01.wav"></audio> </div>
-      
-    </div>
+       </div>
     <script>
         function switchTab(tabId) {
             document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
@@ -174,27 +165,21 @@
             document.getElementById(tabId).classList.add('active');
             event.target.classList.add('active');
         }
-
         function updateClock() {
             const now = new Date();
-            
             // Format Time
             let hours = now.getHours();
             let minutes = now.getMinutes().toString().padStart(2, '0');
             let seconds = now.getSeconds().toString().padStart(2, '0');
             let ampm = hours >= 12 ? 'PM' : 'AM';
             hours = hours % 12 || 12; 
-
             document.getElementById("digitalClock").textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
-
             // Format Date
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById("currentDate").textContent = now.toLocaleDateString(undefined, options);
         }
-
         setInterval(updateClock, 1000);
         updateClock();
-
         let timerInterval, timeLeft;
         function startTimer() {
             let input = document.getElementById("timerInput").value;
@@ -219,7 +204,6 @@
             document.getElementById("countdown").textContent = "00:00";
             timeLeft = null;
         }
-
         let stopwatchInterval, stopwatchTime = 0;
         function startStopwatch() {
             clearInterval(stopwatchInterval);
@@ -236,40 +220,32 @@
             stopwatchTime = 0;
             document.getElementById("stopwatchDisplay").textContent = "00:00";
         }
-
-      let alarmTimeout;
+    let alarmTimeout;
     let alarmTime;
     const alarmSound = document.getElementById("alarmSound");
-    
     function setAlarm() {
-        const alarmInput = document.getElementById("alarmTime").value;
+    const alarmInput = document.getElementById("alarmTime").value;
         if (!alarmInput) {
             alert("Please set a valid alarm time.");
             return;
         }
-        
         const now = new Date();
         const [hours, minutes] = alarmInput.split(":").map(Number);
         const alarmDate = new Date();
         alarmDate.setHours(hours, minutes, 0, 0);
-        
         if (alarmDate < now) {
             alarmDate.setDate(alarmDate.getDate() + 1); // Set for the next day if time has passed
         }
-        
         const timeToAlarm = alarmDate - now;
-        
         clearTimeout(alarmTimeout);
         alarmTimeout = setTimeout(triggerAlarm, timeToAlarm);
         alarmTime = alarmDate;
         alert("Alarm set for " + alarmDate.toLocaleTimeString());
     }
-
-    function triggerAlarm() {
+      function triggerAlarm() {
         alarmSound.play().catch(error => console.log("Audio playback blocked: ", error));
         alert("Wake up! Alarm ringing!");
     }
-
     function snoozeAlarm() {
         clearTimeout(alarmTimeout);
         alarmSound.pause();
@@ -277,14 +253,12 @@
         alarmTimeout = setTimeout(triggerAlarm, 5 * 60 * 1000); // 5 minutes snooze
         alert("Snoozed for 5 minutes.");
     }
-
     function stopAlarm() {
         clearTimeout(alarmTimeout);
         alarmSound.pause();
         alarmSound.currentTime = 0;
         alert("Alarm stopped.");
     }
-           
     </script>
   </body>
 </html>
