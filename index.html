@@ -121,6 +121,20 @@
             border-radius: 5px;
             width: 80%;
         }
+       .social-share {
+        margin-top: 20px;
+        }
+       .social-share button {
+           padding: 10px 15px;
+           margin: 5px;
+           border: none;
+           cursor: pointer;
+           border-radius: 5px;
+           background: #007bff;
+           color: white;
+           font-size: 1rem;
+           transition: 0.3s;
+        }
     </style>
   </head>
   <body>
@@ -158,6 +172,16 @@
         <button onclick="stopAlarm()">Stop Alarm</button>
         <audio id="alarmSound" src="https://www.soundjay.com/clock/alarm-clock-01.wav"></audio> </div>
        </div>
+      <div class="social-share">
+        <p>Share this page:</p>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://e-clock.top" target="_blank">
+        <button>Facebook</button>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=https://e-clock.top&text=Check%20out%20this%20online%20digital%20clock!" target="_blank">
+        <button>Twitter</button>
+        </a>
+        <p><a href="blog.html" style="color: #ff9800; text-decoration: none;">Visit Our Blog</a></p>
+    </div>
     <script>
         function switchTab(tabId) {
             document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
@@ -260,32 +284,5 @@
         alert("Alarm stopped.");
     }
     </script>
-    <div class="social-share">
-    <p>Share this page:</p>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://e-clock.top" target="_blank">
-        <button>Facebook</button>
-    </a>
-    <a href="https://twitter.com/intent/tweet?url=https://e-clock.top&text=Check%20out%20this%20online%20digital%20clock!" target="_blank">
-        <button>Twitter</button>
-    </a>
-    <p><a href="blog.html" style="color: #ff9800; text-decoration: none;">Visit Our Blog</a></p>
-
-    </div>
- <style>
-    .social-share {
-        margin-top: 20px;
-    }
-    .social-share button {
-        padding: 10px 15px;
-        margin: 5px;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-        background: #007bff;
-        color: white;
-        font-size: 1rem;
-        transition: 0.3s;
-    }
-  </style>
-  </body>
+   </body>
 </html>
