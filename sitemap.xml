@@ -9,18 +9,23 @@
 
 <url>
   <loc>https://e-clock.top/</loc>
-  <lastmod>2025-03-31T07:23:37+00:00</lastmod>
+  <lastmod>2025-05-07T14:10:14+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://e-clock.top/blog.html</loc>
-  <lastmod>2025-03-31T07:23:37+00:00</lastmod>
+  <lastmod>2025-05-07T14:10:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://e-clock.top/index.html</loc>
-  <lastmod>2025-03-31T07:23:37+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://e-clock.top/privacy.html</loc>
+  <lastmod>2025-05-07T14:10:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://e-clock.top/about.html</loc>
+  <lastmod>2025-05-07T14:10:14+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 
 
