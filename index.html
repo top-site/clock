@@ -105,18 +105,22 @@
 
 
     <main>
-      <nav class="tabs"> <button class="tab active"
-          onclick="switchTab('clock')" aria-selected="true">Clock</button>
-        <button class="tab" onclick="switchTab('timer')"
-          aria-selected="false">Timer</button> <button class="tab"
-          onclick="switchTab('stopwatch')" aria-selected="false">Stopwatch</button>
-        <button class="tab" onclick="switchTab('alarm')"
-          aria-selected="false">Alarm</button> </nav>
+      <nav class="tabs" aria-label="Time tool selection">
+        <button class="tab active" onclick="switchTab('clock')" aria-selected="true">Clock</button>
+        <button class="tab" onclick="switchTab('timer')" aria-selected="false">Timer</button>
+        <button class="tab" onclick="switchTab('stopwatch')" aria-selected="false">Stopwatch</button>
+        <button class="tab" onclick="switchTab('alarm')" aria-selected="false">Alarm</button> 
+      </nav>
+
       <!-- Digital Clock with Date -->
-      <section id="clock" class="content active" aria-label="Digital
-        Clock"> <time class="date" id="currentDate">Loading date...</time>
-        <div class="clock" id="digitalClock">00:00:00 AM</div>
-      </section>
+      <section id="clock" class="content active" aria-label="Digital Clock"> 
+       <time class="date" id="currentDate">Loading date...</time>
+       <div class="clock" id="digitalClock">00:00:00 AM</div>
+       <h3>Real-time Digital Clock</h3>
+       <p>Accurate online clock displaying the current time and date in your timezone.</p> 
+       <p>Perfect for presentations,meetings, and everyday use.</p>      
+       </section>
+
       <!-- Timer with Custom Input -->
       <section id="timer" class="content" aria-label="Countdown Timer">
         <label for="timerInput">Set Timer (seconds)</label> <input
@@ -126,7 +130,12 @@
         <div class="controls"> <button onclick="startTimer()">Start</button>
           <button onclick="pauseTimer()">Pause</button> <button
             onclick="resetTimer()">Reset</button> </div>
+        <h3>Countdown Timer</h3>
+        <p>Set a precise countdown for your tasks, cooking, workouts, or study sessions.</p>
+
       </section>
+
+
       <!-- Stopwatch -->
       <section id="stopwatch" class="content" aria-label="Stopwatch">
         <div class="stopwatch" id="stopwatchDisplay">00:00</div>
