@@ -101,6 +101,7 @@
     <header>
       <h1>Online Digital Clock with Timer, Stopwatch & Alarm</h1>
       <h2>Free time management tools for work, study, cooking, and fitness</h2>
+      <br>
     </header>
 
 
@@ -116,6 +117,7 @@
       <section id="clock" class="content active" aria-label="Digital Clock"> 
        <time class="date" id="currentDate">Loading date...</time>
        <div class="clock" id="digitalClock">00:00:00 AM</div>
+       <br>
        <h3>Real-time Digital Clock</h3>
        <p>Accurate online clock displaying the current time and date in your timezone.</p> 
        <p>Perfect for presentations,meetings, and everyday use.</p>      
@@ -123,38 +125,48 @@
 
       <!-- Timer with Custom Input -->
       <section id="timer" class="content" aria-label="Countdown Timer">
-        <label for="timerInput">Set Timer (seconds)</label> <input
-          id="timerInput" placeholder="Enter time in seconds" min="1"
-          type="number">
+        <label for="timerInput">Set Timer (seconds)</label> 
+              <input id="timerInput" placeholder="Enter time in seconds" min="1" type="number">
         <div class="timer" id="countdown">00:00</div>
         <div class="controls"> <button onclick="startTimer()">Start</button>
-          <button onclick="pauseTimer()">Pause</button> <button
-            onclick="resetTimer()">Reset</button> </div>
+          <button onclick="pauseTimer()">Pause</button>
+                <button onclick="resetTimer()">Reset</button> 
+             </div>
+        <br>
         <h3>Countdown Timer</h3>
         <p>Set a precise countdown for your tasks, cooking, workouts, or study sessions.</p>
-
       </section>
-
 
       <!-- Stopwatch -->
       <section id="stopwatch" class="content" aria-label="Stopwatch">
         <div class="stopwatch" id="stopwatchDisplay">00:00</div>
-        <div class="controls"> <button onclick="startStopwatch()">Start</button>
-          <button onclick="pauseStopwatch()">Pause</button> <button
-            onclick="resetStopwatch()">Reset</button> </div>
+        <div class="controls"> 
+                 <button onclick="startStopwatch()">Start</button>
+          <button onclick="pauseStopwatch()">Pause</button> 
+                 <button onclick="resetStopwatch()">Reset</button> 
+              </div>
+        <br>
+              <h3>Precision Stopwatch</h3>
+        <p>Track elapsed time for sports, exercises, and time-sensitive activities.</p>
       </section>
+
       <!-- Alarm with Sound & Snooze -->
-      <section id="alarm" class="content" aria-label="Alarm Clock"> <label
-          for="alarmTime">Set Alarm Time</label> <input id="alarmTime"
-          type="time">
-        <div class="controls"> <button onclick="setAlarm()">Set Alarm</button>
-          <button onclick="snoozeAlarm()">Snooze (5 min)</button> <button
-            onclick="stopAlarm()">Stop Alarm</button> </div>
-        <audio id="alarmSound"
-          src="https://www.soundjay.com/clock/alarm-clock-01.wav"
-          preload="auto"></audio> </section>
+      <section id="alarm" class="content" aria-label="Alarm Clock">
+         <label for="alarmTime">Set Alarm Time</label> <br>
+         <input id="alarmTime" type="time">
+        <div class="controls"> 
+                <button onclick="setAlarm()">Set Alarm</button>
+         <button onclick="snoozeAlarm()">Snooze (5 min)</button> 
+               <button onclick="stopAlarm()">Stop Alarm</button>
+        </div>
+      <br>
+           <h3>Customizable Alarm Clock</h3>
+       <p>Set alarms with snooze functionality for reminders, wake-up calls, or timed breaks.</p>
+       <audio id="alarmSound" src="https://www.soundjay.com/clock/alarm-clock-01.wav" preload="auto"></audio>
+         </section>
 
       <aside class="related-tools">
+        <br>
         <h3>Why Use Our Time Tools?</h3>
         <ul>
           <li><strong>No Downloads Required</strong> - Access all tools directly in your browser</li>
@@ -168,14 +180,16 @@
     <footer>
       <div class="social-share">
         <p>Follow e-clock.top on:</p>
-        <a href="https://x.com/eclockdottop" rel="noopener"
-          aria-label="Follow us on X (Twitter)"> <button>X</button> </a>
+        <a href="https://x.com/eclockdottop" rel="noopener" aria-label="Follow us on X (Twitter)">
+             <button>X</button>
+             </a>
       </div>
-      <nav> <a href="blog.html" style="color: #ff9800; text-decoration:
-          none;">Time Management Blog</a> | <a href="privacy.html"
-          style="color: #ff9800; text-decoration: none;">Privacy Policy</a>
-        | <a href="about.html" style="color: #ff9800; text-decoration:
-          none;">About Us</a> </nav>
+       <nav> 
+       <br>
+             <a href="blog.html" style="color: #ff9800; text-decoration: none;">Time Management Blog</a> | 
+            <a href="privacy.html" style="color: #ff9800; text-decoration: none;">Privacy Policy</a> | 
+            <a href="about.html" style="color: #ff9800; text-decoration: none;">About Us</a> 
+           </nav>
       <p>©
         <script>document.write(new Date().getFullYear())</script>
         e-clock.top - Free Online Clock Tools</p>
