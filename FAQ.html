@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0">
+    <title>FAQ | e-clock.top</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+        line-height: 1.6;
+      }
+      header {
+        background-color: #1e1e1e;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 2px solid #333;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2rem;
+        color: #00d1ff;
+      }
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      .faq-item {
+        background-color: #1e1e1e;
+        border: 1px solid #333;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+      .faq-question {
+        padding: 15px 20px;
+        cursor: pointer;
+        font-weight: bold;
+        background-color: #1e1e1e;
+        color: #00d1ff;
+        border: none;
+        width: 100%;
+        text-align: left;
+        font-size: 1rem;
+      }
+      .faq-answer {
+        padding: 15px 20px;
+        display: none;
+        background-color: #1b1b1b;
+        color: #ddd;
+        font-size: 0.95rem;
+      }
+      .faq-answer a {
+        color: #00d1ff;
+        text-decoration: none;
+      }
+      .faq-answer a:hover {
+        text-decoration: underline;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+        color: #777;
+        border-top: 1px solid #333;
+        margin-top: 40px;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const questions = document.querySelectorAll(".faq-question");
+        let openItem = null;
+
+        questions.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const answer = btn.nextElementSibling;
+
+            if (openItem && openItem !== answer) {
+              openItem.style.display = "none";
+            }
+
+            if (answer.style.display === "block") {
+              answer.style.display = "none";
+              openItem = null;
+            } else {
+              answer.style.display = "block";
+              openItem = answer;
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>FAQ</h1>
+    </header>
+    <div class="container">
+      <div class="faq-item"> <button class="faq-question">What is
+          e-clock.top?</button>
+        <div class="faq-answer">e-clock.top is a free, open-source
+          online tool that includes a digital clock, alarm, timer, and
+          stopwatch — all in one clean, user-friendly interface.</div>
+      </div>
+      <div class="faq-item"> <button class="faq-question">Do I need to
+          create an account to use e-clock.top?</button>
+        <div class="faq-answer">No. e-clock.top is completely free and
+          does not require any sign-up. Just visit the site and use the
+          tools immediately.</div>
+      </div>
+      <div class="faq-item"> <button class="faq-question">Will the
+          alarm or timer work if I close the browser tab?</button>
+        <div class="faq-answer">No, the alarm and timer need the browser
+          tab to remain open and active. Closing the tab will stop the
+          countdown or alert.</div>
+      </div>
+      <div class="faq-item"> <button class="faq-question">Can I use
+          e-clock.top on my phone?</button>
+        <div class="faq-answer">Yes! The website is mobile-friendly and
+          works smoothly on phones, tablets, and desktops. You can also
+          add it to your home screen like an app.</div>
+      </div>
+      <div class="faq-item"> <button class="faq-question">Can I
+          contribute to the project?</button>
+        <div class="faq-answer">Absolutely! e-clock.top is open source.
+          You can view and contribute to the code on our <a
+            href="https://github.com/top-site/clock" target="_blank">GitHub
+            repository</a>.</div>
+      </div>
+      <div class="faq-item"> <button class="faq-question">Does
+          e-clock.top support custom alarm sounds?</button>
+        <div class="faq-answer">Currently, e-clock.top uses a default
+          alarm sound. Custom sounds and snooze options are planned for
+          future updates.</div>
+      </div>
+      <div class="faq-item"> <button class="faq-question">Is there an
+          app version?</button>
+        <div class="faq-answer">We are developing a lightweight Android
+          version using a WebView wrapper. More details will be shared
+          on our blog and GitHub soon.</div>
+      </div>
+    </div>
+    <footer> © 2025 e-clock.top – All rights reserved. </footer>
+  </body>
+</html>
