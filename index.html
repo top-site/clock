@@ -172,6 +172,35 @@
       <p>©
         <script>document.write(new Date().getFullYear())</script>
         e-clock.top - Free Online Clock Tools</p>
-    </footer>
+     </footer>
+<button id="fullscreen-toggle" style="
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 9999;
+">
+  🔳
+</button>
+
+    <script>
+  const fsButton = document.getElementById('fullscreen-toggle');
+
+  fsButton.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => {
+        alert(`Error attempting to enable fullscreen: ${err.message}`);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  });
+</script>
+
+    
   </body>
 </html>
