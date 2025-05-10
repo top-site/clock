@@ -49,42 +49,47 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="canonical" href="https://e-clock.top/">
     
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "e-clock.top - Online Digital Clock",
-        "url": "https://e-clock.top",
-        "description": "An online digital clock with timer, stopwatch, and alarm features for productivity and time management.",
-        "applicationCategory": "Utility",
-        "operatingSystem": "Any",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "reviewCount": "125"
-        },
-        "author": {
-          "@type": "Organization",
-          "name": "e-clock.top",
-          "url": "https://e-clock.top",
-          "logo": "https://e-clock.top/logo.png",
-          "sameAs": [
-            "https://x.com/eclockdottop"
-          ]
-        },
-        "potentialAction": {
-          "@type": "UseAction",
-          "target": "https://e-clock.top"
-        }
-    
+ <!-- WebApplication Schema -->
+<script type="application/ld+json">
 {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "e-clock.top - Online Digital Clock",
+  "url": "https://e-clock.top",
+  "description": "An online digital clock with timer, stopwatch, and alarm features for productivity and time management.",
+  "applicationCategory": "Utility",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "125"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "e-clock.top",
+    "url": "https://e-clock.top",
+    "logo": "https://e-clock.top/logo.png",
+    "sameAs": [
+      "https://x.com/eclockdottop"
+    ]
+  },
+  "potentialAction": {
+    "@type": "UseAction",
+    "target": "https://e-clock.top"
+  }
+}
+</script>
 
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
@@ -146,8 +151,6 @@
 }
 </script>
 
-      }
-    </script>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
