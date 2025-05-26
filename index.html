@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Online Digital Clock with Timer, Stopwatch & Alarm | Free Time Tools | e-clock.top</title>
+    <title>Online Digital Clock with Timer, Stopwatch, Alarm & Weather | Free Time Tools | e-clock.top</title>
     
     <!-- Primary Meta Tags -->
-    <meta name="description" content="Free full-screen online digital clock with customizable timer, stopwatch & alarm features. Perfect for productivity, studying, workouts, and cooking. No downloads required.">
-    <meta name="keywords" content="clock, eclock, e-clock, e clock, online clock, digital clock, timer, online timer, digital timer, productivity timer, countdown timer, stopwatch, online stopwatch, alarm, alarm clock, online alarm, snooze, countdown, time, time tracking, time tools, time management, alarm clocks, wake up, hours, minutes">
+    <meta name="description" content="Free full-screen online digital clock with customizable timer, stopwatch, alarm & weather features. Perfect for productivity, studying, workouts, and cooking. No downloads required.">
+    <meta name="keywords" content="clock, eclock, e-clock, e clock, online clock, digital clock, timer, online timer, digital timer, productivity timer, countdown timer, stopwatch, online stopwatch, alarm, alarm clock, online alarm, weather, local weather, snooze, countdown, time, time tracking, time tools, time management, alarm clocks, wake up, hours, minutes">
     <meta name="author" content="e-clock.top">
     <meta name="robots" content="index, follow, max-image-preview:large">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://e-clock.top/">
-    <meta property="og:title" content="Online Digital Clock with Timer, Stopwatch & Alarm | e-clock.top">
-    <meta property="og:description" content="Free full-screen online digital clock with customizable timer, stopwatch & alarm features. Perfect for productivity, studying, workouts, and cooking.">
+    <meta property="og:title" content="Online Digital Clock with Timer, Stopwatch, Alarm & Weather | e-clock.top">
+    <meta property="og:description" content="Free full-screen online digital clock with customizable timer, stopwatch, alarm & weather features. Perfect for productivity, studying, workouts, and cooking.">
     <meta property="og:image" content="https://e-clock.top/preview-image.jpg">
     <meta property="og:site_name" content="e-clock.top">
     <meta property="og:locale" content="en_US">
@@ -23,8 +23,8 @@
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@eclockdottop">
-    <meta name="twitter:title" content="Online Digital Clock with Timer, Stopwatch & Alarm | e-clock.top">
-    <meta name="twitter:description" content="Free full-screen online digital clock with customizable timer, stopwatch & alarm features. Perfect for productivity, studying, workouts, and cooking.">
+    <meta name="twitter:title" content="Online Digital Clock with Timer, Stopwatch, Alarm & Weather | e-clock.top">
+    <meta name="twitter:description" content="Free full-screen online digital clock with customizable timer, stopwatch, alarm & weather features. Perfect for productivity, studying, workouts, and cooking.">
     <meta name="twitter:image" content="https://e-clock.top/preview-image.jpg">
     <meta name="twitter:creator" content="@eclockdottop">
     
@@ -34,14 +34,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="preconnect" href="https://www.soundjay.com" crossorigin>
+    <link rel="preconnect" href="https://ipapi.co" crossorigin>
+    <link rel="preconnect" href="https://api.open-meteo.com" crossorigin>
     
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="script.js" as="script">
     <link rel="preload" href="favicon.png" as="image" type="image/png">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -49,109 +46,42 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="canonical" href="https://e-clock.top/">
     
- <!-- WebApplication Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "e-clock.top - Online Digital Clock",
-  "url": "https://e-clock.top",
-  "description": "An online digital clock with timer, stopwatch, and alarm features for productivity and time management.",
-  "applicationCategory": "Utility",
-  "operatingSystem": "Any",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "125"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "e-clock.top",
-    "url": "https://e-clock.top",
-    "logo": "https://e-clock.top/logo.png",
-    "sameAs": [
-      "https://x.com/eclockdottop"
-    ]
-  },
-  "potentialAction": {
-    "@type": "UseAction",
-    "target": "https://e-clock.top"
-  }
-}
-</script>
-
-<!-- FAQPage Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
     {
-      "@type": "Question",
-      "name": "What is e-clock.top?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "e-clock.top is a free, open-source online tool that includes a digital clock, alarm, timer, and stopwatch — all in one clean, user-friendly interface."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to create an account to use e-clock.top?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. e-clock.top is completely free and does not require any sign-up. Just visit the site and use the tools immediately."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will the alarm or timer work if I close the browser tab?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No, the alarm and timer need the browser tab to remain open and active. Closing the tab will stop the countdown or alert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use e-clock.top on my phone?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! The website is mobile-friendly and works smoothly on phones, tablets, and desktops. You can also add it to your home screen like an app."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I contribute to the project?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely! e-clock.top is open source. You can view and contribute to the code on our GitHub repository."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does e-clock.top support custom alarm sounds?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Currently, e-clock.top uses a default alarm sound. Custom sounds and snooze options are planned for future updates."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there an app version?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We are developing a lightweight Android version using a WebView wrapper. More details will be shared on our blog and GitHub soon."
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "e-clock.top - Online Digital Clock with Weather",
+      "url": "https://e-clock.top",
+      "description": "An online digital clock with timer, stopwatch, alarm, and weather features for productivity and time management.",
+      "applicationCategory": "Utility",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "125"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "e-clock.top",
+        "url": "https://e-clock.top",
+        "logo": "https://e-clock.top/logo.png",
+        "sameAs": [
+          "https://x.com/eclockdottop"
+        ]
+      },
+      "potentialAction": {
+        "@type": "UseAction",
+        "target": "https://e-clock.top"
       }
     }
-  ]
-}
-</script>
+    </script>
 
-    
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
     <script>
@@ -160,29 +90,315 @@
       gtag('js', new Date());
       gtag('config', 'G-463EN24CE0');
     </script>
-    
-    <!-- Deferred JavaScript -->
-    <script defer src="script.js"></script>
 
     <script>
       document.addEventListener('contextmenu', event => event.preventDefault());
     </script>
-    
+
+    <style>
+      /* Custom Properties */
+      :root {
+        /* Colors */
+        --color-bg: #111;
+        --color-container: #222;
+        --color-tab: #444;
+        --color-primary: #ff9800;
+        --color-primary-hover: #e68900;
+        --color-text: #fff;
+        --color-text-secondary: #bbb;
+        --color-social: #007bff;
+        --color-shadow: rgba(255, 255, 255, 0.2);
+        
+        /* Spacing */
+        --spacing-xs: 5px;
+        --spacing-sm: 10px;
+        --spacing-md: 15px;
+        --spacing-lg: 20px;
+        --spacing-xl: 40px;
+        
+        /* Typography */
+        --font-size-normal: 1rem;
+        --font-size-medium: 1.2rem;
+        --font-size-large: 1.5rem;
+        --font-size-xlarge: 3rem;
+        
+        /* Border Radius */
+        --border-radius: 5px;
+        --border-radius-lg: 15px;
+      }
+
+      html.light-mode {
+        --color-bg: #ffffff;
+        --color-text: #111111;
+        --color-container: #f5f5f5;
+        --color-tab: #e0e0e0;
+        --color-shadow: rgba(0, 0, 0, 0.1);
+      }
+
+      /* Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Base Styles */
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-lg);
+      }
+
+      header, footer {
+        text-align: center;
+        padding: 1rem;
+      }
+
+      /* Container */
+      .container {
+        background: var(--color-container);
+        padding: var(--spacing-xl);
+        border-radius: var(--border-radius-lg);
+        box-shadow: 0 0 20px var(--color-shadow);
+        width: 90%;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      /* Tabs */
+      .tabs {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: var(--spacing-lg);
+        gap: var(--spacing-sm);
+        flex-wrap: wrap;
+      }
+
+      .tab {
+        padding: var(--spacing-sm) var(--spacing-md);
+        cursor: pointer;
+        background: var(--color-tab);
+        border: none;
+        border-radius: var(--border-radius);
+        color: var(--color-text);
+        font-size: var(--font-size-medium);
+        transition: background-color 0.3s ease;
+        flex: 1;
+        min-width: 80px;
+      }
+
+      .tab:hover, 
+      .tab.active {
+        background: var(--color-primary);
+      }
+
+      /* Content Areas */
+      .content {
+        display: none;
+      }
+
+      .content.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      /* Clock Elements */
+      .clock, 
+      .timer, 
+      .stopwatch, 
+      .alarm {
+        font-size: var(--font-size-xlarge);
+        margin-top: var(--spacing-lg);
+        font-weight: bold;
+      }
+
+      .date {
+        font-size: var(--font-size-large);
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-text-secondary);
+      }
+
+      /* Weather Styles */
+      .weather-info {
+        margin-top: var(--spacing-lg);
+      }
+
+      .weather-main {
+        font-size: 2rem;
+        margin: var(--spacing-md) 0;
+        font-weight: bold;
+      }
+
+      .weather-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+        margin-top: var(--spacing-md);
+        font-size: var(--font-size-medium);
+      }
+
+      .weather-item {
+        background: var(--color-tab);
+        padding: var(--spacing-sm);
+        border-radius: var(--border-radius);
+      }
+
+      .location-info {
+        font-size: var(--font-size-large);
+        color: var(--color-text-secondary);
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .ip-info {
+        font-size: var(--font-size-normal);
+        color: var(--color-text-secondary);
+        margin-bottom: var(--spacing-md);
+      }
+
+      /* Form Elements */
+      button {
+        padding: var(--spacing-sm) var(--spacing-md);
+        margin: var(--spacing-sm);
+        border: none;
+        cursor: pointer;
+        border-radius: var(--border-radius);
+        background: var(--color-primary);
+        color: var(--color-text);
+        font-size: var(--font-size-medium);
+        transition: background-color 0.3s ease, transform 0.1s ease;
+      }
+
+      button:hover {
+        background: var(--color-primary-hover);
+      }
+
+      button:active {
+        transform: scale(0.98);
+      }
+
+      input {
+        padding: var(--spacing-sm);
+        font-size: var(--font-size-medium);
+        margin-bottom: var(--spacing-sm);
+        text-align: center;
+        border: none;
+        border-radius: var(--border-radius);
+        width: 80%;
+        background: var(--color-text);
+        color: var(--color-bg);
+      }
+
+      /* Controls */
+      .controls {
+        margin-top: var(--spacing-md);
+      }
+
+      /* Credits */
+      .credits {
+        margin-top: var(--spacing-lg);
+        font-size: 0.8rem;
+        color: var(--color-text-secondary);
+      }
+
+      .credits a {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+
+      /* Quote Styles */
+      .quote-text {
+        font-style: italic;
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .quote-author {
+        font-size: 0.9rem;
+        color: var(--color-text-secondary);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 600px) {
+        .container {
+          width: 100%;
+          padding: var(--spacing-lg);
+        }
+        
+        .tabs {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+        
+        .tab {
+          flex: 1 1 calc(50% - var(--spacing-sm));
+          margin-bottom: var(--spacing-xs);
+        }
+        
+        .clock, 
+        .timer, 
+        .stopwatch, 
+        .alarm {
+          font-size: calc(var(--font-size-xlarge) * 0.8);
+        }
+
+        .weather-main {
+          font-size: 1.5rem;
+        }
+
+        .weather-details {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Fixed buttons */
+      #fullscreen-toggle, #lightModeToggle {
+        position: fixed;
+        background-color: var(--color-container);
+        border: 1px solid var(--color-tab);
+        border-radius: 6px;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 9999;
+        color: var(--color-text);
+        font-size: 1.2rem;
+      }
+
+      #fullscreen-toggle {
+        top: 20px;
+        right: 20px;
+      }
+
+      #lightModeToggle {
+        top: 80px;
+        right: 20px;
+      }
+    </style>
   </head>
   <body>
     <header>
-      <h1>Online Digital Clock with Timer, Stopwatch & Alarm</h1>
+      <h1>Online Digital Clock with Timer, Stopwatch, Alarm & Weather</h1>
       <h2>Free time management tools for work, study, cooking, and fitness</h2>
       <br>
     </header>
-
 
     <main>
       <nav class="tabs" aria-label="Time tool selection">
         <button class="tab active" onclick="switchTab('clock')" aria-selected="true">Clock</button>
         <button class="tab" onclick="switchTab('timer')" aria-selected="false">Timer</button>
         <button class="tab" onclick="switchTab('stopwatch')" aria-selected="false">Stopwatch</button>
-        <button class="tab" onclick="switchTab('alarm')" aria-selected="false">Alarm</button> 
+        <button class="tab" onclick="switchTab('alarm')" aria-selected="false">Alarm</button>
+        <button class="tab" onclick="switchTab('weather')" aria-selected="false">Weather</button>
       </nav>
 
       <!-- Digital Clock with Date -->
@@ -194,91 +410,62 @@
       <!-- Timer with Custom Input -->
       <section id="timer" class="content" aria-label="Countdown Timer">
         <label for="timerInput">Set Timer (seconds)</label> 
-              <input id="timerInput" placeholder="Enter time in seconds" min="1" type="number">
+        <input id="timerInput" placeholder="Enter time in seconds" min="1" type="number">
         <div class="timer" id="countdown">00:00</div>
-        <div class="controls"> <button onclick="startTimer()">Start</button>
+        <div class="controls">
+          <button onclick="startTimer()">Start</button>
           <button onclick="pauseTimer()">Pause</button>
-                <button onclick="resetTimer()">Reset</button> 
-             </div>
+          <button onclick="resetTimer()">Reset</button> 
+        </div>
       </section>
 
       <!-- Stopwatch -->
       <section id="stopwatch" class="content" aria-label="Stopwatch">
         <div class="stopwatch" id="stopwatchDisplay">00:00</div>
         <div class="controls"> 
-                 <button onclick="startStopwatch()">Start</button>
+          <button onclick="startStopwatch()">Start</button>
           <button onclick="pauseStopwatch()">Pause</button> 
-                 <button onclick="resetStopwatch()">Reset</button> 
-              </div>
-       </section>
+          <button onclick="resetStopwatch()">Reset</button> 
+        </div>
+      </section>
 
       <!-- Alarm with Sound & Snooze -->
       <section id="alarm" class="content" aria-label="Alarm Clock">
          <label for="alarmTime">Set Alarm Time</label> <br>
          <input id="alarmTime" type="time">
         <div class="controls"> 
-                <button onclick="setAlarm()">Set Alarm</button>
-         <button onclick="snoozeAlarm()">Snooze (5 min)</button> 
-               <button onclick="stopAlarm()">Stop Alarm</button>
+          <button onclick="setAlarm()">Set Alarm</button>
+          <button onclick="snoozeAlarm()">Snooze (5 min)</button> 
+          <button onclick="stopAlarm()">Stop Alarm</button>
         </div>
-       <audio id="alarmSound" src="https://www.soundjay.com/clock/alarm-clock-01.wav" preload="auto"></audio>
-     </section>
-    
+        <audio id="alarmSound" src="https://www.soundjay.com/clock/alarm-clock-01.wav" preload="auto"></audio>
+      </section>
+
+      <!-- Weather Section -->
+      <section id="weather" class="content" aria-label="Weather Information">
+        <div class="weather-info">
+          <div class="ip-info" id="ip-address">Fetching IP...</div>
+          <div class="location-info" id="location">Fetching location...</div>
+          <div class="weather-main" id="weather-main">Fetching weather...</div>
+          <div class="weather-details">
+            <div class="weather-item" id="feels-like">Feels Like: --</div>
+            <div class="weather-item" id="humidity">Humidity: --</div>
+            <div class="weather-item" id="wind-speed">Wind Speed: --</div>
+            <div class="weather-item" id="pressure">Pressure: --</div>
+          </div>
+          <div class="credits">
+            Powered by <a href="https://ipapi.co/">ipapi.co</a> & <a href="https://open-meteo.com/">Open-Meteo</a>
+          </div>
+        </div>
+      </section>
     </main>
+
     <footer>
       <nav>
-        <br>
-        <br>
-
-      <p style="font-weight: bold; color: orange;">Quote of the Day</p>
-
-      <div id="quote-display">Loading...</div>
-
-    <script>
-        let quotes = [];
-
-        async function loadQuotes() {
-            try {
-                const response = await fetch('motivational_quotes.csv');
-                const csvText = await response.text();
-                const lines = csvText.trim().split('\n');
-                
-                for (let i = 1; i < lines.length; i++) {
-                    const line = lines[i].trim();
-                    if (line) {
-                        const parts = line.split(',');
-                        const quote = parts[0]?.replace(/"/g, '').trim();
-                        const author = parts[1]?.replace(/"/g, '').trim() || '';
-                        
-                        if (quote) {
-                            quotes.push({ text: quote, author: author });
-                        }
-                    }
-                }
-                
-                if (quotes.length > 0) {
-                    const randomIndex = Math.floor(Math.random() * quotes.length);
-                    const quote = quotes[randomIndex];
-                    
-                    document.getElementById('quote-display').innerHTML = `
-                        <div class="quote-text">"${quote.text}"</div>
-                        <div class="quote-author">${quote.author ? '— ' + quote.author : ''}</div>
-                    `;
-                } else {
-                    document.getElementById('quote-display').innerHTML = 'No quotes found.';
-                }
-                
-            } catch (error) {
-                document.getElementById('quote-display').innerHTML = 'Error loading quotes.';
-            }
-        }
-
-        loadQuotes();
-    </script>
-
-        
-        <br>
-        <br>
+        <br><br>
+        <p style="font-weight: bold; color: orange;">Quote of the Day</p>
+        <div id="quote-display">Loading...</div>
+        <br><br>
         <p>Follow e-clock.top on:
         <a href="https://x.com/eclockdottop" style="color: #ff9800; text-decoration: none;">X </a> & 
         <a href="https://discord.gg/pEFtZ8qR3N" style="color: #ff9800; text-decoration: none;"> Discord</a> </p>
@@ -286,59 +473,358 @@
         <p>Buy this domain on:
         <a href="https://sedo.com/search/?showportfolio=72SVt0_mAmd6B8f-C_8p4xxBkmrExFyopBuxZw6m" style="color: #ff9800; text-decoration: none;">Sedo </a> </p>
        
-       <br>
-       <br>
-            <a href="blog.html" style="color: #ff9800; text-decoration: none;">Blog</a> | 
-            <a href="FAQ.html" style="color: #ff9800; text-decoration: none;">FAQ</a> | 
-            <a href="privacy.html" style="color: #ff9800; text-decoration: none;">Privacy Policy</a> | 
-            <a href="about.html" style="color: #ff9800; text-decoration: none;">About Us</a> 
-        </nav>
+        <br><br>
+        <a href="blog.html" style="color: #ff9800; text-decoration: none;">Blog</a> | 
+        <a href="FAQ.html" style="color: #ff9800; text-decoration: none;">FAQ</a> | 
+        <a href="privacy.html" style="color: #ff9800; text-decoration: none;">Privacy Policy</a> | 
+        <a href="about.html" style="color: #ff9800; text-decoration: none;">About Us</a> 
+      </nav>
       <p>©
         <script>document.write(new Date().getFullYear())</script>
         e-clock.top - Free Online Clock Tools</p>
-     </footer>
+    </footer>
     
-<button id="fullscreen-toggle" style="
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #1e1e1e;
-  border: 1px solid #333;
-  border-radius: 6px;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 9999;">🔳</button>
-
-    <button id="lightModeToggle" style="
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      background: #1e1e1e;
-      border: 1px solid #333;
-      border-radius: 6px;
-      padding: 10px;
-      cursor: pointer;
-      z-index: 9999;">☀️</button>
+    <button id="fullscreen-toggle">🔳</button>
+    <button id="lightModeToggle">☀️</button>
 
     <script>
-  const fsButton = document.getElementById('fullscreen-toggle');
-  fsButton.addEventListener('click', () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(err => {
-        alert(`Error attempting to enable fullscreen: ${err.message}`);
-      });
-    } else {
-      document.exitFullscreen();
-    }
-  });
-</script>
+      // Weather code descriptions for Open-Meteo
+      const weatherCodes = {
+        0: 'Clear sky',
+        1: 'Mainly clear',
+        2: 'Partly cloudy',
+        3: 'Overcast',
+        45: 'Fog',
+        48: 'Depositing rime fog',
+        51: 'Light drizzle',
+        53: 'Moderate drizzle',
+        55: 'Dense drizzle',
+        56: 'Light freezing drizzle',
+        57: 'Dense freezing drizzle',
+        61: 'Slight rain',
+        63: 'Moderate rain',
+        65: 'Heavy rain',
+        66: 'Light freezing rain',
+        67: 'Heavy freezing rain',
+        71: 'Slight snow fall',
+        73: 'Moderate snow fall',
+        75: 'Heavy snow fall',
+        77: 'Snow grains',
+        80: 'Slight rain showers',
+        81: 'Moderate rain showers',
+        82: 'Violent rain showers',
+        85: 'Slight snow showers',
+        86: 'Heavy snow showers',
+        95: 'Thunderstorm',
+        96: 'Thunderstorm with slight hail',
+        99: 'Thunderstorm with heavy hail'
+      };
 
-<script>
-    const lightModeToggle = document.getElementById('lightModeToggle');
-lightModeToggle.addEventListener('click', () => {
-  document.documentElement.classList.toggle('light-mode');
-});
-  </script>
-    
+      const weatherIcons = {
+        0: '☀️',
+        1: '🌤️',
+        2: '⛅',
+        3: '☁️',
+        45: '🌫️',
+        48: '🌫️',
+        51: '🌦️',
+        53: '🌦️',
+        55: '🌦️',
+        56: '🌨️',
+        57: '🌨️',
+        61: '🌧️',
+        63: '🌧️',
+        65: '🌧️',
+        66: '🌨️',
+        67: '🌨️',
+        71: '❄️',
+        73: '❄️',
+        75: '❄️',
+        77: '❄️',
+        80: '🌦️',
+        81: '🌦️',
+        82: '⛈️',
+        85: '🌨️',
+        86: '🌨️',
+        95: '⛈️',
+        96: '⛈️',
+        99: '⛈️'
+      };
+
+      // Global variables
+      let timerInterval, stopwatchInterval, alarmTimeout;
+      let timerRunning = false, stopwatchRunning = false, alarmSet = false;
+      let timerSeconds = 0, stopwatchSeconds = 0;
+
+      // Tab switching function
+      function switchTab(tab) {
+        // Hide all content sections
+        document.querySelectorAll('.content').forEach(content => {
+          content.classList.remove('active');
+        });
+        
+        // Remove active class from all tabs
+        document.querySelectorAll('.tab').forEach(tabBtn => {
+          tabBtn.classList.remove('active');
+          tabBtn.setAttribute('aria-selected', 'false');
+        });
+        
+        // Show selected content and activate tab
+        document.getElementById(tab).classList.add('active');
+        event.target.classList.add('active');
+        event.target.setAttribute('aria-selected', 'true');
+
+        // Load weather when weather tab is selected
+        if (tab === 'weather') {
+          loadWeatherData();
+        }
+      }
+
+      // Clock functions
+      function updateClock() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString();
+        const dateString = now.toLocaleDateString('en-US', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+        
+        document.getElementById('digitalClock').textContent = timeString;
+        document.getElementById('currentDate').textContent = dateString;
+      }
+
+      // Timer functions
+      function startTimer() {
+        if (!timerRunning) {
+          const input = document.getElementById('timerInput').value;
+          if (input && !timerSeconds) {
+            timerSeconds = parseInt(input);
+          }
+          
+          if (timerSeconds > 0) {
+            timerRunning = true;
+            timerInterval = setInterval(() => {
+              timerSeconds--;
+              updateTimerDisplay();
+              
+              if (timerSeconds <= 0) {
+                clearInterval(timerInterval);
+                timerRunning = false;
+                alert('Timer finished!');
+              }
+            }, 1000);
+          }
+        }
+      }
+
+      function pauseTimer() {
+        if (timerRunning) {
+          clearInterval(timerInterval);
+          timerRunning = false;
+        }
+      }
+
+      function resetTimer() {
+        clearInterval(timerInterval);
+        timerRunning = false;
+        timerSeconds = 0;
+        updateTimerDisplay();
+      }
+
+      function updateTimerDisplay() {
+        const minutes = Math.floor(timerSeconds / 60);
+        const seconds = timerSeconds % 60;
+        document.getElementById('countdown').textContent = 
+          `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      }
+
+      // Stopwatch functions
+      function startStopwatch() {
+        if (!stopwatchRunning) {
+          stopwatchRunning = true;
+          stopwatchInterval = setInterval(() => {
+            stopwatchSeconds++;
+            updateStopwatchDisplay();
+          }, 1000);
+        }
+      }
+
+      function pauseStopwatch() {
+        if (stopwatchRunning) {
+          clearInterval(stopwatchInterval);
+          stopwatchRunning = false;
+        }
+      }
+
+      function resetStopwatch() {
+        clearInterval(stopwatchInterval);
+        stopwatchRunning = false;
+        stopwatchSeconds = 0;
+        updateStopwatchDisplay();
+      }
+
+      function updateStopwatchDisplay() {
+        const minutes = Math.floor(stopwatchSeconds / 60);
+        const seconds = stopwatchSeconds % 60;
+        document.getElementById('stopwatchDisplay').textContent = 
+          `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      }
+
+      // Alarm functions
+      function setAlarm() {
+        const alarmTime = document.getElementById('alarmTime').value;
+        if (alarmTime) {
+          const now = new Date();
+          const alarm = new Date();
+          const [hours, minutes] = alarmTime.split(':');
+          
+          alarm.setHours(parseInt(hours));
+          alarm.setMinutes(parseInt(minutes));
+          alarm.setSeconds(0);
+          
+          if (alarm <= now) {
+            alarm.setDate(alarm.getDate() + 1);
+          }
+          
+          const timeUntilAlarm = alarm.getTime() - now.getTime();
+          
+          alarmTimeout = setTimeout(() => {
+            document.getElementById('alarmSound').play();
+            alert('Alarm! Time to wake up!');
+          }, timeUntilAlarm);
+          
+          alarmSet = true;
+          alert(`Alarm set for ${alarmTime}`);
+        }
+      }
+
+      function snoozeAlarm() {
+        if (alarmSet) {
+          clearTimeout(alarmTimeout);
+          alarmTimeout = setTimeout(() => {
+            document.getElementById('alarmSound').play();
+            alert('Snooze time is up!');
+          }, 5 * 60 * 1000); // 5 minutes
+        }
+      }
+
+      function stopAlarm() {
+        clearTimeout(alarmTimeout);
+        alarmSet = false;
+        document.getElementById('alarmSound').pause();
+        document.getElementById('alarmSound').currentTime = 0;
+      }
+
+      // Weather functions
+      function loadWeatherData() {
+        // Check if weather data is already loaded
+        if (document.getElementById('weather-main').textContent !== 'Fetching weather...') {
+          return;
+        }
+
+        // Fetch user's IP Address and location using ipapi.co
+        fetch('https://ipapi.co/json/')
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('ip-address').textContent = `IP: ${data.ip}`;
+            
+            const city = data.city;
+            const country = data.country_name;
+            const lat = data.latitude;
+            const lon = data.longitude;
+            
+            document.getElementById('location').textContent = `${city}, ${country}`;
+
+            // Fetch weather using coordinates with Open-Meteo API
+            const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,surface_pressure,weather_code,wind_speed_10m&timezone=auto`;
+            
+            fetch(weatherUrl)
+              .then(response => response.json())
+              .then(weatherData => {
+                const current = weatherData.current;
+                const temp = Math.round(current.temperature_2m);
+                const feelsLike = Math.round(current.apparent_temperature);
+                const humidity = current.relative_humidity_2m;
+                const windSpeed = Math.round(current.wind_speed_10m * 10) / 10;
+                const pressure = Math.round(current.surface_pressure);
+                const weatherCode = current.weather_code;
+                const weatherDesc = weatherCodes[weatherCode] || 'Unknown';
+                const weatherIcon = weatherIcons[weatherCode] || '';
+
+                // Update display
+                document.getElementById('weather-main').textContent = 
+                  `${weatherIcon} ${temp}°C, ${weatherDesc}`;
+                document.getElementById('feels-like').textContent = `Feels Like: ${feelsLike}°C`;
+                document.getElementById('humidity').textContent = `Humidity: ${humidity}%`;
+                document.getElementById('wind-speed').textContent = `Wind Speed: ${windSpeed} km/h`;
+                document.getElementById('pressure').textContent = `Pressure: ${pressure} hPa`;
+              })
+              .catch(error => {
+                console.error('Weather fetch error:', error);
+                document.getElementById('weather-main').textContent = 'Error fetching weather';
+              });
+          })
+          .catch(error => {
+            console.error('Location fetch error:', error);
+            document.getElementById('ip-address').textContent = 'Error fetching IP';
+            document.getElementById('location').textContent = 'Error fetching location';
+          });
+      }
+
+      // Quote loading function
+      async function loadQuotes() {
+        try {
+          // Since we can't load external CSV, we'll use a simple quote
+          const quotes = [
+            { text: "Time is what we want most, but what we use worst.", author: "William Penn" },
+            { text: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+            { text: "Don't let yesterday take up too much of today.", author: "Will Rogers" },
+            { text: "Time flies over us, but leaves its shadow behind.", author: "Nathaniel Hawthorne" }
+          ];
+          
+          const randomIndex = Math.floor(Math.random() * quotes.length);
+          const quote = quotes[randomIndex];
+          
+          document.getElementById('quote-display').innerHTML = `
+            <div class="quote-text">"${quote.text}"</div>
+            <div class="quote-author">— ${quote.author}</div>
+          `;
+        } catch (error) {
+          document.getElementById('quote-display').innerHTML = 'Error loading quotes.';
+        }
+      }
+
+      // Fullscreen toggle
+      const fsButton = document.getElementById('fullscreen-toggle');
+      fsButton.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(err => {
+            alert(`Error attempting to enable fullscreen: ${err.message}`);
+          });
+        } else {
+          document.exitFullscreen();
+        }
+      });
+
+      // Light mode toggle
+      const lightModeToggle = document.getElementById('lightModeToggle');
+      lightModeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('light-mode');
+      });
+
+      // Initialize the application
+      function init() {
+        updateClock();
+        setInterval(updateClock, 1000);
+        updateTimerDisplay();
+        updateStopwatchDisplay();
+        loadQuotes();
+      }
+
+      // Start the application when page loads
+      document.addEventListener('DOMContentLoaded', init);
+    </script>
   </body>
 </html>
