@@ -1,4 +1,43 @@
 /* Custom Properties */
+
+:root {
+  --color-bg: #111;
+  --color-text: #fff;
+  --color-container: #222;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header, footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+.container {
+  background-color: var(--color-container);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+html.light-mode {
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-container: #f5f5f5;
+}
+
 :root {
   /* Colors */
   --color-bg: #111;
