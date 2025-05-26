@@ -1,366 +1,365 @@
-Day,Quote,Author
-1,"Your time is limited, don't waste it living someone else's life.","Steve Jobs"
-2,"Productivity is never an accident. It is always the result of a commitment to excellence, intelligent planning, and focused effort.","Paul J. Meyer"
-3,"The key is not to prioritize what's on your schedule, but to schedule your priorities.","Stephen Covey"
-4,"Do the hard jobs first. The easy jobs will take care of themselves.","Dale Carnegie"
-5,"You don’t have to be great to start, but you have to start to be great.","Zig Ziglar"
-6,"The secret of getting ahead is getting started.","Mark Twain"
-7,"Success is the sum of small efforts, repeated day in and day out.","Robert Collier"
-8,"Focus on being productive instead of busy.","Tim Ferriss"
-9,"The bad news is time flies. The good news is you’re the pilot.","Michael Altshuler"
-10,"The way to get started is to quit talking and begin doing.","Walt Disney"
-11,"It’s not about having time, it’s about making time.","Unknown"
-12,"The future depends on what you do today.","Mahatma Gandhi"
-13,"Discipline is choosing between what you want now and what you want most.","Abraham Lincoln"
-14,"Either you run the day, or the day runs you.","Jim Rohn"
-15,"The only limit to our realization of tomorrow is our doubts of today.","Franklin D. Roosevelt"
-16,"Small daily improvements are the key to staggering long-term results.","Unknown"
-17,"Don’t count the days, make the days count.","Muhammad Ali"
-18,"The more you do, the more you can do.","William Hazlitt"
-19,"You will never always be motivated, so you must learn to be disciplined.","Unknown"
-20,"Time isn’t the main thing. It’s the only thing.","Miles Davis"
-21,"The best way to predict the future is to create it.","Peter Drucker"
-22,"The difference between ordinary and extraordinary is that little extra.","Jimmy Johnson"
-23,"Efficiency is doing things right. Effectiveness is doing the right things.","Peter Drucker"
-24,"The expert in anything was once a beginner.","Helen Hayes"
-25,"You can’t improve what you don’t measure.","Peter Drucker"
-26,"The only way to do great work is to love what you do.","Steve Jobs"
-27,"Your most valuable asset is not your time. It’s your energy.","Unknown"
-28,"Success is nothing more than a few simple disciplines, practiced every day.","Jim Rohn"
-29,"The time for action is now. It’s never too late to do something.","Antoine de Saint-Exupéry"
-30,"The best time to plant a tree was 20 years ago. The second best time is now.","Chinese Proverb"
-31,"The shorter way to do many things is to do only one thing at a time.","Mozart"
-32,"Don’t watch the clock; do what it does. Keep going.","Sam Levenson"
-33,"The biggest challenge is to stay focused. It’s to have the discipline when there are so many competing things.","Alexis Ohanian"
-34,"The most effective way to do it is to do it.","Amelia Earhart"
-35,"The only place where success comes before work is in the dictionary.","Vidal Sassoon"
-36,"The best preparation for tomorrow is doing your best today.","H. Jackson Brown Jr."
-37,"Action is the foundational key to all success.","Pablo Picasso"
-38,"The successful warrior is the average man, with laser-like focus.","Bruce Lee"
-39,"You may delay, but time will not.","Benjamin Franklin"
-40,"The man who moves a mountain begins by carrying away small stones.","Confucius"
-41,"The more disciplined you become, the easier life gets.","Unknown"
-42,"Time management is life management.","Robin Sharma"
-43,"You don’t need more time in your day, you need to decide.","Seth Godin"
-44,"The first step toward success is taken when you refuse to be a captive of the environment in which you first find yourself.","Mark Caine"
-45,"The way we spend our time defines who we are.","Jonathan Estrin"
-46,"The most efficient way to live reasonably is every morning to make a plan of one’s day and every night to examine the results obtained.","Alexis Carrel"
-47,"You can’t manage time, you can only manage yourself.","Unknown"
-48,"The successful person has the habit of doing the things failures don’t like to do.","Thomas Edison"
-49,"The time you enjoy wasting is not wasted time.","Bertrand Russell"
-50,"The best investment you can make is in yourself.","Warren Buffett"
-51,"The only thing standing between you and your goal is the story you keep telling yourself.","Jordan Belfort"
-52,"The more you value your time, the more productive you become.","Unknown"
-53,"The discipline you learn and character you build from setting and achieving a goal can be more valuable than the achievement of the goal itself.","Bo Bennett"
-54,"The best way to get something done is to begin.","Unknown"
-55,"The greatest amount of wasted time is the time not getting started.","Dawson Trotman"
-56,"The only person you are destined to become is the person you decide to be.","Ralph Waldo Emerson"
-57,"The secret to productivity is simplicity.","Unknown"
-58,"The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack in will.","Vince Lombardi"
-59,"The time is always right to do what is right.","Martin Luther King Jr."
-60,"The more you do, the more energy you have.","Unknown"
-61,"The successful man is the one who finds out what is the matter with his business before his competitors do.","Roy L. Smith"
-62,"The best time management technique is to eliminate wasted time.","Unknown"
-63,"The only limit to our realization of tomorrow will be our doubts of today.","Franklin D. Roosevelt"
-64,"The most precious resource we all have is time.","Steve Jobs"
-65,"The key to productivity is to rotate your avoidance techniques.","Scott Adams"
-66,"The way to get started is to quit talking and begin doing.","Walt Disney"
-67,"The best way to predict your future is to create it.","Abraham Lincoln"
-68,"The man who does not read has no advantage over the man who cannot read.","Mark Twain"
-69,"The more you praise and celebrate your life, the more there is in life to celebrate.","Oprah Winfrey"
-70,"The only thing that overcomes hard luck is hard work.","Harry Golden"
-71,"The best preparation for good work tomorrow is to do good work today.","Elbert Hubbard"
-72,"The successful person is the individual who forms the habit of doing what the failing person doesn’t like to do.","Donald Riggs"
-73,"The time you spend on planning is time you save on execution.","Unknown"
-74,"The secret of your success is found in your daily routine.","John C. Maxwell"
-75,"The more you do, the more you can do.","William Hazlitt"
-76,"The best way to capture moments is to pay attention. This is how we cultivate mindfulness.","Jon Kabat-Zinn"
-77,"The only thing worse than starting something and failing is not starting something.","Seth Godin"
-78,"The difference between who you are and who you want to be is what you do.","Unknown"
-79,"The most productive people are those who listen to their own rhythm.","Unknown"
-80,"The best time to start was yesterday. The next best time is now.","Unknown"
-81,"The only way to achieve the impossible is to believe it is possible.","Charles Kingsleigh"
-82,"The more you value your time, the more you will get out of it.","Unknown"
-83,"The successful man is the average man focused.","Unknown"
-84,"The best way to get ahead is to get started.","Mark Twain"
-85,"The time you enjoy wasting is not wasted time.","Bertrand Russell"
-86,"The secret to productivity is to work smarter, not harder.","Unknown"
-87,"The more disciplined you become, the easier life gets.","Unknown"
-88,"The only place success comes before work is in the dictionary.","Vidal Sassoon"
-89,"The best way to predict the future is to create it.","Peter Drucker"
-90,"The difference between ordinary and extraordinary is that little extra.","Jimmy Johnson"
-91,"The expert in anything was once a beginner.","Helen Hayes"
-92,"The only way to do great work is to love what you do.","Steve Jobs"
-93,"The most valuable asset is not your time. It’s your energy.","Unknown"
-94,"The time for action is now. It’s never too late to do something.","Antoine de Saint-Exupéry"
-95,"The best time to plant a tree was 20 years ago. The second best time is now.","Chinese Proverb"
-96,"The shorter way to do many things is to do only one thing at a time.","Mozart"
-97,"Don’t watch the clock; do what it does. Keep going.","Sam Levenson"
-98,"The biggest challenge is to stay focused. It’s to have the discipline when there are so many competing things.","Alexis Ohanian"
-99,"The most effective way to do it is to do it.","Amelia Earhart"
-100,"The only place where success comes before work is in the dictionary.","Vidal Sassoon"
-101,"The best preparation for tomorrow is doing your best today.","H. Jackson Brown Jr."
-102,"Action is the foundational key to all success.","Pablo Picasso"
-103,"The successful warrior is the average man, with laser-like focus.","Bruce Lee"
-104,"You may delay, but time will not.","Benjamin Franklin"
-105,"The man who moves a mountain begins by carrying away small stones.","Confucius"
-106,"The more disciplined you become, the easier life gets.","Unknown"
-107,"Time management is life management.","Robin Sharma"
-108,"You don’t need more time in your day, you need to decide.","Seth Godin"
-109,"The first step toward success is taken when you refuse to be a captive of the environment in which you first find yourself.","Mark Caine"
-110,"The way we spend our time defines who we are.","Jonathan Estrin"
-111,"The most efficient way to live reasonably is every morning to make a plan of one’s day and every night to examine the results obtained.","Alexis Carrel"
-112,"You can’t manage time, you can only manage yourself.","Unknown"
-113,"The successful person has the habit of doing the things failures don’t like to do.","Thomas Edison"
-114,"The time you enjoy wasting is not wasted time.","Bertrand Russell"
-115,"The best investment you can make is in yourself.","Warren Buffett"
-116,"The only thing standing between you and your goal is the story you keep telling yourself.","Jordan Belfort"
-117,"The more you value your time, the more productive you become.","Unknown"
-118,"The discipline you learn and character you build from setting and achieving a goal can be more valuable than the achievement of the goal itself.","Bo Bennett"
-119,"The best way to get something done is to begin.","Unknown"
-120,"The greatest amount of wasted time is the time not getting started.","Dawson Trotman"
-121,"The only person you are destined to become is the person you decide to be.","Ralph Waldo Emerson"
-122,"The secret to productivity is simplicity.","Unknown"
-123,"The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack in will.","Vince Lombardi"
-124,"The time is always right to do what is right.","Martin Luther King Jr."
-125,"The more you do, the more energy you have.","Unknown"
-126,"The successful man is the one who finds out what is the matter with his business before his competitors do.","Roy L. Smith"
-127,"The best time management technique is to eliminate wasted time.","Unknown"
-128,"The only limit to our realization of tomorrow will be our doubts of today.","Franklin D. Roosevelt"
-129,"The most precious resource we all have is time.","Steve Jobs"
-130,"The key to productivity is to rotate your avoidance techniques.","Scott Adams"
-131,"The way to get started is to quit talking and begin doing.","Walt Disney"
-132,"The best way to predict your future is to create it.","Abraham Lincoln"
-133,"The man who does not read has no advantage over the man who cannot read.","Mark Twain"
-134,"The more you praise and celebrate your life, the more there is in life to celebrate.","Oprah Winfrey"
-135,"The only thing that overcomes hard luck is hard work.","Harry Golden"
-136,"The best preparation for good work tomorrow is to do good work today.","Elbert Hubbard"
-137,"The successful person is the individual who forms the habit of doing what the failing person doesn’t like to do.","Donald Riggs"
-138,"The time you spend on planning is time you save on execution.","Unknown"
-139,"The secret of your success is found in your daily routine.","John C. Maxwell"
-140,"The more you do, the more you can do.","William Hazlitt"
-141,"The best way to capture moments is to pay attention. This is how we cultivate mindfulness.","Jon Kabat-Zinn"
-142,"The only thing worse than starting something and failing is not starting something.","Seth Godin"
-143,"The difference between who you are and who you want to be is what you do.","Unknown"
-144,"The most productive people are those who listen to their own rhythm.","Unknown"
-145,"The best time to start was yesterday. The next best time is now.","Unknown"
-146,"The only way to achieve the impossible is to believe it is possible.","Charles Kingsleigh"
-147,"The more you value your time, the more you will get out of it.","Unknown"
-148,"The successful man is the average man focused.","Unknown"
-149,"The best way to get ahead is to get started.","Mark Twain"
-150,"The time you enjoy wasting is not wasted time.","Bertrand Russell"
-151,"The secret to productivity is to work smarter, not harder.","Unknown"
-152,"The more disciplined you become, the easier life gets.","Unknown"
-153,"The only place success comes before work is in the dictionary.","Vidal Sassoon"
-154,"The best way to predict the future is to create it.","Peter Drucker"
-155,"The difference between ordinary and extraordinary is that little extra.","Jimmy Johnson"
-156,"The expert in anything was once a beginner.","Helen Hayes"
-157,"The only way to do great work is to love what you do.","Steve Jobs"
-158,"The most valuable asset is not your time. It’s your energy.","Unknown"
-159,"The time for action is now. It’s never too late to do something.","Antoine de Saint-Exupéry"
-160,"The best time to plant a tree was 20 years ago. The second best time is now.","Chinese Proverb"
-161,"The shorter way to do many things is to do only one thing at a time.","Mozart"
-162,"Don’t watch the clock; do what it does. Keep going.","Sam Levenson"
-163,"The biggest challenge is to stay focused. It’s to have the discipline when there are so many competing things.","Alexis Ohanian"
-164,"The most effective way to do it is to do it.","Amelia Earhart"
-165,"The only place where success comes before work is in the dictionary.","Vidal Sassoon"
-166,"The best preparation for tomorrow is doing your best today.","H. Jackson Brown Jr."
-167,"Action is the foundational key to all success.","Pablo Picasso"
-168,"The successful warrior is the average man, with laser-like focus.","Bruce Lee"
-169,"You may delay, but time will not.","Benjamin Franklin"
-170,"The man who moves a mountain begins by carrying away small stones.","Confucius"
-171,"The more disciplined you become, the easier life gets.","Unknown"
-172,"Time management is life management.","Robin Sharma"
-173,"You don’t need more time in your day, you need to decide.","Seth Godin"
-174,"The first step toward success is taken when you refuse to be a captive of the environment in which you first find yourself.","Mark Caine"
-175,"The way we spend our time defines who we are.","Jonathan Estrin"
-176,"The most efficient way to live reasonably is every morning to make a plan of one’s day and every night to examine the results obtained.","Alexis Carrel"
-177,"You can’t manage time, you can only manage yourself.","Unknown"
-178,"The successful person has the habit of doing the things failures don’t like to do.","Thomas Edison"
-179,"The time you enjoy wasting is not wasted time.","Bertrand Russell"
-180,"The best investment you can make is in yourself.","Warren Buffett"
-181,"The only thing standing between you and your goal is the story you keep telling yourself.","Jordan Belfort"
-182,"The more you value your time, the more productive you become.","Unknown"
-183,"The discipline you learn and character you build from setting and achieving a goal can be more valuable than the achievement of the goal itself.","Bo Bennett"
-184,"The best way to get something done is to begin.","Unknown"
-185,"The greatest amount of wasted time is the time not getting started.","Dawson Trotman"
-186,"The only person you are destined to become is the person you decide to be.","Ralph Waldo Emerson"
-187,"The secret to productivity is simplicity.","Unknown"
-188,"The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack in will.","Vince Lombardi"
-189,"The time is always right to do what is right.","Martin Luther King Jr."
-190,"The more you do, the more energy you have.","Unknown"
-191,"The successful man is the one who finds out what is the matter with his business before his competitors do.","Roy L. Smith"
-192,"The best time management technique is to eliminate wasted time.","Unknown"
-193,"The only limit to our realization of tomorrow will be our doubts of today.","Franklin D. Roosevelt"
-194,"The most precious resource we all have is time.","Steve Jobs"
-195,"The key to productivity is to rotate your avoidance techniques.","Scott Adams"
-196,"The way to get started is to quit talking and begin doing.","Walt Disney"
-197,"The best way to predict your future is to create it.","Abraham Lincoln"
-198,"The man who does not read has no advantage over the man who cannot read.","Mark Twain"
-199,"The more you praise and celebrate your life, the more there is in life to celebrate.","Oprah Winfrey"
-200,"The only thing that overcomes hard luck is hard work.","Harry Golden"
-201,"The best preparation for good work tomorrow is to do good work today.","Elbert Hubbard"
-202,"The successful person is the individual who forms the habit of doing what the failing person doesn’t like to do.","Donald Riggs"
-203,"The time you spend on planning is time you save on execution.","Unknown"
-204,"The secret of your success is found in your daily routine.","John C. Maxwell"
-205,"The more you do, the more you can do.","William Hazlitt"
-206,"The best way to capture moments is to pay attention. This is how we cultivate mindfulness.","Jon Kabat-Zinn"
-207,"The only thing worse than starting something and failing is not starting something.","Seth Godin"
-208,"The difference between who you are and who you want to be is what you do.","Unknown"
-209,"The most productive people are those who listen to their own rhythm.","Unknown"
-210,"The best time to start was yesterday. The next best time is now.","Unknown"
-211,"The only way to achieve the impossible is to believe it is possible.","Charles Kingsleigh"
-212,"The more you value your time, the more you will get out of it.","Unknown"
-213,"The successful man is the average man focused.","Unknown"
-214,"The best way to get ahead is to get started.","Mark Twain"
-215,"The time you enjoy wasting is not wasted time.","Bertrand Russell"
-216,"The secret to productivity is to work smarter, not harder.","Unknown"
-217,"The more disciplined you become, the easier life gets.","Unknown"
-218,"The only place success comes before work is in the dictionary.","Vidal Sassoon"
-219,"The best way to predict the future is to create it.","Peter Drucker"
-220,"The difference between ordinary and extraordinary is that little extra.","Jimmy Johnson"
-221,"The expert in anything was once a beginner.","Helen Hayes"
-222,"The only way to do great work is to love what you do.","Steve Jobs"
-223,"The most valuable asset is not your time. It’s your energy.","Unknown"
-224,"The time for action is now. It’s never too late to do something.","Antoine de Saint-Exupéry"
-225,"The best time to plant a tree was 20 years ago. The second best time is now.","Chinese Proverb"
-226,"The shorter way to do many things is to do only one thing at a time.","Mozart"
-227,"Don’t watch the clock; do what it does. Keep going.","Sam Levenson"
-228,"The biggest challenge is to stay focused. It’s to have the discipline when there are so many competing things.","Alexis Ohanian"
-229,"The most effective way to do it is to do it.","Amelia Earhart"
-230,"The only place where success comes before work is in the dictionary.","Vidal Sassoon"
-231,"The best preparation for tomorrow is doing your best today.","H. Jackson Brown Jr."
-232,"Action is the foundational key to all success.","Pablo Picasso"
-233,"The successful warrior is the average man, with laser-like focus.","Bruce Lee"
-234,"You may delay, but time will not.","Benjamin Franklin"
-235,"The man who moves a mountain begins by carrying away small stones.","Confucius"
-236,"The more disciplined you become, the easier life gets.","Unknown"
-237,"Time management is life management.","Robin Sharma"
-238,"You don’t need more time in your day, you need to decide.","Seth Godin"
-239,"The first step toward success is taken when you refuse to be a captive of the environment in which you first find yourself.","Mark Caine"
-240,"The way we spend our time defines who we are.","Jonathan Estrin"
-241,"The most efficient way to live reasonably is every morning to make a plan of one’s day and every night to examine the results obtained.","Alexis Carrel"
-242,"You can’t manage time, you can only manage yourself.","Unknown"
-243,"The successful person has the habit of doing the things failures don’t like to do.","Thomas Edison"
-244,"The time you enjoy wasting is not wasted time.","Bertrand Russell"
-245,"The best investment you can make is in yourself.","Warren Buffett"
-246,"The only thing standing between you and your goal is the story you keep telling yourself.","Jordan Belfort"
-247,"The more you value your time, the more productive you become.","Unknown"
-248,"The discipline you learn and character you build from setting and achieving a goal can be more valuable than the achievement of the goal itself.","Bo Bennett"
-249,"The best way to get something done is to begin.","Unknown"
-250,"The greatest amount of wasted time is the time not getting started.","Dawson Trotman"
-251,"The only person you are destined to become is the person you decide to be.","Ralph Waldo Emerson"
-252,"The secret to productivity is simplicity.","Unknown"
-253,"The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack in will.","Vince Lombardi"
-254,"The time is always right to do what is right.","Martin Luther King Jr."
-255,"The more you do, the more energy you have.","Unknown"
-256,"The successful man is the one who finds out what is the matter with his business before his competitors do.","Roy L. Smith"
-257,"The best time management technique is to eliminate wasted time.","Unknown"
-258,"The only limit to our realization of tomorrow will be our doubts of today.","Franklin D. Roosevelt"
-259,"The most precious resource we all have is time.","Steve Jobs"
-260,"The key to productivity is to rotate your avoidance techniques.","Scott Adams"
-261,"The way to get started is to quit talking and begin doing.","Walt Disney"
-262,"The best way to predict your future is to create it.","Abraham Lincoln"
-263,"The man who does not read has no advantage over the man who cannot read.","Mark Twain"
-264,"The more you praise and celebrate your life, the more there is in life to celebrate.","Oprah Winfrey"
-265,"The only thing that overcomes hard luck is hard work.","Harry Golden"
-266,"The best preparation for good work tomorrow is to do good work today.","Elbert Hubbard"
-267,"The successful person is the individual who forms the habit of doing what the failing person doesn’t like to do.","Donald Riggs"
-268,"The time you spend on planning is time you save on execution.","Unknown"
-269,"The secret of your success is found in your daily routine.","John C. Maxwell"
-270,"The more you do, the more you can do.","William Hazlitt"
-271,"The best way to capture moments is to pay attention. This is how we cultivate mindfulness.","Jon Kabat-Zinn"
-272,"The only thing worse than starting something and failing is not starting something.","Seth Godin"
-273,"The difference between who you are and who you want to be is what you do.","Unknown"
-274,"The most productive people are those who listen to their own rhythm.","Unknown"
-275,"The best time to start was yesterday. The next best time is now.","Unknown"
-276,"The only way to achieve the impossible is to believe it is possible.","Charles Kingsleigh"
-277,"The more you value your time, the more you will get out of it.","Unknown"
-278,"The successful man is the average man focused.","Unknown"
-279,"The best way to get ahead is to get started.","Mark Twain"
-280,"The time you enjoy wasting is not wasted time.","Bertrand Russell"
-281,"The secret to productivity is to work smarter, not harder.","Unknown"
-282,"The more disciplined you become, the easier life gets.","Unknown"
-283,"The only place success comes before work is in the dictionary.","Vidal Sassoon"
-284,"The best way to predict the future is to create it.","Peter Drucker"
-285,"The difference between ordinary and extraordinary is that little extra.","Jimmy Johnson"
-286,"The expert in anything was once a beginner.","Helen Hayes"
-287,"The only way to do great work is to love what you do.","Steve Jobs"
-288,"The most valuable asset is not your time. It’s your energy.","Unknown"
-289,"The time for action is now. It’s never too late to do something.","Antoine de Saint-Exupéry"
-290,"The best time to plant a tree was 20 years ago. The second best time is now.","Chinese Proverb"
-291,"The shorter way to do many things is to do only one thing at a time.","Mozart"
-292,"Don’t watch the clock; do what it does. Keep going.","Sam Levenson"
-293,"The biggest challenge is to stay focused. It’s to have the discipline when there are so many competing things.","Alexis Ohanian"
-294,"The most effective way to do it is to do it.","Amelia Earhart"
-295,"The only place where success comes before work is in the dictionary.","Vidal Sassoon"
-296,"The best preparation for tomorrow is doing your best today.","H. Jackson Brown Jr."
-297,"Action is the foundational key to all success.","Pablo Picasso"
-298,"The successful warrior is the average man, with laser-like focus.","Bruce Lee"
-299,"You may delay, but time will not.","Benjamin Franklin"
-300,"The man who moves a mountain begins by carrying away small stones.","Confucius"
-301,"The more disciplined you become, the easier life gets.","Unknown"
-302,"Time management is life management.","Robin Sharma"
-303,"You don’t need more time in your day, you need to decide.","Seth Godin"
-304,"The first step toward success is taken when you refuse to be a captive of the environment in which you first find yourself.","Mark Caine"
-305,"The way we spend our time defines who we are.","Jonathan Estrin"
-306,"The most efficient way to live reasonably is every morning to make a plan of one’s day and every night to examine the results obtained.","Alexis Carrel"
-307,"You can’t manage time, you can only manage yourself.","Unknown"
-308,"The successful person has the habit of doing the things failures don’t like to do.","Thomas Edison"
-309,"The time you enjoy wasting is not wasted time.","Bertrand Russell"
-310,"The best investment you can make is in yourself.","Warren Buffett"
-311,"The only thing standing between you and your goal is the story you keep telling yourself.","Jordan Belfort"
-312,"The more you value your time, the more productive you become.","Unknown"
-313,"The discipline you learn and character you build from setting and achieving a goal can be more valuable than the achievement of the goal itself.","Bo Bennett"
-314,"The best way to get something done is to begin.","Unknown"
-315,"The greatest amount of wasted time is the time not getting started.","Dawson Trotman"
-316,"The only person you are destined to become is the person you decide to be.","Ralph Waldo Emerson"
-317,"The secret to productivity is simplicity.","Unknown"
-318,"The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack in will.","Vince Lombardi"
-319,"The time is always right to do what is right.","Martin Luther King Jr."
-320,"The more you do, the more energy you have.","Unknown"
-321,"The successful man is the one who finds out what is the matter with his business before his competitors do.","Roy L. Smith"
-322,"The best time management technique is to eliminate wasted time.","Unknown"
-323,"The only limit to our realization of tomorrow will be our doubts of today.","Franklin D. Roosevelt"
-324,"The most precious resource we all have is time.","Steve Jobs"
-325,"The key to productivity is to rotate your avoidance techniques.","Scott Adams"
-326,"The way to get started is to quit talking and begin doing.","Walt Disney"
-327,"The best way to predict your future is to create it.","Abraham Lincoln"
-328,"The man who does not read has no advantage over the man who cannot read.","Mark Twain"
-329,"The more you praise and celebrate your life, the more there is in life to celebrate.","Oprah Winfrey"
-330,"The only thing that overcomes hard luck is hard work.","Harry Golden"
-331,"The best preparation for good work tomorrow is to do good work today.","Elbert Hubbard"
-332,"The successful person is the individual who forms the habit of doing what the failing person doesn’t like to do.","Donald Riggs"
-333,"The time you spend on planning is time you save on execution.","Unknown"
-334,"The secret of your success is found in your daily routine.","John C. Maxwell"
-335,"The more you do, the more you can do.","William Hazlitt"
-336,"The best way to capture moments is to pay attention. This is how we cultivate mindfulness.","Jon Kabat-Zinn"
-337,"The only thing worse than starting something and failing is not starting something.","Seth Godin"
-338,"The difference between who you are and who you want to be is what you do.","Unknown"
-339,"The most productive people are those who listen to their own rhythm.","Unknown"
-340,"The best time to start was yesterday. The next best time is now.","Unknown"
-341,"The only way to achieve the impossible is to believe it is possible.","Charles Kingsleigh"
-342,"The more you value your time, the more you will get out of it.","Unknown"
-343,"The successful man is the average man focused.","Unknown"
-344,"The best way to get ahead is to get started.","Mark Twain"
-345,"The time you enjoy wasting is not wasted time.","Bertrand Russell"
-346,"The secret to productivity is to work smarter, not harder.","Unknown"
-347,"The more disciplined you become, the easier life gets.","Unknown"
-348,"The only place success comes before work is in the dictionary.","Vidal Sassoon"
-349,"The best way to predict the future is to create it.","Peter Drucker"
-350,"The difference between ordinary and extraordinary is that little extra.","Jimmy Johnson"
-351,"The expert in anything was once a beginner.","Helen Hayes"
-352,"The only way to do great work is to love what you do.","Steve Jobs"
-353,"The most valuable asset is not your time. It’s your energy.","Unknown"
-354,"The time for action is now. It’s never too late to do something.","Antoine de Saint-Exupéry"
-355,"The best time to plant a tree was 20 years ago. The second best time is now.","Chinese Proverb"
-356,"The shorter way to do many things is to do only one thing at a time.","Mozart"
-357,"Don’t watch the clock; do what it does. Keep going.","Sam Levenson"
-358,"The biggest challenge is to stay focused. It’s to have the discipline when there are so many competing things.","Alexis Ohanian"
-359,"The most effective way to do it is to do it.","Amelia Earhart"
-360,"The only place where success comes before work is in the dictionary.","Vidal Sassoon"
-361,"The best preparation for tomorrow is doing your best today.","H. Jackson Brown Jr."
-362,"Action is the foundational key to all success.","Pablo Picasso"
-363,"The successful warrior is the average man, with laser-like focus.","Bruce Lee"
-364,"You may delay, but time will not.","Benjamin Franklin"
-365,"The man who moves a mountain begins by carrying away small stones.","Confucius"
+"Your time is limited, don't waste it living someone else's life.",Steve Jobs
+"Productivity is never an accident. It is always the result of a commitment to excellence, intelligent planning, and focused effort.",Paul J. Meyer
+"The key is not to prioritize what's on your schedule, but to schedule your priorities.",Stephen Covey
+Do the hard jobs first. The easy jobs will take care of themselves.,Dale Carnegie
+"You don’t have to be great to start, but you have to start to be great.",Zig Ziglar
+The secret of getting ahead is getting started.,Mark Twain
+"Success is the sum of small efforts, repeated day in and day out.",Robert Collier
+Focus on being productive instead of busy.,Tim Ferriss
+The bad news is time flies. The good news is you’re the pilot.,Michael Altshuler
+The way to get started is to quit talking and begin doing.,Walt Disney
+"It’s not about having time, it’s about making time.",Unknown
+The future depends on what you do today.,Mahatma Gandhi
+Discipline is choosing between what you want now and what you want most.,Abraham Lincoln
+"Either you run the day, or the day runs you.",Jim Rohn
+The only limit to our realization of tomorrow is our doubts of today.,Franklin D. Roosevelt
+Small daily improvements are the key to staggering long-term results.,Unknown
+"Don’t count the days, make the days count.",Muhammad Ali
+"The more you do, the more you can do.",William Hazlitt
+"You will never always be motivated, so you must learn to be disciplined.",Unknown
+Time isn’t the main thing. It’s the only thing.,Miles Davis
+The best way to predict the future is to create it.,Peter Drucker
+The difference between ordinary and extraordinary is that little extra.,Jimmy Johnson
+Efficiency is doing things right. Effectiveness is doing the right things.,Peter Drucker
+The expert in anything was once a beginner.,Helen Hayes
+You can’t improve what you don’t measure.,Peter Drucker
+The only way to do great work is to love what you do.,Steve Jobs
+Your most valuable asset is not your time. It’s your energy.,Unknown
+"Success is nothing more than a few simple disciplines, practiced every day.",Jim Rohn
+The time for action is now. It’s never too late to do something.,Antoine de Saint-Exupéry
+The best time to plant a tree was 20 years ago. The second best time is now.,Chinese Proverb
+The shorter way to do many things is to do only one thing at a time.,Mozart
+Don’t watch the clock; do what it does. Keep going.,Sam Levenson
+The biggest challenge is to stay focused. It’s to have the discipline when there are so many competing things.,Alexis Ohanian
+The most effective way to do it is to do it.,Amelia Earhart
+The only place where success comes before work is in the dictionary.,Vidal Sassoon
+The best preparation for tomorrow is doing your best today.,H. Jackson Brown Jr.
+Action is the foundational key to all success.,Pablo Picasso
+"The successful warrior is the average man, with laser-like focus.",Bruce Lee
+"You may delay, but time will not.",Benjamin Franklin
+The man who moves a mountain begins by carrying away small stones.,Confucius
+"The more disciplined you become, the easier life gets.",Unknown
+Time management is life management.,Robin Sharma
+"You don’t need more time in your day, you need to decide.",Seth Godin
+The first step toward success is taken when you refuse to be a captive of the environment in which you first find yourself.,Mark Caine
+The way we spend our time defines who we are.,Jonathan Estrin
+The most efficient way to live reasonably is every morning to make a plan of one’s day and every night to examine the results obtained.,Alexis Carrel
+"You can’t manage time, you can only manage yourself.",Unknown
+The successful person has the habit of doing the things failures don’t like to do.,Thomas Edison
+The time you enjoy wasting is not wasted time.,Bertrand Russell
+The best investment you can make is in yourself.,Warren Buffett
+The only thing standing between you and your goal is the story you keep telling yourself.,Jordan Belfort
+"The more you value your time, the more productive you become.",Unknown
+The discipline you learn and character you build from setting and achieving a goal can be more valuable than the achievement of the goal itself.,Bo Bennett
+The best way to get something done is to begin.,Unknown
+The greatest amount of wasted time is the time not getting started.,Dawson Trotman
+The only person you are destined to become is the person you decide to be.,Ralph Waldo Emerson
+The secret to productivity is simplicity.,Unknown
+"The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack in will.",Vince Lombardi
+The time is always right to do what is right.,Martin Luther King Jr.
+"The more you do, the more energy you have.",Unknown
+The successful man is the one who finds out what is the matter with his business before his competitors do.,Roy L. Smith
+The best time management technique is to eliminate wasted time.,Unknown
+The only limit to our realization of tomorrow will be our doubts of today.,Franklin D. Roosevelt
+The most precious resource we all have is time.,Steve Jobs
+The key to productivity is to rotate your avoidance techniques.,Scott Adams
+The way to get started is to quit talking and begin doing.,Walt Disney
+The best way to predict your future is to create it.,Abraham Lincoln
+The man who does not read has no advantage over the man who cannot read.,Mark Twain
+"The more you praise and celebrate your life, the more there is in life to celebrate.",Oprah Winfrey
+The only thing that overcomes hard luck is hard work.,Harry Golden
+The best preparation for good work tomorrow is to do good work today.,Elbert Hubbard
+The successful person is the individual who forms the habit of doing what the failing person doesn’t like to do.,Donald Riggs
+The time you spend on planning is time you save on execution.,Unknown
+The secret of your success is found in your daily routine.,John C. Maxwell
+"The more you do, the more you can do.",William Hazlitt
+The best way to capture moments is to pay attention. This is how we cultivate mindfulness.,Jon Kabat-Zinn
+The only thing worse than starting something and failing is not starting something.,Seth Godin
+The difference between who you are and who you want to be is what you do.,Unknown
+The most productive people are those who listen to their own rhythm.,Unknown
+The best time to start was yesterday. The next best time is now.,Unknown
+The only way to achieve the impossible is to believe it is possible.,Charles Kingsleigh
+"The more you value your time, the more you will get out of it.",Unknown
+The successful man is the average man focused.,Unknown
+The best way to get ahead is to get started.,Mark Twain
+The time you enjoy wasting is not wasted time.,Bertrand Russell
+"The secret to productivity is to work smarter, not harder.",Unknown
+"The more disciplined you become, the easier life gets.",Unknown
+The only place success comes before work is in the dictionary.,Vidal Sassoon
+The best way to predict the future is to create it.,Peter Drucker
+The difference between ordinary and extraordinary is that little extra.,Jimmy Johnson
+The expert in anything was once a beginner.,Helen Hayes
+The only way to do great work is to love what you do.,Steve Jobs
+The most valuable asset is not your time. It’s your energy.,Unknown
+The time for action is now. It’s never too late to do something.,Antoine de Saint-Exupéry
+The best time to plant a tree was 20 years ago. The second best time is now.,Chinese Proverb
+The shorter way to do many things is to do only one thing at a time.,Mozart
+Don’t watch the clock; do what it does. Keep going.,Sam Levenson
+The biggest challenge is to stay focused. It’s to have the discipline when there are so many competing things.,Alexis Ohanian
+The most effective way to do it is to do it.,Amelia Earhart
+The only place where success comes before work is in the dictionary.,Vidal Sassoon
+The best preparation for tomorrow is doing your best today.,H. Jackson Brown Jr.
+Action is the foundational key to all success.,Pablo Picasso
+"The successful warrior is the average man, with laser-like focus.",Bruce Lee
+"You may delay, but time will not.",Benjamin Franklin
+The man who moves a mountain begins by carrying away small stones.,Confucius
+"The more disciplined you become, the easier life gets.",Unknown
+Time management is life management.,Robin Sharma
+"You don’t need more time in your day, you need to decide.",Seth Godin
+The first step toward success is taken when you refuse to be a captive of the environment in which you first find yourself.,Mark Caine
+The way we spend our time defines who we are.,Jonathan Estrin
+The most efficient way to live reasonably is every morning to make a plan of one’s day and every night to examine the results obtained.,Alexis Carrel
+"You can’t manage time, you can only manage yourself.",Unknown
+The successful person has the habit of doing the things failures don’t like to do.,Thomas Edison
+The time you enjoy wasting is not wasted time.,Bertrand Russell
+The best investment you can make is in yourself.,Warren Buffett
+The only thing standing between you and your goal is the story you keep telling yourself.,Jordan Belfort
+"The more you value your time, the more productive you become.",Unknown
+The discipline you learn and character you build from setting and achieving a goal can be more valuable than the achievement of the goal itself.,Bo Bennett
+The best way to get something done is to begin.,Unknown
+The greatest amount of wasted time is the time not getting started.,Dawson Trotman
+The only person you are destined to become is the person you decide to be.,Ralph Waldo Emerson
+The secret to productivity is simplicity.,Unknown
+"The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack in will.",Vince Lombardi
+The time is always right to do what is right.,Martin Luther King Jr.
+"The more you do, the more energy you have.",Unknown
+The successful man is the one who finds out what is the matter with his business before his competitors do.,Roy L. Smith
+The best time management technique is to eliminate wasted time.,Unknown
+The only limit to our realization of tomorrow will be our doubts of today.,Franklin D. Roosevelt
+The most precious resource we all have is time.,Steve Jobs
+The key to productivity is to rotate your avoidance techniques.,Scott Adams
+The way to get started is to quit talking and begin doing.,Walt Disney
+The best way to predict your future is to create it.,Abraham Lincoln
+The man who does not read has no advantage over the man who cannot read.,Mark Twain
+"The more you praise and celebrate your life, the more there is in life to celebrate.",Oprah Winfrey
+The only thing that overcomes hard luck is hard work.,Harry Golden
+The best preparation for good work tomorrow is to do good work today.,Elbert Hubbard
+The successful person is the individual who forms the habit of doing what the failing person doesn’t like to do.,Donald Riggs
+The time you spend on planning is time you save on execution.,Unknown
+The secret of your success is found in your daily routine.,John C. Maxwell
+"The more you do, the more you can do.",William Hazlitt
+The best way to capture moments is to pay attention. This is how we cultivate mindfulness.,Jon Kabat-Zinn
+The only thing worse than starting something and failing is not starting something.,Seth Godin
+The difference between who you are and who you want to be is what you do.,Unknown
+The most productive people are those who listen to their own rhythm.,Unknown
+The best time to start was yesterday. The next best time is now.,Unknown
+The only way to achieve the impossible is to believe it is possible.,Charles Kingsleigh
+"The more you value your time, the more you will get out of it.",Unknown
+The successful man is the average man focused.,Unknown
+The best way to get ahead is to get started.,Mark Twain
+The time you enjoy wasting is not wasted time.,Bertrand Russell
+"The secret to productivity is to work smarter, not harder.",Unknown
+"The more disciplined you become, the easier life gets.",Unknown
+The only place success comes before work is in the dictionary.,Vidal Sassoon
+The best way to predict the future is to create it.,Peter Drucker
+The difference between ordinary and extraordinary is that little extra.,Jimmy Johnson
+The expert in anything was once a beginner.,Helen Hayes
+The only way to do great work is to love what you do.,Steve Jobs
+The most valuable asset is not your time. It’s your energy.,Unknown
+The time for action is now. It’s never too late to do something.,Antoine de Saint-Exupéry
+The best time to plant a tree was 20 years ago. The second best time is now.,Chinese Proverb
+The shorter way to do many things is to do only one thing at a time.,Mozart
+Don’t watch the clock; do what it does. Keep going.,Sam Levenson
+The biggest challenge is to stay focused. It’s to have the discipline when there are so many competing things.,Alexis Ohanian
+The most effective way to do it is to do it.,Amelia Earhart
+The only place where success comes before work is in the dictionary.,Vidal Sassoon
+The best preparation for tomorrow is doing your best today.,H. Jackson Brown Jr.
+Action is the foundational key to all success.,Pablo Picasso
+"The successful warrior is the average man, with laser-like focus.",Bruce Lee
+"You may delay, but time will not.",Benjamin Franklin
+The man who moves a mountain begins by carrying away small stones.,Confucius
+"The more disciplined you become, the easier life gets.",Unknown
+Time management is life management.,Robin Sharma
+"You don’t need more time in your day, you need to decide.",Seth Godin
+The first step toward success is taken when you refuse to be a captive of the environment in which you first find yourself.,Mark Caine
+The way we spend our time defines who we are.,Jonathan Estrin
+The most efficient way to live reasonably is every morning to make a plan of one’s day and every night to examine the results obtained.,Alexis Carrel
+"You can’t manage time, you can only manage yourself.",Unknown
+The successful person has the habit of doing the things failures don’t like to do.,Thomas Edison
+The time you enjoy wasting is not wasted time.,Bertrand Russell
+The best investment you can make is in yourself.,Warren Buffett
+The only thing standing between you and your goal is the story you keep telling yourself.,Jordan Belfort
+"The more you value your time, the more productive you become.",Unknown
+The discipline you learn and character you build from setting and achieving a goal can be more valuable than the achievement of the goal itself.,Bo Bennett
+The best way to get something done is to begin.,Unknown
+The greatest amount of wasted time is the time not getting started.,Dawson Trotman
+The only person you are destined to become is the person you decide to be.,Ralph Waldo Emerson
+The secret to productivity is simplicity.,Unknown
+"The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack in will.",Vince Lombardi
+The time is always right to do what is right.,Martin Luther King Jr.
+"The more you do, the more energy you have.",Unknown
+The successful man is the one who finds out what is the matter with his business before his competitors do.,Roy L. Smith
+The best time management technique is to eliminate wasted time.,Unknown
+The only limit to our realization of tomorrow will be our doubts of today.,Franklin D. Roosevelt
+The most precious resource we all have is time.,Steve Jobs
+The key to productivity is to rotate your avoidance techniques.,Scott Adams
+The way to get started is to quit talking and begin doing.,Walt Disney
+The best way to predict your future is to create it.,Abraham Lincoln
+The man who does not read has no advantage over the man who cannot read.,Mark Twain
+"The more you praise and celebrate your life, the more there is in life to celebrate.",Oprah Winfrey
+The only thing that overcomes hard luck is hard work.,Harry Golden
+The best preparation for good work tomorrow is to do good work today.,Elbert Hubbard
+The successful person is the individual who forms the habit of doing what the failing person doesn’t like to do.,Donald Riggs
+The time you spend on planning is time you save on execution.,Unknown
+The secret of your success is found in your daily routine.,John C. Maxwell
+"The more you do, the more you can do.",William Hazlitt
+The best way to capture moments is to pay attention. This is how we cultivate mindfulness.,Jon Kabat-Zinn
+The only thing worse than starting something and failing is not starting something.,Seth Godin
+The difference between who you are and who you want to be is what you do.,Unknown
+The most productive people are those who listen to their own rhythm.,Unknown
+The best time to start was yesterday. The next best time is now.,Unknown
+The only way to achieve the impossible is to believe it is possible.,Charles Kingsleigh
+"The more you value your time, the more you will get out of it.",Unknown
+The successful man is the average man focused.,Unknown
+The best way to get ahead is to get started.,Mark Twain
+The time you enjoy wasting is not wasted time.,Bertrand Russell
+"The secret to productivity is to work smarter, not harder.",Unknown
+"The more disciplined you become, the easier life gets.",Unknown
+The only place success comes before work is in the dictionary.,Vidal Sassoon
+The best way to predict the future is to create it.,Peter Drucker
+The difference between ordinary and extraordinary is that little extra.,Jimmy Johnson
+The expert in anything was once a beginner.,Helen Hayes
+The only way to do great work is to love what you do.,Steve Jobs
+The most valuable asset is not your time. It’s your energy.,Unknown
+The time for action is now. It’s never too late to do something.,Antoine de Saint-Exupéry
+The best time to plant a tree was 20 years ago. The second best time is now.,Chinese Proverb
+The shorter way to do many things is to do only one thing at a time.,Mozart
+Don’t watch the clock; do what it does. Keep going.,Sam Levenson
+The biggest challenge is to stay focused. It’s to have the discipline when there are so many competing things.,Alexis Ohanian
+The most effective way to do it is to do it.,Amelia Earhart
+The only place where success comes before work is in the dictionary.,Vidal Sassoon
+The best preparation for tomorrow is doing your best today.,H. Jackson Brown Jr.
+Action is the foundational key to all success.,Pablo Picasso
+"The successful warrior is the average man, with laser-like focus.",Bruce Lee
+"You may delay, but time will not.",Benjamin Franklin
+The man who moves a mountain begins by carrying away small stones.,Confucius
+"The more disciplined you become, the easier life gets.",Unknown
+Time management is life management.,Robin Sharma
+"You don’t need more time in your day, you need to decide.",Seth Godin
+The first step toward success is taken when you refuse to be a captive of the environment in which you first find yourself.,Mark Caine
+The way we spend our time defines who we are.,Jonathan Estrin
+The most efficient way to live reasonably is every morning to make a plan of one’s day and every night to examine the results obtained.,Alexis Carrel
+"You can’t manage time, you can only manage yourself.",Unknown
+The successful person has the habit of doing the things failures don’t like to do.,Thomas Edison
+The time you enjoy wasting is not wasted time.,Bertrand Russell
+The best investment you can make is in yourself.,Warren Buffett
+The only thing standing between you and your goal is the story you keep telling yourself.,Jordan Belfort
+"The more you value your time, the more productive you become.",Unknown
+The discipline you learn and character you build from setting and achieving a goal can be more valuable than the achievement of the goal itself.,Bo Bennett
+The best way to get something done is to begin.,Unknown
+The greatest amount of wasted time is the time not getting started.,Dawson Trotman
+The only person you are destined to become is the person you decide to be.,Ralph Waldo Emerson
+The secret to productivity is simplicity.,Unknown
+"The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack in will.",Vince Lombardi
+The time is always right to do what is right.,Martin Luther King Jr.
+"The more you do, the more energy you have.",Unknown
+The successful man is the one who finds out what is the matter with his business before his competitors do.,Roy L. Smith
+The best time management technique is to eliminate wasted time.,Unknown
+The only limit to our realization of tomorrow will be our doubts of today.,Franklin D. Roosevelt
+The most precious resource we all have is time.,Steve Jobs
+The key to productivity is to rotate your avoidance techniques.,Scott Adams
+The way to get started is to quit talking and begin doing.,Walt Disney
+The best way to predict your future is to create it.,Abraham Lincoln
+The man who does not read has no advantage over the man who cannot read.,Mark Twain
+"The more you praise and celebrate your life, the more there is in life to celebrate.",Oprah Winfrey
+The only thing that overcomes hard luck is hard work.,Harry Golden
+The best preparation for good work tomorrow is to do good work today.,Elbert Hubbard
+The successful person is the individual who forms the habit of doing what the failing person doesn’t like to do.,Donald Riggs
+The time you spend on planning is time you save on execution.,Unknown
+The secret of your success is found in your daily routine.,John C. Maxwell
+"The more you do, the more you can do.",William Hazlitt
+The best way to capture moments is to pay attention. This is how we cultivate mindfulness.,Jon Kabat-Zinn
+The only thing worse than starting something and failing is not starting something.,Seth Godin
+The difference between who you are and who you want to be is what you do.,Unknown
+The most productive people are those who listen to their own rhythm.,Unknown
+The best time to start was yesterday. The next best time is now.,Unknown
+The only way to achieve the impossible is to believe it is possible.,Charles Kingsleigh
+"The more you value your time, the more you will get out of it.",Unknown
+The successful man is the average man focused.,Unknown
+The best way to get ahead is to get started.,Mark Twain
+The time you enjoy wasting is not wasted time.,Bertrand Russell
+"The secret to productivity is to work smarter, not harder.",Unknown
+"The more disciplined you become, the easier life gets.",Unknown
+The only place success comes before work is in the dictionary.,Vidal Sassoon
+The best way to predict the future is to create it.,Peter Drucker
+The difference between ordinary and extraordinary is that little extra.,Jimmy Johnson
+The expert in anything was once a beginner.,Helen Hayes
+The only way to do great work is to love what you do.,Steve Jobs
+The most valuable asset is not your time. It’s your energy.,Unknown
+The time for action is now. It’s never too late to do something.,Antoine de Saint-Exupéry
+The best time to plant a tree was 20 years ago. The second best time is now.,Chinese Proverb
+The shorter way to do many things is to do only one thing at a time.,Mozart
+Don’t watch the clock; do what it does. Keep going.,Sam Levenson
+The biggest challenge is to stay focused. It’s to have the discipline when there are so many competing things.,Alexis Ohanian
+The most effective way to do it is to do it.,Amelia Earhart
+The only place where success comes before work is in the dictionary.,Vidal Sassoon
+The best preparation for tomorrow is doing your best today.,H. Jackson Brown Jr.
+Action is the foundational key to all success.,Pablo Picasso
+"The successful warrior is the average man, with laser-like focus.",Bruce Lee
+"You may delay, but time will not.",Benjamin Franklin
+The man who moves a mountain begins by carrying away small stones.,Confucius
+"The more disciplined you become, the easier life gets.",Unknown
+Time management is life management.,Robin Sharma
+"You don’t need more time in your day, you need to decide.",Seth Godin
+The first step toward success is taken when you refuse to be a captive of the environment in which you first find yourself.,Mark Caine
+The way we spend our time defines who we are.,Jonathan Estrin
+The most efficient way to live reasonably is every morning to make a plan of one’s day and every night to examine the results obtained.,Alexis Carrel
+"You can’t manage time, you can only manage yourself.",Unknown
+The successful person has the habit of doing the things failures don’t like to do.,Thomas Edison
+The time you enjoy wasting is not wasted time.,Bertrand Russell
+The best investment you can make is in yourself.,Warren Buffett
+The only thing standing between you and your goal is the story you keep telling yourself.,Jordan Belfort
+"The more you value your time, the more productive you become.",Unknown
+The discipline you learn and character you build from setting and achieving a goal can be more valuable than the achievement of the goal itself.,Bo Bennett
+The best way to get something done is to begin.,Unknown
+The greatest amount of wasted time is the time not getting started.,Dawson Trotman
+The only person you are destined to become is the person you decide to be.,Ralph Waldo Emerson
+The secret to productivity is simplicity.,Unknown
+"The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack in will.",Vince Lombardi
+The time is always right to do what is right.,Martin Luther King Jr.
+"The more you do, the more energy you have.",Unknown
+The successful man is the one who finds out what is the matter with his business before his competitors do.,Roy L. Smith
+The best time management technique is to eliminate wasted time.,Unknown
+The only limit to our realization of tomorrow will be our doubts of today.,Franklin D. Roosevelt
+The most precious resource we all have is time.,Steve Jobs
+The key to productivity is to rotate your avoidance techniques.,Scott Adams
+The way to get started is to quit talking and begin doing.,Walt Disney
+The best way to predict your future is to create it.,Abraham Lincoln
+The man who does not read has no advantage over the man who cannot read.,Mark Twain
+"The more you praise and celebrate your life, the more there is in life to celebrate.",Oprah Winfrey
+The only thing that overcomes hard luck is hard work.,Harry Golden
+The best preparation for good work tomorrow is to do good work today.,Elbert Hubbard
+The successful person is the individual who forms the habit of doing what the failing person doesn’t like to do.,Donald Riggs
+The time you spend on planning is time you save on execution.,Unknown
+The secret of your success is found in your daily routine.,John C. Maxwell
+"The more you do, the more you can do.",William Hazlitt
+The best way to capture moments is to pay attention. This is how we cultivate mindfulness.,Jon Kabat-Zinn
+The only thing worse than starting something and failing is not starting something.,Seth Godin
+The difference between who you are and who you want to be is what you do.,Unknown
+The most productive people are those who listen to their own rhythm.,Unknown
+The best time to start was yesterday. The next best time is now.,Unknown
+The only way to achieve the impossible is to believe it is possible.,Charles Kingsleigh
+"The more you value your time, the more you will get out of it.",Unknown
+The successful man is the average man focused.,Unknown
+The best way to get ahead is to get started.,Mark Twain
+The time you enjoy wasting is not wasted time.,Bertrand Russell
+"The secret to productivity is to work smarter, not harder.",Unknown
+"The more disciplined you become, the easier life gets.",Unknown
+The only place success comes before work is in the dictionary.,Vidal Sassoon
+The best way to predict the future is to create it.,Peter Drucker
+The difference between ordinary and extraordinary is that little extra.,Jimmy Johnson
+The expert in anything was once a beginner.,Helen Hayes
+The only way to do great work is to love what you do.,Steve Jobs
+The most valuable asset is not your time. It’s your energy.,Unknown
+The time for action is now. It’s never too late to do something.,Antoine de Saint-Exupéry
+The best time to plant a tree was 20 years ago. The second best time is now.,Chinese Proverb
+The shorter way to do many things is to do only one thing at a time.,Mozart
+Don’t watch the clock; do what it does. Keep going.,Sam Levenson
+The biggest challenge is to stay focused. It’s to have the discipline when there are so many competing things.,Alexis Ohanian
+The most effective way to do it is to do it.,Amelia Earhart
+The only place where success comes before work is in the dictionary.,Vidal Sassoon
+The best preparation for tomorrow is doing your best today.,H. Jackson Brown Jr.
+Action is the foundational key to all success.,Pablo Picasso
+"The successful warrior is the average man, with laser-like focus.",Bruce Lee
+"You may delay, but time will not.",Benjamin Franklin
+The man who moves a mountain begins by carrying away small stones.,Confucius
