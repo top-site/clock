@@ -209,3 +209,128 @@ window.resetStopwatch = () => stopwatch.reset();
 window.setAlarm = () => alarm.set();
 window.snoozeAlarm = () => alarm.snooze();
 window.stopAlarm = () => alarm.stop();
+
+// Weather code descriptions for Open-Meteo
+      const weatherCodes = {
+        0: 'Clear sky',
+        1: 'Mainly clear',
+        2: 'Partly cloudy',
+        3: 'Overcast',
+        45: 'Fog',
+        48: 'Depositing rime fog',
+        51: 'Light drizzle',
+        53: 'Moderate drizzle',
+        55: 'Dense drizzle',
+        56: 'Light freezing drizzle',
+        57: 'Dense freezing drizzle',
+        61: 'Slight rain',
+        63: 'Moderate rain',
+        65: 'Heavy rain',
+        66: 'Light freezing rain',
+        67: 'Heavy freezing rain',
+        71: 'Slight snow fall',
+        73: 'Moderate snow fall',
+        75: 'Heavy snow fall',
+        77: 'Snow grains',
+        80: 'Slight rain showers',
+        81: 'Moderate rain showers',
+        82: 'Violent rain showers',
+        85: 'Slight snow showers',
+        86: 'Heavy snow showers',
+        95: 'Thunderstorm',
+        96: 'Thunderstorm with slight hail',
+        99: 'Thunderstorm with heavy hail'
+      };
+
+      const weatherIcons = {
+        0: '☀️',
+        1: '🌤️',
+        2: '⛅',
+        3: '☁️',
+        45: '🌫️',
+        48: '🌫️',
+        51: '🌦️',
+        53: '🌦️',
+        55: '🌦️',
+        56: '🌨️',
+        57: '🌨️',
+        61: '🌧️',
+        63: '🌧️',
+        65: '🌧️',
+        66: '🌨️',
+        67: '🌨️',
+        71: '❄️',
+        73: '❄️',
+        75: '❄️',
+        77: '❄️',
+        80: '🌦️',
+        81: '🌦️',
+        82: '⛈️',
+        85: '🌨️',
+        86: '🌨️',
+        95: '⛈️',
+        96: '⛈️',
+        99: '⛈️'
+      };
+
+  // Load weather when weather tab is selected
+        if (tab === 'weather') {
+          loadWeatherData();
+        }
+      }
+
+ // Weather functions
+      function loadWeatherData() {
+        // Check if weather data is already loaded
+        if (document.getElementById('weather-main').textContent !== 'Fetching weather...') {
+          return;
+        }
+
+        // Fetch user's IP Address and location using ipapi.co
+        fetch('https://ipapi.co/json/')
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('ip-address').textContent = `IP: ${data.ip}`;
+            
+            const city = data.city;
+            const country = data.country_name;
+            const lat = data.latitude;
+            const lon = data.longitude;
+            
+            document.getElementById('location').textContent = `${city}, ${country}`;
+
+            // Fetch weather using coordinates with Open-Meteo API
+            const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,surface_pressure,weather_code,wind_speed_10m&timezone=auto`;
+            
+            fetch(weatherUrl)
+              .then(response => response.json())
+              .then(weatherData => {
+                const current = weatherData.current;
+                const temp = Math.round(current.temperature_2m);
+                const feelsLike = Math.round(current.apparent_temperature);
+                const humidity = current.relative_humidity_2m;
+                const windSpeed = Math.round(current.wind_speed_10m * 10) / 10;
+                const pressure = Math.round(current.surface_pressure);
+                const weatherCode = current.weather_code;
+                const weatherDesc = weatherCodes[weatherCode] || 'Unknown';
+                const weatherIcon = weatherIcons[weatherCode] || '';
+
+                // Update display
+                document.getElementById('weather-main').textContent = 
+                  `${weatherIcon} ${temp}°C, ${weatherDesc}`;
+                document.getElementById('feels-like').textContent = `Feels Like: ${feelsLike}°C`;
+                document.getElementById('humidity').textContent = `Humidity: ${humidity}%`;
+                document.getElementById('wind-speed').textContent = `Wind Speed: ${windSpeed} km/h`;
+                document.getElementById('pressure').textContent = `Pressure: ${pressure} hPa`;
+              })
+              .catch(error => {
+                console.error('Weather fetch error:', error);
+                document.getElementById('weather-main').textContent = 'Error fetching weather';
+              });
+          })
+          .catch(error => {
+            console.error('Location fetch error:', error);
+            document.getElementById('ip-address').textContent = 'Error fetching IP';
+            document.getElementById('location').textContent = 'Error fetching location';
+          });
+      }
