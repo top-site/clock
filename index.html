@@ -230,13 +230,49 @@
         <br>
         <br>
 
-       <div id="quote-of-the-day" style="text-align:center; font-style:italic; margin-bottom:10px; color:#ccc;">
-       <div style="font-weight: bold; margin-bottom: 5px;">Quote of the Day</div>
-       <iframe 
-         src="https://e-clock.top/quote.html" 
-        style="border:none; overflow:hidden; width:100%; height:30px;" 
-       scrolling="no">
-       </iframe>    </div>
+      <div id="quote-display">Loading...</div>
+
+    <script>
+        let quotes = [];
+
+        async function loadQuotes() {
+            try {
+                const response = await fetch('motivational_quotes.csv');
+                const csvText = await response.text();
+                const lines = csvText.trim().split('\n');
+                
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (line) {
+                        const parts = line.split(',');
+                        const quote = parts[0]?.replace(/"/g, '').trim();
+                        const author = parts[1]?.replace(/"/g, '').trim() || '';
+                        
+                        if (quote) {
+                            quotes.push({ text: quote, author: author });
+                        }
+                    }
+                }
+                
+                if (quotes.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * quotes.length);
+                    const quote = quotes[randomIndex];
+                    
+                    document.getElementById('quote-display').innerHTML = `
+                        <div class="quote-text">"${quote.text}"</div>
+                        <div class="quote-author">${quote.author ? '— ' + quote.author : ''}</div>
+                    `;
+                } else {
+                    document.getElementById('quote-display').innerHTML = 'No quotes found.';
+                }
+                
+            } catch (error) {
+                document.getElementById('quote-display').innerHTML = 'Error loading quotes.';
+            }
+        }
+
+        loadQuotes();
+    </script>
 
         
         <br>
