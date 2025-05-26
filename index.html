@@ -166,11 +166,12 @@
 
     <script>
       document.addEventListener('contextmenu', event => event.preventDefault());
+      document.addEventListener('selectstart', event => event.preventDefault()); // Text selection
+      document.addEventListener('dragstart', event => event.preventDefault());   // Dragging elements
       document.addEventListener('keydown', event => {
-    const blockedKeys = ['S', 'U', 'C', 'I', 'J'];
-    const key = event.key.toUpperCase();
-
-    if (
+       const blockedKeys = ['S', 'U', 'C', 'I', 'J'];
+       const key = event.key.toUpperCase();
+   if (
       (event.ctrlKey && blockedKeys.includes(key)) ||
       (event.ctrlKey && event.shiftKey && blockedKeys.includes(key)) ||
       (event.metaKey && blockedKeys.includes(key)) // for Mac users
