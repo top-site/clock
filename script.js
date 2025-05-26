@@ -209,4 +209,3 @@ window.resetStopwatch = () => stopwatch.reset();
 window.setAlarm = () => alarm.set();
 window.snoozeAlarm = () => alarm.snooze();
 window.stopAlarm = () => alarm.stop();
-
