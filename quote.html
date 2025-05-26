@@ -3,80 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Quote</title>
+    <title>Random Motivational Quote</title>
     <style>
-        body {
-            font-family: Georgia, serif;
-            margin: 0;
-            padding: 20px;
+        .quote-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
             text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
         
-        #quote {
-            font-size: 1.2em;
+        .quote-text {
+            font-size: 1.3em;
+            font-style: italic;
             line-height: 1.6;
-            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .quote-author {
+            font-size: 1.1em;
+            font-weight: bold;
+            opacity: 0.9;
+        }
+        
+        .new-quote-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        
+        .new-quote-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .loading {
+            color: rgba(255,255,255,0.8);
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <div id="quote">Loading...</div>
+    <div class="quote-container">
+        <div id="quote-display" class="loading">Loading inspirational quote...</div>
+        <button class="new-quote-btn" onclick="getRandomQuote()">New Quote</button>
+    </div>
 
     <script>
-        async function loadQuote() {
+        let quotes = [];
+
+        // Load quotes from CSV file
+        async function loadQuotes() {
             try {
                 const response = await fetch('motivational_quotes.csv');
                 const csvText = await response.text();
-                const lines = csvText.trim().split('\n');
-                const quotes = [];
                 
-                for (let i = 0; i < lines.length; i++) {
+                const lines = csvText.trim().split('\n');
+                quotes = [];
+                
+                // Skip header row, parse each line
+                for (let i = 1; i < lines.length; i++) {
                     const line = lines[i].trim();
                     if (line) {
-                        // Handle CSV with quotes and commas properly
-                        const columns = parseCSVLine(line);
-                        const quote = columns[0] ? columns[0].replace(/^"|"$/g, '').trim() : '';
-                        if (quote && !quote.toLowerCase().includes('quote')) {
-                            quotes.push(quote);
+                        const parts = line.split(',');
+                        const quote = parts[0]?.replace(/"/g, '').trim();
+                        const author = parts[1]?.replace(/"/g, '').trim() || '';
+                        
+                        if (quote) {
+                            quotes.push({ text: quote, author: author });
                         }
                     }
                 }
                 
-        function parseCSVLine(line) {
-            const result = [];
-            let current = '';
-            let inQuotes = false;
-            
-            for (let i = 0; i < line.length; i++) {
-                const char = line[i];
-                
-                if (char === '"') {
-                    inQuotes = !inQuotes;
-                } else if (char === ',' && !inQuotes) {
-                    result.push(current);
-                    current = '';
-                } else {
-                    current += char;
-                }
-            }
-            
-            result.push(current);
-            return result;
-        }
-                
                 if (quotes.length > 0) {
-                    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-                    document.getElementById('quote').textContent = randomQuote;
+                    getRandomQuote();
                 } else {
-                    document.getElementById('quote').textContent = 'No quotes available.';
+                    document.getElementById('quote-display').innerHTML = 'No quotes found in file.';
                 }
                 
             } catch (error) {
-                document.getElementById('quote').textContent = 'Error loading quote.';
+                document.getElementById('quote-display').innerHTML = 'Error loading quotes. Please check if motivational_quotes.csv exists.';
             }
         }
 
-        loadQuote();
+        // Display random quote
+        function getRandomQuote() {
+            if (quotes.length === 0) return;
+            
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const quote = quotes[randomIndex];
+            
+            const html = `
+                <div class="quote-text">"${quote.text}"</div>
+                <div class="quote-author">${quote.author ? '— ' + quote.author : ''}</div>
+            `;
+            
+            document.getElementById('quote-display').innerHTML = html;
+        }
+
+        // Load quotes when page loads
+        loadQuotes();
     </script>
 </body>
 </html>
