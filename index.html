@@ -167,8 +167,16 @@
     <script>
       document.addEventListener('contextmenu', event => event.preventDefault());
       document.addEventListener('keydown', event => {
-    if (event.ctrlKey && ['S', 'U', 'C', 'I', 'J'].includes(event.key.toUpperCase())) {
+    const blockedKeys = ['S', 'U', 'C', 'I', 'J'];
+    const key = event.key.toUpperCase();
+
+    if (
+      (event.ctrlKey && blockedKeys.includes(key)) ||
+      (event.ctrlKey && event.shiftKey && blockedKeys.includes(key)) ||
+      (event.metaKey && blockedKeys.includes(key)) // for Mac users
+    ) {
       event.preventDefault();
+      console.log('Blocked:', key);
     }
   });
     </script>
