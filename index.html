@@ -274,7 +274,6 @@
 
     <script>
   const fsButton = document.getElementById('fullscreen-toggle');
-
   fsButton.addEventListener('click', () => {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen().catch(err => {
@@ -286,6 +285,12 @@
   });
 </script>
 
+<script>
+    const lightModeToggle = document.getElementById('lightModeToggle');
+lightModeToggle.addEventListener('click', () => {
+  document.documentElement.classList.toggle('light-mode');
+});
+  </script>
     
   </body>
 </html>
