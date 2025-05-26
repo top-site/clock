@@ -773,28 +773,51 @@
           });
       }
 
-      // Quote loading function
-      async function loadQuotes() {
-        try {
-          // Since we can't load external CSV, we'll use a simple quote
-          const quotes = [
-            { text: "Time is what we want most, but what we use worst.", author: "William Penn" },
-            { text: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
-            { text: "Don't let yesterday take up too much of today.", author: "Will Rogers" },
-            { text: "Time flies over us, but leaves its shadow behind.", author: "Nathaniel Hawthorne" }
-          ];
-          
-          const randomIndex = Math.floor(Math.random() * quotes.length);
-          const quote = quotes[randomIndex];
-          
-          document.getElementById('quote-display').innerHTML = `
-            <div class="quote-text">"${quote.text}"</div>
-            <div class="quote-author">— ${quote.author}</div>
-          `;
-        } catch (error) {
-          document.getElementById('quote-display').innerHTML = 'Error loading quotes.';
+     <p style="font-weight: bold; color: orange;">Quote of the Day</p>
+
+      <div id="quote-display">Loading...</div>
+
+    <script>
+        let quotes = [];
+
+        async function loadQuotes() {
+            try {
+                const response = await fetch('motivational_quotes.csv');
+                const csvText = await response.text();
+                const lines = csvText.trim().split('\n');
+                
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (line) {
+                        const parts = line.split(',');
+                        const quote = parts[0]?.replace(/"/g, '').trim();
+                        const author = parts[1]?.replace(/"/g, '').trim() || '';
+                        
+                        if (quote) {
+                            quotes.push({ text: quote, author: author });
+                        }
+                    }
+                }
+                
+                if (quotes.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * quotes.length);
+                    const quote = quotes[randomIndex];
+                    
+                    document.getElementById('quote-display').innerHTML = `
+                        <div class="quote-text">"${quote.text}"</div>
+                        <div class="quote-author">${quote.author ? '— ' + quote.author : ''}</div>
+                    `;
+                } else {
+                    document.getElementById('quote-display').innerHTML = 'No quotes found.';
+                }
+                
+            } catch (error) {
+                document.getElementById('quote-display').innerHTML = 'Error loading quotes.';
+            }
         }
-      }
+
+        loadQuotes();
+    </script>
 
       // Fullscreen toggle
       const fsButton = document.getElementById('fullscreen-toggle');
