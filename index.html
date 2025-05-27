@@ -82,65 +82,6 @@
     }
     </script>
 
-    <!-- FAQPage Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is e-clock.top?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "e-clock.top is a free, open-source online tool that includes a digital clock, alarm, timer, and stopwatch — all in one clean, user-friendly interface."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to create an account to use e-clock.top?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. e-clock.top is completely free and does not require any sign-up. Just visit the site and use the tools immediately."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will the alarm or timer work if I close the browser tab?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No, the alarm and timer need the browser tab to remain open and active. Closing the tab will stop the countdown or alert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use e-clock.top on my phone?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! The website is mobile-friendly and works smoothly on phones, tablets, and desktops. You can also add it to your home screen like an app."
-      }
-    },
-    
-    {
-      "@type": "Question",
-      "name": "Does e-clock.top support custom alarm sounds?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Currently, e-clock.top uses a default alarm sound. Custom sounds and snooze options are planned for future updates."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there an app version?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We are developing a lightweight Android version using a WebView wrapper. More details will be shared on our blog soon."
-      }
-    }
-  ]
-}
-</script>
-
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
     <script>
@@ -419,6 +360,25 @@
           grid-template-columns: 1fr;
         }
       }
+/* World Clock Styles */
+#city-clock-container {
+  background: var(--color-container) !important;
+  padding: var(--spacing-md) !important;
+  color: var(--color-text) !important;
+  max-width: 100% !important;
+}
+
+#city-select {
+  background: var(--color-tab) !important;
+  color: var(--color-text) !important;
+  padding: var(--spacing-sm) !important;
+  border-radius: var(--border-radius) !important;
+}
+
+#city-time-display {
+  color: var(--color-text) !important;
+  margin-top: var(--spacing-md) !important;
+}
 
       /* Fixed buttons */
       #fullscreen-toggle, #lightModeToggle {
@@ -454,6 +414,7 @@
     <main>
       <nav class="tabs" aria-label="Time tool selection">
         <button class="tab active" onclick="switchTab('clock')" aria-selected="true">Clock</button>
+        <button class="tab" onclick="switchTab('worldclock')" aria-selected="false">World Clock</button>
         <button class="tab" onclick="switchTab('timer')" aria-selected="false">Timer</button>
         <button class="tab" onclick="switchTab('stopwatch')" aria-selected="false">Stopwatch</button>
         <button class="tab" onclick="switchTab('alarm')" aria-selected="false">Alarm</button>
@@ -466,9 +427,75 @@
        <div class="clock" id="digitalClock">00:00:00 AM</div>
       </section>
 
+<!-- Add this new section after the weather section -->
+<section id="worldclock" class="content" aria-label="World Clock">
+  <div id="city-clock-container" style="padding:1em; background:var(--color-tab); border-radius:var(--border-radius-lg); color:var(--color-text); font-family:sans-serif; max-width:320px; margin:auto;">
+    <h2 style="text-align:center; margin-bottom:1em;">🕒 Select a City</h2>
+    <select id="city-select" style="width:100%; padding:0.5em; font-size:1rem; border-radius:var(--border-radius); border:none; background:var(--color-container); color:var(--color-text); cursor:pointer;">
+      <option value="" disabled="disabled" selected="selected">Choose a city...</option>
+      <!-- North America -->
+      <option value="America/New_York">🇺🇸 New York</option>
+      <option value="America/Los_Angeles">🇺🇸 Los Angeles</option>
+      <option value="America/Chicago">🇺🇸 Chicago</option>
+      <option value="Pacific/Honolulu">🇺🇸 Honolulu</option>
+      <option value="America/Toronto">🇨🇦 Toronto</option>
+      <option value="America/Vancouver">🇨🇦 Vancouver</option>
+      <option value="America/Mexico_City">🇲🇽 Mexico City</option>
+      <!-- South America -->
+      <option value="America/Sao_Paulo">🇧🇷 São Paulo</option>
+      <option value="America/Buenos_Aires">🇦🇷 Buenos Aires</option>
+      <option value="America/Lima">🇵🇪 Lima</option>
+      <option value="America/Bogota">🇨🇴 Bogotá</option>
+      <option value="America/Santiago">🇨🇱 Santiago</option>
+      <!-- Europe -->
+      <option value="Europe/London">🇬🇧 London</option>
+      <option value="Europe/Paris">🇫🇷 Paris</option>
+      <option value="Europe/Berlin">🇩🇪 Berlin</option>
+      <option value="Europe/Rome">🇮🇹 Rome</option>
+      <option value="Europe/Madrid">🇪🇸 Madrid</option>
+      <option value="Europe/Amsterdam">🇳🇱 Amsterdam</option>
+      <option value="Europe/Vienna">🇦🇹 Vienna</option>
+      <option value="Europe/Zurich">🇨🇭 Zurich</option>
+      <option value="Europe/Stockholm">🇸🇪 Stockholm</option>
+      <option value="Europe/Prague">🇨🇿 Prague</option>
+      <option value="Europe/Athens">🇬🇷 Athens</option>
+      <option value="Europe/Istanbul">🇹🇷 Istanbul</option>
+      <option value="Europe/Moscow">🇷🇺 Moscow</option>
+      <option value="Europe/Dublin">🇮🇪 Dublin</option>
+      <!-- Asia -->
+      <option value="Asia/Tokyo">🇯🇵 Tokyo</option>
+      <option value="Asia/Shanghai">🇨🇳 Beijing</option>
+      <option value="Asia/Hong_Kong">🇭🇰 Hong Kong</option>
+      <option value="Asia/Singapore">🇸🇬 Singapore</option>
+      <option value="Asia/Kolkata">🇮🇳 Mumbai</option>
+      <option value="Asia/Dubai">🇦🇪 Dubai</option>
+      <option value="Asia/Seoul">🇰🇷 Seoul</option>
+      <option value="Asia/Bangkok">🇹🇭 Bangkok</option>
+      <option value="Asia/Manila">🇵🇭 Manila</option>
+      <option value="Asia/Jakarta">🇮🇩 Jakarta</option>
+      <option value="Asia/Kuala_Lumpur">🇲🇾 Kuala Lumpur</option>
+      <option value="Asia/Ho_Chi_Minh">🇻🇳 Ho Chi Minh City</option>
+      <option value="Asia/Taipei">🇹🇼 Taipei</option>
+      <option value="Asia/Tehran">🇮🇷 Tehran</option>
+      <option value="Asia/Riyadh">🇸🇦 Riyadh</option>
+      <!-- Africa -->
+      <option value="Africa/Cairo">🇪🇬 Cairo</option>
+      <option value="Africa/Johannesburg">🇿🇦 Johannesburg</option>
+      <option value="Africa/Lagos">🇳🇬 Lagos</option>
+      <option value="Africa/Nairobi">🇰🇪 Nairobi</option>
+      <option value="Africa/Casablanca">🇲🇦 Casablanca</option>
+      <!-- Oceania -->
+      <option value="Australia/Sydney">🇦🇺 Sydney</option>
+      <option value="Australia/Melbourne">🇦🇺 Melbourne</option>
+      <option value="Pacific/Auckland">🇳🇿 Auckland</option>
+    </select>
+    <div id="city-time-display" style="margin-top:1.5em; font-size:1.2rem; line-height:1.4; text-align:center;">Please select a city to see the time.</div>
+  </div>
+</section>
+
       <!-- Timer with Custom Input -->
       <section id="timer" class="content" aria-label="Countdown Timer">
-        <label for="timerInput">Set Timer (seconds)</label> 
+        <label for="timerInput">Set Timer (seconds)</label><br> 
         <input id="timerInput" placeholder="Enter time in seconds" min="1" type="number">
         <div class="timer" id="countdown">00:00</div>
         <div class="controls">
@@ -654,6 +681,57 @@
         document.getElementById('currentDate').textContent = dateString;
       }
 
+// World Clock functions
+const citySelect = document.getElementById('city-select');
+const timeDisplay = document.getElementById('city-time-display');
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const months = ['January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November', 'December'];
+let updateInterval;
+
+async function fetchAndDisplayTime(timezone) {
+  try {
+    const res = await fetch(`https://timeapi.io/api/Time/current/zone?timeZone=${timezone}`);
+    if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+    const data = await res.json();
+
+    const date = new Date(data.dateTime);
+    const hoursRaw = date.getHours();
+    const hours = ((hoursRaw + 11) % 12 + 1).toString().padStart(2, '0'); // 12h format
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const ampm = hoursRaw >= 12 ? 'PM' : 'AM';
+    const weekday = days[date.getDay()];
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+    
+    timeDisplay.innerHTML = `
+      <strong>${hours}:${minutes} ${ampm}</strong><br>
+      ${weekday}, ${month} ${day}, ${year}
+    `;
+  } catch (error) {
+    timeDisplay.textContent = 'Failed to load time.';
+    console.error(error);
+  }
+}
+
+if (citySelect) {
+  citySelect.addEventListener('change', () => {
+    const timezone = citySelect.value;
+    if (!timezone) {
+      timeDisplay.textContent = 'Please select a city to see the time.';
+      clearInterval(updateInterval);
+      return;
+    }
+
+    fetchAndDisplayTime(timezone);
+
+    // Clear old interval and update every minute
+    if (updateInterval) clearInterval(updateInterval);
+    updateInterval = setInterval(() => fetchAndDisplayTime(timezone), 60000);
+  });
+}
+
       // Timer functions
       function startTimer() {
         if (!timerRunning) {
@@ -832,47 +910,28 @@
           });
       }
 
-     
-        let quotes = [];
-
-        async function loadQuotes() {
-            try {
-                const response = await fetch('motivational_quotes.csv');
-                const csvText = await response.text();
-                const lines = csvText.trim().split('\n');
-                
-                for (let i = 1; i < lines.length; i++) {
-                    const line = lines[i].trim();
-                    if (line) {
-                        const parts = line.split(',');
-                        const quote = parts[0]?.replace(/"/g, '').trim();
-                        const author = parts[1]?.replace(/"/g, '').trim() || '';
-                        
-                        if (quote) {
-                            quotes.push({ text: quote, author: author });
-                        }
-                    }
-                }
-                
-                if (quotes.length > 0) {
-                    const randomIndex = Math.floor(Math.random() * quotes.length);
-                    const quote = quotes[randomIndex];
-                    
-                    document.getElementById('quote-display').innerHTML = `
-                        <div class="quote-text">"${quote.text}"</div>
-                        <div class="quote-author">${quote.author ? '— ' + quote.author : ''}</div>
-                    `;
-                } else {
-                    document.getElementById('quote-display').innerHTML = 'No quotes found.';
-                }
-                
-            } catch (error) {
-                document.getElementById('quote-display').innerHTML = 'Error loading quotes.';
-            }
+      // Quote loading function
+      async function loadQuotes() {
+        try {
+          // Since we can't load external CSV, we'll use a simple quote
+          const quotes = [
+            { text: "Time is what we want most, but what we use worst.", author: "William Penn" },
+            { text: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+            { text: "Don't let yesterday take up too much of today.", author: "Will Rogers" },
+            { text: "Time flies over us, but leaves its shadow behind.", author: "Nathaniel Hawthorne" }
+          ];
+          
+          const randomIndex = Math.floor(Math.random() * quotes.length);
+          const quote = quotes[randomIndex];
+          
+          document.getElementById('quote-display').innerHTML = `
+            <div class="quote-text">"${quote.text}"</div>
+            <div class="quote-author">— ${quote.author}</div>
+          `;
+        } catch (error) {
+          document.getElementById('quote-display').innerHTML = 'Error loading quotes.';
         }
-
-        loadQuotes();
-   
+      }
 
       // Fullscreen toggle
       const fsButton = document.getElementById('fullscreen-toggle');
