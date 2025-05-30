@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-     <!-- Google Analytics -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -12,116 +12,286 @@
     
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,
-      initial-scale=1.0">
-    <title>e-clock.top Blog</title>
-    <meta name="description" content="Learn how to embed a live clock widget.">
-    <meta name="keywords" content="time widget, embed clock, e-clock.top">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Add a Time Widget to Your Website | e-clock.top</title>
+    <meta name="description" content="Learn how to embed a live clock widget from e-clock.top to your website with just one line of code.">
+    <meta name="keywords" content="time widget, embed clock, e-clock.top, website clock, digital clock widget">
     <style>
-      body {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #121212;
-        color: #ffffff;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #1e1e1e;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #333;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #ff9800;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      color: #ff9800;
+      margin-top: 40px;
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+    }
+    h3 {
+      color: #ff9800;
+      margin-top: 30px;
+    }
+    ul, ol {
+      list-style-position: outside;
+      padding-left: 20px;
+    }
+    ol li {
+      margin-bottom: 10px;
+    }
+    ul li {
+      margin-bottom: 8px;
+    }
+    a {
+      color: #ff9800;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .highlight-box {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid #ff9800;
+      margin: 20px 0;
+    }
+    .code-box {
+      background-color: #0d1117;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+    .code-box code {
+      color: #58a6ff;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .widget-demo {
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      text-align: center;
+      margin: 30px 0;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .feature-card {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #333;
+    }
+    .feature-card h4 {
+      color: #ff9800;
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      text-align: center;
+      margin: 10px;
+    }
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff9800;
+    }
+    .stat-label {
+      color: #bbb;
+      font-size: 0.9rem;
+    }
+    .date-info {
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #333;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #777;
+      border-top: 1px solid #333;
+      margin-top: 40px;
+    }
+    @media (max-width: 600px) {
+      .features-grid {
+        grid-template-columns: 1fr;
       }
-      header {
-        background-color: #1e1e1e;
-        padding: 20px;
-        text-align: center;
-        border-bottom: 2px solid #333;
+      .stats {
+        flex-direction: column;
       }
-      header h1 {
-        margin: 0;
-        font-size: 2rem;
-        color: #00d1ff;
+      .code-box {
+        font-size: 0.8rem;
       }
-      .container {
-        max-width: 1000px;
-        margin: 40px auto;
-        padding: 0 20px;
-      }
-      .post {
-        border: 1px solid #333;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 30px;
-        background-color: #1e1e1e;
-      }
-      .post h2 {
-        color: #00d1ff;
-        margin-top: 0;
-      }
-      .post p {
-        margin: 10px 0;
-      }
-      .post small {
-        color: #888;
-      }
-      a {
-        color: #00d1ff;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      footer {
-        text-align: center;
-        padding: 20px;
-        font-size: 0.9rem;
-        color: #777;
-        border-top: 1px solid #333;
-        margin-top: 40px;
-      }
+    }
     </style>
   </head>
   <body>
     <header>
-      <h1>e-clock.top Blog</h1>
+      <h1>How to Add a Time Widget to Your Website</h1>
+      <p>Embed e-clock.top's Digital Clock Widget in Seconds</p>
     </header>
+    
     <div class="container">
-      <div class="post">
-        <h2>How to Add a Time Widget to Your Website Using e-clock.top</h2>
-        <small>May 11, 2025</small>
-        <p>Want to display a real-time digital clock on your website,
-          blog, or dashboard? With the <strong>e-clock.top widget</strong>,
-          you can embed a sleek, browser-based clock using a single line
-          of code—no JavaScript, no complex setup.</p>
-        <h3>The Widget Code</h3>
-        <p>Here’s the code you need to embed the time widget on any
-          webpage:</p>
-        <pre><code>&lt;iframe src="https://e-clock.top/widget.html" style="border:none;overflow:hidden;" scrolling="no" width="300" height="150"&gt;&lt;/iframe&gt;</code></pre>
-        <h3>How to Use It</h3>
-        <ol>
-          <li>Copy the code above.</li>
-          <li>Paste it into your website’s HTML where you want the clock
-            to appear.</li>
-          <li>Save and refresh—your visitors will instantly see the
-            time!</li>
-        </ol>
-        <h3>Customization Tips</h3>
-        <ul>
-          <li>Adjust <code>width</code> and <code>height</code> to
-            match your layout</li>
-          <li>Embed in sidebars, dashboards, footers, or widgets</li>
-          <li>Works in all modern browsers with no extra setup</li>
-        </ul>
-        <h3>Try It Live</h3>
-        <p>Here’s what the widget looks like in action:</p>
-        <iframe src="https://e-clock.top/widget.html"
-          style="border:none;overflow:hidden;" scrolling="no"
-          width="300" height="150"></iframe>
-        <h3>Why Use Our Widget?</h3>
-        <ul>
-          <li><strong>Cross-platform</strong>: Works on all devices</li>
-          <li><strong>Lightweight</strong>: One iframe, no scripts</li>
-          <li><strong>Fast and simple</strong>: No coding experience
-            needed</li>
-        </ul>
-        <p>Enhance your site in seconds. Just copy and paste the widget
-          from <a href="https://e-clock.top">e-clock.top</a> and let
-          your users always stay on time!</p>
+      <div class="date-info">
+        Published: May 11, 2025 | Updated: May 30, 2025
+      </div>
+      
+      <div class="highlight-box">
+        <p><strong>Want to display a real-time digital clock on your website?</strong> With the e-clock.top widget, you can embed a sleek, browser-based clock using a single line of code—no JavaScript knowledge required, no complex setup needed.</p>
+      </div>
+
+      <h2>The Widget Code</h2>
+      <p>Here's the complete code you need to embed the time widget on any webpage:</p>
+      
+      <div class="code-box">
+        <code>&lt;iframe src="https://e-clock.top/widget.html" style="border:none;overflow:hidden;" scrolling="no" width="300" height="150"&gt;&lt;/iframe&gt;</code>
+      </div>
+
+      <h2>Step-by-Step Implementation</h2>
+      <ol>
+        <li><strong>Copy the widget code</strong> from the code box above</li>
+        <li><strong>Open your website's HTML file</strong> or content management system</li>
+        <li><strong>Paste the code</strong> where you want the clock to appear (sidebar, header, footer, etc.)</li>
+        <li><strong>Save and refresh</strong> your webpage—visitors will instantly see the live time display!</li>
+      </ol>
+
+      <h2>Live Widget Demo</h2>
+      <p>Here's what the widget looks like when embedded on your website:</p>
+      
+      <div class="widget-demo">
+        <h3>Live Preview</h3>
+        <iframe src="https://e-clock.top/widget.html" style="border:none;overflow:hidden;" scrolling="no" width="300" height="150"></iframe>
+        <p><em>This is exactly how it will appear on your site</em></p>
+      </div>
+
+      <h2>Customization Options</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h4>🎨 Size Adjustment</h4>
+          <p>Modify the <code>width</code> and <code>height</code> attributes to match your layout perfectly. Recommended sizes: 250x120 (compact) or 400x180 (large).</p>
+        </div>
+        <div class="feature-card">
+          <h4>📱 Responsive Design</h4>
+          <p>The widget automatically adapts to different screen sizes, ensuring optimal display on desktop, tablet, and mobile devices.</p>
+        </div>
+        <div class="feature-card">
+          <h4>🎯 Flexible Placement</h4>
+          <p>Perfect for sidebars, dashboards, footers, widgets, or any section where you need real-time information.</p>
+        </div>
+        <div class="feature-card">
+          <h4>⚡ Zero Configuration</h4>
+          <p>Works immediately in all modern browsers with no additional setup, scripts, or dependencies required.</p>
+        </div>
+      </div>
+
+      <h2>Why Choose Our Widget?</h2>
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-number">1 Line</div>
+          <div class="stat-label">of Code</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">0 Setup</div>
+          <div class="stat-label">Required</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Cross-Platform</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Reliability</div>
+        </div>
+      </div>
+
+      <h3>Key Benefits</h3>
+      <ul>
+        <li><strong>Lightweight & Fast</strong> – Minimal impact on your website's loading speed</li>
+        <li><strong>Always Accurate</strong> – Automatically syncs with the user's system time</li>
+        <li><strong>Professional Design</strong> – Clean, modern interface that complements any website</li>
+        <li><strong>No Maintenance</strong> – Set it once and forget it—we handle all updates</li>
+        <li><strong>Free Forever</strong> – No subscriptions, no hidden costs, no premium upgrades</li>
+        <li><strong>Privacy-Focused</strong> – No tracking, no data collection from your visitors</li>
+      </ul>
+
+      <h2>Perfect Use Cases</h2>
+      <h3>Business Websites</h3>
+      <p>Show visitors your local business hours and current time, especially useful for service-based businesses, consulting firms, and online stores with specific operating hours.</p>
+
+      <h3>Personal Blogs & Portfolios</h3>
+      <p>Add a professional touch to your personal website with a sleek time display that shows visitors when content was last viewed or updated.</p>
+
+      <h3>Dashboard & Admin Panels</h3>
+      <p>Essential for productivity dashboards, admin interfaces, and monitoring systems where real-time awareness is crucial.</p>
+
+      <h3>Educational Websites</h3>
+      <p>Perfect for online learning platforms, course websites, and educational resources where timing and schedules are important.</p>
+
+      <h2>Technical Specifications</h2>
+      <div class="highlight-box">
+        <h3>Browser Compatibility</h3>
+        <p>Works seamlessly with all modern browsers including Chrome, Firefox, Safari, Edge, and Opera. Supports both desktop and mobile environments with responsive design principles.</p>
+      </div>
+
+      <ul>
+        <li><strong>Format</strong>: Standard HTML iframe element</li>
+        <li><strong>Loading</strong>: Asynchronous, non-blocking</li>
+        <li><strong>Updates</strong>: Real-time, every second</li>
+        <li><strong>Styling</strong>: Customizable dimensions, inherits parent styles</li>
+        <li><strong>Performance</strong>: Optimized for minimal resource usage</li>
+      </ul>
+
+      <h2>Get Started Today</h2>
+      <p>Ready to enhance your website with a professional time widget? Simply copy the code above and paste it into your website. No registration required, no downloads needed—just instant functionality.</p>
+
+      <div class="highlight-box">
+        <p><strong>Need more time management tools?</strong> Visit our homepage at <a href="https://e-clock.top">e-clock.top</a> to explore our complete suite of productivity tools including world clocks, timers, stopwatches, and alarms—all completely free!</p>
       </div>
     </div>
-    <footer> © 2025 e-clock.top – All rights reserved. </footer>
+    
+    <footer>
+      © 2025 e-clock.top – All rights reserved. | 
+      <a href="/">Home</a> | 
+      <a href="blog.html">Blog</a> | 
+      <a href="FAQ.html">FAQ</a> | 
+      <a href="about.html">About</a> | 
+      <a href="privacy.html">Privacy Policy</a>
+    </footer>
   </body>
 </html>
