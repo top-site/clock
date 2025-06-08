@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game vs Computer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.css">
+
+<!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-463EN24CE0');
+    </script>
+
+    <script>
+      document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .game-container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+        #board {
+            margin: 20px auto;
+            width: 400px;
+            height: 400px;
+        }
+        .controls {
+            margin: 20px 0;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .status {
+            margin: 15px 0;
+            font-size: 18px;
+            font-weight: bold;
+            min-height: 25px;
+        }
+        .game-over {
+            color: #d32f2f;
+        }
+        .thinking {
+            color: #1976d2;
+        }
+        .highlight-white {
+            box-shadow: inset 0 0 3px 3px yellow !important;
+        }
+        .highlight-black {
+            box-shadow: inset 0 0 3px 3px blue !important;
+        }
+        /* Fix for chessboard display */
+        .board-b72b1 {
+            border: 2px solid #404040;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Chess Game vs Computer</h1>
+        <div class="status" id="status">Your turn - Make a move!</div>
+        <div id="board"></div>
+        <div class="controls">
+            <button id="newGameBtn">New Game</button>
+            <button id="undoBtn">Undo Move</button>
+            <button id="flipBtn">Flip Board</button>
+        </div>
+    </div>
+
+    <!-- Include required libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.js"></script>
+    
+    <script>
+        // Game variables
+        let board = null;
+        let game = new Chess();
+        let $status = $('#status');
+        let playerColor = 'white';
+        let gameOver = false;
+
+        // Simple but effective chess AI using minimax
+        function evaluatePosition(game) {
+            const pieceValues = {
+                'p': 10, 'n': 30, 'b': 30, 'r': 50, 'q': 90, 'k': 900
+            };
+            
+            let totalEvaluation = 0;
+            const board = game.board();
+            
+            for (let i = 0; i < 8; i++) {
+                for (let j = 0; j < 8; j++) {
+                    const square = board[i][j];
+                    if (square) {
+                        const pieceValue = pieceValues[square.type];
+                        totalEvaluation += square.color === 'w' ? -pieceValue : pieceValue;
+                    }
+                }
+            }
+            return totalEvaluation;
+        }
+
+        function minimax(game, depth, isMaximizingPlayer, alpha, beta) {
+            if (depth === 0 || game.game_over()) {
+                return evaluatePosition(game);
+            }
+
+            const possibleMoves = game.moves();
+
+            if (isMaximizingPlayer) {
+                let maxEval = -Infinity;
+                for (let move of possibleMoves) {
+                    game.move(move);
+                    const eval = minimax(game, depth - 1, false, alpha, beta);
+                    game.undo();
+                    maxEval = Math.max(maxEval, eval);
+                    alpha = Math.max(alpha, eval);
+                    if (beta <= alpha) break;
+                }
+                return maxEval;
+            } else {
+                let minEval = Infinity;
+                for (let move of possibleMoves) {
+                    game.move(move);
+                    const eval = minimax(game, depth - 1, true, alpha, beta);
+                    game.undo();
+                    minEval = Math.min(minEval, eval);
+                    beta = Math.min(beta, eval);
+                    if (beta <= alpha) break;
+                }
+                return minEval;
+            }
+        }
+
+        function getBestMove(game, depth = 3) {
+            const possibleMoves = game.moves({ verbose: true });
+            let bestMove = null;
+            let bestValue = -Infinity;
+
+            for (let move of possibleMoves) {
+                game.move(move);
+                const boardValue = minimax(game, depth - 1, false, -Infinity, Infinity);
+                game.undo();
+
+                if (boardValue > bestValue) {
+                    bestValue = boardValue;
+                    bestMove = move;
+                }
+            }
+
+            return bestMove;
+        }
+
+        // Initialize the game
+        function initGame() {
+            const config = {
+                draggable: true,
+                position: 'start',
+                onDragStart: onDragStart,
+                onDrop: onDrop,
+                onSnapEnd: onSnapEnd,
+                pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+            };
+            board = Chessboard('board', config);
+            updateStatus();
+        }
+
+        // Handle drag start
+        function onDragStart(source, piece, position, orientation) {
+            if (game.game_over()) return false;
+
+            if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
+                (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
+                return false;
+            }
+
+            if (game.turn() !== playerColor.charAt(0)) {
+                return false;
+            }
+        }
+
+        // Handle piece drop
+        function onDrop(source, target) {
+            removeHighlights();
+
+            const move = game.move({
+                from: source,
+                to: target,
+                promotion: 'q'
+            });
+
+            if (move === null) return 'snapback';
+
+            highlightMove(source, target, 'white');
+            updateStatus();
+
+            if (!game.game_over()) {
+                setTimeout(makeComputerMove, 250);
+            }
+        }
+
+        // Update board position after piece snap
+        function onSnapEnd() {
+            board.position(game.fen());
+        }
+
+        // Make computer move
+        function makeComputerMove() {
+            if (game.game_over()) return;
+
+            $status.text('Computer is thinking...').addClass('thinking');
+
+            setTimeout(() => {
+                try {
+                    const bestMove = getBestMove(game, 3);
+                    
+                    if (bestMove) {
+                        const move = game.move(bestMove);
+                        board.position(game.fen());
+                        highlightMove(move.from, move.to, 'black');
+                        updateStatus();
+                    } else {
+                        makeRandomMove();
+                    }
+                } catch (e) {
+                    console.error('Computer move error:', e);
+                    makeRandomMove();
+                }
+            }, 500);
+        }
+
+        // Fallback random move function
+        function makeRandomMove() {
+            const possibleMoves = game.moves({ verbose: true });
+            if (possibleMoves.length > 0) {
+                const randomMove = possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
+                const move = game.move(randomMove);
+                board.position(game.fen());
+                highlightMove(move.from, move.to, 'black');
+                updateStatus();
+            }
+        }
+
+        // Highlight moves
+        function highlightMove(from, to, color) {
+            removeHighlights();
+            setTimeout(() => {
+                $('#board .square-' + from).addClass('highlight-' + color);
+                $('#board .square-' + to).addClass('highlight-' + color);
+            }, 100);
+        }
+
+        // Remove highlights
+        function removeHighlights() {
+            $('#board .square-55d63').removeClass('highlight-white highlight-black');
+        }
+
+        // Update game status
+        function updateStatus() {
+            let status = '';
+            $status.removeClass('game-over thinking');
+
+            if (game.in_checkmate()) {
+                status = game.turn() === 'b' ? 'Game over - You win!' : 'Game over - Computer wins!';
+                gameOver = true;
+                $status.addClass('game-over');
+            } else if (game.in_draw()) {
+                status = 'Game over - Draw!';
+                gameOver = true;
+                $status.addClass('game-over');
+            } else {
+                if (game.in_check()) {
+                    status = game.turn() === 'w' ? 'Check - Your turn' : 'Check - Computer\'s turn';
+                } else {
+                    status = game.turn() === 'w' ? 'Your turn' : 'Computer\'s turn';
+                }
+            }
+
+            $status.text(status);
+        }
+
+        // New game
+        function newGame() {
+            game = new Chess();
+            board.position('start');
+            removeHighlights();
+            gameOver = false;
+            updateStatus();
+        }
+
+        // Undo move
+        function undoMove() {
+            if (game.history().length >= 2) {
+                game.undo(); // Undo computer's move
+                game.undo(); // Undo player's move
+                
+                board.position(game.fen());
+                removeHighlights();
+                updateStatus();
+            }
+        }
+
+        // Flip board
+        function flipBoard() {
+            board.flip();
+            playerColor = playerColor === 'white' ? 'black' : 'white';
+        }
+
+        // Event listeners
+        $('#newGameBtn').on('click', newGame);
+        $('#undoBtn').on('click', undoMove);
+        $('#flipBtn').on('click', flipBoard);
+
+        // Initialize the game when page loads
+        $(document).ready(function() {
+            initGame();
+        });
+    </script>
+</body>
+</html>
