@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - E-Clock.top | Strategic Time-Based Gaming</title>
+    <meta name="description" content="Play strategic games on E-Clock.top - Chess and time-based challenges. Perfect your timing and strategy skills.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .nav-breadcrumb {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-breadcrumb a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: opacity 0.3s;
+        }
+
+        .nav-breadcrumb a:hover {
+            opacity: 0.7;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .game-icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .game-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .game-description {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .game-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .game-features li {
+            padding: 8px 0;
+            color: #34495e;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .game-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .play-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .play-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            opacity: 0.8;
+            padding: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2em;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .game-card {
+                padding: 20px;
+            }
+        }
+
+        .coming-soon {
+            opacity: 0.7;
+            position: relative;
+        }
+
+        .coming-soon::after {
+            content: 'Coming Soon';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🎮 E-CLOCK GAMES</div>
+            <div class="tagline">Strategic Gaming Meets Perfect Timing</div>
+            <div class="nav-breadcrumb">
+                <a href="/">🏠 Home</a>
+                <span>→</span>
+                <a href="/games">🎮 Games</a>
+            </div>
+        </header>
+
+        <div class="games-grid">
+            <!-- Chess Game Card -->
+            <div class="game-card">
+                <div class="game-icon">♔</div>
+                <h2 class="game-title">Chess</h2>
+                <p class="game-description">
+                    Challenge yourself in this classic game of strategy and intellect. 
+                    Perfect your chess skills with our interactive chess game.
+                </p>
+                <ul class="game-features">
+                    <li>Interactive Chess Board</li>
+                    <li>AI Opponent</li>
+                    <li>Responsive Design</li>
+<br>
+<br>
+<br>
+                    
+                </ul>
+                <button class="play-button" onclick="playChess()">Play Chess Now</button>
+            </div>
+
+            <!-- Time Challenge Card -->
+            <div class="game-card coming-soon">
+                <div class="game-icon">⏱️</div>
+                <h2 class="game-title">Time Challenge Arena</h2>
+                <p class="game-description">
+                    Test your reflexes and decision-making under pressure. 
+                    Various time-based puzzles and challenges await.
+                </p>
+                <ul class="game-features">
+                    <li>Speed Puzzles</li>
+                    <li>Reaction Time Tests</li>
+                    <li>Leaderboards</li>
+                    <li>Daily Challenges</li>
+                    <li>Achievement System</li>
+                </ul>
+                <button class="play-button" disabled>Coming Soon</button>
+            </div>
+
+            <!-- Strategy Hub Card -->
+            <div class="game-card coming-soon">
+                <div class="game-icon">🧩</div>
+                <h2 class="game-title">Strategy Hub</h2>
+                <p class="game-description">
+                    A collection of strategic board games and puzzles. 
+                    Sharpen your mind with various intellectual challenges.
+                </p>
+                <ul class="game-features">
+                    <li>Multiple Game Types</li>
+                    <li>AI Opponents</li>
+                    <li>Difficulty Scaling</li>
+                    <li>Progress Tracking</li>
+                    <li>Social Features</li>
+                </ul>
+                <button class="play-button" disabled>Coming Soon</button>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 E-Clock.top | Where Time Meets Strategy</p>
+            <p>Developed with passion for strategic gaming and perfect timing</p>
+        </footer>
+    </div>
+
+    <script>
+        // Game launch functions
+        function playChess() {
+            // Redirect to your chess game
+            window.open('/chess.html', '_blank');
+        }
+    </script>
+</body>
+</html>
