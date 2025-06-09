@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-463EN24CE0');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - E-Clock.top | Strategic Time-Based Gaming</title>
+    <meta name="description" content="Play strategic games on E-Clock.top - Chess and time-based challenges. Perfect your timing and strategy skills.">
+    <meta name="keywords" content="games, chess, time-based games, strategy, e-clock.top">
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #333;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: #ff9800;
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            color: #bbb;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: #ff9800;
+            margin-top: 40px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #ff9800;
+            margin-top: 30px;
+        }
+
+        ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        a {
+            color: #ff9800;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-box {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ff9800;
+            margin: 20px 0;
+        }
+
+        .info-card {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            margin: 20px 0;
+        }
+
+        .info-card h4 {
+            color: #ff9800;
+            margin-top: 0;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .game-card {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+        }
+
+        .game-card:hover:not(.coming-soon) {
+            transform: translateY(-2px);
+            border-color: #ff9800;
+        }
+
+        .game-icon {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #ff9800;
+        }
+
+        .game-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ff9800;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .game-description {
+            color: #ffffff;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .game-features {
+            list-style: none;
+            margin-bottom: 20px;
+            padding-left: 0;
+        }
+
+        .game-features li {
+            padding: 5px 0;
+            color: #ffffff;
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.9em;
+        }
+
+        .game-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .play-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff9800;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .play-button:hover:not(:disabled) {
+            background-color: #ffb74d;
+        }
+
+        .play-button:disabled {
+            background-color: #333;
+            color: #777;
+            cursor: not-allowed;
+        }
+
+        .coming-soon {
+            opacity: 0.7;
+            position: relative;
+        }
+
+        .coming-soon::after {
+            content: 'Coming Soon';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff9800;
+            color: #121212;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #777;
+            border-top: 1px solid #333;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #ff9800;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎮 E-Clock Games</h1>
+        <p>Strategic Gaming Meets Perfect Timing</p>
+    </header>
+
+    <div class="container">
+        <div class="highlight-box">
+            <p><strong>Welcome to E-Clock Games - where strategy meets precision timing!</strong> Test your skills with our collection of time-based strategic games. Whether you're a Chess Expert or looking for quick reflexes challenges, we have something for every strategic mind.</p>
+        </div>
+
+        <h2>🎯 Available Games</h2>
+
+        <div class="games-grid">
+            <!-- Chess Game Card -->
+            <div class="game-card">
+                <div class="game-icon">♔</div>
+                <h4 class="game-title">Chess</h4>
+                <p class="game-description">
+                    Challenge yourself in this classic game of strategy and intellect. 
+                    Perfect your chess skills with our interactive chess game.
+                </p>
+                <ul class="game-features">
+                    <li>Interactive Chess Board</li>
+                    <li>AI Opponent</li>
+                    <li>Responsive Design</li>
+                    <li>Move Validation</li>
+                    <li>Clean Interface</li>
+                </ul>
+                <button class="play-button" onclick="playChess()">Play Chess Now</button>
+            </div>
+
+            <!-- Time Challenge Card -->
+            <div class="game-card coming-soon">
+                <div class="game-icon">⏱️</div>
+                <h4 class="game-title">Time Challenge Arena</h4>
+                <p class="game-description">
+                    Test your reflexes and decision-making under pressure. 
+                    Various time-based puzzles and challenges await.
+                </p>
+                <ul class="game-features">
+                    <li>Speed Puzzles</li>
+                    <li>Reaction Time Tests</li>
+                    <li>Leaderboards</li>
+                    <li>Daily Challenges</li>
+                    <li>Achievement System</li>
+                </ul>
+                <button class="play-button" disabled>Coming Soon</button>
+            </div>
+
+            <!-- Strategy Hub Card -->
+            <div class="game-card coming-soon">
+                <div class="game-icon">🧩</div>
+                <h4 class="game-title">Strategy Hub</h4>
+                <p class="game-description">
+                    A collection of strategic board games and puzzles. 
+                    Sharpen your mind with various intellectual challenges.
+                </p>
+                <ul class="game-features">
+                    <li>Multiple Game Types</li>
+                    <li>AI Opponents</li>
+                    <li>Difficulty Scaling</li>
+                    <li>Progress Tracking</li>
+                    <li>Social Features</li>
+                </ul>
+                <button class="play-button" disabled>Coming Soon</button>
+            </div>
+        </div>
+
+        <h2>🎪 More Games Coming Soon</h2>
+        <div class="info-card">
+            <p>We're constantly working on new strategic and time-based games to challenge your mind. Stay tuned for updates including puzzle games, memory challenges, and multiplayer strategy games!</p>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 e-clock.top – All rights reserved. | 
+        <a href="/">Home</a> | 
+        <a href="blog.html">Blog</a> | 
+        <a href="FAQ.html">FAQ</a> | 
+        <a href="privacy.html">Privacy Policy</a>
+    </footer>
+
+    <script>
+        // Game launch functions
+        function playChess() {
+            // Redirect to your chess game
+            window.open('/chess_game.html', '_blank');
+        }
+    </script>
+</body>
+</html>
