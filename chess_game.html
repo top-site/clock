@@ -27,31 +27,40 @@
             align-items: center;
             background-color: #f0f0f0;
             margin: 0;
-            padding: 20px;
+            padding: 10px;
+            box-sizing: border-box;
         }
         
         h1 {
             color: #333;
             margin-bottom: 10px;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            text-align: center;
         }
         
         .chess-board {
             display: grid;
-            grid-template-columns: repeat(8, 60px);
-            grid-template-rows: repeat(8, 60px);
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(8, 1fr);
             border: 2px solid #333;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            width: min(90vw, 480px);
+            height: min(90vw, 480px);
+            max-width: 480px;
+            max-height: 480px;
+            aspect-ratio: 1;
         }
         
         .square {
-            width: 60px;
-            height: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 40px;
+            font-size: clamp(24px, 6vw, 40px);
             cursor: pointer;
             user-select: none;
+            aspect-ratio: 1;
+            min-height: 0;
+            min-width: 0;
         }
         
         .white {
@@ -76,39 +85,48 @@
             background-color: white;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 480px;
+            width: min(90vw, 480px);
+            max-width: 480px;
             text-align: center;
+            box-sizing: border-box;
         }
         
         .status {
             font-weight: bold;
             margin-bottom: 10px;
-            font-size: 18px;
+            font-size: clamp(16px, 4vw, 18px);
         }
 
-.moves-container {
-    margin-top: 20px;
-    width: 480px;
-    background: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    padding: 15px;
-}
+        .moves-container {
+            margin-top: 20px;
+            width: min(90vw, 480px);
+            max-width: 480px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 15px;
+            box-sizing: border-box;
+        }
 
-.moves-list {
-    height: 150px;
-    overflow-y: auto;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    padding: 10px;
-    font-family: monospace;
-    font-size: 15px;
-    margin-bottom: 10px;
-    text-align: left;
-    white-space: pre-line;
-}
+        .moves-container h2 {
+            font-size: clamp(16px, 4vw, 20px);
+            margin-top: 0;
+        }
 
+        .moves-list {
+            height: 150px;
+            overflow-y: auto;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 10px;
+            font-family: monospace;
+            font-size: clamp(12px, 3vw, 15px);
+            margin-bottom: 10px;
+            text-align: left;
+            white-space: pre-line;
+            box-sizing: border-box;
+        }
         
         button {
             padding: 8px 15px;
@@ -117,14 +135,46 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
             margin-top: 10px;
+            margin-right: 5px;
         }
         
         button:hover {
             background-color: #45a049;
         }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            
+            .chess-board {
+                width: 95vw;
+                height: 95vw;
+                border-width: 1px;
+            }
+            
+            .game-info, .moves-container {
+                width: 95vw;
+                padding: 10px;
+            }
+            
+            .moves-list {
+                height: 120px;
+                padding: 8px;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 320px) {
+            .square {
+                font-size: 20px;
+            }
+        }
     </style>
+
 </head>
 <body>
     <h1>Chess Game vs Computer</h1>
