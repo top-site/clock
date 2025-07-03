@@ -586,17 +586,29 @@
         }
       }
 
-      // Function to get timezone offset
+      // FIXED: Function to get timezone offset - now calculates correctly
       function getTimezoneOffset(timezone) {
         try {
           const now = new Date();
-          const utc = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
-          const targetTime = new Date(utc.toLocaleString('en-US', { timeZone: timezone }));
-          const diff = targetTime.getTime() - utc.getTime();
-          const hours = Math.floor(diff / (1000 * 60 * 60));
-          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-          const sign = hours >= 0 ? '+' : '-';
-          return `UTC${sign}${Math.abs(hours).toString().padStart(2, '0')}:${Math.abs(minutes).toString().padStart(2, '0')}`;
+          
+          // Get the time in the target timezone
+          const targetTime = new Date(now.toLocaleString('en-US', { timeZone: timezone }));
+          
+          // Get the time in UTC
+          const utcTime = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' }));
+          
+          // Calculate the difference in minutes
+          const diffInMinutes = (targetTime.getTime() - utcTime.getTime()) / (1000 * 60);
+          
+          // Convert to hours and minutes
+          const hours = Math.floor(Math.abs(diffInMinutes) / 60);
+          const minutes = Math.abs(diffInMinutes) % 60;
+          
+          // Determine the sign
+          const sign = diffInMinutes >= 0 ? '+' : '-';
+          
+          // Format as UTC±HH:MM
+          return `UTC${sign}${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
         } catch (error) {
           console.error(`Error getting offset for ${timezone}:`, error);
           return 'UTC+00:00';
@@ -674,33 +686,16 @@
         const html = document.documentElement;
         html.classList.toggle('light-mode');
         
-        // Save preference
-        try {
-          const isLightMode = html.classList.contains('light-mode');
-          localStorage.setItem('lightMode', isLightMode);
-          lightModeToggle.textContent = isLightMode ? '🌙' : '☀️';
-          lightModeToggle.setAttribute('title', isLightMode ? 'Switch to Dark Mode' : 'Switch to Light Mode');
-        } catch (error) {
-          console.error('Light mode toggle error:', error);
-        }
+        // Save preference to memory (not localStorage as it's not supported in artifacts)
+        const isLightMode = html.classList.contains('light-mode');
+        lightModeToggle.textContent = isLightMode ? '🌙' : '☀️';
+        lightModeToggle.setAttribute('title', isLightMode ? 'Switch to Dark Mode' : 'Switch to Light Mode');
       });
 
       // Initialize page
       document.addEventListener('DOMContentLoaded', () => {
         // Set current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
-        
-        // Load light mode preference
-        try {
-          const savedMode = localStorage.getItem('lightMode');
-          if (savedMode === 'true') {
-            document.documentElement.classList.add('light-mode');
-            lightModeToggle.textContent = '🌙';
-            lightModeToggle.setAttribute('title', 'Switch to Dark Mode');
-          }
-        } catch (error) {
-          console.error('Loading preferences error:', error);
-        }
         
         // Initialize cities and start clock updates
         displayCities();
