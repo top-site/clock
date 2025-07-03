@@ -408,7 +408,7 @@
         <h2 id="popular-cities-heading">Current Time in Popular Cities</h2>
         <p style="text-align: left; margin-bottom: var(--spacing-lg); color: var(--color-text-secondary);">
           Stay synchronized with the world! Our world clock shows current time in major cities across all continents. 
-          Times update automatically every minute for accurate scheduling of international calls, meetings, and travel plans.
+          Times update automatically every second for accurate scheduling of international calls, meetings, and travel plans.
         </p>
         
         <div class="city-grid" id="popular-cities" role="grid" aria-label="World city times">
@@ -428,7 +428,7 @@
 
       <h3>Key Features</h3>
       <ul>
-        <li>Real-time updates every minute for accuracy</li>
+        <li>Real-time updates every second for accuracy</li>
         <li>30+ major cities from all continents</li>
         <li>Mobile-friendly responsive design</li>
         <li>Light and dark mode options</li>
@@ -526,6 +526,16 @@
         { name: "Casablanca", timezone: "Africa/Casablanca", emoji: "🇲🇦", country: "Morocco" }
       ];
 
+      // Function to format time with leading zeros
+      function formatTime(date) {
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        const seconds = date.getSeconds().toString().padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        const twelveHour = hours % 12 || 12;
+        return `${twelveHour}:${minutes}:${seconds} ${ampm}`;
+      }
+
       // Function to get current time for a timezone
       function getCurrentTime(timezone) {
         try {
@@ -591,16 +601,14 @@
           card.setAttribute('aria-label', `Time in ${city.name}, ${city.country}`);
           card.innerHTML = `
             <div class="city-name">${city.emoji} ${city.name}</div>
-            <div class="city-time" id="time-${index}">
-              <span class="loading">Loading...</span>
-            </div>
+            <div class="city-time" id="time-${index}"></div>
             <div class="city-date" id="date-${index}"></div>
             <div class="city-timezone" id="timezone-${index}"></div>
           `;
           container.appendChild(card);
         });
 
-        // Update all times
+        // Update all times immediately
         updateAllTimes();
       }
 
@@ -617,6 +625,17 @@
             timezoneElement.textContent = getTimezoneOffset(city.timezone);
           }
         });
+      }
+
+      // Function to update time every second for smooth updates
+      function startClockUpdates() {
+        // Update immediately
+        updateAllTimes();
+        
+        // Then update every second
+        setInterval(() => {
+          updateAllTimes();
+        }, 1000);
       }
 
       // Fullscreen toggle with error handling
@@ -669,11 +688,9 @@
           console.error('Loading preferences error:', error);
         }
         
-        // Initialize cities
+        // Initialize cities and start clock updates
         displayCities();
-        
-        // Update times every minute
-        setInterval(updateAllTimes, 60000);
+        startClockUpdates();
       });
 
       // Handle visibility change to update times when tab becomes active
