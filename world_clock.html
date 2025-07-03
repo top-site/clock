@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>World Clock: Current Time in 30+ Major Cities | Time Zone Converter</title>
+    
+    <!-- Enhanced Meta Tags -->
+    <meta name="description" content="Check current time in 30+ major cities worldwide. Free world clock with real-time updates for New York, London, Tokyo, Paris, Sydney and more. Perfect for business meetings and travel planning.">
+    <meta name="keywords" content="world clock, current time, time zones, international time, city times, time comparison, global time, time converter, UTC time, GMT time, timezone converter">
+    <meta name="author" content="e-clock.top">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- Geo targeting -->
+    <meta name="geo.region" content="US">
+    <meta name="geo.placename" content="Global">
+    <meta name="ICBM" content="40.7128, -74.0060">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://e-clock.top/world-clock.html">
+    <meta property="og:title" content="World Clock: Current Time in 30+ Major Cities">
+    <meta property="og:description" content="Check current time in major cities worldwide. Free world clock with real-time updates for international business and travel.">
+    <meta property="og:image" content="https://e-clock.top/preview-image-world-clock.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="World Clock showing multiple city times">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="e-clock.top">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="World Clock: Current Time in 30+ Major Cities">
+    <meta name="twitter:description" content="Check current time in major cities worldwide. Free world clock with real-time updates.">
+    <meta name="twitter:image" content="https://e-clock.top/preview-image-world-clock.jpg">
+    <meta name="twitter:image:alt" content="World Clock showing multiple city times">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#ff9800">
+    <meta name="apple-mobile-web-app-title" content="World Clock">
+    <meta name="application-name" content="World Clock">
+    <meta name="msapplication-TileColor" content="#ff9800">
+    
+    <!-- Resource Hints -->
+    <link rel="dns-prefetch" href="https://timeapi.io">
+    <link rel="preconnect" href="https://timeapi.io" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="canonical" href="https://e-clock.top/world-clock.html">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "World Clock",
+      "description": "Check current time in 30+ major cities worldwide with real-time updates",
+      "url": "https://e-clock.top/world-clock.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "e-clock.top"
+      },
+      "featureList": [
+        "Real-time world clock",
+        "30+ major cities",
+        "Multiple time zones",
+        "Mobile responsive",
+        "Free to use"
+      ]
+    }
+    </script>
+    
+    <style>
+      /* Enhanced CSS with better accessibility and performance */
+      :root {
+        /* Colors */
+        --color-bg: #111;
+        --color-container: #222;
+        --color-tab: #444;
+        --color-primary: #ff9800;
+        --color-primary-hover: #e68900;
+        --color-text: #fff;
+        --color-text-secondary: #bbb;
+        --color-shadow: rgba(255, 255, 255, 0.2);
+        
+        /* Spacing */
+        --spacing-xs: 5px;
+        --spacing-sm: 10px;
+        --spacing-md: 15px;
+        --spacing-lg: 20px;
+        --spacing-xl: 40px;
+        
+        /* Typography */
+        --font-size-normal: 1rem;
+        --font-size-medium: 1.2rem;
+        --font-size-large: 1.5rem;
+        --font-size-xlarge: 3rem;
+        
+        /* Border Radius */
+        --border-radius: 5px;
+        --border-radius-lg: 15px;
+      }
+
+      html.light-mode {
+        --color-bg: #ffffff;
+        --color-text: #111111;
+        --color-container: #f5f5f5;
+        --color-tab: #e0e0e0;
+        --color-shadow: rgba(0, 0, 0, 0.1);
+        --color-text-secondary: #666;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        min-height: 100vh;
+        line-height: 1.6;
+        text-align: center;
+        padding: var(--spacing-lg);
+      }
+
+      /* Skip link for accessibility */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: var(--color-primary);
+        color: white;
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+        z-index: 10000;
+      }
+
+      .skip-link:focus {
+        top: 6px;
+      }
+
+      header {
+        text-align: center;
+        padding: 1rem;
+        margin-bottom: var(--spacing-lg);
+      }
+
+      h1 {
+        color: var(--color-primary);
+        margin-bottom: var(--spacing-md);
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        color: var(--color-text-secondary);
+        font-size: var(--font-size-medium);
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .container {
+        background: var(--color-container);
+        padding: var(--spacing-xl);
+        border-radius: var(--border-radius-lg);
+        box-shadow: 0 0 20px var(--color-shadow);
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Enhanced breadcrumbs */
+      .breadcrumbs {
+        text-align: left;
+        margin-bottom: var(--spacing-lg);
+        font-size: 0.9rem;
+      }
+
+      .breadcrumbs a {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+
+      .breadcrumbs a:hover {
+        text-decoration: underline;
+      }
+
+      /* City Grid with better accessibility */
+      .city-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-lg);
+      }
+
+      .city-card {
+        background: var(--color-tab);
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius-lg);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        border: 2px solid transparent;
+      }
+
+      .city-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px var(--color-shadow);
+      }
+
+      .city-card:focus-within {
+        border-color: var(--color-primary);
+        outline: none;
+      }
+
+      .city-name {
+        font-size: var(--font-size-medium);
+        font-weight: bold;
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .city-time {
+        font-size: var(--font-size-large);
+        color: var(--color-primary);
+        font-weight: bold;
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .city-date {
+        font-size: var(--font-size-normal);
+        color: var(--color-text-secondary);
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .city-timezone {
+        font-size: 0.9rem;
+        color: var(--color-text-secondary);
+      }
+
+      /* Loading state */
+      .loading {
+        color: var(--color-text-secondary);
+        font-style: italic;
+      }
+
+      /* Fixed buttons with better accessibility */
+      #fullscreen-toggle, #lightModeToggle {
+        position: fixed;
+        background-color: var(--color-container);
+        border: 1px solid var(--color-tab);
+        border-radius: 6px;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 9999;
+        color: var(--color-text);
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+
+      #fullscreen-toggle:hover, #lightModeToggle:hover {
+        background-color: var(--color-primary);
+        transform: scale(1.05);
+      }
+
+      #fullscreen-toggle:focus, #lightModeToggle:focus {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+      }
+
+      #fullscreen-toggle {
+        top: 20px;
+        right: 20px;
+      }
+
+      #lightModeToggle {
+        top: 80px;
+        right: 20px;
+      }
+
+      /* Enhanced footer */
+      footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        margin-top: var(--spacing-xl);
+        border-top: 1px solid var(--color-tab);
+      }
+
+      footer nav {
+        margin-bottom: var(--spacing-md);
+      }
+
+      footer a {
+        color: var(--color-primary);
+        text-decoration: none;
+        padding: 0 0.5rem;
+        transition: color 0.3s ease;
+      }
+
+      footer a:hover {
+        color: var(--color-primary-hover);
+        text-decoration: underline;
+      }
+
+      /* SEO Content Section */
+      .seo-content {
+        max-width: 800px;
+        margin: var(--spacing-xl) auto;
+        padding: var(--spacing-lg);
+        text-align: left;
+        background: var(--color-container);
+        border-radius: var(--border-radius-lg);
+      }
+
+      .seo-content h2 {
+        color: var(--color-primary);
+        margin-bottom: var(--spacing-md);
+        font-size: 1.8rem;
+      }
+
+      .seo-content h3 {
+        color: var(--color-text);
+        margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+        font-size: 1.4rem;
+      }
+
+      .seo-content p {
+        margin-bottom: var(--spacing-md);
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+      }
+
+      .seo-content ul {
+        margin-left: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
+      }
+
+      .seo-content li {
+        margin-bottom: var(--spacing-xs);
+        color: var(--color-text-secondary);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .container {
+          width: 100%;
+          padding: var(--spacing-lg);
+        }
+        
+        .city-grid {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        #fullscreen-toggle, #lightModeToggle {
+          top: 10px;
+          right: 10px;
+        }
+
+        #lightModeToggle {
+          top: 60px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: var(--spacing-sm);
+        }
+
+        .city-grid {
+          grid-template-columns: 1fr;
+          gap: var(--spacing-sm);
+        }
+
+        .city-card {
+          padding: var(--spacing-sm);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+      <h1>World Clock: Current Time in Major Cities</h1>
+      <p class="subtitle">Check real-time clock for 30+ popular cities worldwide - Perfect for business meetings and travel planning</p>
+      
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>World Clock</span>
+      </nav>
+    </header>
+
+    <main id="main-content" class="container">
+      <section aria-labelledby="popular-cities-heading">
+        <h2 id="popular-cities-heading">Current Time in Popular Cities</h2>
+        <p style="text-align: left; margin-bottom: var(--spacing-lg); color: var(--color-text-secondary);">
+          Stay synchronized with the world! Our world clock shows current time in major cities across all continents. 
+          Times update automatically every minute for accurate scheduling of international calls, meetings, and travel plans.
+        </p>
+        
+        <div class="city-grid" id="popular-cities" role="grid" aria-label="World city times">
+          <!-- Cities will be populated by JavaScript -->
+        </div>
+      </section>
+    </main>
+
+    <!-- SEO Content Section -->
+    <section class="seo-content">
+      <h2>About Our World Clock</h2>
+      <p>
+        Our free world clock displays current time in over 30 major cities across the globe. Whether you're scheduling 
+        international business meetings, planning travel, or staying connected with friends and family worldwide, our 
+        world clock helps you keep track of time zones effortlessly.
+      </p>
+
+      <h3>Key Features</h3>
+      <ul>
+        <li>Real-time updates every minute for accuracy</li>
+        <li>30+ major cities from all continents</li>
+        <li>Mobile-friendly responsive design</li>
+        <li>Light and dark mode options</li>
+        <li>No registration or downloads required</li>
+        <li>Fast loading and reliable performance</li>
+      </ul>
+
+      <h3>Popular Time Zones Covered</h3>
+      <p>
+        Our world clock includes major cities from key time zones including Eastern Time (New York), Pacific Time (Los Angeles), 
+        Central European Time (Paris, Berlin), Greenwich Mean Time (London), Japan Standard Time (Tokyo), 
+        China Standard Time (Beijing), and many more. Perfect for international business coordination.
+      </p>
+
+      <h3>Why Use Our World Clock?</h3>
+      <p>
+        Unlike basic time zone converters, our world clock provides at-a-glance comparison of multiple cities simultaneously. 
+        This makes it ideal for businesses with global operations, remote teams, international traders, and frequent travelers 
+        who need to coordinate across multiple time zones efficiently.
+      </p>
+
+      <h3>Supported Cities and Regions</h3>
+      <p>
+        North America: New York, Los Angeles, Chicago, Toronto, Vancouver, Mexico City<br>
+        Europe: London, Paris, Berlin, Rome, Madrid, Amsterdam, Moscow<br>
+        Asia: Tokyo, Beijing, Hong Kong, Singapore, Bangkok, Mumbai, Dubai<br>
+        Oceania: Sydney, Melbourne, Auckland<br>
+        South America: São Paulo, Buenos Aires, Rio de Janeiro<br>
+        Africa: Cairo, Johannesburg, Casablanca
+      </p>
+    </section>
+
+    <footer>
+      <nav aria-label="Footer navigation">
+        <a href="index.html">Home</a> | 
+        <a href="blog.html">Blog</a> | 
+        <a href="games.html">Games</a> | 
+        <a href="FAQ.html">FAQ</a> | 
+        <a href="privacy.html">Privacy Policy</a> | 
+        <a href="terms-of-service.html">Terms of Service</a> | 
+        <a href="about.html">About Us</a> 
+      </nav>
+      <p>&copy; <span id="current-year"></span> e-clock.top - Free Online Clock Tools</p>
+    </footer>
+    
+    <button id="fullscreen-toggle" aria-label="Toggle fullscreen mode" title="Toggle Fullscreen">🔳</button>
+    <button id="lightModeToggle" aria-label="Toggle light/dark mode" title="Toggle Light Mode">☀️</button>
+
+    <script>
+      // Enhanced JavaScript with better error handling and performance
+      const popularCities = [
+        // North America
+        { name: "New York", timezone: "America/New_York", emoji: "🇺🇸", country: "United States" },
+        { name: "Los Angeles", timezone: "America/Los_Angeles", emoji: "🇺🇸", country: "United States" },
+        { name: "Chicago", timezone: "America/Chicago", emoji: "🇺🇸", country: "United States" },
+        { name: "Honolulu", timezone: "Pacific/Honolulu", emoji: "🇺🇸", country: "United States" },
+        { name: "Toronto", timezone: "America/Toronto", emoji: "🇨🇦", country: "Canada" },
+        { name: "Vancouver", timezone: "America/Vancouver", emoji: "🇨🇦", country: "Canada" },
+        { name: "Mexico City", timezone: "America/Mexico_City", emoji: "🇲🇽", country: "Mexico" },
+        { name: "Cancun", timezone: "America/Cancun", emoji: "🇲🇽", country: "Mexico" },
+
+        // Europe
+        { name: "London", timezone: "Europe/London", emoji: "🇬🇧", country: "United Kingdom" },
+        { name: "Paris", timezone: "Europe/Paris", emoji: "🇫🇷", country: "France" },
+        { name: "Berlin", timezone: "Europe/Berlin", emoji: "🇩🇪", country: "Germany" },
+        { name: "Rome", timezone: "Europe/Rome", emoji: "🇮🇹", country: "Italy" },
+        { name: "Madrid", timezone: "Europe/Madrid", emoji: "🇪🇸", country: "Spain" },
+        { name: "Amsterdam", timezone: "Europe/Amsterdam", emoji: "🇳🇱", country: "Netherlands" },
+        { name: "Moscow", timezone: "Europe/Moscow", emoji: "🇷🇺", country: "Russia" },
+        { name: "Istanbul", timezone: "Europe/Istanbul", emoji: "🇹🇷", country: "Turkey" },
+
+        // Asia
+        { name: "Tokyo", timezone: "Asia/Tokyo", emoji: "🇯🇵", country: "Japan" },
+        { name: "Beijing", timezone: "Asia/Shanghai", emoji: "🇨🇳", country: "China" },
+        { name: "Hong Kong", timezone: "Asia/Hong_Kong", emoji: "🇭🇰", country: "Hong Kong" },
+        { name: "Singapore", timezone: "Asia/Singapore", emoji: "🇸🇬", country: "Singapore" },
+        { name: "Bangkok", timezone: "Asia/Bangkok", emoji: "🇹🇭", country: "Thailand" },
+        { name: "Mumbai", timezone: "Asia/Kolkata", emoji: "🇮🇳", country: "India" },
+        { name: "Kolkata", timezone: "Asia/Kolkata", emoji: "🇮🇳", country: "India" },
+        { name: "Dubai", timezone: "Asia/Dubai", emoji: "🇦🇪", country: "UAE" },
+
+        // Oceania
+        { name: "Sydney", timezone: "Australia/Sydney", emoji: "🇦🇺", country: "Australia" },
+        { name: "Melbourne", timezone: "Australia/Melbourne", emoji: "🇦🇺", country: "Australia" },
+        { name: "Auckland", timezone: "Pacific/Auckland", emoji: "🇳🇿", country: "New Zealand" },
+
+        // South America
+        { name: "Rio de Janeiro", timezone: "America/Sao_Paulo", emoji: "🇧🇷", country: "Brazil" },
+        { name: "São Paulo", timezone: "America/Sao_Paulo", emoji: "🇧🇷", country: "Brazil" },
+        { name: "Buenos Aires", timezone: "America/Buenos_Aires", emoji: "🇦🇷", country: "Argentina" },
+
+        // Africa
+        { name: "Johannesburg", timezone: "Africa/Johannesburg", emoji: "🇿🇦", country: "South Africa" },
+        { name: "Cairo", timezone: "Africa/Cairo", emoji: "🇪🇬", country: "Egypt" },
+        { name: "Casablanca", timezone: "Africa/Casablanca", emoji: "🇲🇦", country: "Morocco" }
+      ];
+
+      // Function to get current time for a timezone
+      function getCurrentTime(timezone) {
+        try {
+          const now = new Date();
+          const options = {
+            timeZone: timezone,
+            hour12: true,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+          };
+          return now.toLocaleTimeString('en-US', options);
+        } catch (error) {
+          console.error(`Error getting time for ${timezone}:`, error);
+          return 'Time unavailable';
+        }
+      }
+
+      // Function to get current date for a timezone
+      function getCurrentDate(timezone) {
+        try {
+          const now = new Date();
+          const options = {
+            timeZone: timezone,
+            weekday: 'short',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          };
+          return now.toLocaleDateString('en-US', options);
+        } catch (error) {
+          console.error(`Error getting date for ${timezone}:`, error);
+          return 'Date unavailable';
+        }
+      }
+
+      // Function to get timezone offset
+      function getTimezoneOffset(timezone) {
+        try {
+          const now = new Date();
+          const utc = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
+          const targetTime = new Date(utc.toLocaleString('en-US', { timeZone: timezone }));
+          const diff = targetTime.getTime() - utc.getTime();
+          const hours = Math.floor(diff / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const sign = hours >= 0 ? '+' : '-';
+          return `UTC${sign}${Math.abs(hours).toString().padStart(2, '0')}:${Math.abs(minutes).toString().padStart(2, '0')}`;
+        } catch (error) {
+          console.error(`Error getting offset for ${timezone}:`, error);
+          return 'UTC+00:00';
+        }
+      }
+
+      // Function to display cities with real-time updates
+      function displayCities() {
+        const container = document.getElementById('popular-cities');
+        container.innerHTML = '';
+        
+        popularCities.forEach((city, index) => {
+          const card = document.createElement('div');
+          card.className = 'city-card';
+          card.setAttribute('role', 'gridcell');
+          card.setAttribute('aria-label', `Time in ${city.name}, ${city.country}`);
+          card.innerHTML = `
+            <div class="city-name">${city.emoji} ${city.name}</div>
+            <div class="city-time" id="time-${index}">
+              <span class="loading">Loading...</span>
+            </div>
+            <div class="city-date" id="date-${index}"></div>
+            <div class="city-timezone" id="timezone-${index}"></div>
+          `;
+          container.appendChild(card);
+        });
+
+        // Update all times
+        updateAllTimes();
+      }
+
+      // Function to update all city times
+      function updateAllTimes() {
+        popularCities.forEach((city, index) => {
+          const timeElement = document.getElementById(`time-${index}`);
+          const dateElement = document.getElementById(`date-${index}`);
+          const timezoneElement = document.getElementById(`timezone-${index}`);
+          
+          if (timeElement && dateElement && timezoneElement) {
+            timeElement.textContent = getCurrentTime(city.timezone);
+            dateElement.textContent = getCurrentDate(city.timezone);
+            timezoneElement.textContent = getTimezoneOffset(city.timezone);
+          }
+        });
+      }
+
+      // Fullscreen toggle with error handling
+      const fsButton = document.getElementById('fullscreen-toggle');
+      fsButton.addEventListener('click', () => {
+        try {
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(err => {
+              console.error('Fullscreen error:', err);
+            });
+          } else {
+            document.exitFullscreen();
+          }
+        } catch (error) {
+          console.error('Fullscreen toggle error:', error);
+        }
+      });
+
+      // Light mode toggle with persistence
+      const lightModeToggle = document.getElementById('lightModeToggle');
+      lightModeToggle.addEventListener('click', () => {
+        const html = document.documentElement;
+        html.classList.toggle('light-mode');
+        
+        // Save preference
+        try {
+          const isLightMode = html.classList.contains('light-mode');
+          localStorage.setItem('lightMode', isLightMode);
+          lightModeToggle.textContent = isLightMode ? '🌙' : '☀️';
+          lightModeToggle.setAttribute('title', isLightMode ? 'Switch to Dark Mode' : 'Switch to Light Mode');
+        } catch (error) {
+          console.error('Light mode toggle error:', error);
+        }
+      });
+
+      // Initialize page
+      document.addEventListener('DOMContentLoaded', () => {
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Load light mode preference
+        try {
+          const savedMode = localStorage.getItem('lightMode');
+          if (savedMode === 'true') {
+            document.documentElement.classList.add('light-mode');
+            lightModeToggle.textContent = '🌙';
+            lightModeToggle.setAttribute('title', 'Switch to Dark Mode');
+          }
+        } catch (error) {
+          console.error('Loading preferences error:', error);
+        }
+        
+        // Initialize cities
+        displayCities();
+        
+        // Update times every minute
+        setInterval(updateAllTimes, 60000);
+      });
+
+      // Handle visibility change to update times when tab becomes active
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+          updateAllTimes();
+        }
+      });
+    </script>
+  </body>
+</html>
