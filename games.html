@@ -203,6 +203,46 @@
             font-weight: bold;
         }
 
+        .chess-engines {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            margin: 20px 0;
+        }
+
+        .chess-engines h4 {
+            color: #ff9800;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .engine-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .engine-item {
+            background-color: #2a2a2a;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid #ff9800;
+            font-size: 0.9em;
+        }
+
+        .engine-name {
+            font-weight: bold;
+            color: #ff9800;
+            margin-bottom: 5px;
+        }
+
+        .engine-strength {
+            color: #bbb;
+            font-size: 0.8em;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -233,6 +273,10 @@
             .container {
                 padding: 0 15px;
             }
+
+            .engine-list {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 600px) {
@@ -259,19 +303,19 @@
             <!-- Chess Game Card -->
             <div class="game-card">
                 <div class="game-icon">♔</div>
-                <h4 class="game-title">Chess</h4>
+                <h4 class="game-title">Chess - En Croissant</h4>
                 <p class="game-description">
-                    Challenge yourself in this classic game of strategy and intellect. 
-                    Perfect your chess skills with our interactive chess game.
+                    Download <strong>En Croissant</strong> - The Ultimate Chess Toolkit. 
+                    Get access to powerful chess engines and advanced analysis tools on your desktop.
                 </p>
                 <ul class="game-features">
-                    <li>Interactive Chess Board</li>
-                    <li>AI Opponent</li>
-                    <li>Responsive Design</li>
-                    <li>Move Validation</li>
-                    <li>Clean Interface</li>
+                    <li>Advanced Chess Analysis</li>
+                    <li>Multiple AI Engines</li>
+                    <li>Opening Explorer</li>
+                    <li>Tactical Puzzles</li>
+                    <li>Game Database</li>
                 </ul>
-                <button class="play-button" onclick="playChess()">Play Chess Now</button>
+                <button class="play-button" onclick="downloadEnCroissant()">Download En Croissant</button>
             </div>
 
             <!-- Time Challenge Card -->
@@ -311,6 +355,8 @@
             </div>
         </div>
 
+
+
         <h2>🎪 More Games Coming Soon</h2>
         <div class="info-card">
             <p>We're constantly working on new strategic and time-based games to challenge your mind. Stay tuned for updates including puzzle games, memory challenges, and multiplayer strategy games!</p>
@@ -330,9 +376,9 @@
 
     <script>
         // Game launch functions
-        function playChess() {
-            // Redirect to your chess game
-            window.open('/chess_game.html', '_blank');
+        function downloadEnCroissant() {
+            // Redirect to En Croissant download page
+            window.open('https://www.encroissant.org/', '_blank');
         }
     </script>
 </body>
