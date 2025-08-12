@@ -12,17 +12,17 @@
     
    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strategic Games - Chess & Time-Based Challenges | E-Clock.top</title>
-    <meta name="description" content="Play strategic chess and time-based games on E-Clock.top. Improve your timing, reflexes, and decision-making with our collection of mind-challenging games.">
-    <meta name="keywords" content="chess games, time-based strategy games, chess download, strategic puzzles, reaction time games, e-clock games">
+    <title>Strategic Games - Chess GUIs & Time-Based Challenges | E-Clock.top</title>
+    <meta name="description" content="Explore our collection of chess GUIs and time-based games on E-Clock.top. Multiple chess interfaces including web-based, desktop, and server solutions.">
+    <meta name="keywords" content="chess GUI, chess interface, web chess, desktop chess, Node.js chess server, Flask chess, Python chess, strategic games">
     <meta name="author" content="E-Clock.top">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://e-clock.top/games.html">
     
     <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Strategic Games - Chess & Time-Based Challenges | E-Clock.top">
-    <meta property="og:description" content="Play strategic chess and time-based games on E-Clock.top. Improve your timing, reflexes, and decision-making with our collection of mind-challenging games.">
+    <meta property="og:title" content="Strategic Games - Chess GUIs & Time-Based Challenges | E-Clock.top">
+    <meta property="og:description" content="Explore our collection of chess GUIs and time-based games on E-Clock.top. Multiple chess interfaces including web-based, desktop, and server solutions.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://e-clock.top/games.html">
     <meta property="og:image" content="https://e-clock.top/images/games-preview.jpg">
@@ -30,8 +30,8 @@
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Strategic Games - Chess & Time-Based Challenges | E-Clock.top">
-    <meta name="twitter:description" content="Play strategic chess and time-based games on E-Clock.top. Improve your timing, reflexes, and decision-making with our collection of mind-challenging games.">
+    <meta name="twitter:title" content="Strategic Games - Chess GUIs & Time-Based Challenges | E-Clock.top">
+    <meta name="twitter:description" content="Explore our collection of chess GUIs and time-based games on E-Clock.top. Multiple chess interfaces including web-based, desktop, and server solutions.">
     <meta name="twitter:image" content="https://e-clock.top/images/games-preview.jpg">
     
     <!-- Favicon -->
@@ -43,8 +43,8 @@
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Strategic Games - Chess & Time-Based Challenges",
-      "description": "Play strategic chess and time-based games on E-Clock.top",
+      "name": "Strategic Games - Chess GUIs & Time-Based Challenges",
+      "description": "Explore our collection of chess GUIs and time-based games on E-Clock.top",
       "url": "https://e-clock.top/games.html",
       "publisher": {
         "@type": "Organization",
@@ -85,7 +85,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -139,8 +139,15 @@
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 20px;
+            margin: 20px 0;
+        }
+
+        .chess-collection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
             margin: 20px 0;
         }
 
@@ -151,6 +158,38 @@
             border: 1px solid #333;
             transition: transform 0.3s ease, border-color 0.3s ease;
             position: relative;
+        }
+
+        .chess-gui-card {
+            background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #444;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chess-gui-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff9800, #ffb74d, #ff9800);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .chess-gui-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff9800;
+            box-shadow: 0 10px 25px rgba(255, 152, 0, 0.2);
+        }
+
+        .chess-gui-card:hover::before {
+            opacity: 1;
         }
 
         .game-card:hover:not(.coming-soon) {
@@ -165,6 +204,17 @@
             color: #ff9800;
         }
 
+        .chess-icon {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #ff9800, #ffb74d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+        }
+
         .game-title {
             font-size: 1.2em;
             font-weight: bold;
@@ -173,10 +223,33 @@
             margin-bottom: 10px;
         }
 
+        .chess-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #ff9800;
+            margin: 0 0 8px 0;
+            text-align: center;
+        }
+
+        .chess-subtitle {
+            font-size: 0.9em;
+            color: #bbb;
+            text-align: center;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
         .game-description {
             color: #ffffff;
             margin-bottom: 15px;
             line-height: 1.6;
+        }
+
+        .chess-description {
+            color: #ffffff;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 0.95em;
         }
 
         .game-features {
@@ -185,7 +258,14 @@
             padding-left: 0;
         }
 
-        .game-features li {
+        .chess-features {
+            list-style: none;
+            margin-bottom: 20px;
+            padding-left: 0;
+        }
+
+        .game-features li,
+        .chess-features li {
             padding: 5px 0;
             color: #ffffff;
             position: relative;
@@ -193,7 +273,8 @@
             font-size: 0.9em;
         }
 
-        .game-features li::before {
+        .game-features li::before,
+        .chess-features li::before {
             content: '✓';
             position: absolute;
             left: 0;
@@ -201,7 +282,7 @@
             font-weight: bold;
         }
 
-        .play-button {
+        .play-button, .chess-button {
             width: 100%;
             padding: 12px;
             background-color: #ff9800;
@@ -216,8 +297,32 @@
             letter-spacing: 1px;
         }
 
-        .play-button:hover:not(:disabled) {
+        .chess-button {
+            background: linear-gradient(45deg, #ff9800, #ffb74d);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chess-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .chess-button:hover::before {
+            left: 100%;
+        }
+
+        .play-button:hover:not(:disabled),
+        .chess-button:hover:not(:disabled) {
             background-color: #ffb74d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
         }
 
         .play-button:disabled {
@@ -244,44 +349,21 @@
             font-weight: bold;
         }
 
-        .chess-engines {
-            background-color: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #333;
-            margin: 20px 0;
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+            justify-content: center;
         }
 
-        .chess-engines h4 {
+        .tech-badge {
+            background: rgba(255, 152, 0, 0.1);
             color: #ff9800;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-
-        .engine-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .engine-item {
-            background-color: #2a2a2a;
-            padding: 10px;
-            border-radius: 5px;
-            border-left: 3px solid #ff9800;
-            font-size: 0.9em;
-        }
-
-        .engine-name {
-            font-weight: bold;
-            color: #ff9800;
-            margin-bottom: 5px;
-        }
-
-        .engine-strength {
-            color: #bbb;
-            font-size: 0.8em;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            border: 1px solid rgba(255, 152, 0, 0.3);
         }
 
         footer {
@@ -307,58 +389,123 @@
                 font-size: 1.5rem;
             }
             
-            .games-grid {
+            .games-grid,
+            .chess-collection {
                 grid-template-columns: 1fr;
             }
 
             .container {
                 padding: 0 15px;
             }
-
-            .engine-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .games-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>🎮 E-Clock Game Suggestions</h1>
+        <h1>🎮 E-Clock Game Collection</h1>
         <p>Strategic Gaming Meets Perfect Timing</p>
     </header>
 
     <div class="container">
         <div class="highlight-box">
-            <p><strong>Welcome to E-Clock Game Suggestions - where strategy meets precision timing!</strong> Test your skills with this collection of time-based strategic games. Whether you're a Chess Expert or looking for quick reflexes challenges, we have something for every strategic mind.</p>
+            <p><strong>Welcome to E-Clock Game Collection - where strategy meets precision timing!</strong> Explore our diverse collection of chess interfaces and strategic games. Whether you prefer web-based, desktop, or server solutions, we have the perfect chess GUI for your needs.</p>
         </div>
 
-        <h2>🎯 Suggested Games</h2>
+        <h2>♔ Chess GUI Collection</h2>
+        <p>Choose from our variety of chess interfaces, each designed for different use cases and technical requirements:</p>
 
-        <div class="games-grid">
-            <!-- Chess Game Card -->
-            <div class="game-card">
-                <div class="game-icon">♔</div>
-                <h4 class="game-title">Chess</h4>
-                <p class="game-description">
-                    Download <strong>En Croissant</strong> - The Ultimate Chess Toolkit. 
-                    Get access to powerful chess engines and advanced analysis tools on your desktop.
+        <div class="chess-collection">
+            <!-- Node.js Chess Server -->
+            <div class="chess-gui-card">
+                <div class="chess-icon">⚡</div>
+                <h4 class="chess-title">Node.js Chess Server</h4>
+                <p class="chess-subtitle">High-Performance Node.js Solution</p>
+                <div class="tech-badges">
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">REST API</span>
+                    <span class="tech-badge">Clustering</span>
+					<span class="tech-badge">Cross-platform</span>
+                </div>
+                <p class="chess-description">
+                    Enterprise-grade chess server featuring advanced caching, load balancing, 
+                    and fault tolerance. Perfect for high-traffic applications requiring robust chess functionality.
                 </p>
-                <ul class="game-features">
-                    <li>Advanced Chess Analysis</li>
-                    <li>Multiple AI Engines</li>
-                    <li>Opening Explorer</li>
-                    <li>Tactical Puzzles</li>
-                    <li>Game Database</li>
+                <ul class="chess-features">
+                    <li>RESTful API with UCI Protocol</li>
+                    <li>Intelligent Engine Pool Management</li>
+                    <li>Advanced Caching & Rate Limiting</li>
+                    <li>Circuit Breaker Pattern</li>
+                    <li>Multi-process Clustering</li>
+                    <li>Real-time Health Monitoring</li>
                 </ul>
-                <button class="play-button" onclick="downloadEnCroissant()">Goto En Croissant</button>
+                <button class="chess-button" onclick="viewChessGUI('komodo-server')">View Documentation</button>
             </div>
 
+            <!-- Flask Web Chess -->
+            <div class="chess-gui-card">
+                <div class="chess-icon">🌐</div>
+                <h4 class="chess-title">Flask Chess GUI</h4>
+                <p class="chess-subtitle">Feature-Rich Web Application</p>
+                <div class="tech-badges">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Flask</span>
+                   <span class="tech-badge">Web UI</span>
+				   <span class="tech-badge">Cross-platform</span>
+                </div>
+                <p class="chess-description">
+                    Complete web-based chess application with modern responsive design. 
+                    Supports multiple game modes and provides comprehensive chess functionality.
+                </p>
+                <ul class="chess-features">
+                    <li>Player vs Player & vs Engine</li>
+                    <li>Engine vs Engine Battles</li>
+                    <li>PGN Save/Load Functionality</li>
+                    <li>FEN Position Import/Export</li>
+                    <li>Configurable Engine Settings</li>
+                    <li>Modern Responsive Interface</li>
+                </ul>
+                <button class="chess-button" onclick="viewChessGUI('flask-chess')">View Documentation</button>
+            </div>
+
+            <!-- Desktop Python Chess -->
+            <div class="chess-gui-card">
+                <div class="chess-icon">🖥️</div>
+                <h4 class="chess-title">Enhanced Python Chess GUI</h4>
+                <p class="chess-subtitle">Desktop Tkinter Application</p>
+                <div class="tech-badges">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Tkinter</span>
+                    <span class="tech-badge">UCI Engines</span>
+                    <span class="tech-badge">Cross-platform</span>
+                </div>
+                <p class="chess-description">
+                    Professional desktop chess application with dark theme and enhanced UI. 
+                    Compatible with any UCI chess engine for maximum flexibility.
+                </p>
+                <ul class="chess-features">
+                    <li>Modern Dark Theme Design</li>
+                    <li>Unicode Chess Pieces</li>
+                    <li>Multiple Game Modes</li>
+                    <li>Configurable Engine Support</li>
+                    <li>Move History & Undo</li>
+                    <li>Save/Load Game Files</li>
+                </ul>
+                <button class="chess-button" onclick="viewChessGUI('python-desktop')">View Documentation</button>
+            </div>
+
+            
+        </div>
+
+        <div class="info-card">
+            <h4>🔧 Technical Specifications</h4>
+            <p><strong>Server Solution:</strong> Node.js-based  server with enterprise features including load balancing, caching, and clustering support for high-performance applications.</p>
+            <p><strong>Web Application:</strong> Flask-powered web interface with real-time gameplay, file management, and responsive design suitable for both casual and serious players.</p>
+            <p><strong>Desktop Application:</strong> Cross-platform Python GUI with professional styling, supporting any UCI-compatible chess engine for maximum flexibility.</p>
+        </div>
+
+        <h2>🎯 Other Strategic Games</h2>
+
+        <div class="games-grid">
             <!-- Time Challenge Card -->
             <div class="game-card coming-soon">
                 <div class="game-icon">⏱️</div>
@@ -396,9 +543,7 @@
             </div>
         </div>
 
-
-
-        <h2>🎪 More Games Coming Soon</h2>
+        <h2>🚀 More Games Coming Soon</h2>
         <div class="info-card">
             <p>We're constantly working on new strategic and time-based games to challenge your mind. Stay tuned for updates including puzzle games, memory challenges, and multiplayer strategy games!</p>
         </div>
@@ -416,11 +561,23 @@
     </footer>
 
     <script>
-        // Game launch functions
-        function downloadEnCroissant() {
-            // Redirect to En Croissant download page
-            window.open('https://www.encroissant.org/', '_blank');
+        // Chess GUI navigation functions
+        function viewChessGUI(guiType) {
+            switch(guiType) {
+                case 'komodo-server':
+                    // You can link to a dedicated page or documentation for the Node.js server
+                   ;
+                    break;
+                case 'flask-chess':
+                    // Link to Flask chess GUI or documentation
+                    ;
+                    break;
+                case 'python-desktop':
+                    // Link to Python desktop chess documentation
+                    ;
+            }
         }
+        
     </script>
 </body>
 </html>
