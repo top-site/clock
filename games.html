@@ -197,6 +197,25 @@
             border-color: #ff9800;
         }
 
+        .featured-chess {
+            border: 2px solid #ff9800;
+            background: linear-gradient(135deg, #1e1e1e 0%, #2a1f0a 100%);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -5px;
+            right: 15px;
+            background: linear-gradient(45deg, #ff9800, #ffb74d);
+            color: #121212;
+            padding: 8px 15px;
+            border-radius: 0 0 10px 10px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         .game-icon {
             font-size: 2.5em;
             text-align: center;
@@ -295,6 +314,9 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
         }
 
         .chess-button {
@@ -408,107 +430,48 @@
 
     <div class="container">
         <div class="highlight-box">
-            <p><strong>Welcome to E-Clock Game Collection - where strategy meets precision timing!</strong> Explore our diverse collection of chess interfaces and strategic games. Whether you prefer web-based, desktop, or server solutions, we have the perfect chess GUI for your needs.</p>
+            <p><strong>Welcome to E-Clock Game Collection - where strategy meets precision timing!</strong> Explore our diverse collection of chess interfaces and strategic games. Play our featured professional chess game online or explore various chess GUIs for different platforms and use cases.</p>
         </div>
 
-        <h2>♔ Chess GUI Collection</h2>
-        <p>Choose from our variety of chess interfaces, each designed for different use cases and technical requirements:</p>
-
+        <h2>♛ Featured Chess Game</h2>
         <div class="chess-collection">
-            <!-- Node.js Chess Server -->
-            <div class="chess-gui-card">
-                <div class="chess-icon">⚡</div>
-                <h4 class="chess-title">Node.js Chess Server</h4>
-                <p class="chess-subtitle">High-Performance Node.js Solution</p>
+            <!-- Featured Professional Chess Game -->
+            <div class="chess-gui-card featured-chess">
+                <div class="featured-badge">Play Now</div>
+                <div class="chess-icon">♛</div>
+                <h4 class="chess-title">Professional Chess Game</h4>
+                <p class="chess-subtitle">Play Online - Ready to Start!</p>
                 <div class="tech-badges">
-                    <span class="tech-badge">Node.js</span>
-                    <span class="tech-badge">REST API</span>
-                    <span class="tech-badge">Clustering</span>
-					<span class="tech-badge">Cross-platform</span>
+                    <span class="tech-badge">Web-Based</span>
+                    <span class="tech-badge">Instant Play</span>
+                    <span class="tech-badge">Professional UI</span>
+                    <span class="tech-badge">Full-Featured</span>
                 </div>
                 <p class="chess-description">
-                    Enterprise-grade chess server featuring advanced caching, load balancing, 
-                    and fault tolerance. Perfect for high-traffic applications requiring robust chess functionality.
+                    Experience our premium chess game with professional-grade features, 
+                    beautiful interface, and smooth gameplay. Perfect for players of all skill levels.
                 </p>
                 <ul class="chess-features">
-                    <li>RESTful API with UCI Protocol</li>
-                    <li>Intelligent Engine Pool Management</li>
-                    <li>Advanced Caching & Rate Limiting</li>
-                    <li>Circuit Breaker Pattern</li>
-                    <li>Multi-process Clustering</li>
-                    <li>Real-time Health Monitoring</li>
+                    <li>Professional Chess Interface</li>
+                    <li>Player vs Player Mode</li>
+                    <li>Player vs AI Engine</li>
+                    <li>Game Analysis Tools</li>
+                    <li>Move History & Navigation</li>
+                    <li>Responsive Design</li>
                 </ul>
-                <button class="chess-button" onclick="viewChessGUI('komodo-server')">View Documentation</button>
+                <a href="https://professional-chess-g-afwb.bolt.host/" target="_blank" class="chess-button">Play Chess Now</a>
             </div>
-
-            <!-- Flask Web Chess -->
-            <div class="chess-gui-card">
-                <div class="chess-icon">🌐</div>
-                <h4 class="chess-title">Flask Chess GUI</h4>
-                <p class="chess-subtitle">Feature-Rich Web Application</p>
-                <div class="tech-badges">
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">Flask</span>
-                   <span class="tech-badge">Web UI</span>
-				   <span class="tech-badge">Cross-platform</span>
-                </div>
-                <p class="chess-description">
-                    Complete web-based chess application with modern responsive design. 
-                    Supports multiple game modes and provides comprehensive chess functionality.
-                </p>
-                <ul class="chess-features">
-                    <li>Player vs Player & vs Engine</li>
-                    <li>Engine vs Engine Battles</li>
-                    <li>PGN Save/Load Functionality</li>
-                    <li>FEN Position Import/Export</li>
-                    <li>Configurable Engine Settings</li>
-                    <li>Modern Responsive Interface</li>
-                </ul>
-                <button class="chess-button" onclick="viewChessGUI('flask-chess')">View Documentation</button>
-            </div>
-
-            <!-- Desktop Python Chess -->
-            <div class="chess-gui-card">
-                <div class="chess-icon">🖥️</div>
-                <h4 class="chess-title">Enhanced Python Chess GUI</h4>
-                <p class="chess-subtitle">Desktop Tkinter Application</p>
-                <div class="tech-badges">
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">Tkinter</span>
-                    <span class="tech-badge">UCI Engines</span>
-                    <span class="tech-badge">Cross-platform</span>
-                </div>
-                <p class="chess-description">
-                    Professional desktop chess application with dark theme and enhanced UI. 
-                    Compatible with any UCI chess engine for maximum flexibility.
-                </p>
-                <ul class="chess-features">
-                    <li>Modern Dark Theme Design</li>
-                    <li>Unicode Chess Pieces</li>
-                    <li>Multiple Game Modes</li>
-                    <li>Configurable Engine Support</li>
-                    <li>Move History & Undo</li>
-                    <li>Save/Load Game Files</li>
-                </ul>
-                <button class="chess-button" onclick="viewChessGUI('python-desktop')">View Documentation</button>
-            </div>
-
-            
         </div>
-
-        <div class="info-card">
-            <h4>🔧 Technical Specifications</h4>
-            <p><strong>Server Solution:</strong> Node.js-based  server with enterprise features including load balancing, caching, and clustering support for high-performance applications.</p>
-            <p><strong>Web Application:</strong> Flask-powered web interface with real-time gameplay, file management, and responsive design suitable for both casual and serious players.</p>
-            <p><strong>Desktop Application:</strong> Cross-platform Python GUI with professional styling, supporting any UCI-compatible chess engine for maximum flexibility.</p>
-        </div>
+   
+   
+        
 
         <h2>🎯 Other Strategic Games</h2>
 
         <div class="games-grid">
             <!-- Time Challenge Card -->
             <div class="game-card coming-soon">
-                <div class="game-icon">⏱️</div>
+                <div class="game-icon">Ɱ️</div>
                 <h4 class="game-title">Time Challenge Arena</h4>
                 <p class="game-description">
                     Test your reflexes and decision-making under pressure. 
@@ -565,19 +528,16 @@
         function viewChessGUI(guiType) {
             switch(guiType) {
                 case 'komodo-server':
-                    // You can link to a dedicated page or documentation for the Node.js server
-                   ;
+                    alert('Documentation for Node.js Chess Server - Contact for implementation details');
                     break;
                 case 'flask-chess':
-                    // Link to Flask chess GUI or documentation
-                    ;
+                    alert('Documentation for Flask Chess GUI - Contact for implementation details');
                     break;
                 case 'python-desktop':
-                    // Link to Python desktop chess documentation
-                    ;
+                    alert('Documentation for Python Desktop Chess - Contact for implementation details');
+                    break;
             }
         }
-        
     </script>
 </body>
 </html>
