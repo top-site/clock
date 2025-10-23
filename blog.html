@@ -226,6 +226,53 @@
       text-decoration: none;
       transform: translateX(3px);
     }
+    .suggest-section {
+      background: linear-gradient(135deg, #2a2a2a 0%, #1e1e1e 100%);
+      border: 2px solid #5865F2;
+      border-radius: 10px;
+      padding: 30px;
+      margin: 40px 0;
+      position: relative;
+    }
+    .suggest-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background-color: #5865F2;
+      color: #ffffff;
+      padding: 6px 18px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    .suggest-section h3 {
+      color: #5865F2;
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    .suggest-section p {
+      color: #ddd;
+      margin: 15px 0;
+    }
+    .suggest-link-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: #5865F2;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+    }
+    .suggest-link-button:hover {
+      background-color: #4752C4;
+      text-decoration: none;
+      transform: translateX(3px);
+    }
     .newsletter-signup {
       background-color: #1e1e1e;
       padding: 30px;
@@ -291,6 +338,9 @@
         min-width: auto;
       }
       .ai-section {
+        padding: 20px;
+      }
+      .suggest-section {
         padding: 20px;
       }
     }
@@ -495,6 +545,16 @@
         <div class="post-content">
           <p>We're excited to launch the official blog for e-clock.top! Here you'll find updates, productivity tips, and insights into how our online tools can help you manage your time better. Stay tuned for more posts soon.</p>
         </div>
+      </div>
+
+      <div class="suggest-section">
+        <div class="suggest-badge">Community</div>
+        <h3>💡 Suggest Blog Topics - Your Ideas Shape Our Content!</h3>
+        <p>Have a time zone question? Curious about international travel tips? Want to learn about remote work across continents? We want to hear from you!</p>
+        <p>Join our Discord community to suggest article topics, vote on upcoming content, and connect with fellow time zone enthusiasts. Your suggestions become our articles—whether you're interested in business coordination, cultural time traditions, or global event scheduling.</p>
+        <a href="discord_suggest_topics.html" class="suggest-link-button">
+          Share Your Ideas →
+        </a>
       </div>
 
       <div class="ai-section">
