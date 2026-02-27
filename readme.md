@@ -185,20 +185,7 @@ Contributions are welcome! Here's how you can help:
 - [ ] Add export functionality for timers
 - [ ] Create mobile app version
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙋 Support & Contact
-
-- **Website**: [e-clock.top](https://e-clock.top)
-
-
-## 🔗 Related Projects
-
-- [World Clock Page](world_clock.html) - Dedicated world clock interface
-- [FAQ](FAQ.html) - Frequently asked questions
-- [Privacy Policy](privacy.html) - Data usage and privacy information
+## 🙋 Website: [e-clock.top](https://e-clock.top)
 
 ## 📊 Stats
 
