@@ -510,15 +510,23 @@
       function loadSunriseSunset() {
         if (sunLoaded) return;
         sunLoaded = true;
+        // timezone=Europe/London makes the API return local London time strings
+        // like "2025-02-27T06:45" — already in London local time, no conversion needed.
         const url = 'https://api.open-meteo.com/v1/forecast?latitude=51.5074&longitude=-0.1278&daily=sunrise,sunset&timezone=Europe/London&forecast_days=1';
         fetch(url)
           .then(r => r.json())
           .then(data => {
-            const sunrise = new Date(data.daily.sunrise[0]);
-            const sunset = new Date(data.daily.sunset[0]);
-            const fmt = d => d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: LONDON_TZ });
-            document.getElementById('london-sunrise').textContent = fmt(sunrise);
-            document.getElementById('london-sunset').textContent = fmt(sunset);
+            // Parse time directly from the ISO string to avoid new Date() browser-tz misinterpretation.
+            // e.g. "2025-02-27T06:45" → "06:45 AM"
+            const fmtISOTime = str => {
+              const [hStr, mStr] = str.split('T')[1].split(':');
+              let h = parseInt(hStr, 10);
+              const ampm = h >= 12 ? 'PM' : 'AM';
+              h = h % 12 || 12;
+              return `${String(h).padStart(2, '0')}:${mStr} ${ampm}`;
+            };
+            document.getElementById('london-sunrise').textContent = fmtISOTime(data.daily.sunrise[0]);
+            document.getElementById('london-sunset').textContent = fmtISOTime(data.daily.sunset[0]);
           })
           .catch(() => {
             document.getElementById('london-sunrise').textContent = 'N/A';
