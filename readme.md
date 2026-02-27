@@ -192,9 +192,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙋 Support & Contact
 
 - **Website**: [e-clock.top](https://e-clock.top)
-- **Twitter/X**: [@eclockdottop](https://x.com/eclockdottop)
-- **Discord**: [Join our community](https://discord.gg/pEFtZ8qR3N)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/e-clock/issues)
+
 
 ## 🔗 Related Projects
 
