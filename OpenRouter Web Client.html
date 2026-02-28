@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenRouter Web Client</title>
+    <style>
+        :root {
+            --primary: #6e48aa;
+            --secondary: #9d50bb;
+            --dark: #333;
+            --light: #f8f9fa;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+            --info: #17a2b8;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: var(--secondary);
+        }
+        
+        .btn-danger {
+            background: var(--danger);
+        }
+        
+        .btn-danger:hover {
+            background: #c82333;
+        }
+        
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+        }
+        
+        .user-message {
+            background: var(--primary);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .assistant-message {
+            background: #e9ecef;
+            margin-right: auto;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .system-message {
+            background: var(--info);
+            color: white;
+            margin: 10px auto;
+            text-align: center;
+            padding: 5px 15px;
+            font-size: 0.9em;
+            border-radius: 12px;
+            max-width: 60%;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #ddd;
+        }
+        
+        .chat-input textarea {
+            flex: 1;
+            resize: none;
+            margin-right: 10px;
+            min-height: 60px;
+        }
+        
+        .tab-container {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+            border-bottom-color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .model-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .model-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .model-item:hover {
+            background: #f8f9fa;
+        }
+        
+        .model-item.selected {
+            background: rgba(110, 72, 170, 0.1);
+            border-left: 3px solid var(--primary);
+        }
+        
+        .model-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .model-id {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .model-pricing {
+            font-size: 0.9em;
+        }
+        
+        .free {
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        .paid {
+            color: var(--warning);
+        }
+        
+        .spinner {
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 3px solid var(--primary);
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .alert {
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .alert-success {
+            background: rgba(40, 167, 69, 0.2);
+            color: var(--success);
+            border-left: 3px solid var(--success);
+        }
+        
+        .alert-danger {
+            background: rgba(220, 53, 69, 0.2);
+            color: var(--danger);
+            border-left: 3px solid var(--danger);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .settings-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .settings-row .form-group {
+            flex: 1;
+        }
+        
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background: #f8f9fa;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .settings-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>OpenRouter Web Client</h1>
+            <p>A web interface for interacting with OpenRouter AI models</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="tab-container">
+            <div class="tab active" data-tab="settings">Settings</div>
+            <div class="tab" data-tab="models">Models</div>
+            <div class="tab" data-tab="chat">Chat</div>
+            <div class="tab" data-tab="completions">Completions</div>
+        </div>
+        
+        <!-- Settings Tab -->
+        <div id="settings" class="tab-content active">
+            <div class="card">
+                <h2>API Configuration</h2>
+                <div id="settings-alert" class="alert hidden"></div>
+                
+                <div class="form-group">
+                    <label for="api-key">API Key</label>
+                    <input type="password" id="api-key" placeholder="sk-live-...">
+                </div>
+                
+                <div class="settings-row">
+                    <div class="form-group">
+                        <label for="referer">HTTP Referer</label>
+                        <input type="text" id="referer" placeholder="https://example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="x-title">X-Title</label>
+                        <input type="text" id="x-title" placeholder="OpenRouter Web Client">
+                    </div>
+                </div>
+                
+                <button id="save-settings">Save Settings</button>
+            </div>
+            
+            <div class="card">
+                <h2>Default Parameters</h2>
+                
+                <div class="settings-row">
+                    <div class="form-group">
+                        <label for="default-model">Default Model</label>
+                        <input type="text" id="default-model" placeholder="meta-llama/llama-3-8b-instruct">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="system-prompt">System Prompt</label>
+                        <input type="text" id="system-prompt" placeholder="You are a helpful assistant.">
+                    </div>
+                </div>
+                
+                <div class="settings-row">
+                    <div class="form-group">
+                        <label for="temperature">Temperature (0-1)</label>
+                        <input type="number" id="temperature" min="0" max="2" step="0.1" value="0.7">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="max-tokens">Max Tokens</label>
+                        <input type="number" id="max-tokens" min="1" max="8192" value="1024">
+                    </div>
+                </div>
+                
+                <button id="save-defaults">Save Defaults</button>
+            </div>
+        </div>
+        
+        <!-- Models Tab -->
+        <div id="models" class="tab-content">
+            <div class="card">
+                <h2>Available Models</h2>
+                <div id="models-alert" class="alert hidden"></div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="show-free-only"> Show free models only
+                    </label>
+                </div>
+                
+                <button id="refresh-models">Refresh Models</button>
+                
+                <div id="models-loading" class="hidden">
+                    <div class="spinner"></div> Loading models...
+                </div>
+                
+                <div id="model-list" class="model-list"></div>
+            </div>
+        </div>
+        
+        <!-- Chat Tab -->
+        <div id="chat" class="tab-content">
+            <div class="card">
+                <h2>Interactive Chat</h2>
+                <div id="chat-alert" class="alert hidden"></div>
+                
+                <div class="settings-row">
+                    <div class="form-group">
+                        <label for="chat-model">Model</label>
+                        <select id="chat-model">
+                            <option value="">Use default model</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="chat-temperature">Temperature</label>
+                        <input type="number" id="chat-temperature" min="0" max="2" step="0.1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="chat-max-tokens">Max Tokens</label>
+                        <input type="number" id="chat-max-tokens" min="1" max="8192">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="chat-system-prompt">System Prompt</label>
+                    <textarea id="chat-system-prompt" rows="2"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="chat-stream" checked> Stream response
+                    </label>
+                </div>
+                
+                <div class="chat-container">
+                    <div id="chat-messages" class="chat-messages"></div>
+                    <div class="chat-input">
+                        <textarea id="chat-input" placeholder="Type your message here..."></textarea>
+                        <button id="send-message">Send</button>
+						<button id="download-chat" class="btn-danger">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Completions Tab -->
+        <div id="completions" class="tab-content">
+            <div class="card">
+                <h2>One-shot Completion</h2>
+                <div id="completions-alert" class="alert hidden"></div>
+                
+                <div class="settings-row">
+                    <div class="form-group">
+                        <label for="completion-model">Model</label>
+                        <select id="completion-model">
+                            <option value="">Use default model</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="completion-temperature">Temperature</label>
+                        <input type="number" id="completion-temperature" min="0" max="2" step="0.1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="completion-max-tokens">Max Tokens</label>
+                        <input type="number" id="completion-max-tokens" min="1" max="8192">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="completion-prompt">Prompt</label>
+                    <textarea id="completion-prompt" rows="5" placeholder="Enter your prompt here..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="raw-json"> Show raw JSON response
+                    </label>
+                </div>
+                
+                <button id="send-completion">Generate Completion</button>
+                
+                <div id="completion-result" class="hidden">
+                    <h3>Result</h3>
+                    <pre id="completion-output"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Configuration
+        const config = {
+            apiKey: localStorage.getItem('openrouter_api_key') || '',
+            referer: localStorage.getItem('openrouter_referer') || 'https://example.com',
+            xTitle: localStorage.getItem('openrouter_x_title') || 'OpenRouter Web Client',
+            defaultModel: localStorage.getItem('openrouter_default_model') || 'meta-llama/llama-3-8b-instruct',
+            systemPrompt: localStorage.getItem('openrouter_system_prompt') || 'You are a helpful assistant.',
+            temperature: parseFloat(localStorage.getItem('openrouter_temperature')) || 0.7,
+            maxTokens: parseInt(localStorage.getItem('openrouter_max_tokens')) || 1024
+        };
+        
+        // API Endpoints
+        const API_ENDPOINT = 'https://openrouter.ai/api/v1/chat/completions';
+        const MODELS_ENDPOINT = 'https://openrouter.ai/api/v1/models';
+        
+        // DOM Elements
+        const tabContents = document.querySelectorAll('.tab-content');
+        const tabs = document.querySelectorAll('.tab');
+        
+        // Settings elements
+        const apiKeyInput = document.getElementById('api-key');
+        const refererInput = document.getElementById('referer');
+        const xTitleInput = document.getElementById('x-title');
+        const defaultModelInput = document.getElementById('default-model');
+        const systemPromptInput = document.getElementById('system-prompt');
+        const temperatureInput = document.getElementById('temperature');
+        const maxTokensInput = document.getElementById('max-tokens');
+        const saveSettingsBtn = document.getElementById('save-settings');
+        const saveDefaultsBtn = document.getElementById('save-defaults');
+        
+        // Models elements
+        const showFreeOnlyCheckbox = document.getElementById('show-free-only');
+        const refreshModelsBtn = document.getElementById('refresh-models');
+        const modelList = document.getElementById('model-list');
+        const modelsLoading = document.getElementById('models-loading');
+        const modelsAlert = document.getElementById('models-alert');
+        
+        // Chat elements
+        const chatModelSelect = document.getElementById('chat-model');
+        const chatTemperatureInput = document.getElementById('chat-temperature');
+        const chatMaxTokensInput = document.getElementById('chat-max-tokens');
+        const chatSystemPromptInput = document.getElementById('chat-system-prompt');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendMessageBtn = document.getElementById('send-message');
+        const chatAlert = document.getElementById('chat-alert');
+        const chatStreamCheckbox = document.getElementById('chat-stream');
+        
+        // Completions elements
+        const completionModelSelect = document.getElementById('completion-model');
+        const completionTemperatureInput = document.getElementById('completion-temperature');
+        const completionMaxTokensInput = document.getElementById('completion-max-tokens');
+        const completionPromptInput = document.getElementById('completion-prompt');
+        const rawJsonCheckbox = document.getElementById('raw-json');
+        const sendCompletionBtn = document.getElementById('send-completion');
+        const completionResult = document.getElementById('completion-result');
+        const completionOutput = document.getElementById('completion-output');
+        const completionsAlert = document.getElementById('completions-alert');
+        
+        // Initialize the app
+        function init() {
+            // Load saved settings
+            loadSettings();
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            // Load models if API key is set
+            if (config.apiKey) {
+                loadModels();
+            }
+        }
+        
+        // Load saved settings into the UI
+        function loadSettings() {
+            apiKeyInput.value = config.apiKey;
+            refererInput.value = config.referer;
+            xTitleInput.value = config.xTitle;
+            defaultModelInput.value = config.defaultModel;
+            systemPromptInput.value = config.systemPrompt;
+            temperatureInput.value = config.temperature;
+            maxTokensInput.value = config.maxTokens;
+            
+            // Set chat and completion defaults
+            chatTemperatureInput.value = config.temperature;
+            chatMaxTokensInput.value = config.maxTokens;
+            chatSystemPromptInput.value = config.systemPrompt;
+            
+            completionTemperatureInput.value = config.temperature;
+            completionMaxTokensInput.value = config.maxTokens;
+        }
+        
+        // Setup all event listeners
+        function setupEventListeners() {
+            // Tab switching
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    tab.classList.add('active');
+                    document.getElementById(tab.dataset.tab).classList.add('active');
+                });
+            });
+            
+            // Settings save buttons
+            saveSettingsBtn.addEventListener('click', saveSettings);
+            saveDefaultsBtn.addEventListener('click', saveDefaults);
+            
+            // Models refresh
+            refreshModelsBtn.addEventListener('click', loadModels);
+            showFreeOnlyCheckbox.addEventListener('change', () => {
+                const models = JSON.parse(localStorage.getItem('openrouter_models') || '[]');
+                displayModels(models, showFreeOnlyCheckbox.checked);
+            });
+            
+            // Chat
+            sendMessageBtn.addEventListener('click', sendChatMessage);
+            chatInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendChatMessage();
+                }
+            });
+			
+			// Chat download
+            document.getElementById('download-chat').addEventListener('click', downloadChat);
+            
+            // Completions
+            sendCompletionBtn.addEventListener('click', sendCompletion);
+        }
+        
+        // Save API settings
+        function saveSettings() {
+            config.apiKey = apiKeyInput.value.trim();
+            config.referer = refererInput.value.trim();
+            config.xTitle = xTitleInput.value.trim();
+            
+            localStorage.setItem('openrouter_api_key', config.apiKey);
+            localStorage.setItem('openrouter_referer', config.referer);
+            localStorage.setItem('openrouter_x_title', config.xTitle);
+            
+            showAlert('settings-alert', 'Settings saved successfully!', 'success');
+            
+            // Reload models if API key was changed
+            if (config.apiKey) {
+                loadModels();
+            }
+        }
+        
+        // Save default parameters
+        function saveDefaults() {
+            config.defaultModel = defaultModelInput.value.trim();
+            config.systemPrompt = systemPromptInput.value.trim();
+            config.temperature = parseFloat(temperatureInput.value);
+            config.maxTokens = parseInt(maxTokensInput.value);
+            
+            localStorage.setItem('openrouter_default_model', config.defaultModel);
+            localStorage.setItem('openrouter_system_prompt', config.systemPrompt);
+            localStorage.setItem('openrouter_temperature', config.temperature);
+            localStorage.setItem('openrouter_max_tokens', config.maxTokens);
+            
+            // Update chat and completion defaults
+            chatTemperatureInput.value = config.temperature;
+            chatMaxTokensInput.value = config.maxTokens;
+            chatSystemPromptInput.value = config.systemPrompt;
+            
+            completionTemperatureInput.value = config.temperature;
+            completionMaxTokensInput.value = config.maxTokens;
+            
+            showAlert('settings-alert', 'Default parameters saved successfully!', 'success');
+        }
+        
+        // Load available models from OpenRouter API
+        async function loadModels() {
+            if (!config.apiKey) {
+                showAlert('models-alert', 'API key is required to fetch models', 'danger');
+                return;
+            }
+            
+            modelsLoading.classList.remove('hidden');
+            modelList.innerHTML = '';
+            
+            const headers = {
+                'Authorization': `Bearer ${config.apiKey}`,
+                'HTTP-Referer': config.referer,
+                'X-Title': config.xTitle
+            };
+            
+            try {
+                const response = await fetch(MODELS_ENDPOINT, { headers });
+                
+                if (!response.ok) {
+                    const error = await response.json().catch(() => ({}));
+                    throw new Error(error.message || `HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const models = data.data || [];
+                
+                localStorage.setItem('openrouter_models', JSON.stringify(models));
+                displayModels(models, showFreeOnlyCheckbox.checked);
+                populateModelSelects(models);
+            } catch (error) {
+                const friendlyError = handleApiErrors(error);
+                showAlert('models-alert', `Error fetching models: ${friendlyError}`, 'danger');
+                console.error('Error fetching models:', error);
+            } finally {
+                modelsLoading.classList.add('hidden');
+            }
+        }
+        
+        // Display models in the models list
+        function displayModels(models, showFreeOnly = false) {
+            modelList.innerHTML = '';
+            
+            if (showFreeOnly) {
+                models = models.filter(model => {
+                    const pricing = model.pricing || {};
+                    return (pricing.prompt === "0" || pricing.prompt === 0) && 
+                           (pricing.completion === "0" || pricing.completion === 0);
+                });
+            }
+            
+            if (models.length === 0) {
+                modelList.innerHTML = '<p>No models found.</p>';
+                return;
+            }
+            
+            models.forEach(model => {
+                const modelItem = document.createElement('div');
+                modelItem.className = 'model-item';
+                modelItem.dataset.id = model.id;
+                
+                const pricing = model.pricing || {};
+                const isFree = (pricing.prompt === "0" || pricing.prompt === 0) && 
+                               (pricing.completion === "0" || pricing.completion === 0);
+                
+                modelItem.innerHTML = `
+                    <div class="model-name">${model.name || model.id}</div>
+                    <div class="model-id">${model.id}</div>
+                    <div class="model-pricing">
+                        <span class="${isFree ? 'free' : 'paid'}">
+                            ${isFree ? 'FREE' : `Prompt: $${pricing.prompt}, Completion: $${pricing.completion}`}
+                        </span>
+                    </div>
+                `;
+                
+                modelItem.addEventListener('click', () => {
+                    document.querySelectorAll('.model-item').forEach(item => {
+                        item.classList.remove('selected');
+                    });
+                    modelItem.classList.add('selected');
+                    
+                    // Update the default model in settings
+                    defaultModelInput.value = model.id;
+                });
+                
+                modelList.appendChild(modelItem);
+            });
+        }
+        
+        // Populate model selects in chat and completions tabs
+        function populateModelSelects(models) {
+            chatModelSelect.innerHTML = '<option value="">Use default model</option>';
+            completionModelSelect.innerHTML = '<option value="">Use default model</option>';
+            
+            models.forEach(model => {
+                const option = document.createElement('option');
+                option.value = model.id;
+                option.textContent = `${model.name} (${model.id})`;
+                
+                chatModelSelect.appendChild(option.cloneNode(true));
+                completionModelSelect.appendChild(option);
+            });
+        }
+        
+        // Send a chat message
+        async function sendChatMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+            
+            if (!config.apiKey) {
+                showAlert('chat-alert', 'API key is required', 'danger');
+                return;
+            }
+            
+            const model = chatModelSelect.value || config.defaultModel;
+            const temperature = parseFloat(chatTemperatureInput.value) || config.temperature;
+            const maxTokens = parseInt(chatMaxTokensInput.value) || config.maxTokens;
+            const systemPrompt = chatSystemPromptInput.value || config.systemPrompt;
+            const stream = chatStreamCheckbox.checked;
+            
+            // Add user message to chat
+            addMessage('user', message);
+            chatInput.value = '';
+            
+            // Prepare messages for API
+            const messages = [
+                { role: 'system', content: systemPrompt },
+                { role: 'user', content: message }
+            ];
+            
+            // Get existing messages (except system prompt) and add to context
+            const existingMessages = Array.from(chatMessages.querySelectorAll('.message'))
+                .filter(el => !el.classList.contains('system-message'))
+                .map(el => ({
+                    role: el.classList.contains('user-message') ? 'user' : 'assistant',
+                    content: el.textContent.trim()
+                }));
+            
+            if (existingMessages.length > 0) {
+                messages.splice(1, 0, ...existingMessages);
+            }
+            
+            // Show loading indicator
+            const loadingIndicator = document.createElement('div');
+            loadingIndicator.className = 'message assistant-message';
+            loadingIndicator.innerHTML = '<div class="spinner"></div> Thinking...';
+            chatMessages.appendChild(loadingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            try {
+                // Add system message if it's the first message
+                if (existingMessages.length === 0) {
+                    addMessage('system', systemPrompt);
+                }
+                
+                if (stream) {
+                    await handleStreamingChat(messages, model, temperature, maxTokens, loadingIndicator);
+                } else {
+                    const response = await fetchChatCompletion(messages, model, temperature, maxTokens, false);
+                    
+                    // Remove loading indicator
+                    chatMessages.removeChild(loadingIndicator);
+                    
+                    if (response && response.choices && response.choices[0].message) {
+                        const content = response.choices[0].message.content;
+                        addMessage('assistant', content);
+                    } else {
+                        showAlert('chat-alert', 'Unexpected response format', 'danger');
+                    }
+                }
+            } catch (error) {
+                // Remove loading indicator
+                if (loadingIndicator.parentNode) {
+                    chatMessages.removeChild(loadingIndicator);
+                }
+                const friendlyError = handleApiErrors(error);
+                showAlert('chat-alert', `Error: ${friendlyError}`, 'danger');
+                console.error('Chat error:', error);
+            }
+        }
+        
+        // Handle streaming chat response
+        async function handleStreamingChat(messages, model, temperature, maxTokens, loadingIndicator) {
+            const headers = {
+                'Authorization': `Bearer ${config.apiKey}`,
+                'HTTP-Referer': config.referer,
+                'X-Title': config.xTitle,
+                'Content-Type': 'application/json'
+            };
+            
+            const body = {
+                model,
+                messages,
+                temperature,
+                max_tokens: maxTokens,
+                stream: true
+            };
+            
+            const response = await fetch(API_ENDPOINT, {
+                method: 'POST',
+                headers,
+                body: JSON.stringify(body)
+            });
+            
+            if (!response.ok) {
+                const error = await response.json().catch(() => ({}));
+                throw new Error(error.error?.message || `HTTP error! status: ${response.status}`);
+            }
+            
+            // Remove loading indicator
+            chatMessages.removeChild(loadingIndicator);
+            
+            // Create a message element for the assistant's response
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message assistant-message';
+            chatMessages.appendChild(messageDiv);
+            
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let buffer = '';
+            let assistantMessage = '';
+            
+            try {
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    
+                    buffer += decoder.decode(value, { stream: true });
+                    const lines = buffer.split('\n');
+                    buffer = lines.pop(); // Keep incomplete line for next chunk
+                    
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            const data = line.substring(6).trim();
+                            if (data === '[DONE]') {
+                                // Save the complete message
+                                messages.push({ role: 'assistant', content: assistantMessage });
+                                return;
+                            }
+                            
+                            try {
+                                const parsed = JSON.parse(data);
+                                if (parsed.choices?.[0]?.delta?.content) {
+                                    assistantMessage += parsed.choices[0].delta.content;
+                                    messageDiv.textContent = assistantMessage;
+                                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                                }
+                            } catch (e) {
+                                console.error('Error parsing stream chunk:', e);
+                            }
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error during streaming:', error);
+                throw error;
+            }
+        }
+        
+        // Send a one-shot completion
+        async function sendCompletion() {
+            const prompt = completionPromptInput.value.trim();
+            if (!prompt) return;
+            
+            if (!config.apiKey) {
+                showAlert('completions-alert', 'API key is required', 'danger');
+                return;
+            }
+            
+            const model = completionModelSelect.value || config.defaultModel;
+            const temperature = parseFloat(completionTemperatureInput.value) || config.temperature;
+            const maxTokens = parseInt(completionMaxTokensInput.value) || config.maxTokens;
+            const showRaw = rawJsonCheckbox.checked;
+            
+            // Show loading
+            completionOutput.textContent = 'Loading...';
+            completionResult.classList.remove('hidden');
+            
+            // Prepare messages
+            const messages = [
+                { role: 'system', content: config.systemPrompt },
+                { role: 'user', content: prompt }
+            ];
+            
+            try {
+                const response = await fetchChatCompletion(messages, model, temperature, maxTokens, false);
+                
+                if (showRaw) {
+                    completionOutput.textContent = JSON.stringify(response, null, 2);
+                } else if (response.choices && response.choices[0].message) {
+                    completionOutput.textContent = response.choices[0].message.content;
+                } else {
+                    completionOutput.textContent = 'Unexpected response format';
+                }
+            } catch (error) {
+                const friendlyError = handleApiErrors(error);
+                completionOutput.textContent = `Error: ${friendlyError}`;
+                console.error('Completion error:', error);
+            }
+        }
+        
+        // Generic function to fetch chat completions
+        async function fetchChatCompletion(messages, model, temperature, maxTokens, stream = false) {
+            const headers = {
+                'Authorization': `Bearer ${config.apiKey}`,
+                'HTTP-Referer': config.referer,
+                'X-Title': config.xTitle,
+                'Content-Type': 'application/json'
+            };
+            
+            const body = {
+                model,
+                messages,
+                temperature,
+                max_tokens: maxTokens,
+                stream
+            };
+            
+            const response = await fetch(API_ENDPOINT, {
+                method: 'POST',
+                headers,
+                body: JSON.stringify(body)
+            });
+            
+            if (!response.ok) {
+                const error = await response.json().catch(() => ({}));
+                throw new Error(error.error?.message || `HTTP error! status: ${response.status}`);
+            }
+            
+            // Handle potential OpenRouter processing messages
+            const text = await response.text();
+            const jsonStart = text.indexOf('{');
+            if (jsonStart > 0) {
+                return JSON.parse(text.substring(jsonStart));
+            }
+            
+            return JSON.parse(text);
+        }
+        
+        // Add a message to the chat
+        function addMessage(role, content) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}-message`;
+            
+            // Simple markdown formatting for code blocks
+            if (content.includes('```')) {
+                const parts = content.split('```');
+                let formattedContent = '';
+                
+                for (let i = 0; i < parts.length; i++) {
+                    if (i % 2 === 1) {
+                        // Code block
+                        formattedContent += `<pre><code>${parts[i]}</code></pre>`;
+                    } else {
+                        // Regular text
+                        formattedContent += parts[i];
+                    }
+                }
+                
+                messageDiv.innerHTML = formattedContent;
+            } else {
+                messageDiv.textContent = content;
+            }
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Show an alert message
+        function showAlert(elementId, message, type) {
+            const alertElement = document.getElementById(elementId);
+            if (!alertElement) return;
+            
+            alertElement.textContent = message;
+            alertElement.className = `alert alert-${type}`;
+            alertElement.classList.remove('hidden');
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                alertElement.classList.add('hidden');
+            }, 5000);
+        }
+        
+		// Download chat as text file
+function downloadChat() {
+    const messages = Array.from(chatMessages.querySelectorAll('.message'))
+        .map(el => {
+            const role = el.classList.contains('user-message') ? 'User' : 
+                        el.classList.contains('assistant-message') ? 'Assistant' : 'System';
+            return `${role}: ${el.textContent.trim()}`;
+        });
+    
+    if (messages.length === 0) {
+        showAlert('chat-alert', 'No messages to download', 'warning');
+        return;
+    }
+    
+    const chatContent = messages.join('\n\n');
+    const blob = new Blob([chatContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `openrouter-chat-${new Date().toISOString().slice(0, 10)}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    showAlert('chat-alert', 'Chat downloaded successfully!', 'success');
+}
+		
+        // Handle API errors and return user-friendly messages
+        function handleApiErrors(error) {
+            if (error.message.includes('401')) {
+                return 'Invalid API key - please check your settings';
+            } else if (error.message.includes('429')) {
+                return 'Rate limit exceeded - please wait before trying again';
+            } else if (error.message.includes('502')) {
+                return 'Bad gateway - the server is having issues';
+            } else if (error.message.includes('Unexpected token')) {
+                return 'Invalid API response - please try again';
+            }
+            return error.message || 'An unknown error occurred';
+        }
+        
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

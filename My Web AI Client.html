@@ -1,0 +1,317 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0">
+    <title>My Web AI Client</title>
+    <style>
+        :root {
+            --primary: #8b5cf6;
+            --primary-hover: #7c3aed;
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --user-msg: #8b5cf6;
+            --ai-msg: #f1f5f9;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            line-height: 1.5;
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            margin: 0;
+            display: flex; flex-direction: column; height: 100vh;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; width: 100%; box-sizing: border-box; }
+        header { background: white; border-bottom: 1px solid var(--border); padding: 1rem 0; }
+        header h1 { margin: 0; font-size: 1.25rem; font-weight: 700; color: var(--primary); }
+        
+        .main-layout { display: flex; flex-direction: column; flex: 1; overflow: hidden; padding: 20px 0; }
+
+        .tab-nav { display: flex; gap: 8px; margin-bottom: 20px; background: #f1f5f9; padding: 4px; border-radius: 8px; align-self: center; }
+        .tab { padding: 8px 16px; cursor: pointer; border-radius: 6px; font-size: 0.875rem; font-weight: 500; transition: 0.2s; }
+        .tab.active { background: white; color: var(--primary); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+        .tab-content { display: none; flex-direction: column; height: 100%; overflow-y: auto; }
+        .tab-content.active { display: flex; }
+
+        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-group { margin-bottom: 16px; }
+        label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 6px; }
+        input, select, textarea { 
+            width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 8px; 
+            font-size: 0.95rem; box-sizing: border-box; outline: none; transition: border 0.2s;
+        }
+        input:focus, textarea:focus { border-color: var(--primary); }
+
+        button { 
+            background: var(--primary); color: white; border: none; padding: 10px 20px; 
+            border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s;
+        }
+        button:hover { background: var(--primary-hover); }
+        .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+
+        .chat-wrapper { display: flex; flex-direction: column; height: 100%; border: 1px solid var(--border); border-radius: 12px; background: white; }
+        .chat-messages { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+        
+        .message { max-width: 85%; padding: 12px 16px; border-radius: 12px; font-size: 0.95rem; }
+        .user-message { align-self: flex-end; background: var(--user-msg); color: white; border-bottom-right-radius: 2px; }
+        .assistant-message { align-self: flex-start; background: var(--ai-msg); color: var(--text-main); border-bottom-left-radius: 2px; }
+        
+        .chat-input-area { border-top: 1px solid var(--border); padding: 16px; display: flex; gap: 10px; }
+        .chat-input-area textarea { min-height: 44px; max-height: 150px; resize: none; }
+
+        pre { background: #1e293b; color: #f8fafc; padding: 12px; border-radius: 8px; overflow-x: auto; }
+        code { font-family: monospace; background: rgba(0,0,0,0.05); padding: 2px 4px; border-radius: 4px; }
+
+        .alert { padding: 12px; border-radius: 8px; margin-bottom: 16px; font-size: 0.875rem; text-align: center;}
+        .alert-success { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+        .hidden { display: none; }
+
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>My Web AI Client<span style="font-weight: 300; color:
+            var(--text-muted);"></span></h1>
+      </div>
+    </header>
+    <div class="container main-layout">
+      <nav class="tab-nav">
+        <div class="tab active" data-tab="chat">Chat</div>
+        <div class="tab" data-tab="models">Free Models</div>
+        <div class="tab" data-tab="settings">Settings</div>
+      </nav>
+      <div id="chat" class="tab-content active">
+        <div class="chat-wrapper">
+          <div id="chat-messages" class="chat-messages">
+            <div class="assistant-message message">Welcome! Set your API
+              key in Settings to begin using free models.</div>
+          </div>
+          <div class="chat-input-area"> <textarea id="chat-input" placeholder="Ask anything..." rows="1"></textarea>
+            <button id="send-message">Send</button> <button
+              id="clear-chat" class="btn-outline">Clear</button> </div>
+        </div>
+      </div>
+      <div id="models" class="tab-content">
+        <div class="card">
+          <div style="display:flex; justify-content:space-between;
+            align-items:center; margin-bottom:1rem;">
+            <h2 style="margin:0; font-size:1.1rem;">Available Free
+              Models</h2>
+            <button id="refresh-models" class="btn-outline">Find Free
+              Models</button> </div>
+          <p style="font-size: 0.8rem; color: var(--text-muted);
+            margin-top: -10px; margin-bottom: 15px;">Only models with
+            ":free" suffix will be displayed.</p>
+          <div id="models-list" style="max-height: 400px;
+            overflow-y:auto; border-top:1px solid var(--border);">
+            <p style="padding:20px; color:var(--text-muted)">Click
+              refresh to load available free models.</p>
+          </div>
+        </div>
+      </div>
+      <div id="settings" class="tab-content">
+        <div class="card">
+          <h3>Configuration</h3>
+          <div class="form-group"> <label>API Key</label> <input
+              id="api-key" placeholder="sk-or-v1-..." type="password"> </div>
+          <div class="form-group"> <label>System Prompt</label> <textarea id="system-prompt" placeholder="You are a helpful assistant..." rows="3"></textarea>
+          </div>
+          <div class="grid">
+            <div class="form-group"> <label>Default Model</label> <input
+                id="default-model"
+                value="meta-llama/llama-3-8b-instruct:free" type="text">
+            </div>
+            <div class="form-group"> <label>Temperature</label> <input
+                id="temperature" step="0.1" value="0.7" min="0" max="2"
+                type="number"> </div>
+            <div class="form-group"> <label>Max Tokens</label> <input
+                id="max-tokens" value="1000" min="1" type="number"> </div>
+          </div>
+          <button id="save-settings">Save Configuration</button> </div>
+      </div>
+    </div>
+    <script>
+    const state = {
+        apiKey: localStorage.getItem('lumina_key') || '',
+        model: localStorage.getItem('lumina_model') || 'meta-llama/llama-3-8b-instruct:free',
+        temp: localStorage.getItem('lumina_temp') || 0.7,
+        systemPrompt: localStorage.getItem('lumina_system') || 'You are a helpful AI assistant.',
+        maxTokens: localStorage.getItem('lumina_tokens') || 1000,
+        history: []
+    };
+
+    const $ = id => document.getElementById(id);
+    
+    // Tab Logic
+    document.querySelectorAll('.tab').forEach(t => {
+        t.addEventListener('click', () => {
+            document.querySelectorAll('.tab, .tab-content').forEach(el => el.classList.remove('active'));
+            t.classList.add('active');
+            $(t.dataset.tab).classList.add('active');
+        });
+    });
+
+    // Save Settings
+    $('save-settings').onclick = () => {
+        state.apiKey = $('api-key').value;
+        state.model = $('default-model').value;
+        state.temp = $('temperature').value;
+        state.systemPrompt = $('system-prompt').value;
+        state.maxTokens = $('max-tokens').value;
+
+        localStorage.setItem('lumina_key', state.apiKey);
+        localStorage.setItem('lumina_model', state.model);
+        localStorage.setItem('lumina_temp', state.temp);
+        localStorage.setItem('lumina_system', state.systemPrompt);
+        localStorage.setItem('lumina_tokens', state.maxTokens);
+        
+        const alertBox = $('settings-alert');
+        alertBox.textContent = "Settings saved successfully!";
+        alertBox.classList.remove('hidden');
+        setTimeout(() => alertBox.classList.add('hidden'), 3000);
+    };
+
+    // Initialize Fields
+    $('api-key').value = state.apiKey;
+    $('default-model').value = state.model;
+    $('temperature').value = state.temp;
+    $('system-prompt').value = state.systemPrompt;
+    $('max-tokens').value = state.maxTokens;
+
+    // Chat Logic
+    async function sendMessage() {
+        const input = $('chat-input');
+        const text = input.value.trim();
+        if (!text || !state.apiKey) return;
+
+        appendMessage('user', text);
+        input.value = '';
+
+        // Prepare context including system prompt if it's the start of a session
+        if (state.history.length === 0 && state.systemPrompt) {
+            state.history.push({role: 'system', content: state.systemPrompt});
+        }
+        state.history.push({role: 'user', content: text});
+
+        const aiDiv = appendMessage('assistant', '...');
+        let fullResponse = "";
+
+        try {
+            const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${state.apiKey}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    model: state.model,
+                    messages: state.history,
+                    temperature: parseFloat(state.temp),
+                    max_tokens: parseInt(state.maxTokens),
+                    stream: true
+                })
+            });
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            aiDiv.innerHTML = ''; 
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                
+                const chunk = decoder.decode(value);
+                const lines = chunk.split('\n').filter(line => line.trim() !== '');
+                
+                for (const line of lines) {
+                    if (line.includes('[DONE]')) break;
+                    if (!line.startsWith('data: ')) continue;
+                    
+                    try {
+                        const data = JSON.parse(line.replace('data: ', ''));
+                        const content = data.choices[0]?.delta?.content || '';
+                        fullResponse += content;
+                        aiDiv.innerHTML = formatText(fullResponse);
+                        $('chat-messages').scrollTop = $('chat-messages').scrollHeight;
+                    } catch (e) {}
+                }
+            }
+            state.history.push({role: 'assistant', content: fullResponse});
+        } catch (err) {
+            aiDiv.innerHTML = `<span style="color:red">Error: ${err.message}</span>`;
+        }
+    }
+
+    function appendMessage(role, text) {
+        const div = document.createElement('div');
+        div.className = `message ${role}-message`;
+        div.innerHTML = formatText(text);
+        $('chat-messages').appendChild(div);
+        $('chat-messages').scrollTop = $('chat-messages').scrollHeight;
+        return div;
+    }
+
+    function formatText(text) {
+        return text
+            .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>') 
+            .replace(/`([^`]+)`/g, '<code>$1</code>') 
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') 
+            .replace(/\n/g, '<br>');
+    }
+
+    $('send-message').onclick = sendMessage;
+    $('chat-input').onkeydown = e => { if(e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } };
+    $('clear-chat').onclick = () => { 
+        $('chat-messages').innerHTML = ''; 
+        state.history = []; 
+    };
+
+    // Models Fetching - Filtered for FREE models
+    $('refresh-models').onclick = async () => {
+        if (!state.apiKey) return alert("Enter API Key in Settings first");
+        const list = $('models-list');
+        list.innerHTML = '<p style="padding:20px">Searching for free models...</p>';
+
+        try {
+            const res = await fetch("https://openrouter.ai/api/v1/models");
+            const data = await res.json();
+            
+            // Filter only models that contain ":free" in their ID
+            const freeModels = data.data.filter(m => m.id.includes(':free'));
+
+            if(freeModels.length === 0) {
+                list.innerHTML = '<p style="padding:20px">No free models found at this time.</p>';
+                return;
+            }
+
+            list.innerHTML = freeModels.map(m => `
+                <div style="padding:12px; border-bottom:1px solid #eee; cursor:pointer" onclick="selectModel('${m.id}')">
+                    <div style="font-weight:600; font-size:0.9rem">${m.name}</div>
+                    <div style="font-size:0.75rem; color:var(--primary)">FREE</div>
+                    <div style="font-size:0.75rem; color:gray">${m.id}</div>
+                </div>
+            `).join('');
+        } catch (e) {
+            list.innerHTML = '<p style="color:red; padding:20px">Failed to load models. Check your connection.</p>';
+        }
+    };
+
+    window.selectModel = (id) => {
+        state.model = id;
+        $('default-model').value = id;
+        alert(`Selected Model: ${id}`);
+    };
+</script>
+  </body>
+</html>
