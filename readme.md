@@ -71,32 +71,6 @@ Visit [e-clock.top](https://e-clock.top) to try it live!
 - **Remote Work**: World clock for international team coordination
 - **General**: Daily time management and weather updates
 
-## 🔧 Customization
-
-### Modifying Colors
-Edit the CSS custom properties in the `:root` section:
-
-```css
-:root {
-  --color-bg: #111;
-  --color-container: #222;
-  --color-primary: #ff9800;
-  /* ... other variables */
-}
-```
-
-### Adding New Cities
-Add new options to the world clock select element:
-
-```html
-<option value="timezone/location">🏳️ City Name</option>
-```
-
-### Customizing Timer Sounds
-Replace the alarm sound source in the HTML:
-
-```html
-<audio id="alarmSound" src="your-sound-file.wav" preload="auto"></audio>
 ```
 
 ## 🌐 Browser Support
@@ -106,35 +80,6 @@ Replace the alarm sound source in the HTML:
 - ✅ Safari 12+
 - ✅ Edge 79+
 - ✅ Mobile browsers (iOS Safari, Chrome Mobile)
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. **Fork** the repository
-2. **Create** a feature branch: `git checkout -b feature/amazing-feature`
-3. **Commit** your changes: `git commit -m 'Add amazing feature'`
-4. **Push** to the branch: `git push origin feature/amazing-feature`
-5. **Open** a Pull Request
-
-### Development Guidelines
-
-- Follow existing code style and formatting
-- Test on multiple browsers and devices
-- Keep accessibility in mind (ARIA labels, keyboard navigation)
-- Optimize for performance and SEO
-- Document any new features or changes
-
-### Ideas for Contributions
-
-- [ ] Add more alarm sound options
-- [ ] Implement PWA features (offline support)
-- [ ] Add more time zones
-- [ ] Create themes/skins
-- [ ] Add keyboard shortcuts
-- [ ] Implement time tracking features
-- [ ] Add export functionality for timers
-- [ ] Create mobile app version
 
 ## 🙋 Website: [e-clock.top](https://e-clock.top)
 
