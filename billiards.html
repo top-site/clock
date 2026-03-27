@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billiards Master: Ultimate Pro</title>
+    <style>
+        :root {
+            --felt: #145a32;
+            --rail: #2e1a0d;
+            --gold: #f1c40f;
+            --danger: #e74c3c;
+            --bg: #080808;
+        }
+        body { 
+            background: var(--bg); 
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            height: 100vh; margin: 0; font-family: 'Inter', system-ui, sans-serif;
+            color: #fff; overflow: hidden; touch-action: none;
+        }
+        #hud {
+            position: absolute; top: 15px; width: 950px;
+            display: flex; justify-content: space-between; pointer-events: none; z-index: 100;
+        }
+        .stat-card {
+            background: rgba(0,0,0,0.8); padding: 12px 20px; border-radius: 12px;
+            border-bottom: 3px solid var(--gold); backdrop-filter: blur(12px);
+            min-width: 130px; text-align: center; transition: transform 0.2s;
+        }
+        .stat-label { font-size: 0.65rem; color: #7f8c8d; text-transform: uppercase; letter-spacing: 2px; }
+        .stat-val { font-size: 1.5rem; font-weight: 900; color: #fff; }
+        .pulse { animation: pulse 0.4s ease-out; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); color: var(--gold); } 100% { transform: scale(1); } }
+
+        #container { position: relative; transition: filter 0.1s; }
+        canvas { 
+            background: var(--felt); border: 20px solid var(--rail); border-radius: 25px;
+            box-shadow: 0 40px 120px rgba(0,0,0,1), inset 0 0 80px rgba(0,0,0,0.5);
+            cursor: none;
+        }
+        
+        #power-rail {
+            position: absolute; left: -45px; bottom: 0; width: 10px; height: 100%;
+            background: #111; border-radius: 5px; overflow: hidden; border: 2px solid #222;
+        }
+        #power-level { position: absolute; bottom: 0; width: 100%; height: 0%; background: linear-gradient(to top, #2ecc71, #f1c40f, #e74c3c); transition: height 0.05s; }
+
+        #slowmo-indicator {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 6rem; font-weight: 900; color: rgba(255,255,255,0.05);
+            pointer-events: none; display: none; text-transform: uppercase;
+        }
+
+        .spin-orb {
+            position: absolute; bottom: 20px; right: -100px; width: 90px; height: 90px;
+            background: radial-gradient(circle at 30% 30%, #fff, #bdc3c7);
+            border-radius: 50%; border: 4px solid #1a1a1a; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            cursor: crosshair;
+        }
+        #spin-cursor {
+            position: absolute; width: 14px; height: 14px; background: #e74c3c;
+            border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            border: 2px solid #fff; pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="hud">
+        <div class="stat-card" id="card-lives"><div class="stat-label">Lives</div><div id="lives" class="stat-val" style="color:var(--danger)">●●●</div></div>
+        <div class="stat-card"><div class="stat-label">Level</div><div id="level-display" class="stat-val">1</div></div>
+        <div class="stat-card"><div class="stat-label">Score</div><div id="score-display" class="stat-val">0</div></div>
+    </div>
+
+    <div id="container">
+        <canvas id="table"></canvas>
+        <div id="power-rail"><div id="power-level"></div></div>
+        <div class="spin-orb" id="spin-pad"><div id="spin-cursor"></div></div>
+        <div id="slowmo-indicator">FOCUS</div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('table');
+        const ctx = canvas.getContext('2d');
+        const dpr = window.devicePixelRatio || 1;
+        const W = 960, H = 480, R = 15, PR = 38;
+
+        canvas.width = W * dpr; canvas.height = H * dpr;
+        canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+        ctx.scale(dpr, dpr);
+
+        // --- Cinematic Audio ---
+        const AudioSfx = {
+            ctx: null,
+            init() { 
+                if (this.ctx) return;
+                this.ctx = new (window.AudioContext || window.webkitAudioContext)(); 
+            },
+            playRail(vol) {
+                if (!this.ctx) return;
+                const o = this.ctx.createOscillator(), g = this.ctx.createGain(), f = this.ctx.createBiquadFilter();
+                o.type = 'triangle'; o.frequency.setValueAtTime(110, this.ctx.currentTime);
+                f.type = 'lowpass'; f.frequency.setValueAtTime(300, this.ctx.currentTime);
+                g.gain.setValueAtTime(Math.min(vol * 0.3, 1.0), this.ctx.currentTime);
+                g.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.15);
+                o.connect(f); f.connect(g); g.connect(this.ctx.destination);
+                o.start(); o.stop(this.ctx.currentTime + 0.15);
+            },
+            playHit(vol) {
+                if (!this.ctx) return;
+                const o = this.ctx.createOscillator(), g = this.ctx.createGain();
+                o.type = 'sine'; o.frequency.setValueAtTime(400 + Math.random() * 200, this.ctx.currentTime);
+                g.gain.setValueAtTime(Math.min(vol * 0.2, 1.0), this.ctx.currentTime);
+                g.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.1);
+                o.connect(g); g.connect(this.ctx.destination);
+                o.start(); o.stop(this.ctx.currentTime + 0.1);
+            }
+        };
+
+        // --- Physics & Game State ---
+        let balls = [], particles = [], cueBall;
+        let score = 0, targetScore = 0, lives = 3, level = 1;
+        // FIX: Separate mouse tracking from spin-pad dragging
+        let mouse = { x: 0, y: 0 }, isDrag = false, dragStart = { x: 0, y: 0 }, english = { x: 0, y: 0 };
+        let gameTime = 0, timeScale = 1.0, isSlowMo = false;
+        let shake = 0;
+        // FIX: Track whether balls are in motion to gate shooting
+        let ballsInMotion = false;
+
+        const STOP_THRESHOLD = 0.05; // FIX: Use epsilon instead of strict === 0
+
+        class Ball {
+            constructor(x, y, color, num = 0) {
+                this.x = x; this.y = y; this.vx = 0; this.vy = 0;
+                this.color = color; this.num = num; this.inPlay = true;
+                this.rotX = Math.random() * Math.PI; this.rotY = Math.random() * Math.PI;
+                this.spinX = 0; this.spinY = 0;
+            }
+
+            update(dt) {
+                if (!this.inPlay) return;
+
+                // FIX: Apply friction as a simple coefficient, not Math.pow(coeff, dt)
+                // which was double-applying timeScale and causing inconsistent deceleration
+                const speed = Math.hypot(this.vx, this.vy);
+                if (speed < STOP_THRESHOLD) {
+                    // FIX: Hard-stop at threshold so isStopped() check reliably triggers
+                    this.vx = 0; this.vy = 0;
+                } else {
+                    const decel = speed > 2 ? 0.987 : 0.97; // settle faster at low speeds
+                    this.vx *= decel;
+                    this.vy *= decel;
+                    this.x += this.vx * dt;
+                    this.y += this.vy * dt;
+                }
+
+                // Simulated Rotation
+                this.rotX += this.vy * 0.04 * dt;
+                this.rotY += this.vx * 0.04 * dt;
+
+                // Rail Collision
+                if (this.x < R || this.x > W - R) {
+                    this.vx *= -0.75;
+                    this.vy += this.spinX * 0.5;
+                    this.x = this.x < R ? R : W - R;
+                    if (Math.abs(this.vx) > 0.5) AudioSfx.playRail(Math.min(Math.abs(this.vx) / 10, 1));
+                }
+                if (this.y < R || this.y > H - R) {
+                    this.vy *= -0.75;
+                    this.vx += this.spinY * 0.5;
+                    this.y = this.y < R ? R : H - R;
+                    if (Math.abs(this.vy) > 0.5) AudioSfx.playRail(Math.min(Math.abs(this.vy) / 10, 1));
+                }
+
+                // Pocket Logic
+                const pks = [
+                    { x: 0, y: 0 }, { x: W / 2, y: 0 }, { x: W, y: 0 },
+                    { x: 0, y: H }, { x: W / 2, y: H }, { x: W, y: H }
+                ];
+                for (let p of pks) {
+                    if (Math.hypot(this.x - p.x, this.y - p.y) < PR) {
+                        this.inPlay = false;
+                        // FIX: Spawn particles at THIS ball's position, not always the cue ball
+                        SFX_Trigger('POCKET', this.color, this.x, this.y);
+                        if (this.num === 0) {
+                            // Cue ball pocketed — lose a life, respawn
+                            lives = Math.max(0, lives - 1);
+                            if (lives <= 0) { resetGame(); return; }
+                            setTimeout(respawnCue, 500);
+                        } else {
+                            // FIX: Award score when a numbered ball is pocketed
+                            targetScore += (this.num * 10) + (level * 50);
+                            triggerPulse('score-display');
+                        }
+                        break;
+                    }
+                }
+            }
+
+            draw() {
+                if (!this.inPlay) return;
+                ctx.save();
+                ctx.translate(this.x, this.y);
+
+                // Shadow
+                ctx.fillStyle = "rgba(0,0,0,0.35)";
+                ctx.beginPath();
+                ctx.ellipse(4, 5, R, R * 0.7, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Body gradient
+                const bodyGrad = ctx.createRadialGradient(0, 0, 2, 0, 0, R);
+                bodyGrad.addColorStop(0, this.color);
+                bodyGrad.addColorStop(1, '#000');
+                ctx.fillStyle = bodyGrad;
+                ctx.beginPath();
+                ctx.arc(0, 0, R, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Number overlay
+                if (this.num > 0) {
+                    const nx = Math.sin(this.rotY) * (R / 2);
+                    const ny = Math.cos(this.rotX) * (R / 2);
+                    ctx.fillStyle = "rgba(255,255,255,0.9)";
+                    ctx.beginPath();
+                    ctx.arc(nx, ny, R / 1.8, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.fillStyle = "#000";
+                    ctx.font = "bold 12px Inter";
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    ctx.fillText(this.num, nx, ny);
+                }
+
+                // Specular highlight
+                const specGrad = ctx.createRadialGradient(-R / 2.5, -R / 2.5, 1, -R / 2.5, -R / 2.5, R / 2);
+                specGrad.addColorStop(0, "rgba(255,255,255,0.5)");
+                specGrad.addColorStop(1, "rgba(255,255,255,0)");
+                ctx.fillStyle = specGrad;
+                ctx.beginPath();
+                ctx.arc(-R / 2.5, -R / 2.5, R / 2, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.restore();
+            }
+        }
+
+        function triggerPulse(id) {
+            const el = document.getElementById(id);
+            el.classList.remove('pulse');
+            void el.offsetWidth; // reflow to restart animation
+            el.classList.add('pulse');
+        }
+
+        function respawnCue() {
+            cueBall.x = 250; cueBall.y = H / 2;
+            cueBall.vx = cueBall.vy = 0;
+            cueBall.spinX = cueBall.spinY = 0;
+            cueBall.inPlay = true;
+        }
+
+        function initLevel() {
+            balls = [];
+            cueBall = new Ball(250, H / 2, "#fff", 0);
+            balls.push(cueBall);
+            let sX = 650, id = 1;
+            const colors = ["#f1c40f", "#2980b9", "#c0392b", "#8e44ad", "#d35400", "#27ae60", "#7f8c8d", "#2c3e50"];
+            for (let r = 0; r < 4; r++) {
+                for (let c = 0; c <= r; c++) {
+                    balls.push(new Ball(
+                        sX + r * R * 1.85,
+                        H / 2 + (c - r / 2) * R * 2.1,
+                        colors[(id - 1) % colors.length],
+                        id++
+                    ));
+                }
+            }
+            ballsInMotion = false;
+            isSlowMo = false;
+            timeScale = 1.0;
+            document.getElementById('slowmo-indicator').style.display = 'none';
+        }
+
+        // FIX: Accept x,y so particles spawn at the pocketed ball, not always at cue
+        function SFX_Trigger(type, color, px, py) {
+            if (type === 'POCKET') {
+                for (let i = 0; i < 20; i++) {
+                    particles.push({
+                        x: px, y: py,
+                        vx: (Math.random() - 0.5) * 10,
+                        vy: (Math.random() - 0.5) * 10,
+                        c: color, l: 1.0
+                    });
+                }
+                AudioSfx.playRail(1.5);
+            }
+        }
+
+        // Pocket positions (matches the potting logic)
+        const POCKETS = [
+            { x: 0,   y: 0 }, { x: W/2, y: 0 }, { x: W,   y: 0 },
+            { x: 0,   y: H }, { x: W/2, y: H }, { x: W,   y: H }
+        ];
+
+        function drawPockets() {
+            for (const p of POCKETS) {
+                // Outer leather/rubber bumper ring
+                const bumper = ctx.createRadialGradient(p.x, p.y, PR * 0.55, p.x, p.y, PR);
+                bumper.addColorStop(0, '#1a0a00');
+                bumper.addColorStop(0.6, '#3b1f0a');
+                bumper.addColorStop(1, '#5a3010');
+                ctx.fillStyle = bumper;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, PR, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Deep black hole in the centre
+                const hole = ctx.createRadialGradient(p.x - PR * 0.15, p.y - PR * 0.15, 1, p.x, p.y, PR * 0.58);
+                hole.addColorStop(0, '#1a1a1a');
+                hole.addColorStop(1, '#000000');
+                ctx.fillStyle = hole;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, PR * 0.58, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Subtle rim highlight so it reads clearly on the felt
+                ctx.strokeStyle = 'rgba(0,0,0,0.7)';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, PR, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+        }
+
+        function isStopped() {
+            return balls.every(b => !b.inPlay || (Math.abs(b.vx) < STOP_THRESHOLD && Math.abs(b.vy) < STOP_THRESHOLD));
+        }
+
+        function loop() {
+            gameTime++;
+            const dt = timeScale;
+
+            // FIX: Save/restore around shake translate so it doesn't accumulate
+            ctx.save();
+            ctx.clearRect(0, 0, W, H);
+            ctx.fillStyle = '#145a32';
+            ctx.fillRect(0, 0, W, H);
+
+            if (shake > 0) {
+                ctx.translate(Math.random() * shake - shake / 2, Math.random() * shake - shake / 2);
+                shake *= 0.85;
+                if (shake < 0.3) shake = 0;
+            }
+
+            // Draw pockets beneath everything
+            drawPockets();
+
+            // Update physics
+            balls.forEach(b => b.update(dt));
+
+            // Ball-ball collisions
+            for (let i = 0; i < balls.length; i++) {
+                for (let j = i + 1; j < balls.length; j++) {
+                    const b1 = balls[i], b2 = balls[j];
+                    if (!b1.inPlay || !b2.inPlay) continue;
+                    const dx = b2.x - b1.x, dy = b2.y - b1.y;
+                    const d = Math.hypot(dx, dy);
+                    if (d < R * 2 && d > 0) {
+                        const nx = dx / d, ny = dy / d;
+                        const imp = (b1.vx - b2.vx) * nx + (b1.vy - b2.vy) * ny;
+                        if (imp > 0) { // only resolve when approaching
+                            b1.vx -= imp * nx; b1.vy -= imp * ny;
+                            b2.vx += imp * nx; b2.vy += imp * ny;
+                        }
+                        // Positional correction to prevent overlap
+                        const ov = (R * 2 - d) / 2;
+                        b1.x -= nx * ov; b1.y -= ny * ov;
+                        b2.x += nx * ov; b2.y += ny * ov;
+                        if (imp > 0.4) {
+                            AudioSfx.playHit(Math.min(imp / 10, 1));
+                            if (imp > 15) shake = 10;
+                        }
+                    }
+                }
+            }
+
+            // Draw balls and particles
+            balls.forEach(b => b.draw());
+            particles = particles.filter(p => {
+                ctx.globalAlpha = p.l;
+                ctx.fillStyle = p.c;
+                ctx.fillRect(p.x, p.y, 3, 3);
+                p.x += p.vx; p.y += p.vy;
+                p.vx *= 0.95; p.vy *= 0.95;
+                p.l -= 0.025;
+                return p.l > 0;
+            });
+            ctx.globalAlpha = 1.0;
+
+            ctx.restore(); // FIX: Restore after shake so transform doesn't drift
+
+            const stopped = isStopped();
+            const remaining = balls.filter(b => b.num > 0 && b.inPlay).length;
+
+            // Track motion state
+            ballsInMotion = !stopped;
+
+            // Slow-motion for final ball
+            if (remaining === 1 && !stopped && !isSlowMo) {
+                isSlowMo = true;
+                timeScale = 0.3;
+                document.getElementById('slowmo-indicator').style.display = 'block';
+            } else if (stopped && isSlowMo) {
+                timeScale = 1.0;
+                isSlowMo = false;
+                document.getElementById('slowmo-indicator').style.display = 'none';
+            }
+
+            // Level complete
+            if (stopped && remaining === 0) {
+                level++;
+                setTimeout(initLevel, 600); // brief pause before resetting
+            }
+
+            // Aiming — only show when balls are stopped
+            if (stopped && cueBall.inPlay) {
+                // FIX: Consistent angle — aim direction is FROM drag point TO cue ball
+                const angle = Math.atan2(mouse.y - cueBall.y, mouse.x - cueBall.x) + Math.PI;
+                const pwrRaw = isDrag ? Math.hypot(cueBall.x - dragStart.x, cueBall.y - dragStart.y) : 0;
+                const pwr = Math.min(pwrRaw * 0.2, 100);
+                document.getElementById('power-level').style.height = pwr + '%';
+
+                if (isDrag) {
+                    ctx.setLineDash([5, 5]);
+                    const wobble = Math.sin(gameTime * 0.2) * pwr * 0.05;
+                    const lineLen = Math.max(50, 400 - pwr * 2);
+                    const ex = cueBall.x + Math.cos(angle + wobble) * lineLen;
+                    const ey = cueBall.y + Math.sin(angle + wobble) * lineLen;
+                    const grad = ctx.createLinearGradient(cueBall.x, cueBall.y, ex, ey);
+                    grad.addColorStop(0, "rgba(255,255,255,0.5)");
+                    grad.addColorStop(1, "rgba(255,255,255,0)");
+                    ctx.strokeStyle = grad;
+                    ctx.lineWidth = 1.5;
+                    ctx.beginPath();
+                    ctx.moveTo(cueBall.x, cueBall.y);
+                    ctx.lineTo(ex, ey);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                }
+
+                // Cue stick
+                ctx.save();
+                ctx.translate(cueBall.x, cueBall.y);
+                ctx.rotate(angle + Math.PI);
+                ctx.fillStyle = "#d4a373";
+                ctx.fillRect(R + 5 + pwr * 0.4, -4, 250, 8);
+                // Darker tip
+                ctx.fillStyle = "#8B4513";
+                ctx.fillRect(R + 5 + pwr * 0.4, -4, 12, 8);
+                ctx.restore();
+            }
+
+            // HUD tweening
+            if (score < targetScore) {
+                score = Math.min(score + Math.ceil((targetScore - score) * 0.1) + 1, targetScore);
+                document.getElementById('score-display').innerText = score;
+            }
+            document.getElementById('lives').innerText = "●".repeat(Math.max(0, lives));
+            document.getElementById('level-display').innerText = level;
+
+            requestAnimationFrame(loop);
+        }
+
+        // --- Input Handling ---
+        // FIX: Mouse tracking uses its own handler; spin pad gets separate pointerdown
+        window.addEventListener('mousemove', e => {
+            const r = canvas.getBoundingClientRect();
+            mouse = { x: (e.clientX - r.left) * (W / r.width), y: (e.clientY - r.top) * (H / r.height) };
+        });
+
+        canvas.addEventListener('mousedown', e => {
+            if (!AudioSfx.ctx) AudioSfx.init();
+            // FIX: Only allow shooting when balls are stopped
+            if (!isStopped() || !cueBall.inPlay) return;
+            isDrag = true;
+            dragStart = { ...mouse };
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (!isDrag) return;
+            isDrag = false;
+            if (!cueBall.inPlay) return;
+            const dist = Math.hypot(cueBall.x - dragStart.x, cueBall.y - dragStart.y);
+            if (dist > 10) {
+                // FIX: Shot direction is away from where you dragged (pull back = shoot forward)
+                const angle = Math.atan2(cueBall.y - dragStart.y, cueBall.x - dragStart.x);
+                const power = Math.min(dist * 0.15, 30);
+                cueBall.vx = Math.cos(angle) * power;
+                cueBall.vy = Math.sin(angle) * power;
+                cueBall.spinX = english.x * power * 0.25;
+                cueBall.spinY = english.y * power * 0.25;
+                AudioSfx.playHit(1.5);
+                document.getElementById('power-level').style.height = '0%';
+            }
+        });
+
+        // FIX: Spin pad uses its own event scope — doesn't clobber window.onmousemove
+        const pad = document.getElementById('spin-pad');
+        const dot = document.getElementById('spin-cursor');
+
+        pad.addEventListener('mousedown', e => {
+            e.stopPropagation();
+            if (!AudioSfx.ctx) AudioSfx.init();
+
+            const updateSpin = me => {
+                const r = pad.getBoundingClientRect();
+                let x = (me.clientX - r.left - 45) / 45;
+                let y = (me.clientY - r.top - 45) / 45;
+                const d = Math.hypot(x, y);
+                if (d > 1) { x /= d; y /= d; }
+                english = { x, y };
+                dot.style.left = (50 + x * 45) + '%';
+                dot.style.top = (50 + y * 45) + '%';
+            };
+
+            const onSpinMove = me => updateSpin(me);
+            const onSpinUp = () => {
+                window.removeEventListener('mousemove', onSpinMove);
+                window.removeEventListener('mouseup', onSpinUp);
+            };
+            window.addEventListener('mousemove', onSpinMove);
+            window.addEventListener('mouseup', onSpinUp);
+            updateSpin(e);
+        });
+
+        function resetGame() {
+            score = 0; targetScore = 0; lives = 3; level = 1;
+            document.getElementById('score-display').innerText = '0';
+            initLevel();
+        }
+
+        initLevel();
+        loop();
+    </script>
+</body>
+</html>
