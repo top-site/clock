@@ -1,7 +1,12 @@
-const CACHE_NAME = "e-clock-cache-v3";
+const CACHE_NAME = "e-clock-cache-v4";
 const ASSETS_TO_CACHE = [
   "/",
   "/index.html",
+  "/world-clock-select.html",
+  "/timer.html",
+  "/stopwatch.html",
+  "/alarm.html",
+  "/weather.html",
   "/world_clock.html",
   "/singapore-time.html",
   "/beijing-time.html",
