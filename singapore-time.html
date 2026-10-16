@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-SG">
   <head>
     <meta charset="UTF-8">
@@ -360,7 +360,10 @@
         .info-grid, .weather-details { grid-template-columns: 1fr; }
       }
     </style>
-  </head>
+    <script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+  </script>
+</head>
   <body>
 
     <button id="fullscreen-toggle" title="Toggle Fullscreen" aria-label="Toggle Fullscreen">⛶</button>
