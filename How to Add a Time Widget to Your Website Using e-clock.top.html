@@ -1,5 +1,5 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
   <head>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
@@ -10,12 +10,41 @@
       gtag('config', 'G-463EN24CE0');
     </script>
     
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Add a Time Widget to Your Website | e-clock.top</title>
-    <meta name="description" content="Learn how to embed a live clock widget from e-clock.top to your website with just one line of code.">
-    <meta name="keywords" content="time widget, embed clock, e-clock.top, website clock, digital clock widget">
+    <title>How to Add a Free Live Time Widget to Your Website (Custom Clock Generator) | e-clock.top</title>
+    <meta name="description" content="Customize and embed a free live digital clock widget from e-clock.top on your website, Notion, or dashboard with one line of iframe code. Supports Local, Singapore (SGT), London, and New York timezones.">
+    <meta name="keywords" content="time widget, embed clock, customizable clock widget, website clock widget, e-clock.top, digital clock widget, Singapore time widget, HTML iframe clock">
+    <link rel="canonical" href="https://e-clock.top/How%20to%20Add%20a%20Time%20Widget%20to%20Your%20Website%20Using%20e-clock.top.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Add a Live Time Widget to Your Website Using e-clock.top",
+      "description": "Embed a customizable real-time digital clock widget on any website, blog, or dashboard using a single HTML iframe line.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Customize your clock widget",
+          "text": "Select your preferred time format (12h/24h), timezone (Local, Singapore SGT, London, New York, etc.), size, and colors in the Widget Customizer."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Copy the generated HTML iframe code",
+          "text": "Click the Copy Embed Code button to copy the one-line iframe snippet."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Paste into your website or CMS",
+          "text": "Paste the iframe snippet into your HTML page, WordPress block, Notion embed, or dashboard and save."
+        }
+      ]
+    }
+    </script>
     <style>
     body {
       margin: 0;
@@ -164,41 +193,109 @@
   <body>
     <header>
       <h1>How to Add a Time Widget to Your Website</h1>
-      <p>Embed e-clock.top's Digital Clock Widget in Seconds</p>
+      <p>Embed e-clock.top's Customizable Digital Clock Widget in Seconds</p>
     </header>
     
     <div class="container">
       <div class="date-info">
-        Published: May 11, 2025 | Updated: May 30, 2025
+        Published: May 11, 2025 | Updated: October 2026
       </div>
       
       <div class="highlight-box">
         <p><strong>Want to display a real-time digital clock on your website?</strong> With the e-clock.top widget, you can embed a sleek, browser-based clock using a single line of code—no JavaScript knowledge required, no complex setup needed.</p>
       </div>
 
-      <h2>The Widget Code</h2>
-      <p>Here's the complete code you need to embed the time widget on any webpage:</p>
-      
-      <div class="code-box">
-        <code>&lt;iframe src="https://e-clock.top/widget.html" style="border:none;overflow:hidden;" scrolling="no" width="300" height="150"&gt;&lt;/iframe&gt;</code>
+      <h2>🛠️ Interactive Widget Customizer</h2>
+      <p>Customize your clock format, timezone, size, and colors below, then copy the generated embed code:</p>
+
+      <div class="widget-demo" style="text-align:left;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:20px;">
+          <div>
+            <label for="wTz" style="display:block;font-weight:bold;color:#ff9800;margin-bottom:4px;">Timezone</label>
+            <select id="wTz" onchange="updateWidgetPreview()" style="width:100%;padding:8px;border-radius:6px;background:#121212;color:#fff;border:1px solid #444;">
+              <option value="">Visitor's Local Time</option>
+              <option value="Asia/Singapore">🇸🇬 Singapore (SGT / UTC+8)</option>
+              <option value="Europe/London">🇬🇧 London (GMT / BST)</option>
+              <option value="America/New_York">🇺🇸 New York (EST / EDT)</option>
+              <option value="America/Los_Angeles">🇺🇸 Los Angeles (PST / PDT)</option>
+              <option value="Asia/Tokyo">🇯🇵 Tokyo (JST)</option>
+              <option value="UTC">🌐 UTC</option>
+            </select>
+          </div>
+          <div>
+            <label for="wFormat" style="display:block;font-weight:bold;color:#ff9800;margin-bottom:4px;">Time Format</label>
+            <select id="wFormat" onchange="updateWidgetPreview()" style="width:100%;padding:8px;border-radius:6px;background:#121212;color:#fff;border:1px solid #444;">
+              <option value="24">24-Hour (14:30:00)</option>
+              <option value="12">12-Hour (02:30:00 PM)</option>
+            </select>
+          </div>
+          <div>
+            <label for="wSize" style="display:block;font-weight:bold;color:#ff9800;margin-bottom:4px;">Font Size</label>
+            <select id="wSize" onchange="updateWidgetPreview()" style="width:100%;padding:8px;border-radius:6px;background:#121212;color:#fff;border:1px solid #444;">
+              <option value="small">Small</option>
+              <option value="medium" selected>Medium</option>
+              <option value="large">Large</option>
+            </select>
+          </div>
+          <div>
+            <label for="wTheme" style="display:block;font-weight:bold;color:#ff9800;margin-bottom:4px;">Color Theme</label>
+            <select id="wTheme" onchange="updateWidgetPreview()" style="width:100%;padding:8px;border-radius:6px;background:#121212;color:#fff;border:1px solid #444;">
+              <option value="white|black">Classic Dark (White on Black)</option>
+              <option value="%23ff9800|%23121212">e-clock Orange on Dark</option>
+              <option value="%2300ff88|%230d1117">Matrix Green on Dark</option>
+              <option value="%23111111|%23ffffff">Clean Light (Black on White)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="text-align:center;">
+          <h3 style="margin-top:0;">Live Preview</h3>
+          <iframe id="widgetPreviewFrame" src="widget.html" style="border:1px solid #333;border-radius:8px;overflow:hidden;" scrolling="no" width="320" height="150"></iframe>
+        </div>
+
+        <div class="code-box" style="margin-bottom:10px;">
+          <code id="generatedWidgetCode">&lt;iframe src="https://e-clock.top/widget.html" style="border:none;overflow:hidden;" scrolling="no" width="320" height="150"&gt;&lt;/iframe&gt;</code>
+        </div>
+        <button onclick="copyWidgetCode()" id="copyWidgetBtn" style="background:#ff9800;color:#121212;border:none;padding:10px 20px;border-radius:6px;font-weight:bold;cursor:pointer;">📋 Copy Embed Code</button>
       </div>
+
+      <script>
+        function updateWidgetPreview() {
+          const tz = document.getElementById('wTz').value;
+          const format = document.getElementById('wFormat').value;
+          const size = document.getElementById('wSize').value;
+          const [color, bg] = document.getElementById('wTheme').value.split('|');
+
+          const params = [];
+          if (format === '12') params.push('format=12');
+          if (size !== 'medium') params.push(`size=${size}`);
+          if (color !== 'white') params.push(`color=${color}`);
+          if (bg !== 'black') params.push(`bg=${bg}`);
+          if (tz) params.push(`tz=${encodeURIComponent(tz)}`);
+
+          const query = params.length ? `?${params.join('&')}` : '';
+          document.getElementById('widgetPreviewFrame').src = `widget.html${query}`;
+          document.getElementById('generatedWidgetCode').textContent =
+            `<iframe src="https://e-clock.top/widget.html${query}" style="border:none;overflow:hidden;" scrolling="no" width="320" height="150"></iframe>`;
+        }
+
+        function copyWidgetCode() {
+          const code = document.getElementById('generatedWidgetCode').textContent;
+          navigator.clipboard.writeText(code).then(() => {
+            const btn = document.getElementById('copyWidgetBtn');
+            btn.textContent = '✅ Copied!';
+            setTimeout(() => { btn.textContent = '📋 Copy Embed Code'; }, 2000);
+          });
+        }
+      </script>
 
       <h2>Step-by-Step Implementation</h2>
       <ol>
-        <li><strong>Copy the widget code</strong> from the code box above</li>
+        <li><strong>Customize &amp; copy the widget code</strong> using the customizer above</li>
         <li><strong>Open your website's HTML file</strong> or content management system</li>
         <li><strong>Paste the code</strong> where you want the clock to appear (sidebar, header, footer, etc.)</li>
         <li><strong>Save and refresh</strong> your webpage—visitors will instantly see the live time display!</li>
       </ol>
-
-      <h2>Live Widget Demo</h2>
-      <p>Here's what the widget looks like when embedded on your website:</p>
-      
-      <div class="widget-demo">
-        <h3>Live Preview</h3>
-        <iframe src="https://e-clock.top/widget.html" style="border:none;overflow:hidden;" scrolling="no" width="300" height="150"></iframe>
-        <p><em>This is exactly how it will appear on your site</em></p>
-      </div>
 
       <h2>Customization Options</h2>
       <div class="features-grid">
@@ -288,9 +385,8 @@
     <footer>
       © 2025 e-clock.top – All rights reserved. | 
       <a href="index.html" style="color: #ff9800; text-decoration: none;">Home</a> | 
-        <a href="blog.html" style="color: #ff9800; text-decoration: none;">Blog</a> | 
-        <a href="games.html" style="color: #ff9800; text-decoration: none;">Games</a> | 
-        <a href="FAQ.html" style="color: #ff9800; text-decoration: none;">FAQ</a> | 
+        <a href="blog.html" style="color: #ff9800; text-decoration: none;">Blog</a> |
+    <a href="FAQ.html" style="color: #ff9800; text-decoration: none;">FAQ</a> | 
         <a href="privacy.html" style="color: #ff9800; text-decoration: none;">Privacy Policy</a> | 
         <a href="terms-of-service.html" style="color: #ff9800; text-decoration: none;">Terms of Service</a> | 
         <a href="about.html" style="color: #ff9800; text-decoration: none;">About Us</a> 

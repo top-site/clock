@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Online Meeting & Presentation Timer — Agenda Timekeeper | e-clock.top</title>
+
+    <meta name="description" content="Free online meeting and presentation timer with agenda time blocks, green/amber/red visual speaker warnings, and overtime tracking. Keep standups, pitches, and webinars on schedule.">
+    <meta name="keywords" content="meeting timer, presentation timer, online stopwatch for presentations, business timer, standup timer online, agenda timekeeper, speaker timer green yellow red, zoom presentation timer, e-clock.top">
+    <meta name="author" content="e-clock.top">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://e-clock.top/meeting-timer.html">
+    <link rel="alternate" hreflang="en-SG" href="https://e-clock.top/meeting-timer.html">
+    <link rel="alternate" hreflang="en-US" href="https://e-clock.top/meeting-timer.html">
+    <link rel="alternate" hreflang="x-default" href="https://e-clock.top/meeting-timer.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://e-clock.top/meeting-timer.html">
+    <meta property="og:title" content="Online Meeting & Presentation Timer — Agenda Timekeeper | e-clock.top">
+    <meta property="og:description" content="Run efficient meetings and presentations with agenda time blocks and automatic Green/Amber/Red speaker warning states.">
+    <meta property="og:image" content="https://e-clock.top/preview-image.jpg">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "e-clock.top Meeting & Presentation Agenda Timer",
+          "url": "https://e-clock.top/meeting-timer.html",
+          "description": "Professional meeting and presentation timer featuring customizable agenda blocks and Green/Amber/Red visual time-remaining warnings.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Any",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://e-clock.top/" },
+            { "@type": "ListItem", "position": 2, "name": "Meeting & Presentation Timer", "item": "https://e-clock.top/meeting-timer.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do the Green, Amber, and Red presentation warning states work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "While more than 20% of the topic's time remains, the status badge stays Green (On Track). When less than 20% remains, it turns Amber (Wrap Up Soon). When time reaches zero, it turns Red and counts overtime so speakers know immediately to conclude."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I build a multi-topic meeting agenda?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Add each agenda item with its allocated minutes below the timer, click any item to load it, or click Next Topic to step smoothly through your meeting."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-463EN24CE0');
+    </script>
+
+    <style>
+      :root {
+        --color-bg: #111;
+        --color-container: #222;
+        --color-tab: #333;
+        --color-primary: #ff9800;
+        --color-text: #fff;
+        --color-text-secondary: #bbb;
+        --border-radius: 8px;
+        --border-radius-lg: 16px;
+      }
+      html.light-mode {
+        --color-bg: #ffffff;
+        --color-text: #111111;
+        --color-container: #f5f5f5;
+        --color-tab: #e0e0e0;
+        --color-text-secondary: #555;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+      header, footer { width: 100%; max-width: 720px; padding: 1rem; }
+      header h1 { font-size: 1.9rem; color: var(--color-primary); margin-bottom: 0.3rem; }
+      header h2 { font-size: 1.05rem; color: var(--color-text-secondary); font-weight: normal; }
+      .container {
+        background: var(--color-container);
+        padding: 28px;
+        border-radius: var(--border-radius-lg);
+        width: 100%;
+        max-width: 640px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      }
+      .status-pill {
+        display: inline-block;
+        padding: 6px 18px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+      }
+      .status-green { background: #2e7d32; color: #fff; }
+      .status-amber { background: #f57c00; color: #111; }
+      .status-red { background: #c62828; color: #fff; }
+      .topic-title { font-size: 1.35rem; font-weight: bold; color: var(--color-primary); margin-bottom: 6px; }
+      .timer-display {
+        font-size: 4.5rem;
+        font-weight: bold;
+        font-variant-numeric: tabular-nums;
+        margin: 10px 0;
+      }
+      .controls button {
+        padding: 10px 18px;
+        margin: 4px;
+        border: none;
+        border-radius: var(--border-radius);
+        background: var(--color-primary);
+        color: #111;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      .agenda-box {
+        margin-top: 22px;
+        text-align: left;
+        border-top: 1px solid var(--color-tab);
+        padding-top: 16px;
+      }
+      .agenda-form {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+        flex-wrap: wrap;
+      }
+      .agenda-form input {
+        padding: 10px;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-tab);
+        background: var(--color-bg);
+        color: var(--color-text);
+      }
+      .agenda-list { list-style: none; margin-top: 12px; }
+      .agenda-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 12px;
+        background: var(--color-tab);
+        border-radius: var(--border-radius);
+        margin-bottom: 6px;
+        cursor: pointer;
+        border-left: 4px solid transparent;
+      }
+      .agenda-item.active { border-left-color: var(--color-primary); font-weight: bold; }
+      .seo-section {
+        width: 100%;
+        max-width: 640px;
+        margin: 1.8rem auto 0;
+        text-align: left;
+        font-size: 0.95rem;
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+        background: var(--color-container);
+        padding: 24px;
+        border-radius: var(--border-radius-lg);
+      }
+      .seo-section h2 { font-size: 1.3rem; color: var(--color-primary); margin-bottom: 0.5rem; }
+      .seo-section h3 { font-size: 1.08rem; color: var(--color-primary); margin: 1.1rem 0 0.4rem; }
+      .seo-section a { color: var(--color-primary); text-decoration: none; }
+      #fullscreen-toggle, #lightModeToggle {
+        position: fixed;
+        background-color: var(--color-container);
+        border: 1px solid var(--color-tab);
+        border-radius: 6px;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 9999;
+        color: var(--color-text);
+        font-size: 1.2rem;
+      }
+      #fullscreen-toggle { top: 20px; right: 20px; }
+      #lightModeToggle { top: 75px; right: 20px; }
+      @media (max-width: 600px) {
+        .timer-display { font-size: 3.2rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <button id="fullscreen-toggle" title="Toggle Fullscreen" aria-label="Toggle Fullscreen">🔳</button>
+    <button id="lightModeToggle" title="Toggle Light/Dark Mode" aria-label="Toggle Light/Dark Mode">☀️</button>
+
+    <header>
+      <nav aria-label="Breadcrumb" style="font-size:0.85rem;color:var(--color-text-secondary);margin-bottom:0.5rem;">
+        <a href="index.html" style="color:var(--color-primary);text-decoration:none;">Home</a> › <span>Meeting &amp; Presentation Timer</span>
+      </nav>
+      <h1>📊 Online Meeting &amp; Presentation Agenda Timer</h1>
+      <h2>Keep Standups, Keynotes, and International Calls On Schedule</h2>
+    </header>
+
+    <main style="width:100%;">
+      <div class="container">
+        <div class="status-pill status-green" id="statusPill">● ON TRACK</div>
+        <div class="topic-title" id="currentTopicTitle">1. Welcome &amp; Quick Updates</div>
+        <div class="timer-display" id="meetingDisplay">05:00</div>
+
+        <div class="controls">
+          <button onclick="startMeeting()">▶ Start</button>
+          <button onclick="pauseMeeting()">⏸ Pause</button>
+          <button onclick="nextAgendaItem()">⏭ Next Topic</button>
+          <button onclick="resetMeeting()">↺ Reset</button>
+        </div>
+
+        <div class="agenda-box">
+          <h3 style="color:var(--color-primary);font-size:1.05rem;">📋 Meeting Agenda Blocks</h3>
+          <div class="agenda-form">
+            <input type="text" id="newTopicName" placeholder="Agenda topic (e.g., Q&A / Action Items)" style="flex:2;min-width:180px;">
+            <input type="number" id="newTopicMins" placeholder="Min" value="5" min="1" style="width:80px;text-align:center;">
+            <button onclick="addAgendaItem()" style="padding:10px 16px;border:none;border-radius:var(--border-radius);background:var(--color-primary);color:#111;font-weight:bold;cursor:pointer;">+ Add</button>
+          </div>
+          <ul class="agenda-list" id="agendaList"></ul>
+        </div>
+      </div>
+    </main>
+
+    <section class="seo-section" aria-label="Guide to Running Efficient Meetings">
+      <h2>How to Run More Efficient Meetings with an Agenda Timer</h2>
+      <p>Unstructured meetings are one of the biggest drains on workplace productivity. By assigning a clear minute allocation to every agenda item and displaying a shared <strong>visual presentation timer</strong> on screen (or in Zoom / Microsoft Teams / Google Meet), teams stay focused on decisions rather than drifting off-topic.</p>
+
+      <h3>Coordinating International &amp; APAC Meetings</h3>
+      <p>Running cross-border calls between <strong>Singapore (SGT / UTC+8)</strong>, London, and the US? Check our <a href="singapore-time.html">Live Singapore Time &amp; Global Overlap Converter</a> and our <a href="china_singapore_timezone.html">China, Hong Kong, Taiwan &amp; Singapore Business Time Zone Guide</a> to pick the best meeting slot before launching your agenda timer.</p>
+    </section>
+
+    <footer>
+      <p style="color:var(--color-text-secondary);font-size:0.85rem;margin-top:20px;">
+        <a href="index.html" style="color:var(--color-primary);text-decoration:none;">Home</a> |
+        <a href="singapore-time.html" style="color:var(--color-primary);text-decoration:none;">Singapore Time</a> |
+        <a href="world_clock.html" style="color:var(--color-primary);text-decoration:none;">World Clock</a> |
+        <a href="pomodoro-timer.html" style="color:var(--color-primary);text-decoration:none;">Pomodoro</a> |
+        <a href="classroom-timer.html" style="color:var(--color-primary);text-decoration:none;">Classroom Timer</a> |
+        <a href="blog.html" style="color:var(--color-primary);text-decoration:none;">Blog</a>
+        <br><br>
+        © <script>document.write(new Date().getFullYear())</script> e-clock.top — Free Online Business &amp; Time Tools
+      </p>
+    </footer>
+
+    <script>
+      let agenda = [
+        { title: 'Welcome & Quick Updates', minutes: 5 },
+        { title: 'Core Project Review & Metrics', minutes: 15 },
+        { title: 'Key Decisions & Roadblocks', minutes: 10 },
+        { title: 'Action Items & Next Steps', minutes: 5 }
+      ];
+      let currentIndex = 0;
+      let allocatedSeconds = agenda[0].minutes * 60;
+      let remainingSec = allocatedSeconds;
+      let meetingInterval = null;
+      let meetingRunning = false;
+
+      function playSubtleChime() {
+        try {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+          gain.gain.setValueAtTime(0.18, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.4);
+        } catch (e) {}
+      }
+
+      function renderAgenda() {
+        const list = document.getElementById('agendaList');
+        list.innerHTML = agenda.map((item, idx) => `
+          <li class="agenda-item ${idx === currentIndex ? 'active' : ''}" onclick="selectAgendaItem(${idx})">
+            <span>${idx + 1}. ${item.title.replace(/</g,'&lt;')}</span>
+            <span style="color:var(--color-primary);">${item.minutes} min</span>
+          </li>
+        `).join('');
+      }
+
+      function updateMeetingUI() {
+        const isOvertime = remainingSec < 0;
+        const absSec = Math.abs(remainingSec);
+        const m = Math.floor(absSec / 60);
+        const s = absSec % 60;
+        const prefix = isOvertime ? '+' : '';
+        document.getElementById('meetingDisplay').textContent = `${prefix}${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+        document.getElementById('currentTopicTitle').textContent = `${currentIndex + 1}. ${agenda[currentIndex].title}`;
+
+        const pill = document.getElementById('statusPill');
+        if (isOvertime) {
+          pill.textContent = '⚠️ OVERTIME — PLEASE WRAP UP';
+          pill.className = 'status-pill status-red';
+        } else if (remainingSec <= allocatedSeconds * 0.2) {
+          pill.textContent = '⏳ < 20% TIME LEFT — WRAP UP SOON';
+          pill.className = 'status-pill status-amber';
+        } else {
+          pill.textContent = '● ON TRACK';
+          pill.className = 'status-pill status-green';
+        }
+      }
+
+      function selectAgendaItem(idx) {
+        pauseMeeting();
+        currentIndex = idx;
+        allocatedSeconds = agenda[idx].minutes * 60;
+        remainingSec = allocatedSeconds;
+        renderAgenda();
+        updateMeetingUI();
+      }
+
+      function nextAgendaItem() {
+        if (currentIndex + 1 < agenda.length) {
+          selectAgendaItem(currentIndex + 1);
+          startMeeting();
+        }
+      }
+
+      function addAgendaItem() {
+        const nameInput = document.getElementById('newTopicName');
+        const minsInput = document.getElementById('newTopicMins');
+        const title = nameInput.value.trim();
+        const mins = Math.max(1, parseInt(minsInput.value) || 5);
+        if (!title) return;
+        agenda.push({ title, minutes: mins });
+        nameInput.value = '';
+        renderAgenda();
+      }
+
+      function startMeeting() {
+        if (meetingRunning) return;
+        meetingRunning = true;
+        meetingInterval = setInterval(() => {
+          remainingSec--;
+          if (remainingSec === Math.floor(allocatedSeconds * 0.2) || remainingSec === 0) {
+            playSubtleChime();
+          }
+          updateMeetingUI();
+        }, 1000);
+      }
+
+      function pauseMeeting() {
+        if (meetingInterval) clearInterval(meetingInterval);
+        meetingRunning = false;
+      }
+
+      function resetMeeting() {
+        pauseMeeting();
+        remainingSec = allocatedSeconds;
+        updateMeetingUI();
+      }
+
+      document.getElementById('fullscreen-toggle').addEventListener('click', () => {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+        else document.exitFullscreen();
+      });
+
+      document.getElementById('lightModeToggle').addEventListener('click', () => {
+        document.documentElement.classList.toggle('light-mode');
+      });
+
+      renderAgenda();
+      updateMeetingUI();
+    </script>
+  </body>
+</html>

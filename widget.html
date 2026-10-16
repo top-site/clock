@@ -1,87 +1,107 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
-   <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-     gtag('config', 'G-463EN24CE0');
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-463EN24CE0');
     </script>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,
-      initial-scale=1.0">
-    <title>Clock Widget</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Widget | e-clock.top</title>
     <style>
-    body {
-      margin: 0;
-      background: var(--bg, black);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: 'Courier New', monospace;
-      color: var(--color, white);
-      text-align: center;
-    }
-    .time {
-      font-size: var(--font-size, 2em);
-    }
-    .date {
-      font-size: calc(var(--font-size, 2em) * 0.5);
-      margin-top: 0.2em;
-    }
-  </style>
+      body {
+        margin: 0;
+        background: var(--bg, black);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: 'Courier New', monospace;
+        color: var(--color, white);
+        text-align: center;
+      }
+      .time {
+        font-size: var(--font-size, 2em);
+        font-weight: bold;
+      }
+      .date {
+        font-size: calc(var(--font-size, 2em) * 0.48);
+        margin-top: 0.2em;
+        opacity: 0.85;
+      }
+      .tz-label {
+        font-size: calc(var(--font-size, 2em) * 0.35);
+        margin-top: 0.25em;
+        opacity: 0.7;
+      }
+    </style>
   </head>
   <body>
     <div class="time" id="clock">00:00:00</div>
     <div class="date" id="date">Loading...</div>
+    <div class="tz-label" id="tzLabel"></div>
     <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const format = urlParams.get('format') === '12' ? 12 : 24;
-    const color = urlParams.get('color') || 'white';
-    const bg = urlParams.get('bg') || 'black';
-    const sizeMap = {
-      small: '1.5em',
-      medium: '2em',
-      large: '3em'
-    };
-    const size = sizeMap[urlParams.get('size')] || '2em';
+      const urlParams = new URLSearchParams(window.location.search);
+      const format = urlParams.get('format') === '12' ? 12 : 24;
+      const color = urlParams.get('color') || 'white';
+      const bg = urlParams.get('bg') || 'black';
+      const tz = urlParams.get('tz') || '';
+      const sizeMap = {
+        small: '1.5em',
+        medium: '2em',
+        large: '3em'
+      };
+      const size = sizeMap[urlParams.get('size')] || '2em';
 
-    document.documentElement.style.setProperty('--color', color);
-    document.documentElement.style.setProperty('--bg', bg);
-    document.documentElement.style.setProperty('--font-size', size);
+      document.documentElement.style.setProperty('--color', color);
+      document.documentElement.style.setProperty('--bg', bg);
+      document.documentElement.style.setProperty('--font-size', size);
 
-    function updateClock() {
-      const now = new Date();
-
-      // Time
-      let hours = now.getHours();
-      const minutes = now.getMinutes();
-      const seconds = now.getSeconds();
-      let ampm = '';
-
-      if (format === 12) {
-        ampm = hours >= 12 ? ' PM' : ' AM';
-        hours = hours % 12;
-        hours = hours ? hours : 12; // 0 becomes 12
+      if (tz) {
+        document.getElementById('tzLabel').textContent = tz.replace('_', ' ');
       }
 
-      const timeStr = 
-        [hours, minutes, seconds].map(n => String(n).padStart(2, '0')).join(':') + ampm;
-      document.getElementById('clock').textContent = timeStr;
+      function updateClock() {
+        const now = new Date();
+        let targetDate = now;
+        if (tz) {
+          try {
+            targetDate = new Date(now.toLocaleString('en-US', { timeZone: tz }));
+          } catch (e) {
+            targetDate = now;
+          }
+        }
 
-      // Date
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      const dateStr = now.toLocaleDateString(undefined, options);
-      document.getElementById('date').textContent = dateStr;
-    }
+        let hours = targetDate.getHours();
+        const minutes = targetDate.getMinutes();
+        const seconds = targetDate.getSeconds();
+        let ampm = '';
 
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
+        if (format === 12) {
+          ampm = hours >= 12 ? ' PM' : ' AM';
+          hours = hours % 12;
+          hours = hours ? hours : 12;
+        }
+
+        const timeStr =
+          [hours, minutes, seconds].map(n => String(n).padStart(2, '0')).join(':') + ampm;
+        document.getElementById('clock').textContent = timeStr;
+
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        if (tz) {
+          try { options.timeZone = tz; } catch (e) {}
+        }
+        const dateStr = now.toLocaleDateString(undefined, options);
+        document.getElementById('date').textContent = dateStr;
+      }
+
+      updateClock();
+      setInterval(updateClock, 1000);
+    </script>
   </body>
 </html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Free Online Classroom Timer — Fullscreen Visual Countdown for Teachers | e-clock.top</title>
+
+    <meta name="description" content="Free fullscreen visual classroom timer for teachers, students, and exams. Features a colorful visual progress ring, gentle chime options, and 1-click activity presets.">
+    <meta name="keywords" content="classroom timer, free online timer for classroom, teacher timer, fullscreen countdown timer, visual timer for kids, exam timer for projector, smartboard timer online, e-clock.top">
+    <meta name="author" content="e-clock.top">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://e-clock.top/classroom-timer.html">
+    <link rel="alternate" hreflang="en-SG" href="https://e-clock.top/classroom-timer.html">
+    <link rel="alternate" hreflang="en-US" href="https://e-clock.top/classroom-timer.html">
+    <link rel="alternate" hreflang="x-default" href="https://e-clock.top/classroom-timer.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://e-clock.top/classroom-timer.html">
+    <meta property="og:title" content="Free Online Classroom Timer — Fullscreen Visual Countdown | e-clock.top">
+    <meta property="og:description" content="Colorful visual countdown timer for classrooms, smartboards, and exams with gentle chimes and 1-click teacher presets.">
+    <meta property="og:image" content="https://e-clock.top/preview-image.jpg">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "e-clock.top Visual Classroom Timer",
+          "url": "https://e-clock.top/classroom-timer.html",
+          "description": "Free fullscreen visual countdown timer for teachers, classrooms, and exams with color-changing progress bar and gentle sound options.",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Any",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://e-clock.top/" },
+            { "@type": "ListItem", "position": 2, "name": "Classroom Timer", "item": "https://e-clock.top/classroom-timer.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why use a visual countdown timer in the classroom?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Visual timers show time passing as a shrinking color bar, helping students—including young learners and students with ADHD—gauge how much time remains for group activities, reading, or quizzes without anxiety."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I mute the alarm or use a gentle chime for quiet reading or exams?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. You can choose between a Gentle Chime, Classic Bell, or Silent Visual Flash so you never startle students during quiet work or exams."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-463EN24CE0');
+    </script>
+
+    <style>
+      :root {
+        --color-bg: #111;
+        --color-container: #222;
+        --color-tab: #333;
+        --color-primary: #ff9800;
+        --color-text: #fff;
+        --color-text-secondary: #bbb;
+        --border-radius: 10px;
+        --border-radius-lg: 18px;
+      }
+      html.light-mode {
+        --color-bg: #ffffff;
+        --color-text: #111111;
+        --color-container: #f5f5f5;
+        --color-tab: #e0e0e0;
+        --color-text-secondary: #555;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+      header, footer { width: 100%; max-width: 720px; padding: 1rem; }
+      header h1 { font-size: 1.9rem; color: var(--color-primary); margin-bottom: 0.3rem; }
+      header h2 { font-size: 1.05rem; color: var(--color-text-secondary); font-weight: normal; }
+      .container {
+        background: var(--color-container);
+        padding: 28px;
+        border-radius: var(--border-radius-lg);
+        width: 100%;
+        max-width: 640px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      }
+      .preset-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+      .preset-btn {
+        background: var(--color-tab);
+        color: var(--color-text);
+        border: none;
+        padding: 8px 14px;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 0.95rem;
+      }
+      .preset-btn:hover, .preset-btn.active { background: var(--color-primary); color: #111; }
+      .activity-input {
+        width: 100%;
+        max-width: 420px;
+        padding: 10px 14px;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-tab);
+        background: var(--color-bg);
+        color: var(--color-text);
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 12px;
+      }
+      .timer-display {
+        font-size: 5rem;
+        font-weight: bold;
+        font-variant-numeric: tabular-nums;
+        margin: 10px 0;
+      }
+      .visual-bar-outer {
+        width: 100%;
+        height: 28px;
+        background: var(--color-tab);
+        border-radius: 14px;
+        overflow: hidden;
+        margin: 16px 0;
+        border: 2px solid var(--color-tab);
+      }
+      .visual-bar-inner {
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(90deg, #4caf50, #ff9800);
+        transition: width 0.5s linear, background 0.5s ease;
+      }
+      .controls button {
+        padding: 12px 22px;
+        margin: 5px;
+        border: none;
+        border-radius: var(--border-radius);
+        background: var(--color-primary);
+        color: #111;
+        font-weight: bold;
+        font-size: 1.05rem;
+        cursor: pointer;
+      }
+      .sound-select {
+        margin-top: 14px;
+        font-size: 0.9rem;
+        color: var(--color-text-secondary);
+      }
+      .sound-select select {
+        padding: 6px 10px;
+        border-radius: 6px;
+        background: var(--color-tab);
+        color: var(--color-text);
+        border: none;
+      }
+      .seo-section {
+        width: 100%;
+        max-width: 640px;
+        margin: 1.8rem auto 0;
+        text-align: left;
+        font-size: 0.95rem;
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+        background: var(--color-container);
+        padding: 24px;
+        border-radius: var(--border-radius-lg);
+      }
+      .seo-section h2 { font-size: 1.3rem; color: var(--color-primary); margin-bottom: 0.5rem; }
+      .seo-section h3 { font-size: 1.08rem; color: var(--color-primary); margin: 1.1rem 0 0.4rem; }
+      .seo-section a { color: var(--color-primary); text-decoration: none; }
+      #fullscreen-toggle, #lightModeToggle {
+        position: fixed;
+        background-color: var(--color-container);
+        border: 1px solid var(--color-tab);
+        border-radius: 6px;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 9999;
+        color: var(--color-text);
+        font-size: 1.2rem;
+      }
+      #fullscreen-toggle { top: 20px; right: 20px; }
+      #lightModeToggle { top: 75px; right: 20px; }
+      @media (max-width: 600px) {
+        .timer-display { font-size: 3.4rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <button id="fullscreen-toggle" title="Toggle Fullscreen" aria-label="Toggle Fullscreen">🔳</button>
+    <button id="lightModeToggle" title="Toggle Light/Dark Mode" aria-label="Toggle Light/Dark Mode">☀️</button>
+
+    <header>
+      <nav aria-label="Breadcrumb" style="font-size:0.85rem;color:var(--color-text-secondary);margin-bottom:0.5rem;">
+        <a href="index.html" style="color:var(--color-primary);text-decoration:none;">Home</a> › <span>Classroom Timer</span>
+      </nav>
+      <h1>🎓 Free Online Visual Classroom Timer</h1>
+      <h2>Fullscreen Countdown for Teachers, Smartboards, Group Work &amp; Exams</h2>
+    </header>
+
+    <main style="width:100%;">
+      <div class="container">
+        <input type="text" class="activity-input" id="activityTitle" value="📚 Silent Reading &amp; Group Activity" aria-label="Classroom activity name">
+
+        <div class="preset-grid" aria-label="Classroom duration presets">
+          <button class="preset-btn" onclick="setClassTimer(60, this)">1 min</button>
+          <button class="preset-btn" onclick="setClassTimer(120, this)">2 min</button>
+          <button class="preset-btn" onclick="setClassTimer(180, this)">3 min</button>
+          <button class="preset-btn active" onclick="setClassTimer(300, this)">5 min</button>
+          <button class="preset-btn" onclick="setClassTimer(600, this)">10 min</button>
+          <button class="preset-btn" onclick="setClassTimer(900, this)">15 min</button>
+          <button class="preset-btn" onclick="setClassTimer(1200, this)">20 min</button>
+          <button class="preset-btn" onclick="setClassTimer(1800, this)">30 min</button>
+          <button class="preset-btn" onclick="setClassTimer(2700, this)">45 min</button>
+          <button class="preset-btn" onclick="setClassTimer(3600, this)">60 min</button>
+        </div>
+
+        <div class="timer-display" id="classDisplay">05:00</div>
+
+        <div class="visual-bar-outer" aria-label="Visual countdown progress bar">
+          <div class="visual-bar-inner" id="visualBar"></div>
+        </div>
+
+        <div class="controls">
+          <button onclick="startClassTimer()">▶ Start</button>
+          <button onclick="pauseClassTimer()">⏸ Pause</button>
+          <button onclick="addOneMinute()" style="background:var(--color-tab);color:var(--color-text);">+1 Min</button>
+          <button onclick="resetClassTimer()">↺ Reset</button>
+        </div>
+
+        <div class="sound-select">
+          🔔 End-of-Timer Alert:
+          <select id="soundOption">
+            <option value="chime">Gentle Classroom Chime</option>
+            <option value="alarm">Classic Alarm Bell</option>
+            <option value="silent">Silent (Visual Flash Only)</option>
+          </select>
+        </div>
+        <audio id="alarmSound" src="alarm-clock-01.wav" preload="auto"></audio>
+      </div>
+    </main>
+
+    <section class="seo-section" aria-label="Classroom Timer Guide for Teachers">
+      <h2>Why Teachers Love Using a Fullscreen Visual Classroom Timer</h2>
+      <p>Displaying a <strong>fullscreen visual countdown timer</strong> on a classroom projector or interactive whiteboard helps students manage their own time during station rotations, warm-up bell ringers, think-pair-share discussions, and timed quizzes.</p>
+
+      <h3>Key Classroom Features</h3>
+      <ul style="padding-left:20px;margin-top:6px;">
+        <li><strong>Color-Coded Visual Progress Bar:</strong> Transitions smoothly from green (plenty of time) to amber (wrap-up warning) to red (final seconds) so students of all ages can see time remaining at a glance.</li>
+        <li><strong>Editable Activity Banner:</strong> Click the title box at the top to type instructions (e.g., <em>"Science Lab Clean-Up — 3 Minutes"</em> or <em>"Mathematics Quiz — 20 Minutes"</em>).</li>
+        <li><strong>Gentle Chime or Silent Mode:</strong> Choose a pleasant harmonic chime that won't startle quiet classrooms.</li>
+      </ul>
+
+      <h3>Explore More Tools</h3>
+      <p>Check out our <a href="pomodoro-timer.html">Pomodoro Study Timer</a>, <a href="meeting-timer.html">Meeting &amp; Presentation Timer</a>, <a href="analog-clock.html">Analog Clock for Teaching Time</a>, or <a href="index.html">Online Digital Clock &amp; Stopwatch</a>.</p>
+    </section>
+
+    <footer>
+      <p style="color:var(--color-text-secondary);font-size:0.85rem;margin-top:20px;">
+        <a href="index.html" style="color:var(--color-primary);text-decoration:none;">Home</a> |
+        <a href="pomodoro-timer.html" style="color:var(--color-primary);text-decoration:none;">Pomodoro</a> |
+        <a href="workout-timer.html" style="color:var(--color-primary);text-decoration:none;">Workout Timer</a> |
+        <a href="meeting-timer.html" style="color:var(--color-primary);text-decoration:none;">Meeting Timer</a> |
+        <a href="analog-clock.html" style="color:var(--color-primary);text-decoration:none;">Analog Clock</a> |
+        <a href="singapore-time.html" style="color:var(--color-primary);text-decoration:none;">Singapore Time</a>
+        <br><br>
+        © <script>document.write(new Date().getFullYear())</script> e-clock.top — Free Online Educational &amp; Time Tools
+      </p>
+    </footer>
+
+    <script>
+      let totalSec = 300;
+      let leftSec = 300;
+      let timerRef = null;
+      let active = false;
+
+      function playGentleChime() {
+        try {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          [523.25, 659.25, 783.99, 1046.5].forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.18);
+            gain.gain.setValueAtTime(0.2, ctx.currentTime + idx * 0.18);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.18 + 0.6);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(ctx.currentTime + idx * 0.18);
+            osc.stop(ctx.currentTime + idx * 0.18 + 0.6);
+          });
+        } catch (e) {}
+      }
+
+      function updateClassUI() {
+        const m = Math.floor(leftSec / 60);
+        const s = leftSec % 60;
+        document.getElementById('classDisplay').textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+        const pct = totalSec > 0 ? (leftSec / totalSec) * 100 : 0;
+        const bar = document.getElementById('visualBar');
+        bar.style.width = `${pct}%`;
+        if (pct > 35) {
+          bar.style.background = '#4caf50';
+        } else if (pct > 15) {
+          bar.style.background = '#ff9800';
+        } else {
+          bar.style.background = '#f44336';
+        }
+      }
+
+      function setClassTimer(sec, btnEl) {
+        pauseClassTimer();
+        totalSec = sec;
+        leftSec = sec;
+        document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+        if (btnEl) btnEl.classList.add('active');
+        updateClassUI();
+      }
+
+      function addOneMinute() {
+        totalSec += 60;
+        leftSec += 60;
+        updateClassUI();
+      }
+
+      function startClassTimer() {
+        if (active) return;
+        active = true;
+        timerRef = setInterval(() => {
+          leftSec--;
+          updateClassUI();
+          if (leftSec <= 0) {
+            clearInterval(timerRef);
+            active = false;
+            const mode = document.getElementById('soundOption').value;
+            if (mode === 'chime') {
+              playGentleChime();
+            } else if (mode === 'alarm') {
+              const snd = document.getElementById('alarmSound');
+              if (snd) { snd.currentTime = 0; snd.play().catch(() => {}); }
+            }
+            alert('⏰ Time is up!');
+          }
+        }, 1000);
+      }
+
+      function pauseClassTimer() {
+        if (timerRef) clearInterval(timerRef);
+        active = false;
+      }
+
+      function resetClassTimer() {
+        pauseClassTimer();
+        leftSec = totalSec;
+        updateClassUI();
+      }
+
+      document.getElementById('fullscreen-toggle').addEventListener('click', () => {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+        else document.exitFullscreen();
+      });
+
+      document.getElementById('lightModeToggle').addEventListener('click', () => {
+        document.documentElement.classList.toggle('light-mode');
+      });
+
+      updateClassUI();
+    </script>
+  </body>
+</html>

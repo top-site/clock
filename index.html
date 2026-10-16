@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -33,7 +33,6 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="preconnect" href="https://www.soundjay.com" crossorigin>
     <link rel="preconnect" href="https://ipapi.co" crossorigin>
     <link rel="preconnect" href="https://api.open-meteo.com" crossorigin>
     
@@ -42,43 +41,80 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
     <link rel="manifest" href="/manifest.json">
     <link rel="canonical" href="https://e-clock.top/">
+    <link rel="alternate" hreflang="en-SG" href="https://e-clock.top/">
+    <link rel="alternate" hreflang="en-US" href="https://e-clock.top/">
+    <link rel="alternate" hreflang="en-GB" href="https://e-clock.top/">
+    <link rel="alternate" hreflang="x-default" href="https://e-clock.top/">
     
-    <!-- WebApplication Schema -->
+    <!-- WebApplication & FAQPage Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "e-clock.top - Online Digital Clock with Weather",
-      "url": "https://e-clock.top",
-      "description": "An online digital clock with timer, stopwatch, alarm, and weather features for productivity and time management.",
-      "applicationCategory": "Utility",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "125"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "e-clock.top",
-        "url": "https://e-clock.top",
-        "logo": "https://e-clock.top/logo.png",
-        "sameAs": [
-          "https://x.com/eclockdottop"
-        ]
-      },
-      "potentialAction": {
-        "@type": "UseAction",
-        "target": "https://e-clock.top"
-      }
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "e-clock.top - Online Digital Clock, Timer, Stopwatch, Alarm & Weather",
+          "url": "https://e-clock.top",
+          "description": "Free full-screen online digital clock with customizable countdown timer, stopwatch with laps & CSV export, alarm clock, world clock (400+ cities including Singapore SGT), and live weather.",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "125"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "e-clock.top",
+            "url": "https://e-clock.top",
+            "logo": "https://e-clock.top/favicon.png",
+            "sameAs": [
+              "https://x.com/eclockdottop"
+            ]
+          },
+          "potentialAction": {
+            "@type": "UseAction",
+            "target": "https://e-clock.top"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I set a timer or alarm online on e-clock.top?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Select the Timer or Alarm tab on e-clock.top, choose a preset duration (such as 5, 15, or 25 minutes) or enter custom hours, minutes, and seconds, then click Start. An audio chime will play when the countdown finishes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I export stopwatch laps to CSV?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. In the Stopwatch tab, click Lap while the stopwatch is running to record split and total times, then click Export CSV to download your timing data."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does e-clock.top work offline?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Once loaded, e-clock.top caches its clock, timer, stopwatch, and alarm sound via a Progressive Web App (PWA) service worker so core timing tools work even without an internet connection."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 
@@ -406,19 +442,27 @@
   </head>
   <body>
     <header>
-      <h1>Online Digital Clock with Timer, Stopwatch, Alarm & Weather</h1>
+      <h1>Online Digital Clock with Timer, Stopwatch, Alarm &amp; Weather</h1>
       <h2>Free time management tools for work, study, cooking, and fitness</h2>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px;font-size:0.9rem;">
+        <a href="pomodoro-timer.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">🍅 Pomodoro Timer</a>
+        <a href="workout-timer.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">💪 Workout / HIIT Timer</a>
+        <a href="classroom-timer.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">🎓 Classroom Timer</a>
+        <a href="meeting-timer.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">📊 Meeting Timer</a>
+        <a href="analog-clock.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">🕰️ Analog Clock</a>
+        <a href="singapore-time.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">🇸🇬 Singapore Time (SGT)</a>
+      </div>
       <br>
     </header>
 
     <main>
       <nav class="tabs" aria-label="Time tool selection">
-        <button class="tab active" onclick="switchTab('clock')" aria-selected="true">Clock</button>
-        <button class="tab" onclick="switchTab('worldclock')" aria-selected="false">World Clock</button>
-        <button class="tab" onclick="switchTab('timer')" aria-selected="false">Timer</button>
-        <button class="tab" onclick="switchTab('stopwatch')" aria-selected="false">Stopwatch</button>
-        <button class="tab" onclick="switchTab('alarm')" aria-selected="false">Alarm</button>
-        <button class="tab" onclick="switchTab('weather')" aria-selected="false">Weather</button>
+        <button class="tab active" onclick="switchTab('clock', this)" aria-selected="true">Clock</button>
+        <button class="tab" onclick="switchTab('worldclock', this)" aria-selected="false">World Clock</button>
+        <button class="tab" onclick="switchTab('timer', this)" aria-selected="false">Timer</button>
+        <button class="tab" onclick="switchTab('stopwatch', this)" aria-selected="false">Stopwatch</button>
+        <button class="tab" onclick="switchTab('alarm', this)" aria-selected="false">Alarm</button>
+        <button class="tab" onclick="switchTab('weather', this)" aria-selected="false">Weather</button>
       </nav>
 
       <!-- Digital Clock with Date -->
@@ -427,10 +471,17 @@
        <div class="clock" id="digitalClock">00:00:00 AM</div>
       </section>
 
-<!-- Add this new section after the weather section -->
+<!-- World Clock Section -->
 <section id="worldclock" class="content" aria-label="World Clock">
-  <div id="city-clock-container" style="padding:1em; background:var(--color-tab); border-radius:var(--border-radius-lg); color:var(--color-text); font-family:sans-serif; max-width:320px; margin:auto;">
-    <h2 style="text-align:center; margin-bottom:1em;">🕒 Select a City</h2>
+  <div id="city-clock-container" style="padding:1em; background:var(--color-tab); border-radius:var(--border-radius-lg); color:var(--color-text); font-family:sans-serif; max-width:420px; margin:auto;">
+    <h2 style="text-align:center; margin-bottom:0.6em;">🕒 Select a City</h2>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:0.8em;">
+      <button type="button" onclick="quickSelectCity('Asia/Singapore')" style="padding:5px 10px;font-size:0.85rem;margin:2px;">🇸🇬 Singapore</button>
+      <button type="button" onclick="quickSelectCity('Europe/London')" style="padding:5px 10px;font-size:0.85rem;margin:2px;">🇬🇧 London</button>
+      <button type="button" onclick="quickSelectCity('America/New_York')" style="padding:5px 10px;font-size:0.85rem;margin:2px;">🇺🇸 New York</button>
+      <button type="button" onclick="quickSelectCity('America/Los_Angeles')" style="padding:5px 10px;font-size:0.85rem;margin:2px;">🇺🇸 Los Angeles</button>
+      <button type="button" onclick="quickSelectCity('Asia/Tokyo')" style="padding:5px 10px;font-size:0.85rem;margin:2px;">🇯🇵 Tokyo</button>
+    </div>
     <select id="city-select" style="width:100%; padding:0.5em; font-size:1rem; border-radius:var(--border-radius); border:none; background:var(--color-container); color:var(--color-text); cursor:pointer;">
       <option value="" disabled="disabled" selected="selected">Choose a city...</option>
       
@@ -858,31 +909,65 @@
   </div>
 
    <div class="credits">
-            Compare <a href="world_clock.html">World Clock</a> in Major Cities
-            Powered by <a href="https://timeapi.io/">Timeapi.io</a> 
-          </div>
+     Dedicated City Clocks:
+     <a href="singapore-time.html">🇸🇬 Singapore (SGT)</a> |
+     <a href="london-time.html">🇬🇧 London</a> |
+     <a href="new-york-time.html">🇺🇸 New York</a> |
+     <a href="los-angeles-time.html">🇺🇸 Los Angeles</a> |
+     <a href="world_clock.html">🌍 All 30+ Major Cities</a>
+   </div>
   
 </section>
 
-      <!-- Timer with Custom Input -->
+      <!-- Timer with Presets & Custom H:M:S Input -->
       <section id="timer" class="content" aria-label="Countdown Timer">
-        <label for="timerInput">Set Timer (seconds)</label><br> 
-        <input id="timerInput" placeholder="Enter time in seconds" min="1" type="number">
-        <div class="timer" id="countdown">00:00</div>
+        <div style="margin-bottom:10px;">
+          <span style="font-size:0.9rem;color:var(--color-text-secondary);display:block;margin-bottom:6px;">Quick Presets:</span>
+          <button type="button" onclick="setTimerPreset(60)" style="padding:5px 10px;font-size:0.9rem;margin:3px;">1m</button>
+          <button type="button" onclick="setTimerPreset(300)" style="padding:5px 10px;font-size:0.9rem;margin:3px;">5m</button>
+          <button type="button" onclick="setTimerPreset(600)" style="padding:5px 10px;font-size:0.9rem;margin:3px;">10m</button>
+          <button type="button" onclick="setTimerPreset(900)" style="padding:5px 10px;font-size:0.9rem;margin:3px;">15m</button>
+          <button type="button" onclick="setTimerPreset(1500)" style="padding:5px 10px;font-size:0.9rem;margin:3px;">🍅 25m</button>
+          <button type="button" onclick="setTimerPreset(1800)" style="padding:5px 10px;font-size:0.9rem;margin:3px;">30m</button>
+          <button type="button" onclick="setTimerPreset(3600)" style="padding:5px 10px;font-size:0.9rem;margin:3px;">60m</button>
+        </div>
+        <div style="display:flex;justify-content:center;gap:8px;max-width:340px;margin:0 auto 8px;">
+          <input id="timerHours" placeholder="Hours" min="0" type="number" style="width:32%;font-size:1rem;">
+          <input id="timerMinutes" placeholder="Min" min="0" type="number" style="width:32%;font-size:1rem;">
+          <input id="timerInput" placeholder="Sec" min="0" type="number" style="width:32%;font-size:1rem;">
+        </div>
+        <div class="timer" id="countdown">00:00:00</div>
         <div class="controls">
           <button onclick="startTimer()">Start</button>
           <button onclick="pauseTimer()">Pause</button>
           <button onclick="resetTimer()">Reset</button> 
         </div>
+        <div class="credits">
+          Specialized Timers: <a href="pomodoro-timer.html">Pomodoro</a> | <a href="workout-timer.html">Workout / HIIT</a> | <a href="classroom-timer.html">Classroom</a> | <a href="meeting-timer.html">Meeting</a>
+        </div>
       </section>
 
-      <!-- Stopwatch -->
+      <!-- Stopwatch with Laps & CSV Export -->
       <section id="stopwatch" class="content" aria-label="Stopwatch">
-        <div class="stopwatch" id="stopwatchDisplay">00:00</div>
+        <div class="stopwatch" id="stopwatchDisplay">00:00.00</div>
         <div class="controls"> 
           <button onclick="startStopwatch()">Start</button>
-          <button onclick="pauseStopwatch()">Pause</button> 
-          <button onclick="resetStopwatch()">Reset</button> 
+          <button onclick="pauseStopwatch()">Pause</button>
+          <button onclick="recordLap()">Lap</button>
+          <button onclick="resetStopwatch()">Reset</button>
+          <button onclick="exportLapsCSV()" id="exportCsvBtn" style="display:none;background:#4caf50;">⬇ CSV</button>
+        </div>
+        <div id="lapTableContainer" style="max-height:220px;overflow-y:auto;margin-top:15px;display:none;">
+          <table style="width:100%;max-width:420px;margin:0 auto;border-collapse:collapse;font-size:0.95rem;">
+            <thead>
+              <tr style="border-bottom:1px solid var(--color-tab);color:var(--color-primary);">
+                <th style="padding:6px;">Lap #</th>
+                <th style="padding:6px;">Split Time</th>
+                <th style="padding:6px;">Total Time</th>
+              </tr>
+            </thead>
+            <tbody id="lapTableBody"></tbody>
+          </table>
         </div>
       </section>
 
@@ -890,12 +975,13 @@
       <section id="alarm" class="content" aria-label="Alarm Clock">
          <label for="alarmTime">Set Alarm Time</label> <br>
          <input id="alarmTime" type="time">
+         <div id="alarmStatus" style="color:var(--color-primary);margin:6px 0;font-size:0.95rem;"></div>
         <div class="controls"> 
           <button onclick="setAlarm()">Set Alarm</button>
           <button onclick="snoozeAlarm()">Snooze (5 min)</button> 
           <button onclick="stopAlarm()">Stop Alarm</button>
         </div>
-        <audio id="alarmSound" src="https://www.soundjay.com/clock/alarm-clock-01.wav" preload="auto"></audio>
+        <audio id="alarmSound" src="alarm-clock-01.wav" preload="auto"></audio>
       </section>
 
       <!-- Weather Section -->
@@ -911,8 +997,7 @@
             <div class="weather-item" id="pressure">Pressure: --</div>
           </div>
           <div class="credits">
-            
-            Powered by <a href="https://ipapi.co/">ipapi.co</a> & <a href="https://open-meteo.com/">Open-Meteo</a>
+            Powered by <a href="https://ipapi.co/">ipapi.co</a> &amp; <a href="https://open-meteo.com/">Open-Meteo</a>
           </div>
         </div>
       </section>
@@ -924,12 +1009,17 @@
         <p style="font-weight: bold; color: orange;">Quote of the Day</p>
         <div id="quote-display">Loading...</div>
         <br><br>
-                            
-        <br><br>
         <a href="index.html" style="color: #ff9800; text-decoration: none;">Home</a> | 
-        <a href="blog.html" style="color: #ff9800; text-decoration: none;">Blog</a> | 
-        <a href="games.html" style="color: #ff9800; text-decoration: none;">Games</a> | 
-        <a href="FAQ.html" style="color: #ff9800; text-decoration: none;">FAQ</a> | 
+        <a href="world_clock.html" style="color: #ff9800; text-decoration: none;">World Clock</a> | 
+        <a href="singapore-time.html" style="color: #ff9800; text-decoration: none;">Singapore Time</a> | 
+        <a href="pomodoro-timer.html" style="color: #ff9800; text-decoration: none;">Pomodoro</a> | 
+        <a href="workout-timer.html" style="color: #ff9800; text-decoration: none;">Workout Timer</a> | 
+        <a href="classroom-timer.html" style="color: #ff9800; text-decoration: none;">Classroom Timer</a> | 
+        <a href="meeting-timer.html" style="color: #ff9800; text-decoration: none;">Meeting Timer</a> | 
+        <a href="analog-clock.html" style="color: #ff9800; text-decoration: none;">Analog Clock</a>
+        <br><br>
+        <a href="blog.html" style="color: #ff9800; text-decoration: none;">Blog</a> |
+    <a href="FAQ.html" style="color: #ff9800; text-decoration: none;">FAQ</a> | 
         <a href="privacy.html" style="color: #ff9800; text-decoration: none;">Privacy Policy</a> | 
         <a href="terms-of-service.html" style="color: #ff9800; text-decoration: none;">Terms of Service</a> | 
         <a href="about.html" style="color: #ff9800; text-decoration: none;">About Us</a> 
@@ -939,10 +1029,12 @@
         e-clock.top - Free Online Clock Tools</p>
     </footer>
     
-    <button id="fullscreen-toggle">🔳</button>
-    <button id="lightModeToggle">☀️</button>
+    <button id="fullscreen-toggle" aria-label="Toggle Fullscreen" title="Toggle Fullscreen">🔳</button>
+    <button id="lightModeToggle" aria-label="Toggle Light/Dark Mode" title="Toggle Light/Dark Mode">☀️</button>
 
     <script>
+      const defaultPageTitle = document.title;
+
       // Weather code descriptions for Open-Meteo
       const weatherCodes = {
         0: 'Clear sky',
@@ -1009,27 +1101,28 @@
       // Global variables
       let timerInterval, stopwatchInterval, alarmTimeout;
       let timerRunning = false, stopwatchRunning = false, alarmSet = false;
-      let timerSeconds = 0, stopwatchSeconds = 0;
+      let timerSeconds = 0;
+      let stopwatchElapsedMs = 0, stopwatchStartTime = 0, lastLapMs = 0;
+      let laps = [];
 
       // Tab switching function
-      function switchTab(tab) {
-        // Hide all content sections
+      function switchTab(tab, btnEl) {
         document.querySelectorAll('.content').forEach(content => {
           content.classList.remove('active');
         });
         
-        // Remove active class from all tabs
         document.querySelectorAll('.tab').forEach(tabBtn => {
           tabBtn.classList.remove('active');
           tabBtn.setAttribute('aria-selected', 'false');
         });
         
-        // Show selected content and activate tab
         document.getElementById(tab).classList.add('active');
-        event.target.classList.add('active');
-        event.target.setAttribute('aria-selected', 'true');
+        const activeBtn = btnEl || (window.event && window.event.target);
+        if (activeBtn && activeBtn.classList) {
+          activeBtn.classList.add('active');
+          activeBtn.setAttribute('aria-selected', 'true');
+        }
 
-        // Load weather when weather tab is selected
         if (tab === 'weather') {
           loadWeatherData();
         }
@@ -1050,67 +1143,85 @@
         document.getElementById('currentDate').textContent = dateString;
       }
 
-// World Clock functions
-const citySelect = document.getElementById('city-select');
-const timeDisplay = document.getElementById('city-time-display');
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const months = ['January', 'February', 'March', 'April', 'May', 'June',
-                'July', 'August', 'September', 'October', 'November', 'December'];
-let updateInterval;
+      // World Clock functions (instant Intl API with live second updates)
+      const citySelect = document.getElementById('city-select');
+      const timeDisplay = document.getElementById('city-time-display');
+      let updateInterval;
 
-async function fetchAndDisplayTime(timezone) {
-  try {
-    const res = await fetch(`https://timeapi.io/api/Time/current/zone?timeZone=${timezone}`);
-    if (!res.ok) throw new Error(`HTTP error ${res.status}`);
-    const data = await res.json();
+      function fetchAndDisplayTime(timezone) {
+        try {
+          const now = new Date();
+          const timeStr = now.toLocaleTimeString('en-US', {
+            timeZone: timezone,
+            hour12: true,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+          });
+          const dateStr = now.toLocaleDateString('en-US', {
+            timeZone: timezone,
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          });
+          timeDisplay.innerHTML = `
+            <strong style="font-size:1.6rem;color:var(--color-primary);">${timeStr}</strong><br>
+            <span>${dateStr}</span><br>
+            <small style="color:var(--color-text-secondary);">${timezone}</small>
+          `;
+        } catch (error) {
+          timeDisplay.textContent = 'Failed to load time.';
+          console.error(error);
+        }
+      }
 
-    const date = new Date(data.dateTime);
-    const hoursRaw = date.getHours();
-    const hours = ((hoursRaw + 11) % 12 + 1).toString().padStart(2, '0'); // 12h format
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    const ampm = hoursRaw >= 12 ? 'PM' : 'AM';
-    const weekday = days[date.getDay()];
-    const day = date.getDate();
-    const month = months[date.getMonth()];
-    const year = date.getFullYear();
-    
-    timeDisplay.innerHTML = `
-      <strong>${hours}:${minutes} ${ampm}</strong><br>
-      ${weekday}, ${month} ${day}, ${year}
-    `;
-  } catch (error) {
-    timeDisplay.textContent = 'Failed to load time.';
-    console.error(error);
-  }
-}
+      function quickSelectCity(timezone) {
+        if (citySelect) {
+          citySelect.value = timezone;
+        }
+        fetchAndDisplayTime(timezone);
+        if (updateInterval) clearInterval(updateInterval);
+        updateInterval = setInterval(() => fetchAndDisplayTime(timezone), 1000);
+      }
 
-if (citySelect) {
-  citySelect.addEventListener('change', () => {
-    const timezone = citySelect.value;
-    if (!timezone) {
-      timeDisplay.textContent = 'Please select a city to see the time.';
-      clearInterval(updateInterval);
-      return;
-    }
-
-    fetchAndDisplayTime(timezone);
-
-    // Clear old interval and update every minute
-    if (updateInterval) clearInterval(updateInterval);
-    updateInterval = setInterval(() => fetchAndDisplayTime(timezone), 60000);
-  });
-}
+      if (citySelect) {
+        citySelect.addEventListener('change', () => {
+          const timezone = citySelect.value;
+          if (!timezone) {
+            timeDisplay.textContent = 'Please select a city to see the time.';
+            clearInterval(updateInterval);
+            return;
+          }
+          quickSelectCity(timezone);
+        });
+      }
 
       // Timer functions
+      function setTimerPreset(seconds) {
+        pauseTimer();
+        timerSeconds = seconds;
+        const h = Math.floor(seconds / 3600);
+        const m = Math.floor((seconds % 3600) / 60);
+        const s = seconds % 60;
+        document.getElementById('timerHours').value = h > 0 ? h : '';
+        document.getElementById('timerMinutes').value = m > 0 ? m : '';
+        document.getElementById('timerInput').value = s > 0 ? s : '';
+        updateTimerDisplay();
+      }
+
       function startTimer() {
         if (!timerRunning) {
-          const input = document.getElementById('timerInput').value;
-          if (input && !timerSeconds) {
-            timerSeconds = parseInt(input);
+          if (timerSeconds <= 0) {
+            const h = parseInt(document.getElementById('timerHours').value) || 0;
+            const m = parseInt(document.getElementById('timerMinutes').value) || 0;
+            const s = parseInt(document.getElementById('timerInput').value) || 0;
+            timerSeconds = h * 3600 + m * 60 + s;
           }
           
           if (timerSeconds > 0) {
             timerRunning = true;
+            updateTimerDisplay();
             timerInterval = setInterval(() => {
               timerSeconds--;
               updateTimerDisplay();
@@ -1118,7 +1229,13 @@ if (citySelect) {
               if (timerSeconds <= 0) {
                 clearInterval(timerInterval);
                 timerRunning = false;
-                alert('Timer finished!');
+                document.title = defaultPageTitle;
+                const sound = document.getElementById('alarmSound');
+                if (sound) {
+                  sound.currentTime = 0;
+                  sound.play().catch(() => {});
+                }
+                alert('⏰ Timer finished!');
               }
             }, 1000);
           }
@@ -1129,6 +1246,7 @@ if (citySelect) {
         if (timerRunning) {
           clearInterval(timerInterval);
           timerRunning = false;
+          document.title = defaultPageTitle;
         }
       }
 
@@ -1136,24 +1254,38 @@ if (citySelect) {
         clearInterval(timerInterval);
         timerRunning = false;
         timerSeconds = 0;
+        document.title = defaultPageTitle;
         updateTimerDisplay();
       }
 
       function updateTimerDisplay() {
-        const minutes = Math.floor(timerSeconds / 60);
+        const hours = Math.floor(timerSeconds / 3600);
+        const minutes = Math.floor((timerSeconds % 3600) / 60);
         const seconds = timerSeconds % 60;
-        document.getElementById('countdown').textContent = 
-          `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        const formatted = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        document.getElementById('countdown').textContent = formatted;
+        if (timerRunning) {
+          document.title = `(${formatted}) Online Timer | e-clock.top`;
+        }
       }
 
-      // Stopwatch functions
+      // Stopwatch functions with millisecond precision, Laps & CSV export
+      function formatStopwatchMs(ms) {
+        const totalSeconds = Math.floor(ms / 1000);
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        const centiseconds = Math.floor((ms % 1000) / 10);
+        return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}.${centiseconds.toString().padStart(2, '0')}`;
+      }
+
       function startStopwatch() {
         if (!stopwatchRunning) {
           stopwatchRunning = true;
+          stopwatchStartTime = performance.now() - stopwatchElapsedMs;
           stopwatchInterval = setInterval(() => {
-            stopwatchSeconds++;
+            stopwatchElapsedMs = performance.now() - stopwatchStartTime;
             updateStopwatchDisplay();
-          }, 1000);
+          }, 30);
         }
       }
 
@@ -1167,15 +1299,63 @@ if (citySelect) {
       function resetStopwatch() {
         clearInterval(stopwatchInterval);
         stopwatchRunning = false;
-        stopwatchSeconds = 0;
+        stopwatchElapsedMs = 0;
+        lastLapMs = 0;
+        laps = [];
         updateStopwatchDisplay();
+        renderLaps();
       }
 
       function updateStopwatchDisplay() {
-        const minutes = Math.floor(stopwatchSeconds / 60);
-        const seconds = stopwatchSeconds % 60;
-        document.getElementById('stopwatchDisplay').textContent = 
-          `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        document.getElementById('stopwatchDisplay').textContent = formatStopwatchMs(stopwatchElapsedMs);
+      }
+
+      function recordLap() {
+        if (stopwatchElapsedMs <= 0) return;
+        const splitMs = stopwatchElapsedMs - lastLapMs;
+        lastLapMs = stopwatchElapsedMs;
+        laps.push({
+          number: laps.length + 1,
+          split: formatStopwatchMs(splitMs),
+          total: formatStopwatchMs(stopwatchElapsedMs)
+        });
+        renderLaps();
+      }
+
+      function renderLaps() {
+        const container = document.getElementById('lapTableContainer');
+        const tbody = document.getElementById('lapTableBody');
+        const csvBtn = document.getElementById('exportCsvBtn');
+        if (!laps.length) {
+          container.style.display = 'none';
+          csvBtn.style.display = 'none';
+          tbody.innerHTML = '';
+          return;
+        }
+        container.style.display = 'block';
+        csvBtn.style.display = 'inline-block';
+        tbody.innerHTML = laps.slice().reverse().map(lap => `
+          <tr style="border-bottom:1px solid var(--color-tab);">
+            <td style="padding:6px;">#${lap.number}</td>
+            <td style="padding:6px;">${lap.split}</td>
+            <td style="padding:6px;">${lap.total}</td>
+          </tr>
+        `).join('');
+      }
+
+      function exportLapsCSV() {
+        if (!laps.length) return;
+        const rows = [
+          ['Lap Number', 'Split Time', 'Total Time'],
+          ...laps.map(l => [l.number, l.split, l.total])
+        ];
+        const csvContent = 'data:text/csv;charset=utf-8,' + rows.map(r => r.join(',')).join('\n');
+        const link = document.createElement('a');
+        link.setAttribute('href', encodeURI(csvContent));
+        link.setAttribute('download', `e-clock-stopwatch-laps-${new Date().toISOString().slice(0,10)}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
       }
 
       // Alarm functions
@@ -1195,24 +1375,28 @@ if (citySelect) {
           }
           
           const timeUntilAlarm = alarm.getTime() - now.getTime();
+          clearTimeout(alarmTimeout);
           
           alarmTimeout = setTimeout(() => {
-            document.getElementById('alarmSound').play();
-            alert('Alarm! Time to wake up!');
+            document.getElementById('alarmSound').play().catch(() => {});
+            alert('🔔 Alarm! Time to wake up!');
           }, timeUntilAlarm);
           
           alarmSet = true;
-          alert(`Alarm set for ${alarmTime}`);
+          document.getElementById('alarmStatus').textContent = `✅ Alarm set for ${alarmTime}`;
         }
       }
 
       function snoozeAlarm() {
         if (alarmSet) {
           clearTimeout(alarmTimeout);
+          document.getElementById('alarmSound').pause();
+          document.getElementById('alarmSound').currentTime = 0;
+          document.getElementById('alarmStatus').textContent = '💤 Snoozed for 5 minutes...';
           alarmTimeout = setTimeout(() => {
-            document.getElementById('alarmSound').play();
-            alert('Snooze time is up!');
-          }, 5 * 60 * 1000); // 5 minutes
+            document.getElementById('alarmSound').play().catch(() => {});
+            alert('🔔 Snooze time is up!');
+          }, 5 * 60 * 1000);
         }
       }
 
@@ -1221,16 +1405,15 @@ if (citySelect) {
         alarmSet = false;
         document.getElementById('alarmSound').pause();
         document.getElementById('alarmSound').currentTime = 0;
+        document.getElementById('alarmStatus').textContent = '';
       }
 
       // Weather functions
       function loadWeatherData() {
-        // Check if weather data is already loaded
         if (document.getElementById('weather-main').textContent !== 'Fetching weather...') {
           return;
         }
 
-        // Fetch user's IP Address and location using ipapi.co
         fetch('https://ipapi.co/json/')
           .then(response => response.json())
           .then(data => {
@@ -1243,7 +1426,6 @@ if (citySelect) {
             
             document.getElementById('location').textContent = `${city}, ${country}`;
 
-            // Fetch weather using coordinates with Open-Meteo API
             const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,surface_pressure,weather_code,wind_speed_10m&timezone=auto`;
             
             fetch(weatherUrl)
@@ -1259,7 +1441,6 @@ if (citySelect) {
                 const weatherDesc = weatherCodes[weatherCode] || 'Unknown';
                 const weatherIcon = weatherIcons[weatherCode] || '';
 
-                // Update display
                 document.getElementById('weather-main').textContent = 
                   `${weatherIcon} ${temp}°C, ${weatherDesc}`;
                 document.getElementById('feels-like').textContent = `Feels Like: ${feelsLike}°C`;
@@ -1279,27 +1460,38 @@ if (citySelect) {
           });
       }
 
-      // Quote loading function
+      // Quote loading function with CSV support + fallback
       async function loadQuotes() {
+        const fallbackQuotes = [
+          { text: "Time is what we want most, but what we use worst.", author: "William Penn" },
+          { text: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+          { text: "Don't let yesterday take up too much of today.", author: "Will Rogers" },
+          { text: "Time flies over us, but leaves its shadow behind.", author: "Nathaniel Hawthorne" }
+        ];
         try {
-          // Since we can't load external CSV, we'll use a simple quote
-          const quotes = [
-            { text: "Time is what we want most, but what we use worst.", author: "William Penn" },
-            { text: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
-            { text: "Don't let yesterday take up too much of today.", author: "Will Rogers" },
-            { text: "Time flies over us, but leaves its shadow behind.", author: "Nathaniel Hawthorne" }
-          ];
-          
-          const randomIndex = Math.floor(Math.random() * quotes.length);
-          const quote = quotes[randomIndex];
-          
-          document.getElementById('quote-display').innerHTML = `
-            <div class="quote-text">"${quote.text}"</div>
-            <div class="quote-author">— ${quote.author}</div>
-          `;
-        } catch (error) {
-          document.getElementById('quote-display').innerHTML = 'Error loading quotes.';
+          const res = await fetch('motivational_quotes.csv');
+          if (!res.ok) throw new Error('CSV fetch failed');
+          const csvText = await res.text();
+          const lines = csvText.split(/\r?\n/).filter(l => l.trim().length > 0);
+          if (lines.length > 1) {
+            const randomLine = lines[Math.floor(Math.random() * (lines.length - 1)) + 1];
+            const match = randomLine.match(/^"?(.*?)"?,\s*"?(.*?)"?$/);
+            if (match && match[1]) {
+              document.getElementById('quote-display').innerHTML = `
+                <div class="quote-text">"${match[1]}"</div>
+                <div class="quote-author">— ${match[2] || 'Unknown'}</div>
+              `;
+              return;
+            }
+          }
+        } catch (e) {
+          // Use fallback quotes
         }
+        const quote = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+        document.getElementById('quote-display').innerHTML = `
+          <div class="quote-text">"${quote.text}"</div>
+          <div class="quote-author">— ${quote.author}</div>
+        `;
       }
 
       // Fullscreen toggle
@@ -1327,6 +1519,9 @@ if (citySelect) {
         updateTimerDisplay();
         updateStopwatchDisplay();
         loadQuotes();
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+        }
       }
 
       // Start the application when page loads

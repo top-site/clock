@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -17,10 +17,10 @@
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://e-clock.top/world-clock.html">
+    <meta property="og:url" content="https://e-clock.top/world_clock.html">
     <meta property="og:title" content="World Clock: Current Time in 30+ Major Cities">
-    <meta property="og:description" content="Check current time in major cities worldwide. Free world clock with real-time updates for international business and travel.">
-    <meta property="og:image" content="https://e-clock.top/preview-image-world-clock.jpg">
+    <meta property="og:description" content="Check current time in major cities worldwide including Singapore (SGT), London, New York, Tokyo, and Sydney. Free world clock with real-time updates.">
+    <meta property="og:image" content="https://e-clock.top/preview-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="World Clock showing multiple city times">
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="World Clock: Current Time in 30+ Major Cities">
     <meta name="twitter:description" content="Check current time in major cities worldwide. Free world clock with real-time updates.">
-    <meta name="twitter:image" content="https://e-clock.top/preview-image-world-clock.jpg">
+    <meta name="twitter:image" content="https://e-clock.top/preview-image.jpg">
     <meta name="twitter:image:alt" content="World Clock showing multiple city times">
     
     <!-- Additional SEO Meta Tags -->
@@ -48,7 +48,10 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="canonical" href="https://e-clock.top/world-clock.html">
+    <link rel="canonical" href="https://e-clock.top/world_clock.html">
+    <link rel="alternate" hreflang="en-SG" href="https://e-clock.top/world_clock.html">
+    <link rel="alternate" hreflang="en" href="https://e-clock.top/world_clock.html">
+    <link rel="alternate" hreflang="x-default" href="https://e-clock.top/world_clock.html">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -57,7 +60,7 @@
       "@type": "WebApplication",
       "name": "World Clock",
       "description": "Check current time in 30+ major cities worldwide with real-time updates",
-      "url": "https://e-clock.top/world-clock.html",
+      "url": "https://e-clock.top/world_clock.html",
       "applicationCategory": "UtilityApplication",
       "operatingSystem": "Any",
       "offers": {
@@ -419,10 +422,18 @@
     <main id="main-content" class="container">
       <section aria-labelledby="popular-cities-heading">
         <h2 id="popular-cities-heading">Current Time in Popular Cities</h2>
-        <p style="text-align: left; margin-bottom: var(--spacing-lg); color: var(--color-text-secondary);">
+        <p style="text-align: left; margin-bottom: var(--spacing-md); color: var(--color-text-secondary);">
           Stay synchronized with the world! Our world clock shows current time in major cities across all continents. 
           Times update automatically every second for accurate scheduling of international calls, meetings, and travel plans.
         </p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:var(--spacing-lg);justify-content:center;">
+          <a href="singapore-time.html" style="background:var(--color-tab);color:var(--color-primary);padding:8px 14px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:0.9rem;">🇸🇬 Singapore (SGT) Hub →</a>
+          <a href="london-time.html" style="background:var(--color-tab);color:var(--color-primary);padding:8px 14px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:0.9rem;">🇬🇧 London (GMT/BST) →</a>
+          <a href="new-york-time.html" style="background:var(--color-tab);color:var(--color-primary);padding:8px 14px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:0.9rem;">🇺🇸 New York (EST/EDT) →</a>
+          <a href="los-angeles-time.html" style="background:var(--color-tab);color:var(--color-primary);padding:8px 14px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:0.9rem;">🇺🇸 Los Angeles (PST/PDT) →</a>
+          <a href="china_singapore_timezone.html" style="background:var(--color-tab);color:var(--color-primary);padding:8px 14px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:0.9rem;">🌏 China / HK / SG UTC+8 Guide →</a>
+        </div>
         
         <div class="city-grid" id="popular-cities" role="grid" aria-label="World city times">
           <!-- Cities will be populated by JavaScript -->
@@ -477,9 +488,8 @@
     <footer>
       <nav aria-label="Footer navigation">
         <a href="index.html">Home</a> | 
-        <a href="blog.html">Blog</a> | 
-        <a href="games.html">Games</a> | 
-        <a href="FAQ.html">FAQ</a> | 
+        <a href="blog.html">Blog</a> |
+    <a href="FAQ.html">FAQ</a> | 
         <a href="privacy.html">Privacy Policy</a> | 
         <a href="terms-of-service.html">Terms of Service</a> | 
         <a href="about.html">About Us</a> 

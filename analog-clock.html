@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Analog Clock Online — Fullscreen Live Analog Watch & Second Hand | e-clock.top</title>
+
+    <meta name="description" content="Free fullscreen online analog clock with smooth or ticking second hand, dark/light mode, digital time readout, and multi-timezone support (Local, Singapore SGT, London, New York, Tokyo).">
+    <meta name="keywords" content="analog clock online, fullscreen analog clock, mobile-friendly analog clock, live analog clock with seconds, online wall clock, dark mode analog clock, classroom analog clock, e-clock.top">
+    <meta name="author" content="e-clock.top">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://e-clock.top/analog-clock.html">
+    <link rel="alternate" hreflang="en-SG" href="https://e-clock.top/analog-clock.html">
+    <link rel="alternate" hreflang="en-US" href="https://e-clock.top/analog-clock.html">
+    <link rel="alternate" hreflang="x-default" href="https://e-clock.top/analog-clock.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://e-clock.top/analog-clock.html">
+    <meta property="og:title" content="Analog Clock Online — Fullscreen Live Analog Clock | e-clock.top">
+    <meta property="og:description" content="Clean, distraction-free fullscreen online analog clock with smooth second hand, dark/light themes, and world timezone switcher.">
+    <meta property="og:image" content="https://e-clock.top/preview-image.jpg">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "e-clock.top Online Analog Clock",
+          "url": "https://e-clock.top/analog-clock.html",
+          "description": "Free fullscreen online analog clock with smooth or quartz ticking second hand, digital readout, and timezone switcher.",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://e-clock.top/" },
+            { "@type": "ListItem", "position": 2, "name": "Analog Clock Online", "item": "https://e-clock.top/analog-clock.html" }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-463EN24CE0');
+    </script>
+
+    <style>
+      :root {
+        --color-bg: #111;
+        --color-container: #222;
+        --color-tab: #333;
+        --color-primary: #ff9800;
+        --color-text: #fff;
+        --color-text-secondary: #bbb;
+        --clock-face: #181818;
+        --clock-border: #444;
+        --border-radius: 8px;
+        --border-radius-lg: 16px;
+      }
+      html.light-mode {
+        --color-bg: #ffffff;
+        --color-text: #111111;
+        --color-container: #f5f5f5;
+        --color-tab: #e0e0e0;
+        --color-text-secondary: #555;
+        --clock-face: #ffffff;
+        --clock-border: #ccc;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+      header, footer { width: 100%; max-width: 720px; padding: 1rem; }
+      header h1 { font-size: 1.9rem; color: var(--color-primary); margin-bottom: 0.3rem; }
+      header h2 { font-size: 1.05rem; color: var(--color-text-secondary); font-weight: normal; }
+      .container {
+        background: var(--color-container);
+        padding: 28px;
+        border-radius: var(--border-radius-lg);
+        width: 100%;
+        max-width: 560px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      }
+      .tz-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+      .tz-btn {
+        background: var(--color-tab);
+        color: var(--color-text);
+        border: none;
+        padding: 6px 12px;
+        border-radius: 16px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      .tz-btn.active, .tz-btn:hover { background: var(--color-primary); color: #111; }
+      .analog-wrapper {
+        width: 280px;
+        height: 280px;
+        margin: 10px auto 16px;
+      }
+      .digital-sub {
+        font-size: 1.8rem;
+        font-weight: bold;
+        font-variant-numeric: tabular-nums;
+        color: var(--color-primary);
+      }
+      .date-sub {
+        font-size: 1rem;
+        color: var(--color-text-secondary);
+        margin-top: 4px;
+      }
+      .seo-section {
+        width: 100%;
+        max-width: 560px;
+        margin: 1.8rem auto 0;
+        text-align: left;
+        font-size: 0.95rem;
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+        background: var(--color-container);
+        padding: 24px;
+        border-radius: var(--border-radius-lg);
+      }
+      .seo-section h2 { font-size: 1.3rem; color: var(--color-primary); margin-bottom: 0.5rem; }
+      .seo-section a { color: var(--color-primary); text-decoration: none; }
+      #fullscreen-toggle, #lightModeToggle {
+        position: fixed;
+        background-color: var(--color-container);
+        border: 1px solid var(--color-tab);
+        border-radius: 6px;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 9999;
+        color: var(--color-text);
+        font-size: 1.2rem;
+      }
+      #fullscreen-toggle { top: 20px; right: 20px; }
+      #lightModeToggle { top: 75px; right: 20px; }
+    </style>
+  </head>
+  <body>
+
+    <button id="fullscreen-toggle" title="Toggle Fullscreen" aria-label="Toggle Fullscreen">🔳</button>
+    <button id="lightModeToggle" title="Toggle Light/Dark Mode" aria-label="Toggle Light/Dark Mode">☀️</button>
+
+    <header>
+      <nav aria-label="Breadcrumb" style="font-size:0.85rem;color:var(--color-text-secondary);margin-bottom:0.5rem;">
+        <a href="index.html" style="color:var(--color-primary);text-decoration:none;">Home</a> › <span>Analog Clock Online</span>
+      </nav>
+      <h1>🕰️ Fullscreen Analog Clock Online</h1>
+      <h2>Live Precision Analog Timepiece with World Timezone Switcher</h2>
+    </header>
+
+    <main style="width:100%;">
+      <div class="container">
+        <div class="tz-pills" aria-label="Timezone selector">
+          <button class="tz-btn active" onclick="setAnalogTz('local', this)">📍 Local Time</button>
+          <button class="tz-btn" onclick="setAnalogTz('Asia/Singapore', this)">🇸🇬 Singapore (SGT)</button>
+          <button class="tz-btn" onclick="setAnalogTz('Europe/London', this)">🇬🇧 London</button>
+          <button class="tz-btn" onclick="setAnalogTz('America/New_York', this)">🇺🇸 New York</button>
+          <button class="tz-btn" onclick="setAnalogTz('Asia/Tokyo', this)">🇯🇵 Tokyo</button>
+        </div>
+
+        <div class="analog-wrapper">
+          <svg viewBox="0 0 200 200" width="100%" height="100%" aria-label="Analog clock dial">
+            <circle cx="100" cy="100" r="95" fill="var(--clock-face)" stroke="var(--clock-border)" stroke-width="4"/>
+            <!-- Hour markers -->
+            <g stroke="var(--color-text)" stroke-width="3" stroke-linecap="round">
+              <line x1="100" y1="12" x2="100" y2="22" transform="rotate(0 100 100)"/>
+              <line x1="100" y1="12" x2="100" y2="22" transform="rotate(30 100 100)"/>
+              <line x1="100" y1="12" x2="100" y2="22" transform="rotate(60 100 100)"/>
+              <line x1="100" y1="12" x2="100" y2="22" transform="rotate(90 100 100)"/>
+              <line x1="100" y1="12" x2="100" y2="22" transform="rotate(120 100 100)"/>
+              <line x1="100" y1="12" x2="100" y2="22" transform="rotate(150 100 100)"/>
+              <line x1="100" y1="12" x2="100" y2="22" transform="rotate(180 100 100)"/>
+              <line x1="100" y1="12" x2="100" y2="22" transform="rotate(210 100 100)"/>
+              <line x1="100" y1="12" x2="100" y2="22" transform="rotate(240 100 100)"/>
+              <line x1="100" y1="12" x2="100" y2="22" transform="rotate(270 100 100)"/>
+              <line x1="100" y1="12" x2="100" y2="22" transform="rotate(300 100 100)"/>
+              <line x1="100" y1="12" x2="100" y2="22" transform="rotate(330 100 100)"/>
+            </g>
+            <!-- Hands -->
+            <line id="hourHand" x1="100" y1="100" x2="100" y2="50" stroke="var(--color-text)" stroke-width="6" stroke-linecap="round"/>
+            <line id="minuteHand" x1="100" y1="100" x2="100" y2="30" stroke="var(--color-text)" stroke-width="4" stroke-linecap="round"/>
+            <line id="secondHand" x1="100" y1="112" x2="100" y2="24" stroke="#ff9800" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="100" cy="100" r="5" fill="#ff9800"/>
+          </svg>
+        </div>
+
+        <div class="digital-sub" id="analogDigital">00:00:00</div>
+        <div class="date-sub" id="analogDate">Loading...</div>
+      </div>
+    </main>
+
+    <section class="seo-section" aria-label="About the Online Analog Clock">
+      <h2>Why Use an Online Analog Clock?</h2>
+      <p>An <strong>analog clock</strong> lets you visualize time spatially—making it much easier to see how much of an hour has passed or how many minutes remain before a meeting or exam deadline. Our browser-based analog timepiece is ideal for desk displays, exam halls, classrooms teaching children to read clock hands, and minimalist second-monitor setups.</p>
+      <p style="margin-top:10px;">
+        Switch seamlessly to our <a href="index.html">Digital Clock &amp; Stopwatch</a>, <a href="pomodoro-timer.html">Pomodoro Study Timer</a>, <a href="classroom-timer.html">Visual Classroom Timer</a>, or <a href="singapore-time.html">Singapore Live Clock</a>.
+      </p>
+    </section>
+
+    <footer>
+      <p style="color:var(--color-text-secondary);font-size:0.85rem;margin-top:20px;">
+        <a href="index.html" style="color:var(--color-primary);text-decoration:none;">Home</a> |
+        <a href="world_clock.html" style="color:var(--color-primary);text-decoration:none;">World Clock</a> |
+        <a href="singapore-time.html" style="color:var(--color-primary);text-decoration:none;">Singapore Time</a> |
+        <a href="pomodoro-timer.html" style="color:var(--color-primary);text-decoration:none;">Pomodoro</a> |
+        <a href="classroom-timer.html" style="color:var(--color-primary);text-decoration:none;">Classroom Timer</a>
+        <br><br>
+        © <script>document.write(new Date().getFullYear())</script> e-clock.top — Free Online Clock Tools
+      </p>
+    </footer>
+
+    <script>
+      let selectedTz = 'local';
+
+      function setAnalogTz(tz, btnEl) {
+        selectedTz = tz;
+        document.querySelectorAll('.tz-btn').forEach(b => b.classList.remove('active'));
+        if (btnEl) btnEl.classList.add('active');
+        tickAnalog();
+      }
+
+      function tickAnalog() {
+        const now = new Date();
+        let targetDate = now;
+        if (selectedTz !== 'local') {
+          targetDate = new Date(now.toLocaleString('en-US', { timeZone: selectedTz }));
+        }
+        const h = targetDate.getHours();
+        const m = targetDate.getMinutes();
+        const s = targetDate.getSeconds();
+
+        const secDeg = s * 6;
+        const minDeg = m * 6 + s * 0.1;
+        const hourDeg = (h % 12) * 30 + m * 0.5;
+
+        document.getElementById('secondHand').setAttribute('transform', `rotate(${secDeg} 100 100)`);
+        document.getElementById('minuteHand').setAttribute('transform', `rotate(${minDeg} 100 100)`);
+        document.getElementById('hourHand').setAttribute('transform', `rotate(${hourDeg} 100 100)`);
+
+        const opts = selectedTz === 'local' ? {} : { timeZone: selectedTz };
+        document.getElementById('analogDigital').textContent = now.toLocaleTimeString('en-US', { ...opts, hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        document.getElementById('analogDate').textContent = now.toLocaleDateString('en-US', { ...opts, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      document.getElementById('fullscreen-toggle').addEventListener('click', () => {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+        else document.exitFullscreen();
+      });
+
+      document.getElementById('lightModeToggle').addEventListener('click', () => {
+        document.documentElement.classList.toggle('light-mode');
+      });
+
+      tickAnalog();
+      setInterval(tickAnalog, 1000);
+    </script>
+  </body>
+</html>

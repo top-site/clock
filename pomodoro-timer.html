@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Pomodoro Timer Online — 25/5 Study, Focus & Exam Timer | e-clock.top</title>
+
+    <meta name="description" content="Free online Pomodoro timer with 25/5 minute focus intervals, 52/17 productivity mode, exam paper countdown presets, session counter, and task list. Perfect for studying, ADHD focus, and remote work.">
+    <meta name="keywords" content="pomodoro timer, pomodoro timer online, study timer, timer for pomodoro technique, focus timer for ADHD students, 52 17 timer, exam countdown timer, online study clock, productivity timer with breaks, e-clock.top">
+    <meta name="author" content="e-clock.top">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://e-clock.top/pomodoro-timer.html">
+    <link rel="alternate" hreflang="en-SG" href="https://e-clock.top/pomodoro-timer.html">
+    <link rel="alternate" hreflang="en-US" href="https://e-clock.top/pomodoro-timer.html">
+    <link rel="alternate" hreflang="en-GB" href="https://e-clock.top/pomodoro-timer.html">
+    <link rel="alternate" hreflang="x-default" href="https://e-clock.top/pomodoro-timer.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://e-clock.top/pomodoro-timer.html">
+    <meta property="og:title" content="Pomodoro Timer Online — 25/5 Study, Focus & Exam Timer | e-clock.top">
+    <meta property="og:description" content="Boost focus with our free Pomodoro & 52/17 study timer. Includes task tracker, session counter, exam duration presets, and audio alerts.">
+    <meta property="og:image" content="https://e-clock.top/preview-image.jpg">
+    <meta property="og:site_name" content="e-clock.top">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pomodoro Timer Online — 25/5 Study & Focus Timer | e-clock.top">
+    <meta name="twitter:description" content="Free online Pomodoro timer with 25/5 intervals, 52/17 mode, task list, and exam countdown presets.">
+    <meta name="twitter:image" content="https://e-clock.top/preview-image.jpg">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "e-clock.top Pomodoro & Study Timer",
+          "url": "https://e-clock.top/pomodoro-timer.html",
+          "description": "Free online Pomodoro timer featuring 25/5 minute focus intervals, 52/17 rule presets, exam simulation timers, session counter, and integrated task list.",
+          "applicationCategory": "ProductivityApplication",
+          "operatingSystem": "Any",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "author": { "@type": "Organization", "name": "e-clock.top", "url": "https://e-clock.top" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://e-clock.top/" },
+            { "@type": "ListItem", "position": 2, "name": "Pomodoro Timer", "item": "https://e-clock.top/pomodoro-timer.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How does the 25/5 Pomodoro Technique work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Choose a single task, set the Pomodoro timer for 25 minutes of uninterrupted focus, and work until the alarm rings. Take a 5-minute short break to recharge. After completing 4 Pomodoro sessions, take a longer 15-minute break."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the 52/17 productivity rule?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The 52/17 rule is a data-backed alternative to Pomodoro where you work with intense focus for 52 minutes followed by a 17-minute complete rest away from your screen. You can switch to 52/17 mode with one click on this page."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use this timer for exam paper practice (e.g., O-Level, A-Level, SAT, University)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Use the Exam Paper Presets (45 min, 90 min, 2 hours, or 3 hours) to simulate timed past-paper practice under real exam conditions."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-463EN24CE0');
+    </script>
+
+    <style>
+      :root {
+        --color-bg: #111;
+        --color-container: #222;
+        --color-tab: #333;
+        --color-primary: #ff9800;
+        --color-primary-hover: #e68900;
+        --color-text: #fff;
+        --color-text-secondary: #bbb;
+        --color-shadow: rgba(255, 255, 255, 0.15);
+        --border-radius: 8px;
+        --border-radius-lg: 16px;
+      }
+
+      html.light-mode {
+        --color-bg: #ffffff;
+        --color-text: #111111;
+        --color-container: #f5f5f5;
+        --color-tab: #e0e0e0;
+        --color-text-secondary: #555;
+        --color-shadow: rgba(0, 0, 0, 0.1);
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      header, footer { width: 100%; max-width: 720px; padding: 1rem; }
+      header h1 { font-size: 1.9rem; color: var(--color-primary); margin-bottom: 0.3rem; }
+      header h2 { font-size: 1.05rem; color: var(--color-text-secondary); font-weight: normal; }
+
+      .container {
+        background: var(--color-container);
+        padding: 30px;
+        border-radius: var(--border-radius-lg);
+        box-shadow: 0 0 20px var(--color-shadow);
+        width: 100%;
+        max-width: 620px;
+        margin: 0 auto;
+      }
+
+      .mode-tabs {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 18px;
+      }
+
+      .mode-btn {
+        background: var(--color-tab);
+        color: var(--color-text);
+        border: none;
+        padding: 10px 14px;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: background 0.2s;
+      }
+
+      .mode-btn.active, .mode-btn:hover {
+        background: var(--color-primary);
+        color: #111;
+      }
+
+      .timer-display {
+        font-size: 4.2rem;
+        font-weight: bold;
+        margin: 15px 0;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 2px;
+      }
+
+      .progress-bar-bg {
+        width: 100%;
+        height: 10px;
+        background: var(--color-tab);
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 18px;
+      }
+
+      .progress-bar-fill {
+        height: 100%;
+        width: 100%;
+        background: var(--color-primary);
+        transition: width 0.5s linear;
+      }
+
+      .controls button {
+        padding: 12px 22px;
+        margin: 5px;
+        border: none;
+        border-radius: var(--border-radius);
+        background: var(--color-primary);
+        color: #111;
+        font-weight: bold;
+        font-size: 1.05rem;
+        cursor: pointer;
+      }
+
+      .controls button:hover { background: var(--color-primary-hover); }
+
+      .stats-row {
+        display: flex;
+        justify-content: space-around;
+        background: var(--color-tab);
+        padding: 12px;
+        border-radius: var(--border-radius);
+        margin: 18px 0;
+        font-size: 0.95rem;
+      }
+
+      .task-section {
+        margin-top: 20px;
+        text-align: left;
+        border-top: 1px solid var(--color-tab);
+        padding-top: 16px;
+      }
+
+      .task-input-row {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .task-input-row input {
+        flex: 1;
+        padding: 10px;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-tab);
+        background: var(--color-bg);
+        color: var(--color-text);
+        font-size: 0.95rem;
+      }
+
+      .task-input-row button {
+        padding: 10px 16px;
+        border: none;
+        border-radius: var(--border-radius);
+        background: var(--color-primary);
+        color: #111;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .task-list { list-style: none; margin-top: 12px; }
+      .task-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--color-tab);
+        padding: 10px 12px;
+        border-radius: var(--border-radius);
+        margin-bottom: 6px;
+      }
+      .task-item.done span { text-decoration: line-through; color: var(--color-text-secondary); }
+
+      .seo-section {
+        width: 100%;
+        max-width: 620px;
+        margin: 1.8rem auto 0;
+        text-align: left;
+        font-size: 0.95rem;
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+        background: var(--color-container);
+        padding: 24px;
+        border-radius: var(--border-radius-lg);
+      }
+      .seo-section h2 { font-size: 1.3rem; color: var(--color-primary); margin-bottom: 0.5rem; }
+      .seo-section h3 { font-size: 1.08rem; color: var(--color-primary); margin: 1.1rem 0 0.4rem; }
+      .seo-section a { color: var(--color-primary); text-decoration: none; }
+
+      #fullscreen-toggle, #lightModeToggle {
+        position: fixed;
+        background-color: var(--color-container);
+        border: 1px solid var(--color-tab);
+        border-radius: 6px;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 9999;
+        color: var(--color-text);
+        font-size: 1.2rem;
+      }
+      #fullscreen-toggle { top: 20px; right: 20px; }
+      #lightModeToggle { top: 75px; right: 20px; }
+
+      @media (max-width: 600px) {
+        .timer-display { font-size: 3rem; }
+        .container { padding: 20px; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <button id="fullscreen-toggle" title="Toggle Fullscreen" aria-label="Toggle Fullscreen">🔳</button>
+    <button id="lightModeToggle" title="Toggle Light/Dark Mode" aria-label="Toggle Light/Dark Mode">☀️</button>
+
+    <header>
+      <nav aria-label="Breadcrumb" style="font-size:0.85rem;color:var(--color-text-secondary);margin-bottom:0.5rem;">
+        <a href="index.html" style="color:var(--color-primary);text-decoration:none;">Home</a> › <span>Pomodoro &amp; Study Timer</span>
+      </nav>
+      <h1>🍅 Online Pomodoro, Study &amp; Exam Timer</h1>
+      <h2>25/5 Focus Intervals, 52/17 Rule &amp; Timed Exam Paper Presets</h2>
+    </header>
+
+    <main style="width:100%;">
+      <div class="container">
+        <div class="mode-tabs" role="tablist" aria-label="Timer modes">
+          <button class="mode-btn active" onclick="setMode('pomodoro', 25, 'Focus Session (25m)', this)">🍅 Pomodoro (25m)</button>
+          <button class="mode-btn" onclick="setMode('shortBreak', 5, 'Short Break (5m)', this)">☕ Short Break (5m)</button>
+          <button class="mode-btn" onclick="setMode('longBreak', 15, 'Long Break (15m)', this)">🌴 Long Break (15m)</button>
+          <button class="mode-btn" onclick="setMode('rule52', 52, '52/17 Deep Work (52m)', this)">⚡ 52m Focus</button>
+          <button class="mode-btn" onclick="setMode('break17', 17, '52/17 Rest (17m)', this)">🔋 17m Rest</button>
+        </div>
+
+        <div style="margin-bottom:10px;font-size:0.85rem;color:var(--color-text-secondary);">
+          🎓 Exam Paper Presets:
+          <button class="mode-btn" style="padding:4px 8px;font-size:0.8rem;" onclick="setMode('exam45', 45, 'Exam Paper (45m)', this)">45m</button>
+          <button class="mode-btn" style="padding:4px 8px;font-size:0.8rem;" onclick="setMode('exam90', 90, 'Exam Paper (1h 30m)', this)">1h 30m</button>
+          <button class="mode-btn" style="padding:4px 8px;font-size:0.8rem;" onclick="setMode('exam120', 120, 'Exam Paper (2h)', this)">2h</button>
+          <button class="mode-btn" style="padding:4px 8px;font-size:0.8rem;" onclick="setMode('exam180', 180, 'Exam Paper (3h)', this)">3h</button>
+        </div>
+
+        <div id="modeLabel" style="color:var(--color-primary);font-weight:bold;font-size:1.1rem;">Focus Session (25m)</div>
+        <div class="timer-display" id="pomoDisplay">25:00</div>
+
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
+
+        <div class="controls">
+          <button onclick="startPomo()" id="startBtn">▶ Start</button>
+          <button onclick="pausePomo()">⏸ Pause</button>
+          <button onclick="resetPomo()">↺ Reset</button>
+        </div>
+
+        <div class="stats-row">
+          <div>🍅 Completed Sessions: <strong id="sessionCount" style="color:var(--color-primary);">0</strong></div>
+          <div>⏱️ Total Focus Minutes: <strong id="totalMinutes" style="color:var(--color-primary);">0</strong></div>
+        </div>
+
+        <!-- Task List -->
+        <div class="task-section">
+          <h3 style="color:var(--color-primary);font-size:1.05rem;">📝 Study / Focus Tasks</h3>
+          <div class="task-input-row">
+            <input type="text" id="taskInput" placeholder="What are you working on right now?" onkeypress="if(event.key==='Enter') addTask()">
+            <button onclick="addTask()">+ Add</button>
+          </div>
+          <ul class="task-list" id="taskList"></ul>
+        </div>
+
+        <audio id="alarmSound" src="alarm-clock-01.wav" preload="auto"></audio>
+      </div>
+    </main>
+
+    <section class="seo-section" aria-label="Guide to the Pomodoro Technique">
+      <h2>How to Use the Pomodoro Timer for Maximum Productivity</h2>
+      <p>The <strong>Pomodoro Technique</strong> is one of the world's most effective time management methods for students, software developers, writers, and remote workers. By breaking large projects or revision topics into structured <strong>25-minute deep-focus sprints</strong> separated by <strong>5-minute recovery breaks</strong>, you eliminate mental fatigue and procrastination.</p>
+
+      <h3>Pomodoro (25/5) vs. The 52/17 Rule</h3>
+      <ul style="padding-left:20px;margin-top:6px;">
+        <li><strong>25/5 Pomodoro Mode:</strong> Best for overcoming procrastination, tackling ADHD time blindness, starting difficult assignments, and memorizing study flashcards. Read more in <a href="two_minute_rule_blog.html">The 2-Minute Rule &amp; Productivity Systems</a>.</li>
+        <li><strong>52/17 Deep Work Mode:</strong> Ideal for complex coding, essay writing, or mathematics problem-solving where you need longer uninterrupted flow states.</li>
+        <li><strong>Exam Paper Simulation (45m – 3h):</strong> Built for students preparing for timed papers (such as GCE O-Levels, A-Levels, PSLE, IB, SAT, and university finals).</li>
+      </ul>
+
+      <h3>Explore More Free Time Tools on e-clock.top</h3>
+      <p>
+        Need other specialized timers? Try our <a href="workout-timer.html">Workout &amp; HIIT Interval Timer</a>, <a href="classroom-timer.html">Visual Classroom Timer</a>, <a href="meeting-timer.html">Meeting &amp; Presentation Timer</a>, <a href="analog-clock.html">Online Analog Clock</a>, or check global time on our <a href="singapore-time.html">Singapore Time (SGT)</a> and <a href="world_clock.html">World Clock</a> pages.
+      </p>
+    </section>
+
+    <footer>
+      <p style="color:var(--color-text-secondary);font-size:0.85rem;margin-top:20px;">
+        <a href="index.html" style="color:var(--color-primary);text-decoration:none;">Home</a> |
+        <a href="workout-timer.html" style="color:var(--color-primary);text-decoration:none;">Workout Timer</a> |
+        <a href="classroom-timer.html" style="color:var(--color-primary);text-decoration:none;">Classroom Timer</a> |
+        <a href="meeting-timer.html" style="color:var(--color-primary);text-decoration:none;">Meeting Timer</a> |
+        <a href="analog-clock.html" style="color:var(--color-primary);text-decoration:none;">Analog Clock</a> |
+        <a href="singapore-time.html" style="color:var(--color-primary);text-decoration:none;">Singapore Time</a> |
+        <a href="blog.html" style="color:var(--color-primary);text-decoration:none;">Blog</a> |
+        <a href="FAQ.html" style="color:var(--color-primary);text-decoration:none;">FAQ</a>
+        <br><br>
+        © <script>document.write(new Date().getFullYear())</script> e-clock.top — Free Online Clock &amp; Productivity Tools
+      </p>
+    </footer>
+
+    <script>
+      let totalSeconds = 25 * 60;
+      let remainingSeconds = totalSeconds;
+      let currentMode = 'pomodoro';
+      let currentMinutes = 25;
+      let intervalId = null;
+      let isRunning = false;
+      let completedSessions = 0;
+      let totalFocusedMinutes = 0;
+      const baseTitle = document.title;
+
+      function formatTime(sec) {
+        const h = Math.floor(sec / 3600);
+        const m = Math.floor((sec % 3600) / 60);
+        const s = sec % 60;
+        if (h > 0) {
+          return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+        }
+        return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+      }
+
+      function updateUI() {
+        const formatted = formatTime(remainingSeconds);
+        document.getElementById('pomoDisplay').textContent = formatted;
+        const pct = totalSeconds > 0 ? (remainingSeconds / totalSeconds) * 100 : 0;
+        document.getElementById('progressBar').style.width = `${pct}%`;
+        if (isRunning) {
+          document.title = `(${formatted}) ${document.getElementById('modeLabel').textContent} | e-clock.top`;
+        }
+      }
+
+      function setMode(mode, minutes, label, btnEl) {
+        pausePomo();
+        currentMode = mode;
+        currentMinutes = minutes;
+        totalSeconds = minutes * 60;
+        remainingSeconds = totalSeconds;
+        document.getElementById('modeLabel').textContent = label;
+        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+        if (btnEl) btnEl.classList.add('active');
+        updateUI();
+      }
+
+      function startPomo() {
+        if (isRunning) return;
+        isRunning = true;
+        updateUI();
+        intervalId = setInterval(() => {
+          remainingSeconds--;
+          updateUI();
+          if (remainingSeconds <= 0) {
+            clearInterval(intervalId);
+            isRunning = false;
+            document.title = baseTitle;
+            const audio = document.getElementById('alarmSound');
+            if (audio) {
+              audio.currentTime = 0;
+              audio.play().catch(() => {});
+            }
+            if (currentMode === 'pomodoro' || currentMode === 'rule52' || currentMode.startsWith('exam')) {
+              completedSessions++;
+              totalFocusedMinutes += currentMinutes;
+              document.getElementById('sessionCount').textContent = completedSessions;
+              document.getElementById('totalMinutes').textContent = totalFocusedMinutes;
+            }
+            alert(`⏰ ${document.getElementById('modeLabel').textContent} complete!`);
+          }
+        }, 1000);
+      }
+
+      function pausePomo() {
+        if (intervalId) clearInterval(intervalId);
+        isRunning = false;
+        document.title = baseTitle;
+      }
+
+      function resetPomo() {
+        pausePomo();
+        remainingSeconds = totalSeconds;
+        updateUI();
+      }
+
+      function addTask() {
+        const input = document.getElementById('taskInput');
+        const text = input.value.trim();
+        if (!text) return;
+        const li = document.createElement('li');
+        li.className = 'task-item';
+        li.innerHTML = `
+          <span onclick="this.parentElement.classList.toggle('done')" style="cursor:pointer;flex:1;">☐ ${text.replace(/</g,'&lt;')}</span>
+          <button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:var(--color-text-secondary);cursor:pointer;font-size:1rem;">✕</button>
+        `;
+        document.getElementById('taskList').appendChild(li);
+        input.value = '';
+      }
+
+      document.getElementById('fullscreen-toggle').addEventListener('click', () => {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+        else document.exitFullscreen();
+      });
+
+      document.getElementById('lightModeToggle').addEventListener('click', () => {
+        document.documentElement.classList.toggle('light-mode');
+      });
+
+      updateUI();
+    </script>
+  </body>
+</html>
