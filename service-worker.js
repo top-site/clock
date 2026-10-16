@@ -1,9 +1,11 @@
-const CACHE_NAME = "e-clock-cache-v2";
+const CACHE_NAME = "e-clock-cache-v3";
 const ASSETS_TO_CACHE = [
   "/",
   "/index.html",
   "/world_clock.html",
   "/singapore-time.html",
+  "/beijing-time.html",
+  "/chicago-time.html",
   "/london-time.html",
   "/new-york-time.html",
   "/los-angeles-time.html",

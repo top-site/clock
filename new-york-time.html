@@ -404,7 +404,32 @@
           </div>
 
           <div class="credits">
-            Compared to your local time: <span id="diff-label" style="color:var(--color-primary);font-weight:bold;">calculating...</span><br><br>
+            Compared to your local time: <span id="diff-label" style="color:var(--color-primary);font-weight:bold;">calculating...</span>
+          </div>
+
+          <div style="margin-top:20px;text-align:left;">
+            <h3 style="font-size:1rem;color:var(--color-primary);margin-bottom:10px;text-align:center;">🇺🇸 Live US Time Zones &amp; Global Hubs</h3>
+            <div class="info-grid" style="font-size:0.95rem;">
+              <div class="info-item">
+                <div class="info-label">🇺🇸 <a href="chicago-time.html" style="color:var(--color-primary);text-decoration:none;">Central (Chicago)</a></div>
+                <div class="info-value" id="us-cst">--:--:--</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">🇺🇸 Mountain (Denver)</div>
+                <div class="info-value" id="us-mst">--:--:--</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">🇺🇸 <a href="los-angeles-time.html" style="color:var(--color-primary);text-decoration:none;">Pacific (LA)</a></div>
+                <div class="info-value" id="us-pst">--:--:--</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">🇨🇳 <a href="beijing-time.html" style="color:var(--color-primary);text-decoration:none;">China (Beijing)</a></div>
+                <div class="info-value" id="us-cn">--:--:--</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="credits">
             <a href="/">← Back to full clock &amp; tools</a>
           </div>
         </section>
@@ -432,7 +457,7 @@
       <p>New York City, USA, uses the <strong style="color:var(--color-text);">America/New_York</strong> timezone. During winter New York is on <strong style="color:var(--color-text);">EST (Eastern Standard Time, UTC−5)</strong>. In summer it advances to <strong style="color:var(--color-text);">EDT (Eastern Daylight Time, UTC−4)</strong>. The clocks change on the second Sunday of March (spring forward) and the first Sunday of November (fall back).</p>
 
       <h3 style="font-size:1rem;color:var(--color-primary);margin:1rem 0 0.4rem;">Common New York Time Differences</h3>
-      <p>New York (EST) vs <a href="singapore-time.html" style="color:var(--color-primary);">Singapore (SGT)</a>: <strong style="color:var(--color-text);">−13 hours (−12h in EDT)</strong>. New York vs <a href="london-time.html" style="color:var(--color-primary);">London (GMT)</a>: <strong style="color:var(--color-text);">−5 hours</strong>. New York vs <a href="los-angeles-time.html" style="color:var(--color-primary);">Los Angeles (PST)</a>: <strong style="color:var(--color-text);">+3 hours</strong>. New York vs Dubai (GST): <strong style="color:var(--color-text);">−9 hours</strong>.</p>
+      <p>New York (EST) vs <a href="beijing-time.html" style="color:var(--color-primary);">Beijing / Shanghai, China (CST)</a> &amp; <a href="singapore-time.html" style="color:var(--color-primary);">Singapore (SGT)</a>: <strong style="color:var(--color-text);">−13 hours (−12h in EDT)</strong>. New York vs <a href="chicago-time.html" style="color:var(--color-primary);">Chicago (Central Time)</a>: <strong style="color:var(--color-text);">+1 hour</strong>. New York vs <a href="los-angeles-time.html" style="color:var(--color-primary);">Los Angeles (Pacific Time)</a>: <strong style="color:var(--color-text);">+3 hours</strong>. New York vs <a href="london-time.html" style="color:var(--color-primary);">London (GMT)</a>: <strong style="color:var(--color-text);">−5 hours</strong>.</p>
 
       <h3 style="font-size:1rem;color:var(--color-primary);margin:1rem 0 0.4rem;">Frequently Asked Questions</h3>
       <details style="margin-bottom:0.6rem;">
@@ -457,10 +482,11 @@
       <p style="color:var(--color-text-secondary);font-size:0.85rem;">
         <a href="index.html" style="color:var(--color-primary);text-decoration:none;">Home</a> |
         <a href="world_clock.html" style="color:var(--color-primary);text-decoration:none;">World Clock</a> |
-        <a href="singapore-time.html" style="color:var(--color-primary);text-decoration:none;">Singapore Time</a> |
-        <a href="london-time.html" style="color:var(--color-primary);text-decoration:none;">London Time</a> |
+        <a href="chicago-time.html" style="color:var(--color-primary);text-decoration:none;">Chicago Time</a> |
         <a href="los-angeles-time.html" style="color:var(--color-primary);text-decoration:none;">Los Angeles Time</a> |
-        <a href="pomodoro-timer.html" style="color:var(--color-primary);text-decoration:none;">Pomodoro</a>
+        <a href="beijing-time.html" style="color:var(--color-primary);text-decoration:none;">Beijing / China Time</a> |
+        <a href="singapore-time.html" style="color:var(--color-primary);text-decoration:none;">Singapore Time</a> |
+        <a href="london-time.html" style="color:var(--color-primary);text-decoration:none;">London Time</a>
         <br><br>
         © <script>document.write(new Date().getFullYear())</script> <a href="index.html" style="color:var(--color-primary);text-decoration:none;">e-clock.top</a> — Free online time tools &amp; world clocks
       </p>
@@ -507,6 +533,12 @@
         document.getElementById('ny-time').textContent = timePart;
         document.getElementById('ny-date').textContent = datePart;
         document.getElementById('tz-badge').textContent = `${tzName} (${offsetStr})`;
+
+        const fmtZone = tz => now.toLocaleTimeString('en-US', { timeZone: tz, hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        document.getElementById('us-cst').textContent = fmtZone('America/Chicago');
+        document.getElementById('us-mst').textContent = fmtZone('America/Denver');
+        document.getElementById('us-pst').textContent = fmtZone('America/Los_Angeles');
+        document.getElementById('us-cn').textContent = fmtZone('Asia/Shanghai');
 
         // Diff from local
         const localOffset = -now.getTimezoneOffset() / 60;

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -30,8 +30,6 @@
     
     <!-- Resource Hints -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="preconnect" href="https://ipapi.co" crossorigin>
     <link rel="preconnect" href="https://api.open-meteo.com" crossorigin>
@@ -47,6 +45,7 @@
     <link rel="alternate" hreflang="en-SG" href="https://e-clock.top/">
     <link rel="alternate" hreflang="en-US" href="https://e-clock.top/">
     <link rel="alternate" hreflang="en-GB" href="https://e-clock.top/">
+    <link rel="alternate" hreflang="zh-CN" href="https://e-clock.top/">
     <link rel="alternate" hreflang="x-default" href="https://e-clock.top/">
     
     <!-- WebApplication & FAQPage Schema -->
@@ -450,6 +449,7 @@
         <a href="classroom-timer.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">🎓 Classroom Timer</a>
         <a href="meeting-timer.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">📊 Meeting Timer</a>
         <a href="analog-clock.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">🕰️ Analog Clock</a>
+        <a href="beijing-time.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">🇨🇳 China Time (北京时间)</a>
         <a href="singapore-time.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">🇸🇬 Singapore Time (SGT)</a>
       </div>
       <br>
@@ -476,11 +476,12 @@
   <div id="city-clock-container" style="padding:1em; background:var(--color-tab); border-radius:var(--border-radius-lg); color:var(--color-text); font-family:sans-serif; max-width:420px; margin:auto;">
     <h2 style="text-align:center; margin-bottom:0.6em;">🕒 Select a City</h2>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:0.8em;">
+      <button type="button" onclick="quickSelectCity('Asia/Shanghai')" style="padding:5px 10px;font-size:0.85rem;margin:2px;">🇨🇳 Beijing/Shanghai</button>
       <button type="button" onclick="quickSelectCity('Asia/Singapore')" style="padding:5px 10px;font-size:0.85rem;margin:2px;">🇸🇬 Singapore</button>
-      <button type="button" onclick="quickSelectCity('Europe/London')" style="padding:5px 10px;font-size:0.85rem;margin:2px;">🇬🇧 London</button>
       <button type="button" onclick="quickSelectCity('America/New_York')" style="padding:5px 10px;font-size:0.85rem;margin:2px;">🇺🇸 New York</button>
+      <button type="button" onclick="quickSelectCity('America/Chicago')" style="padding:5px 10px;font-size:0.85rem;margin:2px;">🇺🇸 Chicago</button>
       <button type="button" onclick="quickSelectCity('America/Los_Angeles')" style="padding:5px 10px;font-size:0.85rem;margin:2px;">🇺🇸 Los Angeles</button>
-      <button type="button" onclick="quickSelectCity('Asia/Tokyo')" style="padding:5px 10px;font-size:0.85rem;margin:2px;">🇯🇵 Tokyo</button>
+      <button type="button" onclick="quickSelectCity('Europe/London')" style="padding:5px 10px;font-size:0.85rem;margin:2px;">🇬🇧 London</button>
     </div>
     <select id="city-select" style="width:100%; padding:0.5em; font-size:1rem; border-radius:var(--border-radius); border:none; background:var(--color-container); color:var(--color-text); cursor:pointer;">
       <option value="" disabled="disabled" selected="selected">Choose a city...</option>
@@ -910,10 +911,12 @@
 
    <div class="credits">
      Dedicated City Clocks:
+     <a href="beijing-time.html">🇨🇳 Beijing / China (CST)</a> |
      <a href="singapore-time.html">🇸🇬 Singapore (SGT)</a> |
+     <a href="new-york-time.html">🇺🇸 New York (EST)</a> |
+     <a href="chicago-time.html">🇺🇸 Chicago (CST)</a> |
+     <a href="los-angeles-time.html">🇺🇸 Los Angeles (PST)</a> |
      <a href="london-time.html">🇬🇧 London</a> |
-     <a href="new-york-time.html">🇺🇸 New York</a> |
-     <a href="los-angeles-time.html">🇺🇸 Los Angeles</a> |
      <a href="world_clock.html">🌍 All 30+ Major Cities</a>
    </div>
   
@@ -1011,7 +1014,11 @@
         <br><br>
         <a href="index.html" style="color: #ff9800; text-decoration: none;">Home</a> | 
         <a href="world_clock.html" style="color: #ff9800; text-decoration: none;">World Clock</a> | 
+        <a href="beijing-time.html" style="color: #ff9800; text-decoration: none;">China Time (CST)</a> | 
         <a href="singapore-time.html" style="color: #ff9800; text-decoration: none;">Singapore Time</a> | 
+        <a href="new-york-time.html" style="color: #ff9800; text-decoration: none;">New York Time</a> | 
+        <a href="chicago-time.html" style="color: #ff9800; text-decoration: none;">Chicago Time</a> | 
+        <a href="los-angeles-time.html" style="color: #ff9800; text-decoration: none;">Los Angeles Time</a> | 
         <a href="pomodoro-timer.html" style="color: #ff9800; text-decoration: none;">Pomodoro</a> | 
         <a href="workout-timer.html" style="color: #ff9800; text-decoration: none;">Workout Timer</a> | 
         <a href="classroom-timer.html" style="color: #ff9800; text-decoration: none;">Classroom Timer</a> | 
