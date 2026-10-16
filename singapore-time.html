@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-SG">
   <head>
     <meta charset="UTF-8">
@@ -107,6 +107,8 @@
       gtag('config', 'G-463EN24CE0');
     </script>
 
+    <link rel="stylesheet" href="core-tools.css">
+    <script src="shared.js"></script>
     <style>
       :root {
         --color-bg: #111;
@@ -360,9 +362,6 @@
         .info-grid, .weather-details { grid-template-columns: 1fr; }
       }
     </style>
-    <script>
-    document.addEventListener('contextmenu', event => event.preventDefault());
-  </script>
 </head>
   <body>
 
@@ -522,19 +521,15 @@
       </details>
     </section>
 
-    <footer>
-      <p style="color:var(--color-text-secondary);font-size:0.85rem;">
-        <a href="index.html" style="color:var(--color-primary);text-decoration:none;">Home</a> |
-        <a href="world_clock.html" style="color:var(--color-primary);text-decoration:none;">World Clock</a> |
-        <a href="london-time.html" style="color:var(--color-primary);text-decoration:none;">London</a> |
-        <a href="new-york-time.html" style="color:var(--color-primary);text-decoration:none;">New York</a> |
-        <a href="los-angeles-time.html" style="color:var(--color-primary);text-decoration:none;">Los Angeles</a> |
-        <a href="pomodoro-timer.html" style="color:var(--color-primary);text-decoration:none;">Pomodoro</a> |
-        <a href="blog.html" style="color:var(--color-primary);text-decoration:none;">Blog</a> |
-        <a href="FAQ.html" style="color:var(--color-primary);text-decoration:none;">FAQ</a>
-        <br><br>
-        © <script>document.write(new Date().getFullYear())</script> <a href="index.html" style="color:var(--color-primary);text-decoration:none;">e-clock.top</a> — Free Online Clock &amp; Time Management Tools
-      </p>
+        <footer>
+      <span id="current-year" style="display:none;"></span>
+      © 2025 e-clock.top — All rights reserved. | 
+      <a href="index.html" style="color: #ff9800; text-decoration: none;">Home</a> | 
+      <a href="blog.html" style="color: #ff9800; text-decoration: none;">Blog</a> | 
+      <a href="FAQ.html" style="color: #ff9800; text-decoration: none;">FAQ</a> | 
+      <a href="privacy.html" style="color: #ff9800; text-decoration: none;">Privacy Policy</a> | 
+      <a href="terms-of-service.html" style="color: #ff9800; text-decoration: none;">Terms of Service</a> | 
+      <a href="about.html" style="color: #ff9800; text-decoration: none;">About Us</a>
     </footer>
 
     <script>

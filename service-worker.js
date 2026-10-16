@@ -1,6 +1,9 @@
-const CACHE_NAME = "e-clock-cache-v4";
+const CACHE_NAME = "e-clock-cache-v5";
 const ASSETS_TO_CACHE = [
   "/",
+  "/core-tools.css",
+  "/articles.css",
+  "/shared.js",
   "/index.html",
   "/world-clock-select.html",
   "/timer.html",

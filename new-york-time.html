@@ -104,8 +104,8 @@
     }
     </script>
 
-    <script>document.addEventListener('contextmenu', event => event.preventDefault());</script>
-
+    <link rel="stylesheet" href="core-tools.css">
+    <script src="shared.js"></script>
     <style>
       :root {
         --color-bg: #111;
@@ -478,18 +478,15 @@
       </details>
     </section>
 
-    <footer>
-      <p style="color:var(--color-text-secondary);font-size:0.85rem;">
-        <a href="index.html" style="color:var(--color-primary);text-decoration:none;">Home</a> |
-        <a href="world_clock.html" style="color:var(--color-primary);text-decoration:none;">World Clock</a> |
-        <a href="chicago-time.html" style="color:var(--color-primary);text-decoration:none;">Chicago Time</a> |
-        <a href="los-angeles-time.html" style="color:var(--color-primary);text-decoration:none;">Los Angeles Time</a> |
-        <a href="beijing-time.html" style="color:var(--color-primary);text-decoration:none;">Beijing / China Time</a> |
-        <a href="singapore-time.html" style="color:var(--color-primary);text-decoration:none;">Singapore Time</a> |
-        <a href="london-time.html" style="color:var(--color-primary);text-decoration:none;">London Time</a>
-        <br><br>
-        © <script>document.write(new Date().getFullYear())</script> <a href="index.html" style="color:var(--color-primary);text-decoration:none;">e-clock.top</a> — Free online time tools &amp; world clocks
-      </p>
+        <footer>
+      <span id="current-year" style="display:none;"></span>
+      © 2025 e-clock.top — All rights reserved. | 
+      <a href="index.html" style="color: #ff9800; text-decoration: none;">Home</a> | 
+      <a href="blog.html" style="color: #ff9800; text-decoration: none;">Blog</a> | 
+      <a href="FAQ.html" style="color: #ff9800; text-decoration: none;">FAQ</a> | 
+      <a href="privacy.html" style="color: #ff9800; text-decoration: none;">Privacy Policy</a> | 
+      <a href="terms-of-service.html" style="color: #ff9800; text-decoration: none;">Terms of Service</a> | 
+      <a href="about.html" style="color: #ff9800; text-decoration: none;">About Us</a>
     </footer>
 
     <script>
@@ -596,16 +593,16 @@
         if (weatherLoaded) return;
         weatherLoaded = true;
         // New York City coordinates
-        const url = 'https://api.open-meteo.com/v1/forecast?latitude=40.7128&longitude=-74.0060&current=temperature_2m,relative_humidity_2m,apparent_temperature,surface_pressure,weather_code,wind_speed_10m&timezone=America/New_York&temperature_unit=fahrenheit&wind_speed_unit=mph';
+        const url = 'https://api.open-meteo.com/v1/forecast?latitude=40.7128&longitude=-74.0060&current=temperature_2m,relative_humidity_2m,apparent_temperature,surface_pressure,weather_code,wind_speed_10m&timezone=America/New_York';
         fetch(url)
           .then(r => r.json())
           .then(data => {
             const c = data.current;
             const code = c.weather_code;
-            document.getElementById('weather-main').textContent = `${weatherIcons[code]||'🌡️'} ${Math.round(c.temperature_2m)}°F, ${weatherCodes[code]||'Unknown'}`;
-            document.getElementById('feels-like').textContent = `Feels Like: ${Math.round(c.apparent_temperature)}°F`;
+            document.getElementById('weather-main').textContent = `${weatherIcons[code]||'🌡️'} ${Math.round(c.temperature_2m)}°C, ${weatherCodes[code]||'Unknown'}`;
+            document.getElementById('feels-like').textContent = `Feels Like: ${Math.round(c.apparent_temperature)}°C`;
             document.getElementById('humidity').textContent = `Humidity: ${c.relative_humidity_2m}%`;
-            document.getElementById('wind-speed').textContent = `Wind Speed: ${Math.round(c.wind_speed_10m * 10) / 10} mph`;
+            document.getElementById('wind-speed').textContent = `Wind Speed: ${Math.round(c.wind_speed_10m * 10) / 10} km/h`;
             document.getElementById('pressure').textContent = `Pressure: ${Math.round(c.surface_pressure)} hPa`;
           })
           .catch(() => {

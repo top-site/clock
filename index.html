@@ -124,11 +124,9 @@
       gtag('config', 'G-463EN24CE0');
     </script>
 
+    <link rel="stylesheet" href="core-tools.css">
+    <script src="shared.js"></script>
     <script>
-      document.addEventListener('contextmenu', event => event.preventDefault());
-      if (localStorage.getItem('eclock-theme') === 'light') {
-        document.documentElement.classList.add('light-mode');
-      }
       // Backward-compatible hash redirection for bookmarks like index.html#timer
       const hashMap = {
         '#worldclock': 'world-clock-select.html',
@@ -141,203 +139,13 @@
         window.location.replace(hashMap[window.location.hash.toLowerCase()]);
       }
     </script>
-
-    <style>
-      /* Custom Properties */
-      :root {
-        --color-bg: #111;
-        --color-container: #222;
-        --color-tab: #444;
-        --color-primary: #ff9800;
-        --color-primary-hover: #e68900;
-        --color-text: #fff;
-        --color-text-secondary: #bbb;
-        --color-social: #007bff;
-        --color-shadow: rgba(255, 255, 255, 0.2);
-        --spacing-xs: 5px;
-        --spacing-sm: 10px;
-        --spacing-md: 15px;
-        --spacing-lg: 20px;
-        --spacing-xl: 40px;
-        --font-size-normal: 1rem;
-        --font-size-medium: 1.2rem;
-        --font-size-large: 1.5rem;
-        --font-size-xlarge: 3rem;
-        --border-radius: 5px;
-        --border-radius-lg: 15px;
-      }
-
-      html.light-mode {
-        --color-bg: #ffffff;
-        --color-text: #111111;
-        --color-container: #f5f5f5;
-        --color-tab: #e0e0e0;
-        --color-shadow: rgba(0, 0, 0, 0.1);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: 'Arial', sans-serif;
-        background-color: var(--color-bg);
-        color: var(--color-text);
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-        padding: var(--spacing-lg);
-      }
-
-      header, footer {
-        text-align: center;
-        padding: 1rem;
-      }
-
-      .container {
-        background: var(--color-container);
-        padding: var(--spacing-xl);
-        border-radius: var(--border-radius-lg);
-        box-shadow: 0 0 20px var(--color-shadow);
-        width: 90%;
-        max-width: 500px;
-        margin: 0 auto;
-      }
-
-      .tabs {
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: var(--spacing-lg);
-        gap: var(--spacing-sm);
-        flex-wrap: wrap;
-      }
-
-      .tab {
-        padding: var(--spacing-sm) var(--spacing-md);
-        cursor: pointer;
-        background: var(--color-tab);
-        border: none;
-        border-radius: var(--border-radius);
-        color: var(--color-text);
-        font-size: var(--font-size-medium);
-        transition: background-color 0.3s ease;
-        flex: 1;
-        min-width: 80px;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .tab:hover, 
-      .tab.active {
-        background: var(--color-primary);
-      }
-
-      .content.active {
-        display: block;
-        animation: fadeIn 0.3s ease;
-      }
-
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-
-      .clock {
-        font-size: var(--font-size-xlarge);
-        margin-top: var(--spacing-lg);
-        font-weight: bold;
-      }
-
-      .date {
-        font-size: var(--font-size-large);
-        margin-bottom: var(--spacing-sm);
-        color: var(--color-text-secondary);
-      }
-
-      .credits {
-        margin-top: var(--spacing-lg);
-        font-size: 0.8rem;
-        color: var(--color-text-secondary);
-      }
-
-      .credits a {
-        color: var(--color-primary);
-        text-decoration: none;
-      }
-
-      .quote-text {
-        font-style: italic;
-        margin-bottom: var(--spacing-xs);
-      }
-
-      .quote-author {
-        font-size: 0.9rem;
-        color: var(--color-text-secondary);
-      }
-
-      #fullscreen-toggle, #lightModeToggle {
-        position: fixed;
-        background-color: var(--color-container);
-        border: 1px solid var(--color-tab);
-        border-radius: 6px;
-        padding: 10px;
-        cursor: pointer;
-        z-index: 9999;
-        color: var(--color-text);
-        font-size: 1.2rem;
-      }
-
-      #fullscreen-toggle {
-        top: 20px;
-        right: 20px;
-      }
-
-      #lightModeToggle {
-        top: 80px;
-        right: 20px;
-      }
-
-      @media (max-width: 600px) {
-        .container {
-          width: 100%;
-          padding: var(--spacing-lg);
-        }
-        
-        .tabs {
-          flex-direction: row;
-          flex-wrap: wrap;
-        }
-        
-        .tab {
-          flex: 1 1 calc(50% - var(--spacing-sm));
-          margin-bottom: var(--spacing-xs);
-        }
-        
-        .clock {
-          font-size: calc(var(--font-size-xlarge) * 0.8);
-        }
-      }
-    </style>
   </head>
   <body>
     <header>
       <h1>Online Digital Clock with Timer, Stopwatch, Alarm &amp; Weather</h1>
       <h2>Free time management tools for work, study, cooking, and fitness</h2>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px;font-size:0.9rem;">
-        <a href="pomodoro-timer.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">🍅 Pomodoro Timer</a>
-        <a href="workout-timer.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">💪 Workout / HIIT Timer</a>
-        <a href="classroom-timer.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">🎓 Classroom Timer</a>
-        <a href="meeting-timer.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">📊 Meeting Timer</a>
         <a href="analog-clock.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">🕰️ Analog Clock</a>
-        <a href="beijing-time.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">🇨🇳 China Time (北京时间)</a>
-        <a href="singapore-time.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">🇸🇬 Singapore Time (SGT)</a>
       </div>
       <br>
     </header>
@@ -369,32 +177,22 @@
       </section>
     </main>
 
-    <footer>
-      <nav>
+        <footer>
+      <nav aria-label="Quote of the Day">
         <br><br>
         <p style="font-weight: bold; color: orange;">Quote of the Day</p>
         <div id="quote-display">Loading...</div>
         <br><br>
+      </nav>
+      <p>
+        © 2025 e-clock.top — All rights reserved. | 
         <a href="index.html" style="color: #ff9800; text-decoration: none;">Home</a> | 
-        <a href="world_clock.html" style="color: #ff9800; text-decoration: none;">World Clock</a> | 
-        <a href="beijing-time.html" style="color: #ff9800; text-decoration: none;">China Time (CST)</a> | 
-        <a href="singapore-time.html" style="color: #ff9800; text-decoration: none;">Singapore Time</a> | 
-        <a href="new-york-time.html" style="color: #ff9800; text-decoration: none;">New York Time</a> | 
-        <a href="chicago-time.html" style="color: #ff9800; text-decoration: none;">Chicago Time</a> | 
-        <a href="los-angeles-time.html" style="color: #ff9800; text-decoration: none;">Los Angeles Time</a> | 
-        <a href="pomodoro-timer.html" style="color: #ff9800; text-decoration: none;">Pomodoro</a> | 
-        <a href="workout-timer.html" style="color: #ff9800; text-decoration: none;">Workout Timer</a> | 
-        <a href="classroom-timer.html" style="color: #ff9800; text-decoration: none;">Classroom Timer</a> | 
-        <a href="meeting-timer.html" style="color: #ff9800; text-decoration: none;">Meeting Timer</a> | 
-        <a href="analog-clock.html" style="color: #ff9800; text-decoration: none;">Analog Clock</a>
-        <br><br>
-        <a href="blog.html" style="color: #ff9800; text-decoration: none;">Blog</a> |
+        <a href="blog.html" style="color: #ff9800; text-decoration: none;">Blog</a> | 
         <a href="FAQ.html" style="color: #ff9800; text-decoration: none;">FAQ</a> | 
         <a href="privacy.html" style="color: #ff9800; text-decoration: none;">Privacy Policy</a> | 
         <a href="terms-of-service.html" style="color: #ff9800; text-decoration: none;">Terms of Service</a> | 
-        <a href="about.html" style="color: #ff9800; text-decoration: none;">About Us</a> 
-      </nav>
-      <p>© <script>document.write(new Date().getFullYear())</script> e-clock.top - Free Online Clock Tools</p>
+        <a href="about.html" style="color: #ff9800; text-decoration: none;">About Us</a>
+      </p>
     </footer>
     
     <button id="fullscreen-toggle" aria-label="Toggle Fullscreen" title="Toggle Fullscreen">🔳</button>
@@ -415,62 +213,10 @@
         document.getElementById('currentDate').textContent = dateString;
       }
 
-      async function loadQuotes() {
-        const fallbackQuotes = [
-          { text: "Time is what we want most, but what we use worst.", author: "William Penn" },
-          { text: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
-          { text: "Don't let yesterday take up too much of today.", author: "Will Rogers" },
-          { text: "Time flies over us, but leaves its shadow behind.", author: "Nathaniel Hawthorne" }
-        ];
-        try {
-          const res = await fetch('motivational_quotes.csv');
-          if (!res.ok) throw new Error('CSV fetch failed');
-          const csvText = await res.text();
-          const lines = csvText.split(/\r?\n/).filter(l => l.trim().length > 0);
-          if (lines.length > 1) {
-            const randomLine = lines[Math.floor(Math.random() * (lines.length - 1)) + 1];
-            const match = randomLine.match(/^"?(.*?)"?,\s*"?(.*?)"?$/);
-            if (match && match[1]) {
-              document.getElementById('quote-display').innerHTML = `
-                <div class="quote-text">"${match[1]}"</div>
-                <div class="quote-author">— ${match[2] || 'Unknown'}</div>
-              `;
-              return;
-            }
-          }
-        } catch (e) {}
-        const quote = fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
-        document.getElementById('quote-display').innerHTML = `
-          <div class="quote-text">"${quote.text}"</div>
-          <div class="quote-author">— ${quote.author}</div>
-        `;
-      }
-
-      document.getElementById('fullscreen-toggle').addEventListener('click', () => {
-        if (!document.fullscreenElement) {
-          document.documentElement.requestFullscreen().catch(err => {
-            alert(`Error attempting to enable fullscreen: ${err.message}`);
-          });
-        } else {
-          document.exitFullscreen();
-        }
-      });
-
-      document.getElementById('lightModeToggle').addEventListener('click', () => {
-        const isLight = document.documentElement.classList.toggle('light-mode');
-        localStorage.setItem('eclock-theme', isLight ? 'light' : 'dark');
-      });
-
-      function init() {
+      document.addEventListener('DOMContentLoaded', () => {
         updateClock();
         setInterval(updateClock, 1000);
-        loadQuotes();
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/service-worker.js').catch(() => {});
-        }
-      }
-
-      document.addEventListener('DOMContentLoaded', init);
+      });
     </script>
   </body>
 </html>
