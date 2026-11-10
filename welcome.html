@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Welcome to Focus Pomodoro Timer | Chrome Extension by e-clock.top</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="Welcome to Focus Pomodoro Timer by e-clock.top! Learn how to pin your new Chrome extension, set up your distraction blocker, and master deep work sprints.">
+    <meta name="keywords" content="focus pomodoro timer, e-clock.top extension, welcome, setup guide, pomodoro extension, website blocker, study timer, productivity">
+    <meta name="author" content="e-clock.top">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://e-clock.top/welcome.html">
+    <meta property="og:title" content="Welcome to Focus Pomodoro Timer | e-clock.top">
+    <meta property="og:description" content="Get started with your new Focus Pomodoro Timer Chrome extension by e-clock.top. 100% free with all pro features unlocked.">
+    <meta property="og:image" content="https://e-clock.top/preview-image.jpg">
+    <meta property="og:site_name" content="e-clock.top">
+    
+    <!-- Resource Hints & Favicon -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <link rel="canonical" href="https://e-clock.top/welcome.html">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-463EN24CE0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-463EN24CE0');
+    </script>
+
+    <link rel="stylesheet" href="core-tools.css">
+    <script src="shared.js"></script>
+
+    <style>
+      :root {
+        --color-bg: #111;
+        --color-container: #222;
+        --color-tab: #333;
+        --color-primary: #ff9800;
+        --color-primary-hover: #e68900;
+        --color-text: #fff;
+        --color-text-secondary: #bbb;
+        --color-shadow: rgba(255, 255, 255, 0.15);
+        --border-radius: 8px;
+        --border-radius-lg: 16px;
+      }
+
+      html.light-mode {
+        --color-bg: #ffffff;
+        --color-text: #111111;
+        --color-container: #f5f5f5;
+        --color-tab: #e0e0e0;
+        --color-text-secondary: #555;
+        --color-shadow: rgba(0, 0, 0, 0.1);
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      header, footer { width: 100%; max-width: 780px; padding: 1rem; }
+      header h1 { font-size: 2rem; color: var(--color-primary); margin-bottom: 0.4rem; }
+      header h2 { font-size: 1.1rem; color: var(--color-text-secondary); font-weight: normal; }
+
+      .container {
+        background: var(--color-container);
+        padding: 32px 24px;
+        border-radius: var(--border-radius-lg);
+        box-shadow: 0 0 25px var(--color-shadow);
+        width: 100%;
+        max-width: 780px;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      /* Hero Welcome Banner */
+      .hero-banner {
+        background: linear-gradient(135deg, rgba(255, 152, 0, 0.15), rgba(76, 175, 80, 0.15));
+        border: 1px solid var(--color-primary);
+        border-radius: var(--border-radius);
+        padding: 20px;
+        margin-bottom: 26px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .hero-icon {
+        font-size: 42px;
+        flex-shrink: 0;
+      }
+      .hero-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin-bottom: 4px;
+      }
+      .hero-subtitle {
+        font-size: 0.95rem;
+        color: var(--color-text-secondary);
+        line-height: 1.4;
+      }
+
+      /* 3-Step Setup Guide */
+      .section-title {
+        font-size: 1.2rem;
+        color: var(--color-primary);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid var(--color-tab);
+        padding-bottom: 8px;
+      }
+
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+      .step-card {
+        background: var(--color-tab);
+        padding: 16px;
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .step-num {
+        display: inline-block;
+        background: var(--color-primary);
+        color: #111;
+        font-weight: 800;
+        font-size: 0.85rem;
+        padding: 2px 8px;
+        border-radius: 999px;
+        margin-bottom: 8px;
+      }
+      .step-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--color-text);
+        margin-bottom: 6px;
+      }
+      .step-desc {
+        font-size: 0.85rem;
+        color: var(--color-text-secondary);
+        line-height: 1.4;
+      }
+
+      /* Features Grid */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+      .feature-card {
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid var(--color-tab);
+        border-radius: var(--border-radius);
+        padding: 14px;
+      }
+      .feature-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--color-primary);
+        margin-bottom: 6px;
+      }
+      .feature-body {
+        font-size: 0.85rem;
+        color: var(--color-text-secondary);
+        line-height: 1.4;
+      }
+
+      /* Companion Web Tools CTA */
+      .cta-box {
+        background: var(--color-tab);
+        border-radius: var(--border-radius);
+        padding: 20px;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .cta-btn {
+        display: inline-block;
+        background: var(--color-primary);
+        color: #111;
+        font-weight: 700;
+        padding: 10px 22px;
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        margin-top: 12px;
+        transition: background 0.2s;
+      }
+      .cta-btn:hover {
+        background: var(--color-primary-hover);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🎉 Focus Pomodoro Timer is Installed!</h1>
+      <h2>Welcome to your distraction-free flow state by e-clock.top</h2>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px;font-size:0.9rem;">
+        <a href="index.html" style="background:var(--color-container);color:var(--color-primary);padding:6px 12px;border-radius:16px;text-decoration:none;border:1px solid var(--color-tab);">⏰ Fullscreen Web Clock</a>
+      </div>
+      <br>
+    </header>
+
+    <main class="container">
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <div class="hero-icon">🍅</div>
+        <div>
+          <div class="hero-title">You're All Set — 100% Free with All Features Unlocked!</div>
+          <div class="hero-subtitle">
+            Focus Pomodoro Timer combines deep Pomodoro intervals with active website blocking, a persistent vertical side panel, and digital garden rewards to keep you locked in focus.
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick 3-Step Setup Guide -->
+      <div class="section-title">🚀 Quick Start: Get Ready in 10 Seconds</div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-num">STEP 1</span>
+          <div class="step-title">Pin the Extension 📌</div>
+          <div class="step-desc">
+            Click the Chrome puzzle piece icon (🧩) at top-right and click the pin icon next to <b>Focus Pomodoro Timer</b> so it's always in your toolbar.
+          </div>
+        </div>
+        <div class="step-card">
+          <span class="step-num">STEP 2</span>
+          <div class="step-title">Open the Side Panel 📱</div>
+          <div class="step-desc">
+            Click the 🍅 icon in your toolbar. It opens a docked vertical companion tab that stays visible while you browse and work.
+          </div>
+        </div>
+        <div class="step-card">
+          <span class="step-num">STEP 3</span>
+          <div class="step-title">Add Distracting Sites 🚫</div>
+          <div class="step-desc">
+            Add websites like <i>youtube.com</i> or <i>reddit.com</i>. They are automatically blocked during focus sprints and restored on break!
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Superpowers -->
+      <div class="section-title">⚡ Your Extension Superpowers</div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-header"><span>🍅</span> Automated Focus Shield</div>
+          <div class="feature-body">
+            Distracting websites are locked during sprints and restored immediately when your break begins. No manual toggling needed.
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-header"><span>🎯</span> Single-Task Intent Bar</div>
+          <div class="feature-body">
+            Pin your current task at the top of your sidebar to anchor your subconscious mind and prevent attention drift.
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-header"><span>⏱️</span> Custom Sprints (1–180m)</div>
+          <div class="feature-body">
+            Click directly on the timer display to customize your sprint length (e.g., 45m deep work or 90m exam simulation).
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-header"><span>🔒</span> Strict Anti-Cheat Mode</div>
+          <div class="feature-body">
+            Locks in your focus session. If you try to quit early, you must type an emergency commitment sentence by hand.
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-header"><span>🌲</span> Focus Forest Gamification</div>
+          <div class="feature-body">
+            Earn healthy pixel trees 🌳 for completed sprints. Quitting early leaves a withered tree 🥀 in your garden.
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-header"><span>🛡️</span> Whitelist Lockdown</div>
+          <div class="feature-body">
+            Toggle between Blacklist mode (block specific sites) or Whitelist mode (lock down the entire web to only your approved work tools).
+          </div>
+        </div>
+      </div>
+
+      <!-- Second Monitor Synergy Callout -->
+      <div class="cta-box">
+        <h3 style="color:var(--color-primary);font-size:1.15rem;margin-bottom:6px;">🖥️ Boost Your Setup: Pair with e-clock.top</h3>
+        <p style="font-size:0.9rem;color:var(--color-text-secondary);max-width:550px;margin:0 auto;line-height:1.5;">
+          Keep your extension docked in your Chrome side panel, and open our full-screen digital clock or Pomodoro on your second monitor for the ultimate study setup.
+        </p>
+        <a href="index.html" class="cta-btn">Open Fullscreen Web Clock ↗</a>
+      </div>
+    </main>
+
+    <footer>
+      <nav aria-label="Quote of the Day">
+        <br><br>
+        <p style="font-weight: bold; color: orange;">Quote of the Day</p>
+        <div id="quote-display">Loading...</div>
+        <br><br>
+      </nav>
+      <p>
+        © 2025 e-clock.top — All rights reserved. | 
+        <a href="index.html" style="color: #ff9800; text-decoration: none;">Home</a> | 
+        <a href="blog.html" style="color: #ff9800; text-decoration: none;">Blog</a> | 
+        <a href="FAQ.html" style="color: #ff9800; text-decoration: none;">FAQ</a> | 
+        <a href="privacy.html" style="color: #ff9800; text-decoration: none;">Privacy Policy</a> | 
+        <a href="terms-of-service.html" style="color: #ff9800; text-decoration: none;">Terms of Service</a> | 
+        <a href="about.html" style="color: #ff9800; text-decoration: none;">About Us</a>
+      </p>
+    </footer>
+
+    <button id="fullscreen-toggle" aria-label="Toggle Fullscreen" title="Toggle Fullscreen">🔳</button>
+    <button id="lightModeToggle" aria-label="Toggle Light/Dark Mode" title="Toggle Light/Dark Mode">☀️</button>
+  </body>
+</html>
