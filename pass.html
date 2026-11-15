@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Weekly Community Pro Pass | Focus Pomodoro Timer — e-clock.top</title>
+    <title>Weekly Community Key | Focus Pomodoro Timer &amp; Website Blocker — e-clock.top</title>
     
     <!-- Primary Meta Tags -->
-    <meta name="description" content="Get this week's active Community Pro Pass for the Focus Pomodoro Timer Chrome extension. 100% free, updated every Monday at 00:00 UTC by e-clock.top.">
+    <meta name="description" content="Get this week's active free Community Key for the Focus Pomodoro Timer &amp; Website Blocker Chrome extension. 100% free, updated every Monday at 00:00 UTC by e-clock.top.">
     <meta name="keywords" content="focus pomodoro timer pass, weekly community pass, e-clock.top pro pass, pomodoro extension key, free pro timer">
     <meta name="author" content="e-clock.top">
     <meta name="robots" content="index, follow">
@@ -296,22 +296,22 @@
         </div>
         <div class="step-item">
           <span class="step-idx">STEP 3</span>
-          <div class="step-heading">Paste & Unlock ⭐</div>
+          <div class="step-heading">Paste &amp; Activate ⭐</div>
           <div class="step-info">
-            Click the <b>Free Tier</b> badge (or any locked feature), paste the key, and click <b>Verify</b>!
+            Click <b>🔒 Key Needed</b> in the extension header, paste your key, and click <b>Activate</b>!
           </div>
         </div>
       </div>
 
       <!-- Features Unlocked -->
-      <div class="section-title">⭐ What Unlocks with Your Pass</div>
+      <div class="section-title">⭐ What Unlocks with Your Free Key</div>
       <div class="info-box">
         <ul style="padding-left: 20px; line-height: 1.8;">
-          <li><b>♾️ Unlimited Blocked Sites:</b> Block as many distracting websites as you need without limits.</li>
-          <li><b>⏱️ Custom Sprint Durations:</b> Click the timer to set any custom session length (1 to 180 minutes).</li>
-          <li><b>🛡️ Whitelist Lockdown Mode:</b> Lock down your entire browser to only your approved work tools.</li>
-          <li><b>♾️ Always-On Continuous Shield:</b> Keep distracting websites blocked 24/7 even when the timer stops.</li>
-          <li><b>🔒 Strict Anti-Cheat Mode:</b> Lock in focus sprints with emergency handwritten verification.</li>
+          <li><b>♾️ Unlimited Blocked Sites:</b> Block as many distracting websites as you need without restrictions.</li>
+          <li><b>♾️ Always-On Continuous Shield:</b> Choose between blocking during timer sprints or blocking 24/7.</li>
+          <li><b>🔒 Strict Anti-Cheat Mode:</b> Lock your focus sessions and prevent early quits with sentence verification.</li>
+          <li><b>🎯 Single-Task Intent Bar:</b> Anchor your subconscious mind with 1-click active task tracking.</li>
+          <li><b>☀️/🌙 Dark &amp; Light Themes:</b> Full customization to match your personal workspace environment.</li>
         </ul>
       </div>
 
@@ -344,7 +344,7 @@
         <br><br>
       </nav>
       <p>
-        © 2025 e-clock.top — All rights reserved. | 
+        © 2026 e-clock.top — All rights reserved. | 
         <a href="index.html" style="color: #ff9800; text-decoration: none;">Home</a> | 
         <a href="blog.html" style="color: #ff9800; text-decoration: none;">Blog</a> | 
         <a href="FAQ.html" style="color: #ff9800; text-decoration: none;">FAQ</a> | 
@@ -361,25 +361,16 @@
       const COMMUNITY_SALT = "ECLOCK_FOCUS_PASS_2026";
 
       // 1. Calculate Monday 00:00 UTC string
-      function getMondayUTCString(d = new Date()) {
-        const date = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
-        const day = date.getUTCDay();
-        const diff = date.getUTCDate() - day + (day === 0 ? -6 : 1);
-        date.setUTCDate(diff);
-        const yyyy = date.getUTCFullYear();
-        const mm = String(date.getUTCMonth() + 1).padStart(2, '0');
-        const dd = String(date.getUTCDate()).padStart(2, '0');
-        return `${yyyy}-${mm}-${dd}`;
-      }
+      const getMondayUTCString = (d = new Date()) => {
+        const day = d.getUTCDay();
+        return new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() - (day ? day - 1 : 6))).toISOString().slice(0, 10);
+      };
 
       // 2. Compute Deterministic Weekly Passcode via SHA-256
-      async function computeWeeklyPass(mondayStr = getMondayUTCString()) {
-        const raw = `${COMMUNITY_SALT}:${mondayStr}`;
-        const msgBuffer = new TextEncoder().encode(raw);
-        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-        const hex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
-        return `PRO-${hex.substring(0, 4)}-${hex.substring(4, 8)}`;
+      async function computeWeeklyPass(monday = getMondayUTCString()) {
+        const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(`${COMMUNITY_SALT}:${monday}`));
+        const hex = Array.from(new Uint8Array(hash).subarray(0, 4), b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+        return `PRO-${hex.slice(0, 4)}-${hex.slice(4, 8)}`;
       }
 
       // 3. Live Countdown to Next Monday 00:00 UTC
