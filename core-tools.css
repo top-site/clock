@@ -354,3 +354,82 @@ input {
     grid-template-columns: 1fr;
   }
 }
+
+/* Side-by-side Chrome Extension Promo Button (Desktop only) */
+.clock-stage-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+}
+.clock-stage-wrapper .container {
+  margin: 0;
+}
+.extension-desktop-btn {
+  flex-shrink: 0;
+}
+.ext-btn-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--color-container);
+  border: 1px solid var(--color-tab);
+  border-radius: var(--border-radius-lg);
+  padding: 20px 16px;
+  width: 195px;
+  text-decoration: none;
+  color: var(--color-text);
+  box-shadow: 0 0 15px var(--color-shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.ext-btn-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 20px rgba(255, 152, 0, 0.25);
+}
+.ext-badge {
+  font-size: 0.72rem;
+  letter-spacing: 0.8px;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.ext-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--color-text);
+}
+.ext-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+.ext-cta-btn {
+  background: var(--color-primary);
+  color: #111;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+.ext-btn-card:hover .ext-cta-btn {
+  background: var(--color-primary-hover);
+}
+@media (max-width: 820px) {
+  .extension-desktop-btn {
+    display: none !important;
+  }
+  .clock-stage-wrapper .container {
+    margin: 0 auto;
+  }
+}

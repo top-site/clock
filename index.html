@@ -150,32 +150,47 @@
       <br>
     </header>
 
-    <main class="container">
-      <nav class="tabs" aria-label="Time tool selection">
-        <a href="index.html" class="tab active" aria-current="page">Clock</a>
-        <a href="world-clock-select.html" class="tab">World Clock</a>
-        <a href="timer.html" class="tab">Timer</a>
-        <a href="stopwatch.html" class="tab">Stopwatch</a>
-        <a href="alarm.html" class="tab">Alarm</a>
-        <a href="weather.html" class="tab">Weather</a>
-      </nav>
+    <div class="clock-stage-wrapper">
+      <main class="container">
+        <nav class="tabs" aria-label="Time tool selection">
+          <a href="index.html" class="tab active" aria-current="page">Clock</a>
+          <a href="world-clock-select.html" class="tab">World Clock</a>
+          <a href="timer.html" class="tab">Timer</a>
+          <a href="stopwatch.html" class="tab">Stopwatch</a>
+          <a href="alarm.html" class="tab">Alarm</a>
+          <a href="weather.html" class="tab">Weather</a>
+        </nav>
 
-      <!-- Digital Clock with Date -->
-      <section id="clock" class="content active" aria-label="Digital Clock"> 
-        <time class="date" id="currentDate">Loading date...</time>
-        <div class="clock" id="digitalClock">00:00:00 AM</div>
-        <div class="credits">
-          Dedicated City Clocks:
-          <a href="beijing-time.html">🇨🇳 Beijing / China (CST)</a> |
-          <a href="singapore-time.html">🇸🇬 Singapore (SGT)</a> |
-          <a href="new-york-time.html">🇺🇸 New York (EST)</a> |
-          <a href="chicago-time.html">🇺🇸 Chicago (CST)</a> |
-          <a href="los-angeles-time.html">🇺🇸 Los Angeles (PST)</a> |
-          <a href="london-time.html">🇬🇧 London</a> |
-          <a href="world_clock.html">🌍 All 30+ Major Cities</a>
-        </div>
-      </section>
-    </main>
+        <!-- Digital Clock with Date -->
+        <section id="clock" class="content active" aria-label="Digital Clock"> 
+          <time class="date" id="currentDate">Loading date...</time>
+          <div class="clock" id="digitalClock">00:00:00 AM</div>
+          <div class="credits">
+            Dedicated City Clocks:
+            <a href="beijing-time.html">🇨🇳 Beijing / China (CST)</a> |
+            <a href="singapore-time.html">🇸🇬 Singapore (SGT)</a> |
+            <a href="new-york-time.html">🇺🇸 New York (EST)</a> |
+            <a href="chicago-time.html">🇺🇸 Chicago (CST)</a> |
+            <a href="los-angeles-time.html">🇺🇸 Los Angeles (PST)</a> |
+            <a href="london-time.html">🇬🇧 London</a> |
+            <a href="world_clock.html">🌍 All 30+ Major Cities</a>
+          </div>
+        </section>
+      </main>
+
+      <aside class="extension-desktop-btn" aria-label="Focus Pomodoro Chrome Extension">
+        <a href="https://chromewebstore.google.com/detail/focus-pomodoro-timer-webs/eagfegjfddcndcoecljhcgpfmeledkag?utm_source=eclock_web&utm_medium=desktop_button" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="ext-btn-card">
+          <img src="icon-128x128.jpeg" alt="Focus Pomodoro Logo" width="44" height="44" style="border-radius: 10px; margin-bottom: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+          <div class="ext-badge">CHROME EXTENSION</div>
+          <div class="ext-title">Focus Pomodoro</div>
+          <div class="ext-desc">Block distracting sites &amp; stay productive</div>
+          <div class="ext-cta-btn">Add to Chrome — Free ➔</div>
+        </a>
+      </aside>
+    </div>
 
         <footer>
       <nav aria-label="Quote of the Day">
